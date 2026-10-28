@@ -103,7 +103,7 @@ type TestReportTeardownAction struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Operation         TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
+	Operation         TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation"`
 }
 type OtherTestReport TestReport
 

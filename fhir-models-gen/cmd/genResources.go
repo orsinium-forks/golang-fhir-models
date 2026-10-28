@@ -17,11 +17,10 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
-	. "strings"
+	"strings"
 	"unicode"
 
 	"github.com/dave/jennifer/jen"
@@ -46,7 +45,7 @@ func UnmarshalResource(b []byte) (Resource, error) {
 
 type ResourceMap = map[string]map[string][]byte
 
-var licenseComment = Split(Trim(`
+var licenseComment = strings.Split(strings.Trim(`
 Copyright 2019 - 2022 The Samply Community
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -83,10 +82,10 @@ var genResourcesCmd = &cobra.Command{
 			if info.IsDir() {
 				return nil
 			}
-			if !HasSuffix(info.Name(), ".json") {
+			if !strings.HasSuffix(info.Name(), ".json") {
 				return nil
 			}
-			bytes, err := ioutil.ReadFile(path)
+			bytes, err := os.ReadFile(path)
 			if err != nil {
 				return err
 			}
@@ -213,7 +212,7 @@ var genResourcesCmd = &cobra.Command{
 }
 
 func FirstLower(s string) string {
-	return ToLower(s[:1]) + s[1:]
+	return strings.ToLower(s[:1]) + s[1:]
 }
 
 func generateTypes(resources ResourceMap, alreadyGeneratedTypes map[string]bool, types map[string]bool, requiredValueSetBindings map[string]bool) error {
@@ -324,10 +323,10 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 	// fmt.Printf("appendFields parentName=%s, start=%d, level=%d\n", parentName, start, level)
 	for i := start; i < len(elementDefinitions); i++ {
 		element := elementDefinitions[i]
-		pathParts := Split(element.Path, ".")
+		pathParts := strings.Split(element.Path, ".")
 		if len(pathParts) == level+1 {
 			// direct childs
-			name := Title(pathParts[level])
+			name := strings.Title(pathParts[level])
 
 			// support contained resources later
 			if name != "Contained" {
@@ -343,8 +342,8 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 						}
 
 						typeIdentifier := ""
-						for _, pathPart := range Split((*element.ContentReference)[1:], ".") {
-							typeIdentifier = typeIdentifier + Title(pathPart)
+						for _, pathPart := range strings.Split((*element.ContentReference)[1:], ".") {
+							typeIdentifier = typeIdentifier + strings.Title(pathPart)
 						}
 						statement.Id(typeIdentifier).Tag(map[string]string{"json": pathParts[level] + ",omitempty", "bson": pathParts[level] + ",omitempty"})
 					}
@@ -356,9 +355,9 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 						return 0, err
 					}
 				default: // polymorphic type
-					name = Replace(pathParts[level], "[x]", "", -1)
+					name = strings.ReplaceAll(pathParts[level], "[x]", "")
 					for _, eleType := range element.Type {
-						name := name + Title(eleType.Code)
+						name := name + strings.Title(eleType.Code)
 
 						var err error
 						i, err = addFieldStatement(resources, requiredTypes, requiredValueSetBindings, file, fields,
@@ -389,7 +388,7 @@ func addFieldStatement(
 	elementIndex, level int,
 	elementType fhir.ElementDefinitionType,
 ) (idx int, err error) {
-	fieldName := Title(name)
+	fieldName := strings.Title(name)
 	element := elementDefinitions[elementIndex]
 	statement := fields.Id(fieldName)
 
@@ -446,7 +445,8 @@ func addFieldStatement(
 		} else {
 			typeIdentifier = typeCodeToTypeIdentifier(elementType.Code)
 		}
-		if typeIdentifier == "Element" || typeIdentifier == "BackboneElement" {
+		switch typeIdentifier {
+		case "Element", "BackboneElement":
 			backboneElementName := parentName + fieldName
 			statement.Id(backboneElementName)
 			var err error
@@ -459,9 +459,9 @@ func addFieldStatement(
 				return 0, err
 			}
 			elementIndex--
-		} else if typeIdentifier == "decimal" {
+		case "decimal":
 			statement.Qual("github.com/shopspring/decimal", "Decimal")
-		} else {
+		default:
 			if unicode.IsUpper(rune(typeIdentifier[0])) {
 				requiredTypes[typeIdentifier] = true
 			}
