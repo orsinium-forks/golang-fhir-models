@@ -471,14 +471,20 @@ func addFieldStatement(
 
 	jsonSuffix := ""
 	bsonSuffix := ""
+	xmlSuffix := ""
 	if *element.Min == 0 {
 		jsonSuffix += ",omitempty"
 		bsonSuffix += ",omitempty"
+		xmlSuffix += ",omitempty"
 	}
 	if elementType.Code == "integer64" {
 		jsonSuffix += ",string"
 	}
-	statement.Tag(map[string]string{"json": name + jsonSuffix, "bson": name + bsonSuffix})
+	statement.Tag(map[string]string{
+		"json": name + jsonSuffix,
+		"xml":  name + xmlSuffix,
+		"bson": name + bsonSuffix,
+	})
 
 	return elementIndex, err
 }
