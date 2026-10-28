@@ -62,12 +62,3 @@ func (r ClinicalImpression) MarshalJSON() ([]byte, error) {
 		ResourceType:       r.ResourceType(),
 	})
 }
-
-// UnmarshalClinicalImpression unmarshals a ClinicalImpression.
-func UnmarshalClinicalImpression(b []byte) (ClinicalImpression, error) {
-	var clinicalImpression ClinicalImpression
-	if err := v2.Unmarshal(b, &clinicalImpression); err != nil {
-		return clinicalImpression, err
-	}
-	return clinicalImpression, nil
-}

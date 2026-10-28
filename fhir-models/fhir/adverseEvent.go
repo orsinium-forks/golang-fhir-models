@@ -112,12 +112,3 @@ func (r AdverseEvent) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalAdverseEvent unmarshals a AdverseEvent.
-func UnmarshalAdverseEvent(b []byte) (AdverseEvent, error) {
-	var adverseEvent AdverseEvent
-	if err := v2.Unmarshal(b, &adverseEvent); err != nil {
-		return adverseEvent, err
-	}
-	return adverseEvent, nil
-}

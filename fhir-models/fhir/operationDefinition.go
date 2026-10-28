@@ -103,12 +103,3 @@ func (r OperationDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:        r.ResourceType(),
 	})
 }
-
-// UnmarshalOperationDefinition unmarshals a OperationDefinition.
-func UnmarshalOperationDefinition(b []byte) (OperationDefinition, error) {
-	var operationDefinition OperationDefinition
-	if err := v2.Unmarshal(b, &operationDefinition); err != nil {
-		return operationDefinition, err
-	}
-	return operationDefinition, nil
-}

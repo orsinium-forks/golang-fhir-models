@@ -54,12 +54,3 @@ func (r CareTeam) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalCareTeam unmarshals a CareTeam.
-func UnmarshalCareTeam(b []byte) (CareTeam, error) {
-	var careTeam CareTeam
-	if err := v2.Unmarshal(b, &careTeam); err != nil {
-		return careTeam, err
-	}
-	return careTeam, nil
-}

@@ -52,12 +52,3 @@ func (r DeviceMetric) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalDeviceMetric unmarshals a DeviceMetric.
-func UnmarshalDeviceMetric(b []byte) (DeviceMetric, error) {
-	var deviceMetric DeviceMetric
-	if err := v2.Unmarshal(b, &deviceMetric); err != nil {
-		return deviceMetric, err
-	}
-	return deviceMetric, nil
-}

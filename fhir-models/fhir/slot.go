@@ -44,12 +44,3 @@ func (r Slot) MarshalJSON() ([]byte, error) {
 		Slot:         r,
 	})
 }
-
-// UnmarshalSlot unmarshals a Slot.
-func UnmarshalSlot(b []byte) (Slot, error) {
-	var slot Slot
-	if err := v2.Unmarshal(b, &slot); err != nil {
-		return slot, err
-	}
-	return slot, nil
-}

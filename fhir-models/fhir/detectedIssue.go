@@ -66,12 +66,3 @@ func (r DetectedIssue) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalDetectedIssue unmarshals a DetectedIssue.
-func UnmarshalDetectedIssue(b []byte) (DetectedIssue, error) {
-	var detectedIssue DetectedIssue
-	if err := v2.Unmarshal(b, &detectedIssue); err != nil {
-		return detectedIssue, err
-	}
-	return detectedIssue, nil
-}

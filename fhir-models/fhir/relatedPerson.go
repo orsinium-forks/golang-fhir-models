@@ -54,12 +54,3 @@ func (r RelatedPerson) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalRelatedPerson unmarshals a RelatedPerson.
-func UnmarshalRelatedPerson(b []byte) (RelatedPerson, error) {
-	var relatedPerson RelatedPerson
-	if err := v2.Unmarshal(b, &relatedPerson); err != nil {
-		return relatedPerson, err
-	}
-	return relatedPerson, nil
-}

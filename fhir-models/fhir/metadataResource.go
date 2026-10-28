@@ -60,12 +60,3 @@ func (r MetadataResource) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalMetadataResource unmarshals a MetadataResource.
-func UnmarshalMetadataResource(b []byte) (MetadataResource, error) {
-	var metadataResource MetadataResource
-	if err := v2.Unmarshal(b, &metadataResource); err != nil {
-		return metadataResource, err
-	}
-	return metadataResource, nil
-}

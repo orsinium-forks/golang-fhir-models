@@ -80,12 +80,3 @@ func (r Permission) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalPermission unmarshals a Permission.
-func UnmarshalPermission(b []byte) (Permission, error) {
-	var permission Permission
-	if err := v2.Unmarshal(b, &permission); err != nil {
-		return permission, err
-	}
-	return permission, nil
-}

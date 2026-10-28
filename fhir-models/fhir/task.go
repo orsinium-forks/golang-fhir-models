@@ -205,12 +205,3 @@ func (r Task) MarshalJSON() ([]byte, error) {
 		Task:         r,
 	})
 }
-
-// UnmarshalTask unmarshals a Task.
-func UnmarshalTask(b []byte) (Task, error) {
-	var task Task
-	if err := v2.Unmarshal(b, &task); err != nil {
-		return task, err
-	}
-	return task, nil
-}

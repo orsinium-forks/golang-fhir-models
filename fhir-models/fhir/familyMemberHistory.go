@@ -94,12 +94,3 @@ func (r FamilyMemberHistory) MarshalJSON() ([]byte, error) {
 		ResourceType:        r.ResourceType(),
 	})
 }
-
-// UnmarshalFamilyMemberHistory unmarshals a FamilyMemberHistory.
-func UnmarshalFamilyMemberHistory(b []byte) (FamilyMemberHistory, error) {
-	var familyMemberHistory FamilyMemberHistory
-	if err := v2.Unmarshal(b, &familyMemberHistory); err != nil {
-		return familyMemberHistory, err
-	}
-	return familyMemberHistory, nil
-}

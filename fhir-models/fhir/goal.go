@@ -65,12 +65,3 @@ func (r Goal) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalGoal unmarshals a Goal.
-func UnmarshalGoal(b []byte) (Goal, error) {
-	var goal Goal
-	if err := v2.Unmarshal(b, &goal); err != nil {
-		return goal, err
-	}
-	return goal, nil
-}

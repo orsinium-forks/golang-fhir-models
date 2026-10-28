@@ -148,12 +148,3 @@ func (r Evidence) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalEvidence unmarshals a Evidence.
-func UnmarshalEvidence(b []byte) (Evidence, error) {
-	var evidence Evidence
-	if err := v2.Unmarshal(b, &evidence); err != nil {
-		return evidence, err
-	}
-	return evidence, nil
-}

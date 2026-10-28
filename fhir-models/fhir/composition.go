@@ -85,12 +85,3 @@ func (r Composition) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalComposition unmarshals a Composition.
-func UnmarshalComposition(b []byte) (Composition, error) {
-	var composition Composition
-	if err := v2.Unmarshal(b, &composition); err != nil {
-		return composition, err
-	}
-	return composition, nil
-}

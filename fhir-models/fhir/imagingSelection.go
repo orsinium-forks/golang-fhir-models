@@ -88,12 +88,3 @@ func (r ImagingSelection) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalImagingSelection unmarshals a ImagingSelection.
-func UnmarshalImagingSelection(b []byte) (ImagingSelection, error) {
-	var imagingSelection ImagingSelection
-	if err := v2.Unmarshal(b, &imagingSelection); err != nil {
-		return imagingSelection, err
-	}
-	return imagingSelection, nil
-}

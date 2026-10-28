@@ -54,12 +54,3 @@ func (r SupplyDelivery) MarshalJSON() ([]byte, error) {
 		SupplyDelivery: r,
 	})
 }
-
-// UnmarshalSupplyDelivery unmarshals a SupplyDelivery.
-func UnmarshalSupplyDelivery(b []byte) (SupplyDelivery, error) {
-	var supplyDelivery SupplyDelivery
-	if err := v2.Unmarshal(b, &supplyDelivery); err != nil {
-		return supplyDelivery, err
-	}
-	return supplyDelivery, nil
-}

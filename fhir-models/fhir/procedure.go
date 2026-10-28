@@ -85,12 +85,3 @@ func (r Procedure) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalProcedure unmarshals a Procedure.
-func UnmarshalProcedure(b []byte) (Procedure, error) {
-	var procedure Procedure
-	if err := v2.Unmarshal(b, &procedure); err != nil {
-		return procedure, err
-	}
-	return procedure, nil
-}

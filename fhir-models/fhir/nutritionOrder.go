@@ -146,12 +146,3 @@ func (r NutritionOrder) MarshalJSON() ([]byte, error) {
 		ResourceType:   r.ResourceType(),
 	})
 }
-
-// UnmarshalNutritionOrder unmarshals a NutritionOrder.
-func UnmarshalNutritionOrder(b []byte) (NutritionOrder, error) {
-	var nutritionOrder NutritionOrder
-	if err := v2.Unmarshal(b, &nutritionOrder); err != nil {
-		return nutritionOrder, err
-	}
-	return nutritionOrder, nil
-}

@@ -90,12 +90,3 @@ func (r Specimen) MarshalJSON() ([]byte, error) {
 		Specimen:     r,
 	})
 }
-
-// UnmarshalSpecimen unmarshals a Specimen.
-func UnmarshalSpecimen(b []byte) (Specimen, error) {
-	var specimen Specimen
-	if err := v2.Unmarshal(b, &specimen); err != nil {
-		return specimen, err
-	}
-	return specimen, nil
-}

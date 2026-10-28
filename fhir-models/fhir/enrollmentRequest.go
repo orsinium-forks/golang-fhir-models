@@ -40,12 +40,3 @@ func (r EnrollmentRequest) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalEnrollmentRequest unmarshals a EnrollmentRequest.
-func UnmarshalEnrollmentRequest(b []byte) (EnrollmentRequest, error) {
-	var enrollmentRequest EnrollmentRequest
-	if err := v2.Unmarshal(b, &enrollmentRequest); err != nil {
-		return enrollmentRequest, err
-	}
-	return enrollmentRequest, nil
-}

@@ -62,12 +62,3 @@ func (r ArtifactAssessment) MarshalJSON() ([]byte, error) {
 		ResourceType:       r.ResourceType(),
 	})
 }
-
-// UnmarshalArtifactAssessment unmarshals a ArtifactAssessment.
-func UnmarshalArtifactAssessment(b []byte) (ArtifactAssessment, error) {
-	var artifactAssessment ArtifactAssessment
-	if err := v2.Unmarshal(b, &artifactAssessment); err != nil {
-		return artifactAssessment, err
-	}
-	return artifactAssessment, nil
-}

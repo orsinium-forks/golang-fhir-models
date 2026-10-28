@@ -186,12 +186,3 @@ func (r CapabilityStatement) MarshalJSON() ([]byte, error) {
 		ResourceType:        r.ResourceType(),
 	})
 }
-
-// UnmarshalCapabilityStatement unmarshals a CapabilityStatement.
-func UnmarshalCapabilityStatement(b []byte) (CapabilityStatement, error) {
-	var capabilityStatement CapabilityStatement
-	if err := v2.Unmarshal(b, &capabilityStatement); err != nil {
-		return capabilityStatement, err
-	}
-	return capabilityStatement, nil
-}

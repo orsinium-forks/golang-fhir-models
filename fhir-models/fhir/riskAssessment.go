@@ -67,12 +67,3 @@ func (r RiskAssessment) MarshalJSON() ([]byte, error) {
 		RiskAssessment: r,
 	})
 }
-
-// UnmarshalRiskAssessment unmarshals a RiskAssessment.
-func UnmarshalRiskAssessment(b []byte) (RiskAssessment, error) {
-	var riskAssessment RiskAssessment
-	if err := v2.Unmarshal(b, &riskAssessment); err != nil {
-		return riskAssessment, err
-	}
-	return riskAssessment, nil
-}

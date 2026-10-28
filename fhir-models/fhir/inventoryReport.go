@@ -60,12 +60,3 @@ func (r InventoryReport) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalInventoryReport unmarshals a InventoryReport.
-func UnmarshalInventoryReport(b []byte) (InventoryReport, error) {
-	var inventoryReport InventoryReport
-	if err := v2.Unmarshal(b, &inventoryReport); err != nil {
-		return inventoryReport, err
-	}
-	return inventoryReport, nil
-}

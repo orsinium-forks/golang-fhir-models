@@ -118,12 +118,3 @@ func (r Device) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalDevice unmarshals a Device.
-func UnmarshalDevice(b []byte) (Device, error) {
-	var device Device
-	if err := v2.Unmarshal(b, &device); err != nil {
-		return device, err
-	}
-	return device, nil
-}

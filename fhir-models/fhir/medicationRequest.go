@@ -97,12 +97,3 @@ func (r MedicationRequest) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalMedicationRequest unmarshals a MedicationRequest.
-func UnmarshalMedicationRequest(b []byte) (MedicationRequest, error) {
-	var medicationRequest MedicationRequest
-	if err := v2.Unmarshal(b, &medicationRequest); err != nil {
-		return medicationRequest, err
-	}
-	return medicationRequest, nil
-}

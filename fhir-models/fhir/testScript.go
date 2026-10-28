@@ -238,12 +238,3 @@ func (r TestScript) MarshalJSON() ([]byte, error) {
 		TestScript:   r,
 	})
 }
-
-// UnmarshalTestScript unmarshals a TestScript.
-func UnmarshalTestScript(b []byte) (TestScript, error) {
-	var testScript TestScript
-	if err := v2.Unmarshal(b, &testScript); err != nil {
-		return testScript, err
-	}
-	return testScript, nil
-}

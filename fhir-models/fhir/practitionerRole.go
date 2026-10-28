@@ -49,12 +49,3 @@ func (r PractitionerRole) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalPractitionerRole unmarshals a PractitionerRole.
-func UnmarshalPractitionerRole(b []byte) (PractitionerRole, error) {
-	var practitionerRole PractitionerRole
-	if err := v2.Unmarshal(b, &practitionerRole); err != nil {
-		return practitionerRole, err
-	}
-	return practitionerRole, nil
-}

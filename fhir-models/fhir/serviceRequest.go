@@ -98,12 +98,3 @@ func (r ServiceRequest) MarshalJSON() ([]byte, error) {
 		ServiceRequest: r,
 	})
 }
-
-// UnmarshalServiceRequest unmarshals a ServiceRequest.
-func UnmarshalServiceRequest(b []byte) (ServiceRequest, error) {
-	var serviceRequest ServiceRequest
-	if err := v2.Unmarshal(b, &serviceRequest); err != nil {
-		return serviceRequest, err
-	}
-	return serviceRequest, nil
-}

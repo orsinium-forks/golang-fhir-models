@@ -72,12 +72,3 @@ func (r SearchParameter) MarshalJSON() ([]byte, error) {
 		SearchParameter: r,
 	})
 }
-
-// UnmarshalSearchParameter unmarshals a SearchParameter.
-func UnmarshalSearchParameter(b []byte) (SearchParameter, error) {
-	var searchParameter SearchParameter
-	if err := v2.Unmarshal(b, &searchParameter); err != nil {
-		return searchParameter, err
-	}
-	return searchParameter, nil
-}

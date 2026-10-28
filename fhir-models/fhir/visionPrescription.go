@@ -71,12 +71,3 @@ func (r VisionPrescription) MarshalJSON() ([]byte, error) {
 		VisionPrescription: r,
 	})
 }
-
-// UnmarshalVisionPrescription unmarshals a VisionPrescription.
-func UnmarshalVisionPrescription(b []byte) (VisionPrescription, error) {
-	var visionPrescription VisionPrescription
-	if err := v2.Unmarshal(b, &visionPrescription); err != nil {
-		return visionPrescription, err
-	}
-	return visionPrescription, nil
-}

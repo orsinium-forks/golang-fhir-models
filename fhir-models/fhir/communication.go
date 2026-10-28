@@ -65,12 +65,3 @@ func (r Communication) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalCommunication unmarshals a Communication.
-func UnmarshalCommunication(b []byte) (Communication, error) {
-	var communication Communication
-	if err := v2.Unmarshal(b, &communication); err != nil {
-		return communication, err
-	}
-	return communication, nil
-}

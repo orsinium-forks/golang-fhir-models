@@ -100,12 +100,3 @@ func (r Parameters) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalParameters unmarshals a Parameters.
-func UnmarshalParameters(b []byte) (Parameters, error) {
-	var parameters Parameters
-	if err := v2.Unmarshal(b, &parameters); err != nil {
-		return parameters, err
-	}
-	return parameters, nil
-}

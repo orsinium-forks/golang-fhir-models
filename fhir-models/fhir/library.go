@@ -70,12 +70,3 @@ func (r Library) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalLibrary unmarshals a Library.
-func UnmarshalLibrary(b []byte) (Library, error) {
-	var library Library
-	if err := v2.Unmarshal(b, &library); err != nil {
-		return library, err
-	}
-	return library, nil
-}

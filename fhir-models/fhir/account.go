@@ -105,12 +105,3 @@ func (r Account) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalAccount unmarshals a Account.
-func UnmarshalAccount(b []byte) (Account, error) {
-	var account Account
-	if err := v2.Unmarshal(b, &account); err != nil {
-		return account, err
-	}
-	return account, nil
-}

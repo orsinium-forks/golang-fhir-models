@@ -208,12 +208,3 @@ func (r PlanDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:   r.ResourceType(),
 	})
 }
-
-// UnmarshalPlanDefinition unmarshals a PlanDefinition.
-func UnmarshalPlanDefinition(b []byte) (PlanDefinition, error) {
-	var planDefinition PlanDefinition
-	if err := v2.Unmarshal(b, &planDefinition); err != nil {
-		return planDefinition, err
-	}
-	return planDefinition, nil
-}

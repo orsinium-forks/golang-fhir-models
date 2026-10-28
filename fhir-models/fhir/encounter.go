@@ -103,12 +103,3 @@ func (r Encounter) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalEncounter unmarshals a Encounter.
-func UnmarshalEncounter(b []byte) (Encounter, error) {
-	var encounter Encounter
-	if err := v2.Unmarshal(b, &encounter); err != nil {
-		return encounter, err
-	}
-	return encounter, nil
-}

@@ -106,12 +106,3 @@ func (r SubscriptionTopic) MarshalJSON() ([]byte, error) {
 		SubscriptionTopic: r,
 	})
 }
-
-// UnmarshalSubscriptionTopic unmarshals a SubscriptionTopic.
-func UnmarshalSubscriptionTopic(b []byte) (SubscriptionTopic, error) {
-	var subscriptionTopic SubscriptionTopic
-	if err := v2.Unmarshal(b, &subscriptionTopic); err != nil {
-		return subscriptionTopic, err
-	}
-	return subscriptionTopic, nil
-}

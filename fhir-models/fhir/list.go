@@ -55,12 +55,3 @@ func (r List) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalList unmarshals a List.
-func UnmarshalList(b []byte) (List, error) {
-	var list List
-	if err := v2.Unmarshal(b, &list); err != nil {
-		return list, err
-	}
-	return list, nil
-}

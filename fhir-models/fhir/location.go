@@ -63,12 +63,3 @@ func (r Location) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalLocation unmarshals a Location.
-func UnmarshalLocation(b []byte) (Location, error) {
-	var location Location
-	if err := v2.Unmarshal(b, &location); err != nil {
-		return location, err
-	}
-	return location, nil
-}

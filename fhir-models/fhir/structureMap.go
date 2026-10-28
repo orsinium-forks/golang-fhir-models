@@ -154,12 +154,3 @@ func (r StructureMap) MarshalJSON() ([]byte, error) {
 		StructureMap: r,
 	})
 }
-
-// UnmarshalStructureMap unmarshals a StructureMap.
-func UnmarshalStructureMap(b []byte) (StructureMap, error) {
-	var structureMap StructureMap
-	if err := v2.Unmarshal(b, &structureMap); err != nil {
-		return structureMap, err
-	}
-	return structureMap, nil
-}

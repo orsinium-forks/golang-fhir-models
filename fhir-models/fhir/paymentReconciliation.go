@@ -89,12 +89,3 @@ func (r PaymentReconciliation) MarshalJSON() ([]byte, error) {
 		ResourceType:          r.ResourceType(),
 	})
 }
-
-// UnmarshalPaymentReconciliation unmarshals a PaymentReconciliation.
-func UnmarshalPaymentReconciliation(b []byte) (PaymentReconciliation, error) {
-	var paymentReconciliation PaymentReconciliation
-	if err := v2.Unmarshal(b, &paymentReconciliation); err != nil {
-		return paymentReconciliation, err
-	}
-	return paymentReconciliation, nil
-}

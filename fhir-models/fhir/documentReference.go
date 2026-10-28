@@ -88,12 +88,3 @@ func (r DocumentReference) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalDocumentReference unmarshals a DocumentReference.
-func UnmarshalDocumentReference(b []byte) (DocumentReference, error) {
-	var documentReference DocumentReference
-	if err := v2.Unmarshal(b, &documentReference); err != nil {
-		return documentReference, err
-	}
-	return documentReference, nil
-}

@@ -45,12 +45,3 @@ func (r PaymentNotice) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalPaymentNotice unmarshals a PaymentNotice.
-func UnmarshalPaymentNotice(b []byte) (PaymentNotice, error) {
-	var paymentNotice PaymentNotice
-	if err := v2.Unmarshal(b, &paymentNotice); err != nil {
-		return paymentNotice, err
-	}
-	return paymentNotice, nil
-}

@@ -51,12 +51,3 @@ func (r CanonicalResource) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalCanonicalResource unmarshals a CanonicalResource.
-func UnmarshalCanonicalResource(b []byte) (CanonicalResource, error) {
-	var canonicalResource CanonicalResource
-	if err := v2.Unmarshal(b, &canonicalResource); err != nil {
-		return canonicalResource, err
-	}
-	return canonicalResource, nil
-}

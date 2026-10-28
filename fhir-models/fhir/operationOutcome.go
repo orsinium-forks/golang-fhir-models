@@ -45,12 +45,3 @@ func (r OperationOutcome) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalOperationOutcome unmarshals a OperationOutcome.
-func UnmarshalOperationOutcome(b []byte) (OperationOutcome, error) {
-	var operationOutcome OperationOutcome
-	if err := v2.Unmarshal(b, &operationOutcome); err != nil {
-		return operationOutcome, err
-	}
-	return operationOutcome, nil
-}

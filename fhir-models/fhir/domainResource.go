@@ -33,12 +33,3 @@ func (r DomainResource) MarshalJSON() ([]byte, error) {
 		ResourceType:   r.ResourceType(),
 	})
 }
-
-// UnmarshalDomainResource unmarshals a DomainResource.
-func UnmarshalDomainResource(b []byte) (DomainResource, error) {
-	var domainResource DomainResource
-	if err := v2.Unmarshal(b, &domainResource); err != nil {
-		return domainResource, err
-	}
-	return domainResource, nil
-}

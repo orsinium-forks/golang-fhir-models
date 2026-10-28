@@ -61,12 +61,3 @@ func (r RegulatedAuthorization) MarshalJSON() ([]byte, error) {
 		ResourceType:           r.ResourceType(),
 	})
 }
-
-// UnmarshalRegulatedAuthorization unmarshals a RegulatedAuthorization.
-func UnmarshalRegulatedAuthorization(b []byte) (RegulatedAuthorization, error) {
-	var regulatedAuthorization RegulatedAuthorization
-	if err := v2.Unmarshal(b, &regulatedAuthorization); err != nil {
-		return regulatedAuthorization, err
-	}
-	return regulatedAuthorization, nil
-}

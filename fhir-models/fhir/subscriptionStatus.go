@@ -51,12 +51,3 @@ func (r SubscriptionStatus) MarshalJSON() ([]byte, error) {
 		SubscriptionStatus: r,
 	})
 }
-
-// UnmarshalSubscriptionStatus unmarshals a SubscriptionStatus.
-func UnmarshalSubscriptionStatus(b []byte) (SubscriptionStatus, error) {
-	var subscriptionStatus SubscriptionStatus
-	if err := v2.Unmarshal(b, &subscriptionStatus); err != nil {
-		return subscriptionStatus, err
-	}
-	return subscriptionStatus, nil
-}

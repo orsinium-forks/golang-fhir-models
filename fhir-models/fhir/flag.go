@@ -41,12 +41,3 @@ func (r Flag) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalFlag unmarshals a Flag.
-func UnmarshalFlag(b []byte) (Flag, error) {
-	var flag Flag
-	if err := v2.Unmarshal(b, &flag); err != nil {
-		return flag, err
-	}
-	return flag, nil
-}

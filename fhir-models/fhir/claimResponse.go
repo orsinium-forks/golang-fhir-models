@@ -249,12 +249,3 @@ func (r ClaimResponse) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalClaimResponse unmarshals a ClaimResponse.
-func UnmarshalClaimResponse(b []byte) (ClaimResponse, error) {
-	var claimResponse ClaimResponse
-	if err := v2.Unmarshal(b, &claimResponse); err != nil {
-		return claimResponse, err
-	}
-	return claimResponse, nil
-}

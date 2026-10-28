@@ -60,12 +60,3 @@ func (r CompartmentDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:          r.ResourceType(),
 	})
 }
-
-// UnmarshalCompartmentDefinition unmarshals a CompartmentDefinition.
-func UnmarshalCompartmentDefinition(b []byte) (CompartmentDefinition, error) {
-	var compartmentDefinition CompartmentDefinition
-	if err := v2.Unmarshal(b, &compartmentDefinition); err != nil {
-		return compartmentDefinition, err
-	}
-	return compartmentDefinition, nil
-}

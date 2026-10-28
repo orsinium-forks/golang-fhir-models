@@ -53,12 +53,3 @@ func (r ResearchSubject) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalResearchSubject unmarshals a ResearchSubject.
-func UnmarshalResearchSubject(b []byte) (ResearchSubject, error) {
-	var researchSubject ResearchSubject
-	if err := v2.Unmarshal(b, &researchSubject); err != nil {
-		return researchSubject, err
-	}
-	return researchSubject, nil
-}

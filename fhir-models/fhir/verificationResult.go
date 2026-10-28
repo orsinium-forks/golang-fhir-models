@@ -80,12 +80,3 @@ func (r VerificationResult) MarshalJSON() ([]byte, error) {
 		VerificationResult: r,
 	})
 }
-
-// UnmarshalVerificationResult unmarshals a VerificationResult.
-func UnmarshalVerificationResult(b []byte) (VerificationResult, error) {
-	var verificationResult VerificationResult
-	if err := v2.Unmarshal(b, &verificationResult); err != nil {
-		return verificationResult, err
-	}
-	return verificationResult, nil
-}

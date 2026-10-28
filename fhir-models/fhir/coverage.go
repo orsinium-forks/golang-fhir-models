@@ -92,12 +92,3 @@ func (r Coverage) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalCoverage unmarshals a Coverage.
-func UnmarshalCoverage(b []byte) (Coverage, error) {
-	var coverage Coverage
-	if err := v2.Unmarshal(b, &coverage); err != nil {
-		return coverage, err
-	}
-	return coverage, nil
-}

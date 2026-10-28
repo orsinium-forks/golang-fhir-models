@@ -137,12 +137,3 @@ func (r ExampleScenario) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalExampleScenario unmarshals a ExampleScenario.
-func UnmarshalExampleScenario(b []byte) (ExampleScenario, error) {
-	var exampleScenario ExampleScenario
-	if err := v2.Unmarshal(b, &exampleScenario); err != nil {
-		return exampleScenario, err
-	}
-	return exampleScenario, nil
-}

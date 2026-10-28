@@ -51,12 +51,3 @@ func (r GuidanceResponse) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalGuidanceResponse unmarshals a GuidanceResponse.
-func UnmarshalGuidanceResponse(b []byte) (GuidanceResponse, error) {
-	var guidanceResponse GuidanceResponse
-	if err := v2.Unmarshal(b, &guidanceResponse); err != nil {
-		return guidanceResponse, err
-	}
-	return guidanceResponse, nil
-}

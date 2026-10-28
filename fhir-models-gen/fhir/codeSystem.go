@@ -126,12 +126,3 @@ func (r CodeSystem) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalCodeSystem unmarshals a CodeSystem.
-func UnmarshalCodeSystem(b []byte) (CodeSystem, error) {
-	var codeSystem CodeSystem
-	if err := v2.Unmarshal(b, &codeSystem); err != nil {
-		return codeSystem, err
-	}
-	return codeSystem, nil
-}

@@ -101,12 +101,3 @@ func (r GenomicStudy) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalGenomicStudy unmarshals a GenomicStudy.
-func UnmarshalGenomicStudy(b []byte) (GenomicStudy, error) {
-	var genomicStudy GenomicStudy
-	if err := v2.Unmarshal(b, &genomicStudy); err != nil {
-		return genomicStudy, err
-	}
-	return genomicStudy, nil
-}

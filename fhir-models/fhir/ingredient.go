@@ -87,12 +87,3 @@ func (r Ingredient) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalIngredient unmarshals a Ingredient.
-func UnmarshalIngredient(b []byte) (Ingredient, error) {
-	var ingredient Ingredient
-	if err := v2.Unmarshal(b, &ingredient); err != nil {
-		return ingredient, err
-	}
-	return ingredient, nil
-}

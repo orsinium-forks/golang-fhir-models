@@ -43,12 +43,3 @@ func (r Linkage) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalLinkage unmarshals a Linkage.
-func UnmarshalLinkage(b []byte) (Linkage, error) {
-	var linkage Linkage
-	if err := v2.Unmarshal(b, &linkage); err != nil {
-		return linkage, err
-	}
-	return linkage, nil
-}

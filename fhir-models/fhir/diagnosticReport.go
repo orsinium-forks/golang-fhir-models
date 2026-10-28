@@ -73,12 +73,3 @@ func (r DiagnosticReport) MarshalJSON() ([]byte, error) {
 		ResourceType:     r.ResourceType(),
 	})
 }
-
-// UnmarshalDiagnosticReport unmarshals a DiagnosticReport.
-func UnmarshalDiagnosticReport(b []byte) (DiagnosticReport, error) {
-	var diagnosticReport DiagnosticReport
-	if err := v2.Unmarshal(b, &diagnosticReport); err != nil {
-		return diagnosticReport, err
-	}
-	return diagnosticReport, nil
-}

@@ -50,12 +50,3 @@ func (r DeviceAssociation) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalDeviceAssociation unmarshals a DeviceAssociation.
-func UnmarshalDeviceAssociation(b []byte) (DeviceAssociation, error) {
-	var deviceAssociation DeviceAssociation
-	if err := v2.Unmarshal(b, &deviceAssociation); err != nil {
-		return deviceAssociation, err
-	}
-	return deviceAssociation, nil
-}

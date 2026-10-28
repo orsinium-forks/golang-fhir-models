@@ -244,12 +244,3 @@ func (r Citation) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalCitation unmarshals a Citation.
-func UnmarshalCitation(b []byte) (Citation, error) {
-	var citation Citation
-	if err := v2.Unmarshal(b, &citation); err != nil {
-		return citation, err
-	}
-	return citation, nil
-}

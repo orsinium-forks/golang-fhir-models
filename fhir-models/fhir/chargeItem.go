@@ -70,12 +70,3 @@ func (r ChargeItem) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalChargeItem unmarshals a ChargeItem.
-func UnmarshalChargeItem(b []byte) (ChargeItem, error) {
-	var chargeItem ChargeItem
-	if err := v2.Unmarshal(b, &chargeItem); err != nil {
-		return chargeItem, err
-	}
-	return chargeItem, nil
-}

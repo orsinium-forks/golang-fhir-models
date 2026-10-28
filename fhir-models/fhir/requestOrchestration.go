@@ -141,12 +141,3 @@ func (r RequestOrchestration) MarshalJSON() ([]byte, error) {
 		ResourceType:         r.ResourceType(),
 	})
 }
-
-// UnmarshalRequestOrchestration unmarshals a RequestOrchestration.
-func UnmarshalRequestOrchestration(b []byte) (RequestOrchestration, error) {
-	var requestOrchestration RequestOrchestration
-	if err := v2.Unmarshal(b, &requestOrchestration); err != nil {
-		return requestOrchestration, err
-	}
-	return requestOrchestration, nil
-}

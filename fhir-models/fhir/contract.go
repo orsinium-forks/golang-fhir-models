@@ -259,12 +259,3 @@ func (r Contract) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalContract unmarshals a Contract.
-func UnmarshalContract(b []byte) (Contract, error) {
-	var contract Contract
-	if err := v2.Unmarshal(b, &contract); err != nil {
-		return contract, err
-	}
-	return contract, nil
-}

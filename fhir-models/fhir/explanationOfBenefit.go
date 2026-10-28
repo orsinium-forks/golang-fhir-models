@@ -411,12 +411,3 @@ func (r ExplanationOfBenefit) MarshalJSON() ([]byte, error) {
 		ResourceType:         r.ResourceType(),
 	})
 }
-
-// UnmarshalExplanationOfBenefit unmarshals a ExplanationOfBenefit.
-func UnmarshalExplanationOfBenefit(b []byte) (ExplanationOfBenefit, error) {
-	var explanationOfBenefit ExplanationOfBenefit
-	if err := v2.Unmarshal(b, &explanationOfBenefit); err != nil {
-		return explanationOfBenefit, err
-	}
-	return explanationOfBenefit, nil
-}

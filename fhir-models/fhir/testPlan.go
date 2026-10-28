@@ -114,12 +114,3 @@ func (r TestPlan) MarshalJSON() ([]byte, error) {
 		TestPlan:     r,
 	})
 }
-
-// UnmarshalTestPlan unmarshals a TestPlan.
-func UnmarshalTestPlan(b []byte) (TestPlan, error) {
-	var testPlan TestPlan
-	if err := v2.Unmarshal(b, &testPlan); err != nil {
-		return testPlan, err
-	}
-	return testPlan, nil
-}

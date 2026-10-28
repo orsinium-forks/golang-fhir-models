@@ -197,12 +197,3 @@ func (r Transport) MarshalJSON() ([]byte, error) {
 		Transport:    r,
 	})
 }
-
-// UnmarshalTransport unmarshals a Transport.
-func UnmarshalTransport(b []byte) (Transport, error) {
-	var transport Transport
-	if err := v2.Unmarshal(b, &transport); err != nil {
-		return transport, err
-	}
-	return transport, nil
-}

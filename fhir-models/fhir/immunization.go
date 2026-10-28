@@ -94,12 +94,3 @@ func (r Immunization) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalImmunization unmarshals a Immunization.
-func UnmarshalImmunization(b []byte) (Immunization, error) {
-	var immunization Immunization
-	if err := v2.Unmarshal(b, &immunization); err != nil {
-		return immunization, err
-	}
-	return immunization, nil
-}

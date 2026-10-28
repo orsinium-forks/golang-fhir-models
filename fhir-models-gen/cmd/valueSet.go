@@ -32,7 +32,7 @@ func generateValueSet(resources ResourceMap, valueSet fhir.ValueSet) (*jen.File,
 		return nil, fmt.Errorf("missing CodeSystem with canonical URL `%s` in ValueSet `%s`", url, *valueSet.Name)
 	}
 
-	codeSystem, err := fhir.UnmarshalCodeSystem(bytes)
+	codeSystem, err := unmarshalJSON[fhir.CodeSystem](bytes)
 	if err != nil {
 		return nil, err
 	}

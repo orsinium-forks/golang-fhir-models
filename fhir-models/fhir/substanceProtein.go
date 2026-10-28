@@ -52,12 +52,3 @@ func (r SubstanceProtein) MarshalJSON() ([]byte, error) {
 		SubstanceProtein: r,
 	})
 }
-
-// UnmarshalSubstanceProtein unmarshals a SubstanceProtein.
-func UnmarshalSubstanceProtein(b []byte) (SubstanceProtein, error) {
-	var substanceProtein SubstanceProtein
-	if err := v2.Unmarshal(b, &substanceProtein); err != nil {
-		return substanceProtein, err
-	}
-	return substanceProtein, nil
-}

@@ -73,12 +73,3 @@ func (r AllergyIntolerance) MarshalJSON() ([]byte, error) {
 		ResourceType:       r.ResourceType(),
 	})
 }
-
-// UnmarshalAllergyIntolerance unmarshals a AllergyIntolerance.
-func UnmarshalAllergyIntolerance(b []byte) (AllergyIntolerance, error) {
-	var allergyIntolerance AllergyIntolerance
-	if err := v2.Unmarshal(b, &allergyIntolerance); err != nil {
-		return allergyIntolerance, err
-	}
-	return allergyIntolerance, nil
-}

@@ -76,12 +76,3 @@ func (r MolecularSequence) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalMolecularSequence unmarshals a MolecularSequence.
-func UnmarshalMolecularSequence(b []byte) (MolecularSequence, error) {
-	var molecularSequence MolecularSequence
-	if err := v2.Unmarshal(b, &molecularSequence); err != nil {
-		return molecularSequence, err
-	}
-	return molecularSequence, nil
-}

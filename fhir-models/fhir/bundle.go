@@ -89,12 +89,3 @@ func (r Bundle) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalBundle unmarshals a Bundle.
-func UnmarshalBundle(b []byte) (Bundle, error) {
-	var bundle Bundle
-	if err := v2.Unmarshal(b, &bundle); err != nil {
-		return bundle, err
-	}
-	return bundle, nil
-}

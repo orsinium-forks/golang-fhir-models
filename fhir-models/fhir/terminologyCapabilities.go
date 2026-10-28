@@ -137,12 +137,3 @@ func (r TerminologyCapabilities) MarshalJSON() ([]byte, error) {
 		TerminologyCapabilities: r,
 	})
 }
-
-// UnmarshalTerminologyCapabilities unmarshals a TerminologyCapabilities.
-func UnmarshalTerminologyCapabilities(b []byte) (TerminologyCapabilities, error) {
-	var terminologyCapabilities TerminologyCapabilities
-	if err := v2.Unmarshal(b, &terminologyCapabilities); err != nil {
-		return terminologyCapabilities, err
-	}
-	return terminologyCapabilities, nil
-}

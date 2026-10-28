@@ -89,12 +89,3 @@ func (r PackagedProductDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:              r.ResourceType(),
 	})
 }
-
-// UnmarshalPackagedProductDefinition unmarshals a PackagedProductDefinition.
-func UnmarshalPackagedProductDefinition(b []byte) (PackagedProductDefinition, error) {
-	var packagedProductDefinition PackagedProductDefinition
-	if err := v2.Unmarshal(b, &packagedProductDefinition); err != nil {
-		return packagedProductDefinition, err
-	}
-	return packagedProductDefinition, nil
-}

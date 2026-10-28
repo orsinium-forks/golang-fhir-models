@@ -70,12 +70,3 @@ func (r Requirements) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalRequirements unmarshals a Requirements.
-func UnmarshalRequirements(b []byte) (Requirements, error) {
-	var requirements Requirements
-	if err := v2.Unmarshal(b, &requirements); err != nil {
-		return requirements, err
-	}
-	return requirements, nil
-}

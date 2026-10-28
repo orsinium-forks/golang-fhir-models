@@ -77,12 +77,3 @@ func (r ChargeItemDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:         r.ResourceType(),
 	})
 }
-
-// UnmarshalChargeItemDefinition unmarshals a ChargeItemDefinition.
-func UnmarshalChargeItemDefinition(b []byte) (ChargeItemDefinition, error) {
-	var chargeItemDefinition ChargeItemDefinition
-	if err := v2.Unmarshal(b, &chargeItemDefinition); err != nil {
-		return chargeItemDefinition, err
-	}
-	return chargeItemDefinition, nil
-}

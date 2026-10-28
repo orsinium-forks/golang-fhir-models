@@ -50,12 +50,3 @@ func (r Substance) MarshalJSON() ([]byte, error) {
 		Substance:    r,
 	})
 }
-
-// UnmarshalSubstance unmarshals a Substance.
-func UnmarshalSubstance(b []byte) (Substance, error) {
-	var substance Substance
-	if err := v2.Unmarshal(b, &substance); err != nil {
-		return substance, err
-	}
-	return substance, nil
-}

@@ -70,12 +70,3 @@ func (r SubstanceNucleicAcid) MarshalJSON() ([]byte, error) {
 		SubstanceNucleicAcid: r,
 	})
 }
-
-// UnmarshalSubstanceNucleicAcid unmarshals a SubstanceNucleicAcid.
-func UnmarshalSubstanceNucleicAcid(b []byte) (SubstanceNucleicAcid, error) {
-	var substanceNucleicAcid SubstanceNucleicAcid
-	if err := v2.Unmarshal(b, &substanceNucleicAcid); err != nil {
-		return substanceNucleicAcid, err
-	}
-	return substanceNucleicAcid, nil
-}

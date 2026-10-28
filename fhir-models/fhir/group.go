@@ -67,12 +67,3 @@ func (r Group) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalGroup unmarshals a Group.
-func UnmarshalGroup(b []byte) (Group, error) {
-	var group Group
-	if err := v2.Unmarshal(b, &group); err != nil {
-		return group, err
-	}
-	return group, nil
-}

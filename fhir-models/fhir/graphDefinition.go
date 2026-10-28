@@ -89,12 +89,3 @@ func (r GraphDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalGraphDefinition unmarshals a GraphDefinition.
-func UnmarshalGraphDefinition(b []byte) (GraphDefinition, error) {
-	var graphDefinition GraphDefinition
-	if err := v2.Unmarshal(b, &graphDefinition); err != nil {
-		return graphDefinition, err
-	}
-	return graphDefinition, nil
-}

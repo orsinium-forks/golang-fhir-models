@@ -65,12 +65,3 @@ func (r EventDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalEventDefinition unmarshals a EventDefinition.
-func UnmarshalEventDefinition(b []byte) (EventDefinition, error) {
-	var eventDefinition EventDefinition
-	if err := v2.Unmarshal(b, &eventDefinition); err != nil {
-		return eventDefinition, err
-	}
-	return eventDefinition, nil
-}

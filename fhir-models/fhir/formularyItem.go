@@ -38,12 +38,3 @@ func (r FormularyItem) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalFormularyItem unmarshals a FormularyItem.
-func UnmarshalFormularyItem(b []byte) (FormularyItem, error) {
-	var formularyItem FormularyItem
-	if err := v2.Unmarshal(b, &formularyItem); err != nil {
-		return formularyItem, err
-	}
-	return formularyItem, nil
-}

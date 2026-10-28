@@ -77,12 +77,3 @@ func (r MessageHeader) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalMessageHeader unmarshals a MessageHeader.
-func UnmarshalMessageHeader(b []byte) (MessageHeader, error) {
-	var messageHeader MessageHeader
-	if err := v2.Unmarshal(b, &messageHeader); err != nil {
-		return messageHeader, err
-	}
-	return messageHeader, nil
-}

@@ -37,12 +37,3 @@ func (r Binary) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalBinary unmarshals a Binary.
-func UnmarshalBinary(b []byte) (Binary, error) {
-	var binary Binary
-	if err := v2.Unmarshal(b, &binary); err != nil {
-		return binary, err
-	}
-	return binary, nil
-}

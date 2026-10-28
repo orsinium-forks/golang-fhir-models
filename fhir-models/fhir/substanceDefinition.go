@@ -180,12 +180,3 @@ func (r SubstanceDefinition) MarshalJSON() ([]byte, error) {
 		SubstanceDefinition: r,
 	})
 }
-
-// UnmarshalSubstanceDefinition unmarshals a SubstanceDefinition.
-func UnmarshalSubstanceDefinition(b []byte) (SubstanceDefinition, error) {
-	var substanceDefinition SubstanceDefinition
-	if err := v2.Unmarshal(b, &substanceDefinition); err != nil {
-		return substanceDefinition, err
-	}
-	return substanceDefinition, nil
-}

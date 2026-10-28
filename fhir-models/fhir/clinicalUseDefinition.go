@@ -109,12 +109,3 @@ func (r ClinicalUseDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:          r.ResourceType(),
 	})
 }
-
-// UnmarshalClinicalUseDefinition unmarshals a ClinicalUseDefinition.
-func UnmarshalClinicalUseDefinition(b []byte) (ClinicalUseDefinition, error) {
-	var clinicalUseDefinition ClinicalUseDefinition
-	if err := v2.Unmarshal(b, &clinicalUseDefinition); err != nil {
-		return clinicalUseDefinition, err
-	}
-	return clinicalUseDefinition, nil
-}

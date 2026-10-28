@@ -54,12 +54,3 @@ func (r Endpoint) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalEndpoint unmarshals a Endpoint.
-func UnmarshalEndpoint(b []byte) (Endpoint, error) {
-	var endpoint Endpoint
-	if err := v2.Unmarshal(b, &endpoint); err != nil {
-		return endpoint, err
-	}
-	return endpoint, nil
-}

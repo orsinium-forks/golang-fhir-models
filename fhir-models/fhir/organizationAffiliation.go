@@ -47,12 +47,3 @@ func (r OrganizationAffiliation) MarshalJSON() ([]byte, error) {
 		ResourceType:            r.ResourceType(),
 	})
 }
-
-// UnmarshalOrganizationAffiliation unmarshals a OrganizationAffiliation.
-func UnmarshalOrganizationAffiliation(b []byte) (OrganizationAffiliation, error) {
-	var organizationAffiliation OrganizationAffiliation
-	if err := v2.Unmarshal(b, &organizationAffiliation); err != nil {
-		return organizationAffiliation, err
-	}
-	return organizationAffiliation, nil
-}

@@ -66,12 +66,3 @@ func (r Provenance) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalProvenance unmarshals a Provenance.
-func UnmarshalProvenance(b []byte) (Provenance, error) {
-	var provenance Provenance
-	if err := v2.Unmarshal(b, &provenance); err != nil {
-		return provenance, err
-	}
-	return provenance, nil
-}

@@ -161,12 +161,3 @@ func (r ImplementationGuide) MarshalJSON() ([]byte, error) {
 		ResourceType:        r.ResourceType(),
 	})
 }
-
-// UnmarshalImplementationGuide unmarshals a ImplementationGuide.
-func UnmarshalImplementationGuide(b []byte) (ImplementationGuide, error) {
-	var implementationGuide ImplementationGuide
-	if err := v2.Unmarshal(b, &implementationGuide); err != nil {
-		return implementationGuide, err
-	}
-	return implementationGuide, nil
-}

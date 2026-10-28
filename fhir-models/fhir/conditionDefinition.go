@@ -100,12 +100,3 @@ func (r ConditionDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:        r.ResourceType(),
 	})
 }
-
-// UnmarshalConditionDefinition unmarshals a ConditionDefinition.
-func UnmarshalConditionDefinition(b []byte) (ConditionDefinition, error) {
-	var conditionDefinition ConditionDefinition
-	if err := v2.Unmarshal(b, &conditionDefinition); err != nil {
-		return conditionDefinition, err
-	}
-	return conditionDefinition, nil
-}

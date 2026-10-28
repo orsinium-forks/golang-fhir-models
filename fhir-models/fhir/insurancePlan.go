@@ -113,12 +113,3 @@ func (r InsurancePlan) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalInsurancePlan unmarshals a InsurancePlan.
-func UnmarshalInsurancePlan(b []byte) (InsurancePlan, error) {
-	var insurancePlan InsurancePlan
-	if err := v2.Unmarshal(b, &insurancePlan); err != nil {
-		return insurancePlan, err
-	}
-	return insurancePlan, nil
-}

@@ -30,12 +30,3 @@ func (r Resource) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalResource unmarshals a Resource.
-func UnmarshalResource(b []byte) (Resource, error) {
-	var resource Resource
-	if err := v2.Unmarshal(b, &resource); err != nil {
-		return resource, err
-	}
-	return resource, nil
-}

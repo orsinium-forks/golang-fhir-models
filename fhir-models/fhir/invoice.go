@@ -70,12 +70,3 @@ func (r Invoice) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalInvoice unmarshals a Invoice.
-func UnmarshalInvoice(b []byte) (Invoice, error) {
-	var invoice Invoice
-	if err := v2.Unmarshal(b, &invoice); err != nil {
-		return invoice, err
-	}
-	return invoice, nil
-}

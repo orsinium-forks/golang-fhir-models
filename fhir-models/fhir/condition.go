@@ -72,12 +72,3 @@ func (r Condition) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalCondition unmarshals a Condition.
-func UnmarshalCondition(b []byte) (Condition, error) {
-	var condition Condition
-	if err := v2.Unmarshal(b, &condition); err != nil {
-		return condition, err
-	}
-	return condition, nil
-}

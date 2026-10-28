@@ -76,12 +76,3 @@ func (r ManufacturedItemDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:               r.ResourceType(),
 	})
 }
-
-// UnmarshalManufacturedItemDefinition unmarshals a ManufacturedItemDefinition.
-func UnmarshalManufacturedItemDefinition(b []byte) (ManufacturedItemDefinition, error) {
-	var manufacturedItemDefinition ManufacturedItemDefinition
-	if err := v2.Unmarshal(b, &manufacturedItemDefinition); err != nil {
-		return manufacturedItemDefinition, err
-	}
-	return manufacturedItemDefinition, nil
-}

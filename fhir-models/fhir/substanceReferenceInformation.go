@@ -68,12 +68,3 @@ func (r SubstanceReferenceInformation) MarshalJSON() ([]byte, error) {
 		SubstanceReferenceInformation: r,
 	})
 }
-
-// UnmarshalSubstanceReferenceInformation unmarshals a SubstanceReferenceInformation.
-func UnmarshalSubstanceReferenceInformation(b []byte) (SubstanceReferenceInformation, error) {
-	var substanceReferenceInformation SubstanceReferenceInformation
-	if err := v2.Unmarshal(b, &substanceReferenceInformation); err != nil {
-		return substanceReferenceInformation, err
-	}
-	return substanceReferenceInformation, nil
-}

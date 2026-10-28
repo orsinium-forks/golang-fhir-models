@@ -121,12 +121,3 @@ func (r TestReport) MarshalJSON() ([]byte, error) {
 		TestReport:   r,
 	})
 }
-
-// UnmarshalTestReport unmarshals a TestReport.
-func UnmarshalTestReport(b []byte) (TestReport, error) {
-	var testReport TestReport
-	if err := v2.Unmarshal(b, &testReport); err != nil {
-		return testReport, err
-	}
-	return testReport, nil
-}

@@ -158,12 +158,3 @@ func (r ConceptMap) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalConceptMap unmarshals a ConceptMap.
-func UnmarshalConceptMap(b []byte) (ConceptMap, error) {
-	var conceptMap ConceptMap
-	if err := v2.Unmarshal(b, &conceptMap); err != nil {
-		return conceptMap, err
-	}
-	return conceptMap, nil
-}

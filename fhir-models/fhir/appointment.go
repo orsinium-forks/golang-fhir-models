@@ -120,12 +120,3 @@ func (r Appointment) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalAppointment unmarshals a Appointment.
-func UnmarshalAppointment(b []byte) (Appointment, error) {
-	var appointment Appointment
-	if err := v2.Unmarshal(b, &appointment); err != nil {
-		return appointment, err
-	}
-	return appointment, nil
-}

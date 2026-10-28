@@ -135,12 +135,3 @@ func (r Questionnaire) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalQuestionnaire unmarshals a Questionnaire.
-func UnmarshalQuestionnaire(b []byte) (Questionnaire, error) {
-	var questionnaire Questionnaire
-	if err := v2.Unmarshal(b, &questionnaire); err != nil {
-		return questionnaire, err
-	}
-	return questionnaire, nil
-}

@@ -149,12 +149,3 @@ func (r Measure) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalMeasure unmarshals a Measure.
-func UnmarshalMeasure(b []byte) (Measure, error) {
-	var measure Measure
-	if err := v2.Unmarshal(b, &measure); err != nil {
-		return measure, err
-	}
-	return measure, nil
-}

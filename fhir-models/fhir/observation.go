@@ -120,12 +120,3 @@ func (r Observation) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalObservation unmarshals a Observation.
-func UnmarshalObservation(b []byte) (Observation, error) {
-	var observation Observation
-	if err := v2.Unmarshal(b, &observation); err != nil {
-		return observation, err
-	}
-	return observation, nil
-}

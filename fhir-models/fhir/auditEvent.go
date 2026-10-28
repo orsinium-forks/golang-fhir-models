@@ -106,12 +106,3 @@ func (r AuditEvent) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalAuditEvent unmarshals a AuditEvent.
-func UnmarshalAuditEvent(b []byte) (AuditEvent, error) {
-	var auditEvent AuditEvent
-	if err := v2.Unmarshal(b, &auditEvent); err != nil {
-		return auditEvent, err
-	}
-	return auditEvent, nil
-}

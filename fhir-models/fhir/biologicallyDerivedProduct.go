@@ -70,12 +70,3 @@ func (r BiologicallyDerivedProduct) MarshalJSON() ([]byte, error) {
 		ResourceType:               r.ResourceType(),
 	})
 }
-
-// UnmarshalBiologicallyDerivedProduct unmarshals a BiologicallyDerivedProduct.
-func UnmarshalBiologicallyDerivedProduct(b []byte) (BiologicallyDerivedProduct, error) {
-	var biologicallyDerivedProduct BiologicallyDerivedProduct
-	if err := v2.Unmarshal(b, &biologicallyDerivedProduct); err != nil {
-		return biologicallyDerivedProduct, err
-	}
-	return biologicallyDerivedProduct, nil
-}

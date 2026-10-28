@@ -78,12 +78,3 @@ func (r NamingSystem) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalNamingSystem unmarshals a NamingSystem.
-func UnmarshalNamingSystem(b []byte) (NamingSystem, error) {
-	var namingSystem NamingSystem
-	if err := v2.Unmarshal(b, &namingSystem); err != nil {
-		return namingSystem, err
-	}
-	return namingSystem, nil
-}

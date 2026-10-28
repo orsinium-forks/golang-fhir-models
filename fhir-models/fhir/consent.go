@@ -99,12 +99,3 @@ func (r Consent) MarshalJSON() ([]byte, error) {
 		ResourceType: r.ResourceType(),
 	})
 }
-
-// UnmarshalConsent unmarshals a Consent.
-func UnmarshalConsent(b []byte) (Consent, error) {
-	var consent Consent
-	if err := v2.Unmarshal(b, &consent); err != nil {
-		return consent, err
-	}
-	return consent, nil
-}

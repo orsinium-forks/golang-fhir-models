@@ -93,12 +93,3 @@ func (r StructureDefinition) MarshalJSON() ([]byte, error) {
 		StructureDefinition: r,
 	})
 }
-
-// UnmarshalStructureDefinition unmarshals a StructureDefinition.
-func UnmarshalStructureDefinition(b []byte) (StructureDefinition, error) {
-	var structureDefinition StructureDefinition
-	if err := v2.Unmarshal(b, &structureDefinition); err != nil {
-		return structureDefinition, err
-	}
-	return structureDefinition, nil
-}

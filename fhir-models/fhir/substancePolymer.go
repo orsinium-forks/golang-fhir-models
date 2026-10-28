@@ -92,12 +92,3 @@ func (r SubstancePolymer) MarshalJSON() ([]byte, error) {
 		SubstancePolymer: r,
 	})
 }
-
-// UnmarshalSubstancePolymer unmarshals a SubstancePolymer.
-func UnmarshalSubstancePolymer(b []byte) (SubstancePolymer, error) {
-	var substancePolymer SubstancePolymer
-	if err := v2.Unmarshal(b, &substancePolymer); err != nil {
-		return substancePolymer, err
-	}
-	return substancePolymer, nil
-}

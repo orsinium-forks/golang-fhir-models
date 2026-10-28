@@ -42,12 +42,3 @@ func (r Schedule) MarshalJSON() ([]byte, error) {
 		Schedule:     r,
 	})
 }
-
-// UnmarshalSchedule unmarshals a Schedule.
-func UnmarshalSchedule(b []byte) (Schedule, error) {
-	var schedule Schedule
-	if err := v2.Unmarshal(b, &schedule); err != nil {
-		return schedule, err
-	}
-	return schedule, nil
-}

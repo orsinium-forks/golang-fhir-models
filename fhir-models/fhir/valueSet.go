@@ -197,12 +197,3 @@ func (r ValueSet) MarshalJSON() ([]byte, error) {
 		ValueSet:     r,
 	})
 }
-
-// UnmarshalValueSet unmarshals a ValueSet.
-func UnmarshalValueSet(b []byte) (ValueSet, error) {
-	var valueSet ValueSet
-	if err := v2.Unmarshal(b, &valueSet); err != nil {
-		return valueSet, err
-	}
-	return valueSet, nil
-}

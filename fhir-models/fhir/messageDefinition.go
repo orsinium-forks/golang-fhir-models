@@ -79,12 +79,3 @@ func (r MessageDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:      r.ResourceType(),
 	})
 }
-
-// UnmarshalMessageDefinition unmarshals a MessageDefinition.
-func UnmarshalMessageDefinition(b []byte) (MessageDefinition, error) {
-	var messageDefinition MessageDefinition
-	if err := v2.Unmarshal(b, &messageDefinition); err != nil {
-		return messageDefinition, err
-	}
-	return messageDefinition, nil
-}

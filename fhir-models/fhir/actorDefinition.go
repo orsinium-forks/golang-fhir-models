@@ -56,12 +56,3 @@ func (r ActorDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:    r.ResourceType(),
 	})
 }
-
-// UnmarshalActorDefinition unmarshals a ActorDefinition.
-func UnmarshalActorDefinition(b []byte) (ActorDefinition, error) {
-	var actorDefinition ActorDefinition
-	if err := v2.Unmarshal(b, &actorDefinition); err != nil {
-		return actorDefinition, err
-	}
-	return actorDefinition, nil
-}

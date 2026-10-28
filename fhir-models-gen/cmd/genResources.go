@@ -79,7 +79,7 @@ var genResourcesCmd = &cobra.Command{
 				return err
 			}
 			if resource.ResourceType == "Bundle" {
-				bundle, err := fhir.UnmarshalBundle(bytes)
+				bundle, err := unmarshalJSON[fhir.Bundle](bytes)
 				if err != nil {
 					return err
 				}
@@ -135,7 +135,7 @@ var genResourcesCmd = &cobra.Command{
 		requiredValueSetBindings := make(map[string]bool, 0)
 
 		for _, bytes := range resources["StructureDefinition"] {
-			structureDefinition, err := fhir.UnmarshalStructureDefinition(bytes)
+			structureDefinition, err := unmarshalJSON[fhir.StructureDefinition](bytes)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
@@ -168,7 +168,7 @@ var genResourcesCmd = &cobra.Command{
 				fmt.Printf("Missing ValueSet `%s`.\n", url)
 				os.Exit(1)
 			}
-			valueSet, err := fhir.UnmarshalValueSet(bytes)
+			valueSet, err := unmarshalJSON[fhir.ValueSet](bytes)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
@@ -206,7 +206,7 @@ func generateTypes(resources ResourceMap, alreadyGeneratedTypes map[string]bool,
 		if bytes == nil {
 			return fmt.Errorf("missing StructureDefinition with name `%s`", name)
 		}
-		structureDefinition, err := fhir.UnmarshalStructureDefinition(bytes)
+		structureDefinition, err := unmarshalJSON[fhir.StructureDefinition](bytes)
 		if err != nil {
 			return err
 		}
@@ -266,22 +266,6 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 				jen.Id("ResourceType"):  jen.Id("r").Dot("ResourceType").Call(),
 			})),
 		)
-	}
-
-	// generate unmarshal
-	if definition.Kind == fhir.StructureDefinitionKindResource {
-		file.Commentf("Unmarshal%s unmarshals a %s.", definition.Name, definition.Name)
-		file.Func().Id("Unmarshal"+definition.Name).
-			Params(jen.Id("b").Op("[]").Byte()).
-			Params(jen.Id(definition.Name), jen.Error()).
-			Block(
-				jen.Var().Id(FirstLower(definition.Name)).Id(definition.Name),
-				jen.Err().Op(":=").Qual("encoding/json/v2", "Unmarshal").Call(
-					jen.Id("b"),
-					jen.Op("&").Id(FirstLower(definition.Name)),
-				),
-				jen.Return(jen.Id(FirstLower(definition.Name)), jen.Err()),
-			)
 	}
 
 	return file, nil
@@ -394,7 +378,7 @@ func addFieldStatement(
 
 		if url := requiredValueSetBinding(element); url != nil {
 			if bytes := resources["ValueSet"][*url]; bytes != nil {
-				valueSet, err := fhir.UnmarshalValueSet(bytes)
+				valueSet, err := unmarshalJSON[fhir.ValueSet](bytes)
 				if err != nil {
 					return 0, err
 				}
@@ -532,6 +516,12 @@ func typeCodeToTypeIdentifier(typeCode string) string {
 	default:
 		return typeCode
 	}
+}
+
+func unmarshalJSON[T any](b []byte) (T, error) {
+	var v T
+	err := json.Unmarshal(b, &v)
+	return v, err
 }
 
 func init() {

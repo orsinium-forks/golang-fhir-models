@@ -107,12 +107,3 @@ func (r ActivityDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:       r.ResourceType(),
 	})
 }
-
-// UnmarshalActivityDefinition unmarshals a ActivityDefinition.
-func UnmarshalActivityDefinition(b []byte) (ActivityDefinition, error) {
-	var activityDefinition ActivityDefinition
-	if err := v2.Unmarshal(b, &activityDefinition); err != nil {
-		return activityDefinition, err
-	}
-	return activityDefinition, nil
-}

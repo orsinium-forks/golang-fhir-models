@@ -69,12 +69,3 @@ func (r BodyStructure) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalBodyStructure unmarshals a BodyStructure.
-func UnmarshalBodyStructure(b []byte) (BodyStructure, error) {
-	var bodyStructure BodyStructure
-	if err := v2.Unmarshal(b, &bodyStructure); err != nil {
-		return bodyStructure, err
-	}
-	return bodyStructure, nil
-}

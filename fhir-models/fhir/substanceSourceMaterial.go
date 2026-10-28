@@ -101,12 +101,3 @@ func (r SubstanceSourceMaterial) MarshalJSON() ([]byte, error) {
 		SubstanceSourceMaterial: r,
 	})
 }
-
-// UnmarshalSubstanceSourceMaterial unmarshals a SubstanceSourceMaterial.
-func UnmarshalSubstanceSourceMaterial(b []byte) (SubstanceSourceMaterial, error) {
-	var substanceSourceMaterial SubstanceSourceMaterial
-	if err := v2.Unmarshal(b, &substanceSourceMaterial); err != nil {
-		return substanceSourceMaterial, err
-	}
-	return substanceSourceMaterial, nil
-}

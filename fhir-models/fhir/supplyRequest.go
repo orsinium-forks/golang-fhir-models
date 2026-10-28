@@ -61,12 +61,3 @@ func (r SupplyRequest) MarshalJSON() ([]byte, error) {
 		SupplyRequest: r,
 	})
 }
-
-// UnmarshalSupplyRequest unmarshals a SupplyRequest.
-func UnmarshalSupplyRequest(b []byte) (SupplyRequest, error) {
-	var supplyRequest SupplyRequest
-	if err := v2.Unmarshal(b, &supplyRequest); err != nil {
-		return supplyRequest, err
-	}
-	return supplyRequest, nil
-}

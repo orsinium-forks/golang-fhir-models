@@ -73,12 +73,3 @@ func (r DeviceRequest) MarshalJSON() ([]byte, error) {
 		ResourceType:  r.ResourceType(),
 	})
 }
-
-// UnmarshalDeviceRequest unmarshals a DeviceRequest.
-func UnmarshalDeviceRequest(b []byte) (DeviceRequest, error) {
-	var deviceRequest DeviceRequest
-	if err := v2.Unmarshal(b, &deviceRequest); err != nil {
-		return deviceRequest, err
-	}
-	return deviceRequest, nil
-}
