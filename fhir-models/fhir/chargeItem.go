@@ -55,16 +55,19 @@ type ChargeItemPerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
-type OtherChargeItem ChargeItem
 
-// MarshalJSON marshals the given ChargeItem as JSON into a byte slice
+func (r ChargeItem) ResourceType() string {
+	return "ChargeItem"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ChargeItem) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherChargeItem
+		ChargeItem
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherChargeItem: OtherChargeItem(r),
-		ResourceType:    "ChargeItem",
+		ChargeItem:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

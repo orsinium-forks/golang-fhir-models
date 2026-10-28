@@ -55,16 +55,19 @@ type SubstanceNucleicAcidSubunitSugar struct {
 	Name              *string     `bson:"name,omitempty" json:"name,omitempty"`
 	ResidueSite       *string     `bson:"residueSite,omitempty" json:"residueSite,omitempty"`
 }
-type OtherSubstanceNucleicAcid SubstanceNucleicAcid
 
-// MarshalJSON marshals the given SubstanceNucleicAcid as JSON into a byte slice
+func (r SubstanceNucleicAcid) ResourceType() string {
+	return "SubstanceNucleicAcid"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstanceNucleicAcid) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstanceNucleicAcid
+		SubstanceNucleicAcid
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstanceNucleicAcid: OtherSubstanceNucleicAcid(r),
-		ResourceType:              "SubstanceNucleicAcid",
+		ResourceType:         r.ResourceType(),
+		SubstanceNucleicAcid: r,
 	})
 }
 

@@ -90,16 +90,19 @@ type AccountBalance struct {
 	Estimate          *bool            `bson:"estimate,omitempty" json:"estimate,omitempty"`
 	Amount            Money            `bson:"amount" json:"amount"`
 }
-type OtherAccount Account
 
-// MarshalJSON marshals the given Account as JSON into a byte slice
+func (r Account) ResourceType() string {
+	return "Account"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Account) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAccount
+		Account
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAccount: OtherAccount(r),
-		ResourceType: "Account",
+		Account:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

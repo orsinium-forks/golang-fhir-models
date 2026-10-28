@@ -58,16 +58,19 @@ type AllergyIntoleranceReaction struct {
 	ExposureRoute     *CodeableConcept            `bson:"exposureRoute,omitempty" json:"exposureRoute,omitempty"`
 	Note              []Annotation                `bson:"note,omitempty" json:"note,omitempty"`
 }
-type OtherAllergyIntolerance AllergyIntolerance
 
-// MarshalJSON marshals the given AllergyIntolerance as JSON into a byte slice
+func (r AllergyIntolerance) ResourceType() string {
+	return "AllergyIntolerance"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r AllergyIntolerance) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAllergyIntolerance
+		AllergyIntolerance
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAllergyIntolerance: OtherAllergyIntolerance(r),
-		ResourceType:            "AllergyIntolerance",
+		AllergyIntolerance: r,
+		ResourceType:       r.ResourceType(),
 	})
 }
 

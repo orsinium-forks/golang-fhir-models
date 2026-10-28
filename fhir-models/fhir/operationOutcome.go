@@ -30,16 +30,19 @@ type OperationOutcomeIssue struct {
 	Location          []string         `bson:"location,omitempty" json:"location,omitempty"`
 	Expression        []string         `bson:"expression,omitempty" json:"expression,omitempty"`
 }
-type OtherOperationOutcome OperationOutcome
 
-// MarshalJSON marshals the given OperationOutcome as JSON into a byte slice
+func (r OperationOutcome) ResourceType() string {
+	return "OperationOutcome"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r OperationOutcome) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherOperationOutcome
+		OperationOutcome
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherOperationOutcome: OtherOperationOutcome(r),
-		ResourceType:          "OperationOutcome",
+		OperationOutcome: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

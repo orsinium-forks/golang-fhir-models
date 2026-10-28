@@ -25,16 +25,19 @@ type EnrollmentRequest struct {
 	Candidate         *Reference                    `bson:"candidate,omitempty" json:"candidate,omitempty"`
 	Coverage          *Reference                    `bson:"coverage,omitempty" json:"coverage,omitempty"`
 }
-type OtherEnrollmentRequest EnrollmentRequest
 
-// MarshalJSON marshals the given EnrollmentRequest as JSON into a byte slice
+func (r EnrollmentRequest) ResourceType() string {
+	return "EnrollmentRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EnrollmentRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEnrollmentRequest
+		EnrollmentRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEnrollmentRequest: OtherEnrollmentRequest(r),
-		ResourceType:           "EnrollmentRequest",
+		EnrollmentRequest: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

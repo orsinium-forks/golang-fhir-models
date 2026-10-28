@@ -120,16 +120,19 @@ type QuestionnaireItemInitial struct {
 	ValueQuantity     Quantity        `bson:"valueQuantity" json:"valueQuantity"`
 	ValueReference    Reference       `bson:"valueReference" json:"valueReference"`
 }
-type OtherQuestionnaire Questionnaire
 
-// MarshalJSON marshals the given Questionnaire as JSON into a byte slice
+func (r Questionnaire) ResourceType() string {
+	return "Questionnaire"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Questionnaire) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherQuestionnaire
+		Questionnaire
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherQuestionnaire: OtherQuestionnaire(r),
-		ResourceType:       "Questionnaire",
+		Questionnaire: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

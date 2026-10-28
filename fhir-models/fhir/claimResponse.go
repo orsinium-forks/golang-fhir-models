@@ -234,16 +234,19 @@ type ClaimResponseError struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Expression        []string        `bson:"expression,omitempty" json:"expression,omitempty"`
 }
-type OtherClaimResponse ClaimResponse
 
-// MarshalJSON marshals the given ClaimResponse as JSON into a byte slice
+func (r ClaimResponse) ResourceType() string {
+	return "ClaimResponse"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ClaimResponse) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherClaimResponse
+		ClaimResponse
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherClaimResponse: OtherClaimResponse(r),
-		ResourceType:       "ClaimResponse",
+		ClaimResponse: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

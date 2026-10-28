@@ -190,16 +190,19 @@ type TaskOutput struct {
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta"`
 }
-type OtherTask Task
 
-// MarshalJSON marshals the given Task as JSON into a byte slice
+func (r Task) ResourceType() string {
+	return "Task"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Task) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTask
+		Task
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTask:    OtherTask(r),
-		ResourceType: "Task",
+		ResourceType: r.ResourceType(),
+		Task:         r,
 	})
 }
 

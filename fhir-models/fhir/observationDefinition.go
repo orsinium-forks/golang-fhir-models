@@ -84,16 +84,19 @@ type ObservationDefinitionComponent struct {
 	PermittedUnit     []Coding                              `bson:"permittedUnit,omitempty" json:"permittedUnit,omitempty"`
 	QualifiedValue    []ObservationDefinitionQualifiedValue `bson:"qualifiedValue,omitempty" json:"qualifiedValue,omitempty"`
 }
-type OtherObservationDefinition ObservationDefinition
 
-// MarshalJSON marshals the given ObservationDefinition as JSON into a byte slice
+func (r ObservationDefinition) ResourceType() string {
+	return "ObservationDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ObservationDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherObservationDefinition
+		ObservationDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherObservationDefinition: OtherObservationDefinition(r),
-		ResourceType:               "ObservationDefinition",
+		ObservationDefinition: r,
+		ResourceType:          r.ResourceType(),
 	})
 }
 

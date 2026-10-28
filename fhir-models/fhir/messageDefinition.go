@@ -64,16 +64,19 @@ type MessageDefinitionAllowedResponse struct {
 	Message           string      `bson:"message" json:"message"`
 	Situation         *string     `bson:"situation,omitempty" json:"situation,omitempty"`
 }
-type OtherMessageDefinition MessageDefinition
 
-// MarshalJSON marshals the given MessageDefinition as JSON into a byte slice
+func (r MessageDefinition) ResourceType() string {
+	return "MessageDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MessageDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMessageDefinition
+		MessageDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMessageDefinition: OtherMessageDefinition(r),
-		ResourceType:           "MessageDefinition",
+		MessageDefinition: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

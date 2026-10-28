@@ -171,16 +171,19 @@ type CapabilityStatementDocument struct {
 	Documentation     *string      `bson:"documentation,omitempty" json:"documentation,omitempty"`
 	Profile           string       `bson:"profile" json:"profile"`
 }
-type OtherCapabilityStatement CapabilityStatement
 
-// MarshalJSON marshals the given CapabilityStatement as JSON into a byte slice
+func (r CapabilityStatement) ResourceType() string {
+	return "CapabilityStatement"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CapabilityStatement) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCapabilityStatement
+		CapabilityStatement
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCapabilityStatement: OtherCapabilityStatement(r),
-		ResourceType:             "CapabilityStatement",
+		CapabilityStatement: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

@@ -54,16 +54,19 @@ type EpisodeOfCareDiagnosis struct {
 	Condition         []CodeableReference `bson:"condition,omitempty" json:"condition,omitempty"`
 	Use               *CodeableConcept    `bson:"use,omitempty" json:"use,omitempty"`
 }
-type OtherEpisodeOfCare EpisodeOfCare
 
-// MarshalJSON marshals the given EpisodeOfCare as JSON into a byte slice
+func (r EpisodeOfCare) ResourceType() string {
+	return "EpisodeOfCare"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EpisodeOfCare) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEpisodeOfCare
+		EpisodeOfCare
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEpisodeOfCare: OtherEpisodeOfCare(r),
-		ResourceType:       "EpisodeOfCare",
+		EpisodeOfCare: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

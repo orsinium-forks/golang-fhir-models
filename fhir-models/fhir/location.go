@@ -48,16 +48,19 @@ type LocationPosition struct {
 	Latitude          decimal.Decimal  `bson:"latitude" json:"latitude"`
 	Altitude          *decimal.Decimal `bson:"altitude,omitempty" json:"altitude,omitempty"`
 }
-type OtherLocation Location
 
-// MarshalJSON marshals the given Location as JSON into a byte slice
+func (r Location) ResourceType() string {
+	return "Location"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Location) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherLocation
+		Location
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherLocation: OtherLocation(r),
-		ResourceType:  "Location",
+		Location:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

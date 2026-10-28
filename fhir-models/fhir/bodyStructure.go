@@ -54,16 +54,19 @@ type BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark s
 	Device            []CodeableReference `bson:"device,omitempty" json:"device,omitempty"`
 	Value             []Quantity          `bson:"value,omitempty" json:"value,omitempty"`
 }
-type OtherBodyStructure BodyStructure
 
-// MarshalJSON marshals the given BodyStructure as JSON into a byte slice
+func (r BodyStructure) ResourceType() string {
+	return "BodyStructure"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r BodyStructure) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBodyStructure
+		BodyStructure
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBodyStructure: OtherBodyStructure(r),
-		ResourceType:       "BodyStructure",
+		BodyStructure: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

@@ -74,16 +74,19 @@ type PaymentReconciliationProcessNote struct {
 	Type              *NoteType   `bson:"type,omitempty" json:"type,omitempty"`
 	Text              *string     `bson:"text,omitempty" json:"text,omitempty"`
 }
-type OtherPaymentReconciliation PaymentReconciliation
 
-// MarshalJSON marshals the given PaymentReconciliation as JSON into a byte slice
+func (r PaymentReconciliation) ResourceType() string {
+	return "PaymentReconciliation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r PaymentReconciliation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPaymentReconciliation
+		PaymentReconciliation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPaymentReconciliation: OtherPaymentReconciliation(r),
-		ResourceType:               "PaymentReconciliation",
+		PaymentReconciliation: r,
+		ResourceType:          r.ResourceType(),
 	})
 }
 

@@ -30,16 +30,19 @@ type PaymentNotice struct {
 	Amount            Money                        `bson:"amount" json:"amount"`
 	PaymentStatus     *CodeableConcept             `bson:"paymentStatus,omitempty" json:"paymentStatus,omitempty"`
 }
-type OtherPaymentNotice PaymentNotice
 
-// MarshalJSON marshals the given PaymentNotice as JSON into a byte slice
+func (r PaymentNotice) ResourceType() string {
+	return "PaymentNotice"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r PaymentNotice) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPaymentNotice
+		PaymentNotice
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPaymentNotice: OtherPaymentNotice(r),
-		ResourceType:       "PaymentNotice",
+		PaymentNotice: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

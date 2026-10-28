@@ -39,16 +39,19 @@ type SupplyDeliverySuppliedItem struct {
 	ItemCodeableConcept *CodeableConcept `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty"`
 	ItemReference       *Reference       `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
 }
-type OtherSupplyDelivery SupplyDelivery
 
-// MarshalJSON marshals the given SupplyDelivery as JSON into a byte slice
+func (r SupplyDelivery) ResourceType() string {
+	return "SupplyDelivery"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SupplyDelivery) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSupplyDelivery
+		SupplyDelivery
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSupplyDelivery: OtherSupplyDelivery(r),
-		ResourceType:        "SupplyDelivery",
+		ResourceType:   r.ResourceType(),
+		SupplyDelivery: r,
 	})
 }
 

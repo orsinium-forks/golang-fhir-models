@@ -50,16 +50,19 @@ type GoalTarget struct {
 	DueDate               *string          `bson:"dueDate,omitempty" json:"dueDate,omitempty"`
 	DueDuration           *Duration        `bson:"dueDuration,omitempty" json:"dueDuration,omitempty"`
 }
-type OtherGoal Goal
 
-// MarshalJSON marshals the given Goal as JSON into a byte slice
+func (r Goal) ResourceType() string {
+	return "Goal"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Goal) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherGoal
+		Goal
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherGoal:    OtherGoal(r),
-		ResourceType: "Goal",
+		Goal:         r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

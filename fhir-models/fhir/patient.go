@@ -64,16 +64,19 @@ type PatientLink struct {
 	Other             Reference   `bson:"other" json:"other"`
 	Type              LinkType    `bson:"type" json:"type"`
 }
-type OtherPatient Patient
 
-// MarshalJSON marshals the given Patient as JSON into a byte slice
+func (r Patient) ResourceType() string {
+	return "Patient"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Patient) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPatient
+		Patient
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPatient: OtherPatient(r),
-		ResourceType: "Patient",
+		Patient:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

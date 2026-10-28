@@ -46,16 +46,19 @@ type SupplyRequestParameter struct {
 	ValueRange           *Range           `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 }
-type OtherSupplyRequest SupplyRequest
 
-// MarshalJSON marshals the given SupplyRequest as JSON into a byte slice
+func (r SupplyRequest) ResourceType() string {
+	return "SupplyRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SupplyRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSupplyRequest
+		SupplyRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSupplyRequest: OtherSupplyRequest(r),
-		ResourceType:       "SupplyRequest",
+		ResourceType:  r.ResourceType(),
+		SupplyRequest: r,
 	})
 }
 

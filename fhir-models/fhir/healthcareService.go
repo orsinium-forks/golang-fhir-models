@@ -50,16 +50,19 @@ type HealthcareServiceEligibility struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Comment           *string          `bson:"comment,omitempty" json:"comment,omitempty"`
 }
-type OtherHealthcareService HealthcareService
 
-// MarshalJSON marshals the given HealthcareService as JSON into a byte slice
+func (r HealthcareService) ResourceType() string {
+	return "HealthcareService"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r HealthcareService) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherHealthcareService
+		HealthcareService
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherHealthcareService: OtherHealthcareService(r),
-		ResourceType:           "HealthcareService",
+		HealthcareService: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

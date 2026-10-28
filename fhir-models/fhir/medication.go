@@ -44,16 +44,19 @@ type MedicationBatch struct {
 	LotNumber         *string     `bson:"lotNumber,omitempty" json:"lotNumber,omitempty"`
 	ExpirationDate    *string     `bson:"expirationDate,omitempty" json:"expirationDate,omitempty"`
 }
-type OtherMedication Medication
 
-// MarshalJSON marshals the given Medication as JSON into a byte slice
+func (r Medication) ResourceType() string {
+	return "Medication"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Medication) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedication
+		Medication
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedication: OtherMedication(r),
-		ResourceType:    "Medication",
+		Medication:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

@@ -25,16 +25,19 @@ type Basic struct {
 	Created           *string         `bson:"created,omitempty" json:"created,omitempty"`
 	Author            *Reference      `bson:"author,omitempty" json:"author,omitempty"`
 }
-type OtherBasic Basic
 
-// MarshalJSON marshals the given Basic as JSON into a byte slice
+func (r Basic) ResourceType() string {
+	return "Basic"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Basic) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBasic
+		Basic
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBasic:   OtherBasic(r),
-		ResourceType: "Basic",
+		Basic:        r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

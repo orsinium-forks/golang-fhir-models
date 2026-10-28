@@ -35,16 +35,19 @@ type SubstanceIngredient struct {
 	SubstanceCodeableConcept CodeableConcept `bson:"substanceCodeableConcept" json:"substanceCodeableConcept"`
 	SubstanceReference       Reference       `bson:"substanceReference" json:"substanceReference"`
 }
-type OtherSubstance Substance
 
-// MarshalJSON marshals the given Substance as JSON into a byte slice
+func (r Substance) ResourceType() string {
+	return "Substance"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Substance) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstance
+		Substance
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstance: OtherSubstance(r),
-		ResourceType:   "Substance",
+		ResourceType: r.ResourceType(),
+		Substance:    r,
 	})
 }
 

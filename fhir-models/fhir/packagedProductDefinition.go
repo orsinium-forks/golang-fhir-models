@@ -74,16 +74,19 @@ type PackagedProductDefinitionPackagingContainedItem struct {
 	Item              CodeableReference `bson:"item" json:"item"`
 	Amount            *Quantity         `bson:"amount,omitempty" json:"amount,omitempty"`
 }
-type OtherPackagedProductDefinition PackagedProductDefinition
 
-// MarshalJSON marshals the given PackagedProductDefinition as JSON into a byte slice
+func (r PackagedProductDefinition) ResourceType() string {
+	return "PackagedProductDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r PackagedProductDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPackagedProductDefinition
+		PackagedProductDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPackagedProductDefinition: OtherPackagedProductDefinition(r),
-		ResourceType:                   "PackagedProductDefinition",
+		PackagedProductDefinition: r,
+		ResourceType:              r.ResourceType(),
 	})
 }
 

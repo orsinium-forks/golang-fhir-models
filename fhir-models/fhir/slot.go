@@ -29,16 +29,19 @@ type Slot struct {
 	Overbooked        *bool               `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
 	Comment           *string             `bson:"comment,omitempty" json:"comment,omitempty"`
 }
-type OtherSlot Slot
 
-// MarshalJSON marshals the given Slot as JSON into a byte slice
+func (r Slot) ResourceType() string {
+	return "Slot"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Slot) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSlot
+		Slot
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSlot:    OtherSlot(r),
-		ResourceType: "Slot",
+		ResourceType: r.ResourceType(),
+		Slot:         r,
 	})
 }
 

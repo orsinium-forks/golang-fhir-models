@@ -117,16 +117,19 @@ type EvidenceVariableCategory struct {
 	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueRange           *Range           `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 }
-type OtherEvidenceVariable EvidenceVariable
 
-// MarshalJSON marshals the given EvidenceVariable as JSON into a byte slice
+func (r EvidenceVariable) ResourceType() string {
+	return "EvidenceVariable"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EvidenceVariable) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEvidenceVariable
+		EvidenceVariable
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEvidenceVariable: OtherEvidenceVariable(r),
-		ResourceType:          "EvidenceVariable",
+		EvidenceVariable: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

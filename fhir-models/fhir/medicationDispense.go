@@ -63,16 +63,19 @@ type MedicationDispenseSubstitution struct {
 	Reason            []CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 	ResponsibleParty  *Reference        `bson:"responsibleParty,omitempty" json:"responsibleParty,omitempty"`
 }
-type OtherMedicationDispense MedicationDispense
 
-// MarshalJSON marshals the given MedicationDispense as JSON into a byte slice
+func (r MedicationDispense) ResourceType() string {
+	return "MedicationDispense"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicationDispense) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicationDispense
+		MedicationDispense
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicationDispense: OtherMedicationDispense(r),
-		ResourceType:            "MedicationDispense",
+		MedicationDispense: r,
+		ResourceType:       r.ResourceType(),
 	})
 }
 

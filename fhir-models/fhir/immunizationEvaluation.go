@@ -31,16 +31,19 @@ type ImmunizationEvaluation struct {
 	DoseNumber        *string                           `bson:"doseNumber,omitempty" json:"doseNumber,omitempty"`
 	SeriesDoses       *string                           `bson:"seriesDoses,omitempty" json:"seriesDoses,omitempty"`
 }
-type OtherImmunizationEvaluation ImmunizationEvaluation
 
-// MarshalJSON marshals the given ImmunizationEvaluation as JSON into a byte slice
+func (r ImmunizationEvaluation) ResourceType() string {
+	return "ImmunizationEvaluation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ImmunizationEvaluation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImmunizationEvaluation
+		ImmunizationEvaluation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImmunizationEvaluation: OtherImmunizationEvaluation(r),
-		ResourceType:                "ImmunizationEvaluation",
+		ImmunizationEvaluation: r,
+		ResourceType:           r.ResourceType(),
 	})
 }
 

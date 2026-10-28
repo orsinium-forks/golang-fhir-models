@@ -105,16 +105,19 @@ type ObservationComponent struct {
 	Interpretation       []CodeableConcept           `bson:"interpretation,omitempty" json:"interpretation,omitempty"`
 	ReferenceRange       []ObservationReferenceRange `bson:"referenceRange,omitempty" json:"referenceRange,omitempty"`
 }
-type OtherObservation Observation
 
-// MarshalJSON marshals the given Observation as JSON into a byte slice
+func (r Observation) ResourceType() string {
+	return "Observation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Observation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherObservation
+		Observation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherObservation: OtherObservation(r),
-		ResourceType:     "Observation",
+		Observation:  r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

@@ -86,16 +86,19 @@ type GenomicStudyAnalysisDevice struct {
 	Device            *Reference       `bson:"device,omitempty" json:"device,omitempty"`
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 }
-type OtherGenomicStudy GenomicStudy
 
-// MarshalJSON marshals the given GenomicStudy as JSON into a byte slice
+func (r GenomicStudy) ResourceType() string {
+	return "GenomicStudy"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r GenomicStudy) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherGenomicStudy
+		GenomicStudy
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherGenomicStudy: OtherGenomicStudy(r),
-		ResourceType:      "GenomicStudy",
+		GenomicStudy: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

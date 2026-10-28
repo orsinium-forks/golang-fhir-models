@@ -55,16 +55,19 @@ type Library struct {
 	DataRequirement        []DataRequirement     `bson:"dataRequirement,omitempty" json:"dataRequirement,omitempty"`
 	Content                []Attachment          `bson:"content,omitempty" json:"content,omitempty"`
 }
-type OtherLibrary Library
 
-// MarshalJSON marshals the given Library as JSON into a byte slice
+func (r Library) ResourceType() string {
+	return "Library"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Library) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherLibrary
+		Library
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherLibrary: OtherLibrary(r),
-		ResourceType: "Library",
+		Library:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

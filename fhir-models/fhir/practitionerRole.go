@@ -34,16 +34,19 @@ type PractitionerRole struct {
 	Availability      []Availability          `bson:"availability,omitempty" json:"availability,omitempty"`
 	Endpoint          []Reference             `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
-type OtherPractitionerRole PractitionerRole
 
-// MarshalJSON marshals the given PractitionerRole as JSON into a byte slice
+func (r PractitionerRole) ResourceType() string {
+	return "PractitionerRole"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r PractitionerRole) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPractitionerRole
+		PractitionerRole
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPractitionerRole: OtherPractitionerRole(r),
-		ResourceType:          "PractitionerRole",
+		PractitionerRole: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

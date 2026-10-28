@@ -28,16 +28,19 @@ type LinkageItem struct {
 	Type              LinkageType `bson:"type" json:"type"`
 	Resource          Reference   `bson:"resource" json:"resource"`
 }
-type OtherLinkage Linkage
 
-// MarshalJSON marshals the given Linkage as JSON into a byte slice
+func (r Linkage) ResourceType() string {
+	return "Linkage"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Linkage) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherLinkage
+		Linkage
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherLinkage: OtherLinkage(r),
-		ResourceType: "Linkage",
+		Linkage:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

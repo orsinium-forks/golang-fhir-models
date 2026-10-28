@@ -83,16 +83,19 @@ type ServiceRequestPatientInstruction struct {
 	InstructionMarkdown  *string     `bson:"instructionMarkdown,omitempty" json:"instructionMarkdown,omitempty"`
 	InstructionReference *Reference  `bson:"instructionReference,omitempty" json:"instructionReference,omitempty"`
 }
-type OtherServiceRequest ServiceRequest
 
-// MarshalJSON marshals the given ServiceRequest as JSON into a byte slice
+func (r ServiceRequest) ResourceType() string {
+	return "ServiceRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ServiceRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherServiceRequest
+		ServiceRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherServiceRequest: OtherServiceRequest(r),
-		ResourceType:        "ServiceRequest",
+		ResourceType:   r.ResourceType(),
+		ServiceRequest: r,
 	})
 }
 

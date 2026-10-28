@@ -32,16 +32,19 @@ type OrganizationAffiliation struct {
 	Contact                   []ExtendedContactDetail `bson:"contact,omitempty" json:"contact,omitempty"`
 	Endpoint                  []Reference             `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
-type OtherOrganizationAffiliation OrganizationAffiliation
 
-// MarshalJSON marshals the given OrganizationAffiliation as JSON into a byte slice
+func (r OrganizationAffiliation) ResourceType() string {
+	return "OrganizationAffiliation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r OrganizationAffiliation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherOrganizationAffiliation
+		OrganizationAffiliation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherOrganizationAffiliation: OtherOrganizationAffiliation(r),
-		ResourceType:                 "OrganizationAffiliation",
+		OrganizationAffiliation: r,
+		ResourceType:            r.ResourceType(),
 	})
 }
 

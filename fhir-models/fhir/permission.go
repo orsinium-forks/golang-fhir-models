@@ -65,16 +65,19 @@ type PermissionRuleActivity struct {
 	Action            []CodeableConcept `bson:"action,omitempty" json:"action,omitempty"`
 	Purpose           []CodeableConcept `bson:"purpose,omitempty" json:"purpose,omitempty"`
 }
-type OtherPermission Permission
 
-// MarshalJSON marshals the given Permission as JSON into a byte slice
+func (r Permission) ResourceType() string {
+	return "Permission"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Permission) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPermission
+		Permission
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPermission: OtherPermission(r),
-		ResourceType:    "Permission",
+		Permission:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

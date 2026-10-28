@@ -23,16 +23,19 @@ type FormularyItem struct {
 	Code              *CodeableConcept          `bson:"code,omitempty" json:"code,omitempty"`
 	Status            *FormularyItemStatusCodes `bson:"status,omitempty" json:"status,omitempty"`
 }
-type OtherFormularyItem FormularyItem
 
-// MarshalJSON marshals the given FormularyItem as JSON into a byte slice
+func (r FormularyItem) ResourceType() string {
+	return "FormularyItem"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r FormularyItem) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherFormularyItem
+		FormularyItem
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherFormularyItem: OtherFormularyItem(r),
-		ResourceType:       "FormularyItem",
+		FormularyItem: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

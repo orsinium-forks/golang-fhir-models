@@ -26,16 +26,19 @@ type Flag struct {
 	Encounter         *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	Author            *Reference        `bson:"author,omitempty" json:"author,omitempty"`
 }
-type OtherFlag Flag
 
-// MarshalJSON marshals the given Flag as JSON into a byte slice
+func (r Flag) ResourceType() string {
+	return "Flag"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Flag) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherFlag
+		Flag
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherFlag:    OtherFlag(r),
-		ResourceType: "Flag",
+		Flag:         r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

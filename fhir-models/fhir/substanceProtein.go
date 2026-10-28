@@ -37,16 +37,19 @@ type SubstanceProteinSubunit struct {
 	CTerminalModificationId *Identifier `bson:"cTerminalModificationId,omitempty" json:"cTerminalModificationId,omitempty"`
 	CTerminalModification   *string     `bson:"cTerminalModification,omitempty" json:"cTerminalModification,omitempty"`
 }
-type OtherSubstanceProtein SubstanceProtein
 
-// MarshalJSON marshals the given SubstanceProtein as JSON into a byte slice
+func (r SubstanceProtein) ResourceType() string {
+	return "SubstanceProtein"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstanceProtein) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstanceProtein
+		SubstanceProtein
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstanceProtein: OtherSubstanceProtein(r),
-		ResourceType:          "SubstanceProtein",
+		ResourceType:     r.ResourceType(),
+		SubstanceProtein: r,
 	})
 }
 

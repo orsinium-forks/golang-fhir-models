@@ -61,16 +61,19 @@ type ManufacturedItemDefinitionComponentConstituent struct {
 	Function          []CodeableConcept   `bson:"function,omitempty" json:"function,omitempty"`
 	HasIngredient     []CodeableReference `bson:"hasIngredient,omitempty" json:"hasIngredient,omitempty"`
 }
-type OtherManufacturedItemDefinition ManufacturedItemDefinition
 
-// MarshalJSON marshals the given ManufacturedItemDefinition as JSON into a byte slice
+func (r ManufacturedItemDefinition) ResourceType() string {
+	return "ManufacturedItemDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ManufacturedItemDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherManufacturedItemDefinition
+		ManufacturedItemDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherManufacturedItemDefinition: OtherManufacturedItemDefinition(r),
-		ResourceType:                    "ManufacturedItemDefinition",
+		ManufacturedItemDefinition: r,
+		ResourceType:               r.ResourceType(),
 	})
 }
 

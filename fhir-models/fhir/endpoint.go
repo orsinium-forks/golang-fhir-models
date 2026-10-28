@@ -39,16 +39,19 @@ type EndpointPayload struct {
 	Type              []CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 	MimeType          []string          `bson:"mimeType,omitempty" json:"mimeType,omitempty"`
 }
-type OtherEndpoint Endpoint
 
-// MarshalJSON marshals the given Endpoint as JSON into a byte slice
+func (r Endpoint) ResourceType() string {
+	return "Endpoint"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Endpoint) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEndpoint
+		Endpoint
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEndpoint: OtherEndpoint(r),
-		ResourceType:  "Endpoint",
+		Endpoint:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

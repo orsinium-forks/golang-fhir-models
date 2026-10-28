@@ -97,16 +97,19 @@ type AdverseEventSupportingInfo struct {
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept"`
 }
-type OtherAdverseEvent AdverseEvent
 
-// MarshalJSON marshals the given AdverseEvent as JSON into a byte slice
+func (r AdverseEvent) ResourceType() string {
+	return "AdverseEvent"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r AdverseEvent) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAdverseEvent
+		AdverseEvent
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAdverseEvent: OtherAdverseEvent(r),
-		ResourceType:      "AdverseEvent",
+		AdverseEvent: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

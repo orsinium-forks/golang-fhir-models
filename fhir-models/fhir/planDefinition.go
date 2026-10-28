@@ -193,16 +193,19 @@ type PlanDefinitionActionDynamicValue struct {
 	Path              *string     `bson:"path,omitempty" json:"path,omitempty"`
 	Expression        *Expression `bson:"expression,omitempty" json:"expression,omitempty"`
 }
-type OtherPlanDefinition PlanDefinition
 
-// MarshalJSON marshals the given PlanDefinition as JSON into a byte slice
+func (r PlanDefinition) ResourceType() string {
+	return "PlanDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r PlanDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPlanDefinition
+		PlanDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPlanDefinition: OtherPlanDefinition(r),
-		ResourceType:        "PlanDefinition",
+		PlanDefinition: r,
+		ResourceType:   r.ResourceType(),
 	})
 }
 

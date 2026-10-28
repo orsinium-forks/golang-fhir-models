@@ -79,16 +79,19 @@ type ImmunizationProtocolApplied struct {
 	DoseNumber        string            `bson:"doseNumber" json:"doseNumber"`
 	SeriesDoses       *string           `bson:"seriesDoses,omitempty" json:"seriesDoses,omitempty"`
 }
-type OtherImmunization Immunization
 
-// MarshalJSON marshals the given Immunization as JSON into a byte slice
+func (r Immunization) ResourceType() string {
+	return "Immunization"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Immunization) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImmunization
+		Immunization
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImmunization: OtherImmunization(r),
-		ResourceType:      "Immunization",
+		Immunization: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

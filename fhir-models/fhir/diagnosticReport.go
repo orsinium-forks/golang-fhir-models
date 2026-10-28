@@ -58,16 +58,19 @@ type DiagnosticReportMedia struct {
 	Comment           *string     `bson:"comment,omitempty" json:"comment,omitempty"`
 	Link              Reference   `bson:"link" json:"link"`
 }
-type OtherDiagnosticReport DiagnosticReport
 
-// MarshalJSON marshals the given DiagnosticReport as JSON into a byte slice
+func (r DiagnosticReport) ResourceType() string {
+	return "DiagnosticReport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DiagnosticReport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDiagnosticReport
+		DiagnosticReport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDiagnosticReport: OtherDiagnosticReport(r),
-		ResourceType:          "DiagnosticReport",
+		DiagnosticReport: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

@@ -37,16 +37,19 @@ type DeviceMetricCalibration struct {
 	State             *DeviceMetricCalibrationState `bson:"state,omitempty" json:"state,omitempty"`
 	Time              *string                       `bson:"time,omitempty" json:"time,omitempty"`
 }
-type OtherDeviceMetric DeviceMetric
 
-// MarshalJSON marshals the given DeviceMetric as JSON into a byte slice
+func (r DeviceMetric) ResourceType() string {
+	return "DeviceMetric"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceMetric) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceMetric
+		DeviceMetric
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceMetric: OtherDeviceMetric(r),
-		ResourceType:      "DeviceMetric",
+		DeviceMetric: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

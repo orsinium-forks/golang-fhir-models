@@ -52,16 +52,19 @@ type GroupMember struct {
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
 	Inactive          *bool       `bson:"inactive,omitempty" json:"inactive,omitempty"`
 }
-type OtherGroup Group
 
-// MarshalJSON marshals the given Group as JSON into a byte slice
+func (r Group) ResourceType() string {
+	return "Group"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Group) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherGroup
+		Group
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherGroup:   OtherGroup(r),
-		ResourceType: "Group",
+		Group:        r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

@@ -229,16 +229,19 @@ type CitationCitedArtifactContributorshipSummary struct {
 	Source            *CodeableConcept `bson:"source,omitempty" json:"source,omitempty"`
 	Value             string           `bson:"value" json:"value"`
 }
-type OtherCitation Citation
 
-// MarshalJSON marshals the given Citation as JSON into a byte slice
+func (r Citation) ResourceType() string {
+	return "Citation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Citation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCitation
+		Citation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCitation: OtherCitation(r),
-		ResourceType:  "Citation",
+		Citation:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

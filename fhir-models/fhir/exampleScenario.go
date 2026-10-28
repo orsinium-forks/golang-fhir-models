@@ -122,16 +122,19 @@ type ExampleScenarioProcessStepAlternative struct {
 	Description       *string                      `bson:"description,omitempty" json:"description,omitempty"`
 	Step              []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty"`
 }
-type OtherExampleScenario ExampleScenario
 
-// MarshalJSON marshals the given ExampleScenario as JSON into a byte slice
+func (r ExampleScenario) ResourceType() string {
+	return "ExampleScenario"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ExampleScenario) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherExampleScenario
+		ExampleScenario
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherExampleScenario: OtherExampleScenario(r),
-		ResourceType:         "ExampleScenario",
+		ExampleScenario: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

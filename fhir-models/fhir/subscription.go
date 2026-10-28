@@ -52,16 +52,19 @@ type SubscriptionParameter struct {
 	Name              string      `bson:"name" json:"name"`
 	Value             string      `bson:"value" json:"value"`
 }
-type OtherSubscription Subscription
 
-// MarshalJSON marshals the given Subscription as JSON into a byte slice
+func (r Subscription) ResourceType() string {
+	return "Subscription"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Subscription) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubscription
+		Subscription
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubscription: OtherSubscription(r),
-		ResourceType:      "Subscription",
+		ResourceType: r.ResourceType(),
+		Subscription: r,
 	})
 }
 

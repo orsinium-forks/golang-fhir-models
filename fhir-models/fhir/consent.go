@@ -84,16 +84,19 @@ type ConsentProvisionData struct {
 	Meaning           ConsentDataMeaning `bson:"meaning" json:"meaning"`
 	Reference         Reference          `bson:"reference" json:"reference"`
 }
-type OtherConsent Consent
 
-// MarshalJSON marshals the given Consent as JSON into a byte slice
+func (r Consent) ResourceType() string {
+	return "Consent"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Consent) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherConsent
+		Consent
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherConsent: OtherConsent(r),
-		ResourceType: "Consent",
+		Consent:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

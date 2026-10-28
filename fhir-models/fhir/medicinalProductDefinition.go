@@ -109,16 +109,19 @@ type MedicinalProductDefinitionCharacteristic struct {
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
 }
-type OtherMedicinalProductDefinition MedicinalProductDefinition
 
-// MarshalJSON marshals the given MedicinalProductDefinition as JSON into a byte slice
+func (r MedicinalProductDefinition) ResourceType() string {
+	return "MedicinalProductDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicinalProductDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicinalProductDefinition
+		MedicinalProductDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicinalProductDefinition: OtherMedicinalProductDefinition(r),
-		ResourceType:                    "MedicinalProductDefinition",
+		MedicinalProductDefinition: r,
+		ResourceType:               r.ResourceType(),
 	})
 }
 

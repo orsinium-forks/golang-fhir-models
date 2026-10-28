@@ -70,16 +70,19 @@ type CompositionSection struct {
 	EmptyReason       *CodeableConcept     `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 	Section           []CompositionSection `bson:"section,omitempty" json:"section,omitempty"`
 }
-type OtherComposition Composition
 
-// MarshalJSON marshals the given Composition as JSON into a byte slice
+func (r Composition) ResourceType() string {
+	return "Composition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Composition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherComposition
+		Composition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherComposition: OtherComposition(r),
-		ResourceType:     "Composition",
+		Composition:  r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

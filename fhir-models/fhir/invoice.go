@@ -55,16 +55,19 @@ type InvoiceLineItem struct {
 	ChargeItemCodeableConcept CodeableConcept     `bson:"chargeItemCodeableConcept" json:"chargeItemCodeableConcept"`
 	PriceComponent            []MonetaryComponent `bson:"priceComponent,omitempty" json:"priceComponent,omitempty"`
 }
-type OtherInvoice Invoice
 
-// MarshalJSON marshals the given Invoice as JSON into a byte slice
+func (r Invoice) ResourceType() string {
+	return "Invoice"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Invoice) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherInvoice
+		Invoice
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherInvoice: OtherInvoice(r),
-		ResourceType: "Invoice",
+		Invoice:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

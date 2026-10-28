@@ -79,16 +79,19 @@ type FamilyMemberHistoryProcedure struct {
 	PerformedDateTime  *string          `bson:"performedDateTime,omitempty" json:"performedDateTime,omitempty"`
 	Note               []Annotation     `bson:"note,omitempty" json:"note,omitempty"`
 }
-type OtherFamilyMemberHistory FamilyMemberHistory
 
-// MarshalJSON marshals the given FamilyMemberHistory as JSON into a byte slice
+func (r FamilyMemberHistory) ResourceType() string {
+	return "FamilyMemberHistory"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r FamilyMemberHistory) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherFamilyMemberHistory
+		FamilyMemberHistory
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherFamilyMemberHistory: OtherFamilyMemberHistory(r),
-		ResourceType:             "FamilyMemberHistory",
+		FamilyMemberHistory: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

@@ -18,16 +18,19 @@ type DomainResource struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
-type OtherDomainResource DomainResource
 
-// MarshalJSON marshals the given DomainResource as JSON into a byte slice
+func (r DomainResource) ResourceType() string {
+	return "DomainResource"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DomainResource) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDomainResource
+		DomainResource
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDomainResource: OtherDomainResource(r),
-		ResourceType:        "DomainResource",
+		DomainResource: r,
+		ResourceType:   r.ResourceType(),
 	})
 }
 

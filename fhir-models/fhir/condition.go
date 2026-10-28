@@ -57,16 +57,19 @@ type ConditionStage struct {
 	Assessment        []Reference      `bson:"assessment,omitempty" json:"assessment,omitempty"`
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 }
-type OtherCondition Condition
 
-// MarshalJSON marshals the given Condition as JSON into a byte slice
+func (r Condition) ResourceType() string {
+	return "Condition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Condition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCondition
+		Condition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCondition: OtherCondition(r),
-		ResourceType:   "Condition",
+		Condition:    r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

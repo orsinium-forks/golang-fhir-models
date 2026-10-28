@@ -39,16 +39,19 @@ type OrganizationQualification struct {
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 	Issuer            *Reference      `bson:"issuer,omitempty" json:"issuer,omitempty"`
 }
-type OtherOrganization Organization
 
-// MarshalJSON marshals the given Organization as JSON into a byte slice
+func (r Organization) ResourceType() string {
+	return "Organization"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Organization) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherOrganization
+		Organization
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherOrganization: OtherOrganization(r),
-		ResourceType:      "Organization",
+		Organization: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

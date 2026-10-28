@@ -74,16 +74,19 @@ type GraphDefinitionLinkCompartment struct {
 	Expression        *string              `bson:"expression,omitempty" json:"expression,omitempty"`
 	Description       *string              `bson:"description,omitempty" json:"description,omitempty"`
 }
-type OtherGraphDefinition GraphDefinition
 
-// MarshalJSON marshals the given GraphDefinition as JSON into a byte slice
+func (r GraphDefinition) ResourceType() string {
+	return "GraphDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r GraphDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherGraphDefinition
+		GraphDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherGraphDefinition: OtherGraphDefinition(r),
-		ResourceType:         "GraphDefinition",
+		GraphDefinition: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

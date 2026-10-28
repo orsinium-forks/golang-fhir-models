@@ -131,16 +131,19 @@ type NutritionOrderEnteralFormulaAdministrationSchedule struct {
 	AsNeeded          *bool            `bson:"asNeeded,omitempty" json:"asNeeded,omitempty"`
 	AsNeededFor       *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty"`
 }
-type OtherNutritionOrder NutritionOrder
 
-// MarshalJSON marshals the given NutritionOrder as JSON into a byte slice
+func (r NutritionOrder) ResourceType() string {
+	return "NutritionOrder"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r NutritionOrder) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherNutritionOrder
+		NutritionOrder
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherNutritionOrder: OtherNutritionOrder(r),
-		ResourceType:        "NutritionOrder",
+		NutritionOrder: r,
+		ResourceType:   r.ResourceType(),
 	})
 }
 

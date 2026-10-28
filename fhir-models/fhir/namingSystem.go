@@ -63,16 +63,19 @@ type NamingSystemUniqueId struct {
 	Period            *Period                    `bson:"period,omitempty" json:"period,omitempty"`
 	Authoritative     *bool                      `bson:"authoritative,omitempty" json:"authoritative,omitempty"`
 }
-type OtherNamingSystem NamingSystem
 
-// MarshalJSON marshals the given NamingSystem as JSON into a byte slice
+func (r NamingSystem) ResourceType() string {
+	return "NamingSystem"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r NamingSystem) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherNamingSystem
+		NamingSystem
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherNamingSystem: OtherNamingSystem(r),
-		ResourceType:      "NamingSystem",
+		NamingSystem: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

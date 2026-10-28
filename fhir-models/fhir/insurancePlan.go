@@ -98,16 +98,19 @@ type InsurancePlanPlanSpecificCostBenefitCost struct {
 	Qualifiers        []CodeableConcept `bson:"qualifiers,omitempty" json:"qualifiers,omitempty"`
 	Value             *Quantity         `bson:"value,omitempty" json:"value,omitempty"`
 }
-type OtherInsurancePlan InsurancePlan
 
-// MarshalJSON marshals the given InsurancePlan as JSON into a byte slice
+func (r InsurancePlan) ResourceType() string {
+	return "InsurancePlan"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r InsurancePlan) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherInsurancePlan
+		InsurancePlan
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherInsurancePlan: OtherInsurancePlan(r),
-		ResourceType:       "InsurancePlan",
+		InsurancePlan: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

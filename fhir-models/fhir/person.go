@@ -48,16 +48,19 @@ type PersonLink struct {
 	Target            Reference               `bson:"target" json:"target"`
 	Assurance         *IdentityAssuranceLevel `bson:"assurance,omitempty" json:"assurance,omitempty"`
 }
-type OtherPerson Person
 
-// MarshalJSON marshals the given Person as JSON into a byte slice
+func (r Person) ResourceType() string {
+	return "Person"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Person) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPerson
+		Person
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPerson:  OtherPerson(r),
-		ResourceType: "Person",
+		Person:       r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

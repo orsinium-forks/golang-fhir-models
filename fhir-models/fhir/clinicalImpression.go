@@ -47,16 +47,19 @@ type ClinicalImpressionFinding struct {
 	Item              *CodeableReference `bson:"item,omitempty" json:"item,omitempty"`
 	Basis             *string            `bson:"basis,omitempty" json:"basis,omitempty"`
 }
-type OtherClinicalImpression ClinicalImpression
 
-// MarshalJSON marshals the given ClinicalImpression as JSON into a byte slice
+func (r ClinicalImpression) ResourceType() string {
+	return "ClinicalImpression"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ClinicalImpression) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherClinicalImpression
+		ClinicalImpression
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherClinicalImpression: OtherClinicalImpression(r),
-		ResourceType:            "ClinicalImpression",
+		ClinicalImpression: r,
+		ResourceType:       r.ResourceType(),
 	})
 }
 

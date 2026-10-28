@@ -111,16 +111,19 @@ type MeasureReportGroupStratifierStratumPopulation struct {
 	SubjectReport     []Reference      `bson:"subjectReport,omitempty" json:"subjectReport,omitempty"`
 	Subjects          *Reference       `bson:"subjects,omitempty" json:"subjects,omitempty"`
 }
-type OtherMeasureReport MeasureReport
 
-// MarshalJSON marshals the given MeasureReport as JSON into a byte slice
+func (r MeasureReport) ResourceType() string {
+	return "MeasureReport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MeasureReport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMeasureReport
+		MeasureReport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMeasureReport: OtherMeasureReport(r),
-		ResourceType:       "MeasureReport",
+		MeasureReport: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

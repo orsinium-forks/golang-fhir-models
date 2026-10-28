@@ -36,16 +36,19 @@ type SubscriptionStatusNotificationEvent struct {
 	Focus             *Reference  `bson:"focus,omitempty" json:"focus,omitempty"`
 	AdditionalContext []Reference `bson:"additionalContext,omitempty" json:"additionalContext,omitempty"`
 }
-type OtherSubscriptionStatus SubscriptionStatus
 
-// MarshalJSON marshals the given SubscriptionStatus as JSON into a byte slice
+func (r SubscriptionStatus) ResourceType() string {
+	return "SubscriptionStatus"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubscriptionStatus) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubscriptionStatus
+		SubscriptionStatus
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubscriptionStatus: OtherSubscriptionStatus(r),
-		ResourceType:            "SubscriptionStatus",
+		ResourceType:       r.ResourceType(),
+		SubscriptionStatus: r,
 	})
 }
 

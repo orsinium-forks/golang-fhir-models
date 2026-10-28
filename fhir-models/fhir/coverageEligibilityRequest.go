@@ -80,16 +80,19 @@ type CoverageEligibilityRequestItemDiagnosis struct {
 	DiagnosisCodeableConcept *CodeableConcept `bson:"diagnosisCodeableConcept,omitempty" json:"diagnosisCodeableConcept,omitempty"`
 	DiagnosisReference       *Reference       `bson:"diagnosisReference,omitempty" json:"diagnosisReference,omitempty"`
 }
-type OtherCoverageEligibilityRequest CoverageEligibilityRequest
 
-// MarshalJSON marshals the given CoverageEligibilityRequest as JSON into a byte slice
+func (r CoverageEligibilityRequest) ResourceType() string {
+	return "CoverageEligibilityRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CoverageEligibilityRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCoverageEligibilityRequest
+		CoverageEligibilityRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCoverageEligibilityRequest: OtherCoverageEligibilityRequest(r),
-		ResourceType:                    "CoverageEligibilityRequest",
+		CoverageEligibilityRequest: r,
+		ResourceType:               r.ResourceType(),
 	})
 }
 

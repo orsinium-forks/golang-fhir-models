@@ -45,16 +45,19 @@ type MetadataResource struct {
 	Endorser               []ContactDetail   `bson:"endorser,omitempty" json:"endorser,omitempty"`
 	RelatedArtifact        []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty"`
 }
-type OtherMetadataResource MetadataResource
 
-// MarshalJSON marshals the given MetadataResource as JSON into a byte slice
+func (r MetadataResource) ResourceType() string {
+	return "MetadataResource"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MetadataResource) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMetadataResource
+		MetadataResource
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMetadataResource: OtherMetadataResource(r),
-		ResourceType:          "MetadataResource",
+		MetadataResource: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

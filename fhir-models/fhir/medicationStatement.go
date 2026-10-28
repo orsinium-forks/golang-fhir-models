@@ -48,16 +48,19 @@ type MedicationStatementAdherence struct {
 	Code              CodeableConcept  `bson:"code" json:"code"`
 	Reason            *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }
-type OtherMedicationStatement MedicationStatement
 
-// MarshalJSON marshals the given MedicationStatement as JSON into a byte slice
+func (r MedicationStatement) ResourceType() string {
+	return "MedicationStatement"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicationStatement) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicationStatement
+		MedicationStatement
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicationStatement: OtherMedicationStatement(r),
-		ResourceType:             "MedicationStatement",
+		MedicationStatement: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

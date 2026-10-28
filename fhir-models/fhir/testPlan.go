@@ -99,16 +99,19 @@ type TestPlanTestCaseAssertion struct {
 	Object            []CodeableReference `bson:"object,omitempty" json:"object,omitempty"`
 	Result            []CodeableReference `bson:"result,omitempty" json:"result,omitempty"`
 }
-type OtherTestPlan TestPlan
 
-// MarshalJSON marshals the given TestPlan as JSON into a byte slice
+func (r TestPlan) ResourceType() string {
+	return "TestPlan"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r TestPlan) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTestPlan
+		TestPlan
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTestPlan: OtherTestPlan(r),
-		ResourceType:  "TestPlan",
+		ResourceType: r.ResourceType(),
+		TestPlan:     r,
 	})
 }
 

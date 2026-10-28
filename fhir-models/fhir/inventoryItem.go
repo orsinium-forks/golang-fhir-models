@@ -95,16 +95,19 @@ type InventoryItemInstance struct {
 	Subject           *Reference   `bson:"subject,omitempty" json:"subject,omitempty"`
 	Location          *Reference   `bson:"location,omitempty" json:"location,omitempty"`
 }
-type OtherInventoryItem InventoryItem
 
-// MarshalJSON marshals the given InventoryItem as JSON into a byte slice
+func (r InventoryItem) ResourceType() string {
+	return "InventoryItem"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r InventoryItem) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherInventoryItem
+		InventoryItem
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherInventoryItem: OtherInventoryItem(r),
-		ResourceType:       "InventoryItem",
+		InventoryItem: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

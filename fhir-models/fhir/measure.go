@@ -134,16 +134,19 @@ type MeasureSupplementalData struct {
 	Description       *string           `bson:"description,omitempty" json:"description,omitempty"`
 	Criteria          Expression        `bson:"criteria" json:"criteria"`
 }
-type OtherMeasure Measure
 
-// MarshalJSON marshals the given Measure as JSON into a byte slice
+func (r Measure) ResourceType() string {
+	return "Measure"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Measure) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMeasure
+		Measure
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMeasure: OtherMeasure(r),
-		ResourceType: "Measure",
+		Measure:      r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

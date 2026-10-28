@@ -52,16 +52,19 @@ type RiskAssessmentPrediction struct {
 	WhenRange          *Range           `bson:"whenRange,omitempty" json:"whenRange,omitempty"`
 	Rationale          *string          `bson:"rationale,omitempty" json:"rationale,omitempty"`
 }
-type OtherRiskAssessment RiskAssessment
 
-// MarshalJSON marshals the given RiskAssessment as JSON into a byte slice
+func (r RiskAssessment) ResourceType() string {
+	return "RiskAssessment"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r RiskAssessment) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherRiskAssessment
+		RiskAssessment
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherRiskAssessment: OtherRiskAssessment(r),
-		ResourceType:        "RiskAssessment",
+		ResourceType:   r.ResourceType(),
+		RiskAssessment: r,
 	})
 }
 

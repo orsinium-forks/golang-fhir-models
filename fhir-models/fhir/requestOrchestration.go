@@ -126,16 +126,19 @@ type RequestOrchestrationActionDynamicValue struct {
 	Path              *string     `bson:"path,omitempty" json:"path,omitempty"`
 	Expression        *Expression `bson:"expression,omitempty" json:"expression,omitempty"`
 }
-type OtherRequestOrchestration RequestOrchestration
 
-// MarshalJSON marshals the given RequestOrchestration as JSON into a byte slice
+func (r RequestOrchestration) ResourceType() string {
+	return "RequestOrchestration"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r RequestOrchestration) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherRequestOrchestration
+		RequestOrchestration
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherRequestOrchestration: OtherRequestOrchestration(r),
-		ResourceType:              "RequestOrchestration",
+		RequestOrchestration: r,
+		ResourceType:         r.ResourceType(),
 	})
 }
 

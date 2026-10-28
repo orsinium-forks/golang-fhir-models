@@ -30,16 +30,19 @@ type AppointmentResponse struct {
 	OccurrenceDate    *string           `bson:"occurrenceDate,omitempty" json:"occurrenceDate,omitempty"`
 	RecurrenceId      *int              `bson:"recurrenceId,omitempty" json:"recurrenceId,omitempty"`
 }
-type OtherAppointmentResponse AppointmentResponse
 
-// MarshalJSON marshals the given AppointmentResponse as JSON into a byte slice
+func (r AppointmentResponse) ResourceType() string {
+	return "AppointmentResponse"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r AppointmentResponse) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAppointmentResponse
+		AppointmentResponse
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAppointmentResponse: OtherAppointmentResponse(r),
-		ResourceType:             "AppointmentResponse",
+		AppointmentResponse: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

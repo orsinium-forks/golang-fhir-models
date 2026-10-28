@@ -244,16 +244,19 @@ type ContractRule struct {
 	ContentAttachment Attachment  `bson:"contentAttachment" json:"contentAttachment"`
 	ContentReference  Reference   `bson:"contentReference" json:"contentReference"`
 }
-type OtherContract Contract
 
-// MarshalJSON marshals the given Contract as JSON into a byte slice
+func (r Contract) ResourceType() string {
+	return "Contract"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Contract) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherContract
+		Contract
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherContract: OtherContract(r),
-		ResourceType:  "Contract",
+		Contract:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

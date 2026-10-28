@@ -74,16 +74,19 @@ type BundleEntryResponse struct {
 	LastModified      *string        `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
 	Outcome           jsontext.Value `bson:"outcome,omitempty" json:"outcome,omitempty"`
 }
-type OtherBundle Bundle
 
-// MarshalJSON marshals the given Bundle as JSON into a byte slice
+func (r Bundle) ResourceType() string {
+	return "Bundle"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Bundle) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBundle
+		Bundle
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBundle:  OtherBundle(r),
-		ResourceType: "Bundle",
+		Bundle:       r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

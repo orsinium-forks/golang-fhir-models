@@ -53,16 +53,19 @@ type SubstanceReferenceInformationTarget struct {
 	AmountType        *CodeableConcept `bson:"amountType,omitempty" json:"amountType,omitempty"`
 	Source            []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
-type OtherSubstanceReferenceInformation SubstanceReferenceInformation
 
-// MarshalJSON marshals the given SubstanceReferenceInformation as JSON into a byte slice
+func (r SubstanceReferenceInformation) ResourceType() string {
+	return "SubstanceReferenceInformation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstanceReferenceInformation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstanceReferenceInformation
+		SubstanceReferenceInformation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstanceReferenceInformation: OtherSubstanceReferenceInformation(r),
-		ResourceType:                       "SubstanceReferenceInformation",
+		ResourceType:                  r.ResourceType(),
+		SubstanceReferenceInformation: r,
 	})
 }
 

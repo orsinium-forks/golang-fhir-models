@@ -35,16 +35,19 @@ type DeviceAssociationOperation struct {
 	Operator          []Reference     `bson:"operator,omitempty" json:"operator,omitempty"`
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
-type OtherDeviceAssociation DeviceAssociation
 
-// MarshalJSON marshals the given DeviceAssociation as JSON into a byte slice
+func (r DeviceAssociation) ResourceType() string {
+	return "DeviceAssociation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceAssociation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceAssociation
+		DeviceAssociation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceAssociation: OtherDeviceAssociation(r),
-		ResourceType:           "DeviceAssociation",
+		DeviceAssociation: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

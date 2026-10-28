@@ -51,16 +51,19 @@ type DetectedIssueMitigation struct {
 	Author            *Reference      `bson:"author,omitempty" json:"author,omitempty"`
 	Note              []Annotation    `bson:"note,omitempty" json:"note,omitempty"`
 }
-type OtherDetectedIssue DetectedIssue
 
-// MarshalJSON marshals the given DetectedIssue as JSON into a byte slice
+func (r DetectedIssue) ResourceType() string {
+	return "DetectedIssue"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DetectedIssue) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDetectedIssue
+		DetectedIssue
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDetectedIssue: OtherDetectedIssue(r),
-		ResourceType:       "DetectedIssue",
+		DetectedIssue: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

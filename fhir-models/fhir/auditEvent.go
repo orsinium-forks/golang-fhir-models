@@ -91,16 +91,19 @@ type AuditEventEntityDetail struct {
 	ValuePeriod          Period          `bson:"valuePeriod" json:"valuePeriod"`
 	ValueBase64Binary    string          `bson:"valueBase64Binary" json:"valueBase64Binary"`
 }
-type OtherAuditEvent AuditEvent
 
-// MarshalJSON marshals the given AuditEvent as JSON into a byte slice
+func (r AuditEvent) ResourceType() string {
+	return "AuditEvent"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r AuditEvent) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAuditEvent
+		AuditEvent
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAuditEvent: OtherAuditEvent(r),
-		ResourceType:    "AuditEvent",
+		AuditEvent:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

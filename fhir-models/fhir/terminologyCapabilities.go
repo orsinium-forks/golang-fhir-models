@@ -122,16 +122,19 @@ type TerminologyCapabilitiesClosure struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Translation       *bool       `bson:"translation,omitempty" json:"translation,omitempty"`
 }
-type OtherTerminologyCapabilities TerminologyCapabilities
 
-// MarshalJSON marshals the given TerminologyCapabilities as JSON into a byte slice
+func (r TerminologyCapabilities) ResourceType() string {
+	return "TerminologyCapabilities"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r TerminologyCapabilities) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTerminologyCapabilities
+		TerminologyCapabilities
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTerminologyCapabilities: OtherTerminologyCapabilities(r),
-		ResourceType:                 "TerminologyCapabilities",
+		ResourceType:            r.ResourceType(),
+		TerminologyCapabilities: r,
 	})
 }
 

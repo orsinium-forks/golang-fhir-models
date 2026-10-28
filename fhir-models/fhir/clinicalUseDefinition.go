@@ -94,16 +94,19 @@ type ClinicalUseDefinitionWarning struct {
 	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 }
-type OtherClinicalUseDefinition ClinicalUseDefinition
 
-// MarshalJSON marshals the given ClinicalUseDefinition as JSON into a byte slice
+func (r ClinicalUseDefinition) ResourceType() string {
+	return "ClinicalUseDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ClinicalUseDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherClinicalUseDefinition
+		ClinicalUseDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherClinicalUseDefinition: OtherClinicalUseDefinition(r),
-		ResourceType:               "ClinicalUseDefinition",
+		ClinicalUseDefinition: r,
+		ResourceType:          r.ResourceType(),
 	})
 }
 

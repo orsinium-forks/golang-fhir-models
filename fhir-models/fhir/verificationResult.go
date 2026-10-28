@@ -65,16 +65,19 @@ type VerificationResultValidator struct {
 	IdentityCertificate  *string     `bson:"identityCertificate,omitempty" json:"identityCertificate,omitempty"`
 	AttestationSignature *Signature  `bson:"attestationSignature,omitempty" json:"attestationSignature,omitempty"`
 }
-type OtherVerificationResult VerificationResult
 
-// MarshalJSON marshals the given VerificationResult as JSON into a byte slice
+func (r VerificationResult) ResourceType() string {
+	return "VerificationResult"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r VerificationResult) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherVerificationResult
+		VerificationResult
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherVerificationResult: OtherVerificationResult(r),
-		ResourceType:            "VerificationResult",
+		ResourceType:       r.ResourceType(),
+		VerificationResult: r,
 	})
 }
 

@@ -50,16 +50,19 @@ type CommunicationPayload struct {
 	ContentReference       Reference       `bson:"contentReference" json:"contentReference"`
 	ContentCodeableConcept CodeableConcept `bson:"contentCodeableConcept" json:"contentCodeableConcept"`
 }
-type OtherCommunication Communication
 
-// MarshalJSON marshals the given Communication as JSON into a byte slice
+func (r Communication) ResourceType() string {
+	return "Communication"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Communication) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCommunication
+		Communication
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCommunication: OtherCommunication(r),
-		ResourceType:       "Communication",
+		Communication: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

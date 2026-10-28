@@ -47,16 +47,19 @@ type ArtifactAssessmentContent struct {
 	FreeToShare       *bool                              `bson:"freeToShare,omitempty" json:"freeToShare,omitempty"`
 	Component         []ArtifactAssessmentContent        `bson:"component,omitempty" json:"component,omitempty"`
 }
-type OtherArtifactAssessment ArtifactAssessment
 
-// MarshalJSON marshals the given ArtifactAssessment as JSON into a byte slice
+func (r ArtifactAssessment) ResourceType() string {
+	return "ArtifactAssessment"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ArtifactAssessment) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherArtifactAssessment
+		ArtifactAssessment
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherArtifactAssessment: OtherArtifactAssessment(r),
-		ResourceType:            "ArtifactAssessment",
+		ArtifactAssessment: r,
+		ResourceType:       r.ResourceType(),
 	})
 }
 

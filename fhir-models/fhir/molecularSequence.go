@@ -61,16 +61,19 @@ type MolecularSequenceRelativeEdit struct {
 	ReplacementSequence *string     `bson:"replacementSequence,omitempty" json:"replacementSequence,omitempty"`
 	ReplacedSequence    *string     `bson:"replacedSequence,omitempty" json:"replacedSequence,omitempty"`
 }
-type OtherMolecularSequence MolecularSequence
 
-// MarshalJSON marshals the given MolecularSequence as JSON into a byte slice
+func (r MolecularSequence) ResourceType() string {
+	return "MolecularSequence"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MolecularSequence) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMolecularSequence
+		MolecularSequence
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMolecularSequence: OtherMolecularSequence(r),
-		ResourceType:           "MolecularSequence",
+		MolecularSequence: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

@@ -73,16 +73,19 @@ type ImagingSelectionInstanceImageRegion3D struct {
 	RegionType        ImagingSelection3DGraphicType `bson:"regionType" json:"regionType"`
 	Coordinate        []decimal.Decimal             `bson:"coordinate" json:"coordinate"`
 }
-type OtherImagingSelection ImagingSelection
 
-// MarshalJSON marshals the given ImagingSelection as JSON into a byte slice
+func (r ImagingSelection) ResourceType() string {
+	return "ImagingSelection"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ImagingSelection) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImagingSelection
+		ImagingSelection
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImagingSelection: OtherImagingSelection(r),
-		ResourceType:          "ImagingSelection",
+		ImagingSelection: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

@@ -143,16 +143,19 @@ type ConceptMapGroupUnmapped struct {
 	Relationship      *ConceptMapRelationship     `bson:"relationship,omitempty" json:"relationship,omitempty"`
 	OtherMap          *string                     `bson:"otherMap,omitempty" json:"otherMap,omitempty"`
 }
-type OtherConceptMap ConceptMap
 
-// MarshalJSON marshals the given ConceptMap as JSON into a byte slice
+func (r ConceptMap) ResourceType() string {
+	return "ConceptMap"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ConceptMap) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherConceptMap
+		ConceptMap
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherConceptMap: OtherConceptMap(r),
-		ResourceType:    "ConceptMap",
+		ConceptMap:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

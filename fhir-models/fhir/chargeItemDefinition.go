@@ -62,16 +62,19 @@ type ChargeItemDefinitionPropertyGroup struct {
 	Applicability     []ChargeItemDefinitionApplicability `bson:"applicability,omitempty" json:"applicability,omitempty"`
 	PriceComponent    []MonetaryComponent                 `bson:"priceComponent,omitempty" json:"priceComponent,omitempty"`
 }
-type OtherChargeItemDefinition ChargeItemDefinition
 
-// MarshalJSON marshals the given ChargeItemDefinition as JSON into a byte slice
+func (r ChargeItemDefinition) ResourceType() string {
+	return "ChargeItemDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ChargeItemDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherChargeItemDefinition
+		ChargeItemDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherChargeItemDefinition: OtherChargeItemDefinition(r),
-		ResourceType:              "ChargeItemDefinition",
+		ChargeItemDefinition: r,
+		ResourceType:         r.ResourceType(),
 	})
 }
 

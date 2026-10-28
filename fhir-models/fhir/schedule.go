@@ -27,16 +27,19 @@ type Schedule struct {
 	PlanningHorizon   *Period             `bson:"planningHorizon,omitempty" json:"planningHorizon,omitempty"`
 	Comment           *string             `bson:"comment,omitempty" json:"comment,omitempty"`
 }
-type OtherSchedule Schedule
 
-// MarshalJSON marshals the given Schedule as JSON into a byte slice
+func (r Schedule) ResourceType() string {
+	return "Schedule"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Schedule) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSchedule
+		Schedule
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSchedule: OtherSchedule(r),
-		ResourceType:  "Schedule",
+		ResourceType: r.ResourceType(),
+		Schedule:     r,
 	})
 }
 

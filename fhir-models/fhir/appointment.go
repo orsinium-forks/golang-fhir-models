@@ -105,16 +105,19 @@ type AppointmentRecurrenceTemplateYearlyTemplate struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	YearInterval      int         `bson:"yearInterval" json:"yearInterval"`
 }
-type OtherAppointment Appointment
 
-// MarshalJSON marshals the given Appointment as JSON into a byte slice
+func (r Appointment) ResourceType() string {
+	return "Appointment"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Appointment) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAppointment
+		Appointment
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAppointment: OtherAppointment(r),
-		ResourceType:     "Appointment",
+		Appointment:  r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

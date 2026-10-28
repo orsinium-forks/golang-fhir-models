@@ -55,16 +55,19 @@ type BiologicallyDerivedProductProperty struct {
 	ValueString          string          `bson:"valueString" json:"valueString"`
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment"`
 }
-type OtherBiologicallyDerivedProduct BiologicallyDerivedProduct
 
-// MarshalJSON marshals the given BiologicallyDerivedProduct as JSON into a byte slice
+func (r BiologicallyDerivedProduct) ResourceType() string {
+	return "BiologicallyDerivedProduct"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r BiologicallyDerivedProduct) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBiologicallyDerivedProduct
+		BiologicallyDerivedProduct
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBiologicallyDerivedProduct: OtherBiologicallyDerivedProduct(r),
-		ResourceType:                    "BiologicallyDerivedProduct",
+		BiologicallyDerivedProduct: r,
+		ResourceType:               r.ResourceType(),
 	})
 }
 

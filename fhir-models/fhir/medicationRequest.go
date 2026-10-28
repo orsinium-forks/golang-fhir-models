@@ -82,16 +82,19 @@ type MedicationRequestSubstitution struct {
 	AllowedCodeableConcept CodeableConcept  `bson:"allowedCodeableConcept" json:"allowedCodeableConcept"`
 	Reason                 *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }
-type OtherMedicationRequest MedicationRequest
 
-// MarshalJSON marshals the given MedicationRequest as JSON into a byte slice
+func (r MedicationRequest) ResourceType() string {
+	return "MedicationRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicationRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicationRequest
+		MedicationRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicationRequest: OtherMedicationRequest(r),
-		ResourceType:           "MedicationRequest",
+		MedicationRequest: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

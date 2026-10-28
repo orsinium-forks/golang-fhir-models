@@ -90,16 +90,19 @@ type CoverageEligibilityResponseError struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Expression        []string        `bson:"expression,omitempty" json:"expression,omitempty"`
 }
-type OtherCoverageEligibilityResponse CoverageEligibilityResponse
 
-// MarshalJSON marshals the given CoverageEligibilityResponse as JSON into a byte slice
+func (r CoverageEligibilityResponse) ResourceType() string {
+	return "CoverageEligibilityResponse"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CoverageEligibilityResponse) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCoverageEligibilityResponse
+		CoverageEligibilityResponse
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCoverageEligibilityResponse: OtherCoverageEligibilityResponse(r),
-		ResourceType:                     "CoverageEligibilityResponse",
+		CoverageEligibilityResponse: r,
+		ResourceType:                r.ResourceType(),
 	})
 }
 

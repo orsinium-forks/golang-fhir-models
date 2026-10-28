@@ -71,16 +71,19 @@ type ImagingStudySeriesInstance struct {
 	Number            *int        `bson:"number,omitempty" json:"number,omitempty"`
 	Title             *string     `bson:"title,omitempty" json:"title,omitempty"`
 }
-type OtherImagingStudy ImagingStudy
 
-// MarshalJSON marshals the given ImagingStudy as JSON into a byte slice
+func (r ImagingStudy) ResourceType() string {
+	return "ImagingStudy"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ImagingStudy) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImagingStudy
+		ImagingStudy
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImagingStudy: OtherImagingStudy(r),
-		ResourceType:      "ImagingStudy",
+		ImagingStudy: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

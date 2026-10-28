@@ -44,16 +44,19 @@ type DeviceUsageAdherence struct {
 	Code              CodeableConcept   `bson:"code" json:"code"`
 	Reason            []CodeableConcept `bson:"reason" json:"reason"`
 }
-type OtherDeviceUsage DeviceUsage
 
-// MarshalJSON marshals the given DeviceUsage as JSON into a byte slice
+func (r DeviceUsage) ResourceType() string {
+	return "DeviceUsage"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceUsage) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceUsage
+		DeviceUsage
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceUsage: OtherDeviceUsage(r),
-		ResourceType:     "DeviceUsage",
+		DeviceUsage:  r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

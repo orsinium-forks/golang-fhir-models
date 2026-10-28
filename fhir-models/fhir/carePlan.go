@@ -49,16 +49,19 @@ type CarePlanActivity struct {
 	Progress                 []Annotation        `bson:"progress,omitempty" json:"progress,omitempty"`
 	PlannedActivityReference *Reference          `bson:"plannedActivityReference,omitempty" json:"plannedActivityReference,omitempty"`
 }
-type OtherCarePlan CarePlan
 
-// MarshalJSON marshals the given CarePlan as JSON into a byte slice
+func (r CarePlan) ResourceType() string {
+	return "CarePlan"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CarePlan) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCarePlan
+		CarePlan
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCarePlan: OtherCarePlan(r),
-		ResourceType:  "CarePlan",
+		CarePlan:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

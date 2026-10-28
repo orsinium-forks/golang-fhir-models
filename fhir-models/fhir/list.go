@@ -40,16 +40,19 @@ type ListEntry struct {
 	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
 	Item              Reference        `bson:"item" json:"item"`
 }
-type OtherList List
 
-// MarshalJSON marshals the given List as JSON into a byte slice
+func (r List) ResourceType() string {
+	return "List"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r List) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherList
+		List
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherList:    OtherList(r),
-		ResourceType: "List",
+		List:         r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

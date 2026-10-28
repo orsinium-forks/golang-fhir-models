@@ -38,16 +38,19 @@ type EncounterHistoryLocation struct {
 	Location          Reference        `bson:"location" json:"location"`
 	Form              *CodeableConcept `bson:"form,omitempty" json:"form,omitempty"`
 }
-type OtherEncounterHistory EncounterHistory
 
-// MarshalJSON marshals the given EncounterHistory as JSON into a byte slice
+func (r EncounterHistory) ResourceType() string {
+	return "EncounterHistory"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EncounterHistory) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEncounterHistory
+		EncounterHistory
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEncounterHistory: OtherEncounterHistory(r),
-		ResourceType:          "EncounterHistory",
+		EncounterHistory: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

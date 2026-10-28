@@ -106,16 +106,19 @@ type TestReportTeardownAction struct {
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Operation         TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 }
-type OtherTestReport TestReport
 
-// MarshalJSON marshals the given TestReport as JSON into a byte slice
+func (r TestReport) ResourceType() string {
+	return "TestReport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r TestReport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTestReport
+		TestReport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTestReport: OtherTestReport(r),
-		ResourceType:    "TestReport",
+		ResourceType: r.ResourceType(),
+		TestReport:   r,
 	})
 }
 

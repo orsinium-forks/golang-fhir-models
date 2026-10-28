@@ -39,16 +39,19 @@ type RelatedPersonCommunication struct {
 	Language          CodeableConcept `bson:"language" json:"language"`
 	Preferred         *bool           `bson:"preferred,omitempty" json:"preferred,omitempty"`
 }
-type OtherRelatedPerson RelatedPerson
 
-// MarshalJSON marshals the given RelatedPerson as JSON into a byte slice
+func (r RelatedPerson) ResourceType() string {
+	return "RelatedPerson"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r RelatedPerson) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherRelatedPerson
+		RelatedPerson
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherRelatedPerson: OtherRelatedPerson(r),
-		ResourceType:       "RelatedPerson",
+		RelatedPerson: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

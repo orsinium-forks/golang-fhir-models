@@ -75,16 +75,19 @@ type SpecimenContainer struct {
 	Location          *Reference  `bson:"location,omitempty" json:"location,omitempty"`
 	SpecimenQuantity  *Quantity   `bson:"specimenQuantity,omitempty" json:"specimenQuantity,omitempty"`
 }
-type OtherSpecimen Specimen
 
-// MarshalJSON marshals the given Specimen as JSON into a byte slice
+func (r Specimen) ResourceType() string {
+	return "Specimen"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Specimen) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSpecimen
+		Specimen
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSpecimen: OtherSpecimen(r),
-		ResourceType:  "Specimen",
+		ResourceType: r.ResourceType(),
+		Specimen:     r,
 	})
 }
 

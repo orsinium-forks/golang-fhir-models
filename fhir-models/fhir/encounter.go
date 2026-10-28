@@ -88,16 +88,19 @@ type EncounterLocation struct {
 	Form              *CodeableConcept         `bson:"form,omitempty" json:"form,omitempty"`
 	Period            *Period                  `bson:"period,omitempty" json:"period,omitempty"`
 }
-type OtherEncounter Encounter
 
-// MarshalJSON marshals the given Encounter as JSON into a byte slice
+func (r Encounter) ResourceType() string {
+	return "Encounter"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Encounter) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEncounter
+		Encounter
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEncounter: OtherEncounter(r),
-		ResourceType:   "Encounter",
+		Encounter:    r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

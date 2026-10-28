@@ -77,16 +77,19 @@ type CoverageCostToBeneficiaryException struct {
 	Type              CodeableConcept `bson:"type" json:"type"`
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
-type OtherCoverage Coverage
 
-// MarshalJSON marshals the given Coverage as JSON into a byte slice
+func (r Coverage) ResourceType() string {
+	return "Coverage"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Coverage) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCoverage
+		Coverage
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCoverage: OtherCoverage(r),
-		ResourceType:  "Coverage",
+		Coverage:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

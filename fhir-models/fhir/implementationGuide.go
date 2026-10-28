@@ -146,16 +146,19 @@ type ImplementationGuideManifestPage struct {
 	Title             *string     `bson:"title,omitempty" json:"title,omitempty"`
 	Anchor            []string    `bson:"anchor,omitempty" json:"anchor,omitempty"`
 }
-type OtherImplementationGuide ImplementationGuide
 
-// MarshalJSON marshals the given ImplementationGuide as JSON into a byte slice
+func (r ImplementationGuide) ResourceType() string {
+	return "ImplementationGuide"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ImplementationGuide) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImplementationGuide
+		ImplementationGuide
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImplementationGuide: OtherImplementationGuide(r),
-		ResourceType:             "ImplementationGuide",
+		ImplementationGuide: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

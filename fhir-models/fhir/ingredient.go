@@ -72,16 +72,19 @@ type IngredientSubstanceStrengthReferenceStrength struct {
 	MeasurementPoint   *string           `bson:"measurementPoint,omitempty" json:"measurementPoint,omitempty"`
 	Country            []CodeableConcept `bson:"country,omitempty" json:"country,omitempty"`
 }
-type OtherIngredient Ingredient
 
-// MarshalJSON marshals the given Ingredient as JSON into a byte slice
+func (r Ingredient) ResourceType() string {
+	return "Ingredient"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Ingredient) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherIngredient
+		Ingredient
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherIngredient: OtherIngredient(r),
-		ResourceType:    "Ingredient",
+		Ingredient:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

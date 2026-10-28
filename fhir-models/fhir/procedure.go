@@ -70,16 +70,19 @@ type ProcedureFocalDevice struct {
 	Action            *CodeableConcept `bson:"action,omitempty" json:"action,omitempty"`
 	Manipulated       Reference        `bson:"manipulated" json:"manipulated"`
 }
-type OtherProcedure Procedure
 
-// MarshalJSON marshals the given Procedure as JSON into a byte slice
+func (r Procedure) ResourceType() string {
+	return "Procedure"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Procedure) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherProcedure
+		Procedure
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherProcedure: OtherProcedure(r),
-		ResourceType:   "Procedure",
+		Procedure:    r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

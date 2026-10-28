@@ -72,16 +72,19 @@ type AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalP
 	Value                 Quantity        `bson:"value" json:"value"`
 	SupportingInformation *string         `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty"`
 }
-type OtherAdministrableProductDefinition AdministrableProductDefinition
 
-// MarshalJSON marshals the given AdministrableProductDefinition as JSON into a byte slice
+func (r AdministrableProductDefinition) ResourceType() string {
+	return "AdministrableProductDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r AdministrableProductDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherAdministrableProductDefinition
+		AdministrableProductDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherAdministrableProductDefinition: OtherAdministrableProductDefinition(r),
-		ResourceType:                        "AdministrableProductDefinition",
+		AdministrableProductDefinition: r,
+		ResourceType:                   r.ResourceType(),
 	})
 }
 

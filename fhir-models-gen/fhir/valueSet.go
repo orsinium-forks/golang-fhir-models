@@ -182,16 +182,19 @@ type ValueSetScope struct {
 	InclusionCriteria *string     `bson:"inclusionCriteria,omitempty" json:"inclusionCriteria,omitempty"`
 	ExclusionCriteria *string     `bson:"exclusionCriteria,omitempty" json:"exclusionCriteria,omitempty"`
 }
-type OtherValueSet ValueSet
 
-// MarshalJSON marshals the given ValueSet as JSON into a byte slice
+func (r ValueSet) ResourceType() string {
+	return "ValueSet"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ValueSet) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherValueSet
+		ValueSet
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherValueSet: OtherValueSet(r),
-		ResourceType:  "ValueSet",
+		ResourceType: r.ResourceType(),
+		ValueSet:     r,
 	})
 }
 

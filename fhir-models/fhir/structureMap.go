@@ -139,16 +139,19 @@ type StructureMapGroupRuleDependent struct {
 	Name              string                                 `bson:"name" json:"name"`
 	Parameter         []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
-type OtherStructureMap StructureMap
 
-// MarshalJSON marshals the given StructureMap as JSON into a byte slice
+func (r StructureMap) ResourceType() string {
+	return "StructureMap"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r StructureMap) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherStructureMap
+		StructureMap
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherStructureMap: OtherStructureMap(r),
-		ResourceType:      "StructureMap",
+		ResourceType: r.ResourceType(),
+		StructureMap: r,
 	})
 }
 

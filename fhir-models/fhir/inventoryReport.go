@@ -45,16 +45,19 @@ type InventoryReportInventoryListingItem struct {
 	Quantity          Quantity          `bson:"quantity" json:"quantity"`
 	Item              CodeableReference `bson:"item" json:"item"`
 }
-type OtherInventoryReport InventoryReport
 
-// MarshalJSON marshals the given InventoryReport as JSON into a byte slice
+func (r InventoryReport) ResourceType() string {
+	return "InventoryReport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r InventoryReport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherInventoryReport
+		InventoryReport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherInventoryReport: OtherInventoryReport(r),
-		ResourceType:         "InventoryReport",
+		InventoryReport: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

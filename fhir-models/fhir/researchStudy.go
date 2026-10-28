@@ -114,16 +114,19 @@ type ResearchStudyOutcomeMeasure struct {
 	Description       *string           `bson:"description,omitempty" json:"description,omitempty"`
 	Reference         *Reference        `bson:"reference,omitempty" json:"reference,omitempty"`
 }
-type OtherResearchStudy ResearchStudy
 
-// MarshalJSON marshals the given ResearchStudy as JSON into a byte slice
+func (r ResearchStudy) ResourceType() string {
+	return "ResearchStudy"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ResearchStudy) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherResearchStudy
+		ResearchStudy
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherResearchStudy: OtherResearchStudy(r),
-		ResourceType:       "ResearchStudy",
+		ResearchStudy: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

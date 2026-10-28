@@ -189,16 +189,19 @@ type MedicationKnowledgeDefinitionalDrugCharacteristic struct {
 	ValueBase64Binary    *string          `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
 }
-type OtherMedicationKnowledge MedicationKnowledge
 
-// MarshalJSON marshals the given MedicationKnowledge as JSON into a byte slice
+func (r MedicationKnowledge) ResourceType() string {
+	return "MedicationKnowledge"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicationKnowledge) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicationKnowledge
+		MedicationKnowledge
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicationKnowledge: OtherMedicationKnowledge(r),
-		ResourceType:             "MedicationKnowledge",
+		MedicationKnowledge: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

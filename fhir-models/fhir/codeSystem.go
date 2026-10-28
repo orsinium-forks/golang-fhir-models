@@ -111,16 +111,19 @@ type CodeSystemConceptProperty struct {
 	ValueDateTime     string          `bson:"valueDateTime" json:"valueDateTime"`
 	ValueDecimal      decimal.Decimal `bson:"valueDecimal" json:"valueDecimal"`
 }
-type OtherCodeSystem CodeSystem
 
-// MarshalJSON marshals the given CodeSystem as JSON into a byte slice
+func (r CodeSystem) ResourceType() string {
+	return "CodeSystem"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CodeSystem) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCodeSystem
+		CodeSystem
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCodeSystem: OtherCodeSystem(r),
-		ResourceType:    "CodeSystem",
+		CodeSystem:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

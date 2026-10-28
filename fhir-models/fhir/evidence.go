@@ -133,16 +133,19 @@ type EvidenceCertainty struct {
 	Rater             *string             `bson:"rater,omitempty" json:"rater,omitempty"`
 	Subcomponent      []EvidenceCertainty `bson:"subcomponent,omitempty" json:"subcomponent,omitempty"`
 }
-type OtherEvidence Evidence
 
-// MarshalJSON marshals the given Evidence as JSON into a byte slice
+func (r Evidence) ResourceType() string {
+	return "Evidence"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Evidence) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEvidence
+		Evidence
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEvidence: OtherEvidence(r),
-		ResourceType:  "Evidence",
+		Evidence:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

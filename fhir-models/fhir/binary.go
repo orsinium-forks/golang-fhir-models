@@ -22,16 +22,19 @@ type Binary struct {
 	SecurityContext *Reference `bson:"securityContext,omitempty" json:"securityContext,omitempty"`
 	Data            *string    `bson:"data,omitempty" json:"data,omitempty"`
 }
-type OtherBinary Binary
 
-// MarshalJSON marshals the given Binary as JSON into a byte slice
+func (r Binary) ResourceType() string {
+	return "Binary"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Binary) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBinary
+		Binary
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBinary:  OtherBinary(r),
-		ResourceType: "Binary",
+		Binary:       r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

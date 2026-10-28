@@ -48,16 +48,19 @@ type DeviceDispensePerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
-type OtherDeviceDispense DeviceDispense
 
-// MarshalJSON marshals the given DeviceDispense as JSON into a byte slice
+func (r DeviceDispense) ResourceType() string {
+	return "DeviceDispense"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceDispense) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceDispense
+		DeviceDispense
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceDispense: OtherDeviceDispense(r),
-		ResourceType:        "DeviceDispense",
+		DeviceDispense: r,
+		ResourceType:   r.ResourceType(),
 	})
 }
 

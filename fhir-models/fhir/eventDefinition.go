@@ -50,16 +50,19 @@ type EventDefinition struct {
 	RelatedArtifact        []RelatedArtifact   `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty"`
 	Trigger                []TriggerDefinition `bson:"trigger" json:"trigger"`
 }
-type OtherEventDefinition EventDefinition
 
-// MarshalJSON marshals the given EventDefinition as JSON into a byte slice
+func (r EventDefinition) ResourceType() string {
+	return "EventDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EventDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEventDefinition
+		EventDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEventDefinition: OtherEventDefinition(r),
-		ResourceType:         "EventDefinition",
+		EventDefinition: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

@@ -62,16 +62,19 @@ type MedicationAdministrationDosage struct {
 	RateRatio         *Ratio           `bson:"rateRatio,omitempty" json:"rateRatio,omitempty"`
 	RateQuantity      *Quantity        `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty"`
 }
-type OtherMedicationAdministration MedicationAdministration
 
-// MarshalJSON marshals the given MedicationAdministration as JSON into a byte slice
+func (r MedicationAdministration) ResourceType() string {
+	return "MedicationAdministration"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r MedicationAdministration) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherMedicationAdministration
+		MedicationAdministration
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherMedicationAdministration: OtherMedicationAdministration(r),
-		ResourceType:                  "MedicationAdministration",
+		MedicationAdministration: r,
+		ResourceType:             r.ResourceType(),
 	})
 }
 

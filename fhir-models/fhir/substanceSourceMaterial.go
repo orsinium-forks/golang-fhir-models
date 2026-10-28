@@ -86,16 +86,19 @@ type SubstanceSourceMaterialPartDescription struct {
 	Part              *CodeableConcept `bson:"part,omitempty" json:"part,omitempty"`
 	PartLocation      *CodeableConcept `bson:"partLocation,omitempty" json:"partLocation,omitempty"`
 }
-type OtherSubstanceSourceMaterial SubstanceSourceMaterial
 
-// MarshalJSON marshals the given SubstanceSourceMaterial as JSON into a byte slice
+func (r SubstanceSourceMaterial) ResourceType() string {
+	return "SubstanceSourceMaterial"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstanceSourceMaterial) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstanceSourceMaterial
+		SubstanceSourceMaterial
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstanceSourceMaterial: OtherSubstanceSourceMaterial(r),
-		ResourceType:                 "SubstanceSourceMaterial",
+		ResourceType:            r.ResourceType(),
+		SubstanceSourceMaterial: r,
 	})
 }
 

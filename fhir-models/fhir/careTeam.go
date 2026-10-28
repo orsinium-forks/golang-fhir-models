@@ -39,16 +39,19 @@ type CareTeamParticipant struct {
 	CoveragePeriod    *Period          `bson:"coveragePeriod,omitempty" json:"coveragePeriod,omitempty"`
 	CoverageTiming    *Timing          `bson:"coverageTiming,omitempty" json:"coverageTiming,omitempty"`
 }
-type OtherCareTeam CareTeam
 
-// MarshalJSON marshals the given CareTeam as JSON into a byte slice
+func (r CareTeam) ResourceType() string {
+	return "CareTeam"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CareTeam) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCareTeam
+		CareTeam
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCareTeam: OtherCareTeam(r),
-		ResourceType:  "CareTeam",
+		CareTeam:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

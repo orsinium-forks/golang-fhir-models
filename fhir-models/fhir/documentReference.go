@@ -73,16 +73,19 @@ type DocumentReferenceContentProfile struct {
 	ValueUri          string      `bson:"valueUri" json:"valueUri"`
 	ValueCanonical    string      `bson:"valueCanonical" json:"valueCanonical"`
 }
-type OtherDocumentReference DocumentReference
 
-// MarshalJSON marshals the given DocumentReference as JSON into a byte slice
+func (r DocumentReference) ResourceType() string {
+	return "DocumentReference"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DocumentReference) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDocumentReference
+		DocumentReference
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDocumentReference: OtherDocumentReference(r),
-		ResourceType:           "DocumentReference",
+		DocumentReference: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

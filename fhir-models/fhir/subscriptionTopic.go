@@ -91,16 +91,19 @@ type SubscriptionTopicNotificationShape struct {
 	Include           []string    `bson:"include,omitempty" json:"include,omitempty"`
 	RevInclude        []string    `bson:"revInclude,omitempty" json:"revInclude,omitempty"`
 }
-type OtherSubscriptionTopic SubscriptionTopic
 
-// MarshalJSON marshals the given SubscriptionTopic as JSON into a byte slice
+func (r SubscriptionTopic) ResourceType() string {
+	return "SubscriptionTopic"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubscriptionTopic) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubscriptionTopic
+		SubscriptionTopic
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubscriptionTopic: OtherSubscriptionTopic(r),
-		ResourceType:           "SubscriptionTopic",
+		ResourceType:      r.ResourceType(),
+		SubscriptionTopic: r,
 	})
 }
 

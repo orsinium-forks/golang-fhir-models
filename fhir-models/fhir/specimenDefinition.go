@@ -93,16 +93,19 @@ type SpecimenDefinitionTypeTestedHandling struct {
 	MaxDuration          *Duration        `bson:"maxDuration,omitempty" json:"maxDuration,omitempty"`
 	Instruction          *string          `bson:"instruction,omitempty" json:"instruction,omitempty"`
 }
-type OtherSpecimenDefinition SpecimenDefinition
 
-// MarshalJSON marshals the given SpecimenDefinition as JSON into a byte slice
+func (r SpecimenDefinition) ResourceType() string {
+	return "SpecimenDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SpecimenDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSpecimenDefinition
+		SpecimenDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSpecimenDefinition: OtherSpecimenDefinition(r),
-		ResourceType:            "SpecimenDefinition",
+		ResourceType:       r.ResourceType(),
+		SpecimenDefinition: r,
 	})
 }
 

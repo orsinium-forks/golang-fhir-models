@@ -90,16 +90,19 @@ type EvidenceReportSection struct {
 	EmptyReason       *CodeableConcept        `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 	Section           []EvidenceReportSection `bson:"section,omitempty" json:"section,omitempty"`
 }
-type OtherEvidenceReport EvidenceReport
 
-// MarshalJSON marshals the given EvidenceReport as JSON into a byte slice
+func (r EvidenceReport) ResourceType() string {
+	return "EvidenceReport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r EvidenceReport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherEvidenceReport
+		EvidenceReport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherEvidenceReport: OtherEvidenceReport(r),
-		ResourceType:        "EvidenceReport",
+		EvidenceReport: r,
+		ResourceType:   r.ResourceType(),
 	})
 }
 

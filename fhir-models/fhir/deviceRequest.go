@@ -58,16 +58,19 @@ type DeviceRequestParameter struct {
 	ValueRange           *Range           `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 }
-type OtherDeviceRequest DeviceRequest
 
-// MarshalJSON marshals the given DeviceRequest as JSON into a byte slice
+func (r DeviceRequest) ResourceType() string {
+	return "DeviceRequest"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceRequest) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceRequest
+		DeviceRequest
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceRequest: OtherDeviceRequest(r),
-		ResourceType:       "DeviceRequest",
+		DeviceRequest: r,
+		ResourceType:  r.ResourceType(),
 	})
 }
 

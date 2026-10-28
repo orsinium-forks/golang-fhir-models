@@ -66,16 +66,19 @@ type NutritionProductInstance struct {
 	UseBy                 *string      `bson:"useBy,omitempty" json:"useBy,omitempty"`
 	BiologicalSourceEvent *Identifier  `bson:"biologicalSourceEvent,omitempty" json:"biologicalSourceEvent,omitempty"`
 }
-type OtherNutritionProduct NutritionProduct
 
-// MarshalJSON marshals the given NutritionProduct as JSON into a byte slice
+func (r NutritionProduct) ResourceType() string {
+	return "NutritionProduct"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r NutritionProduct) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherNutritionProduct
+		NutritionProduct
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherNutritionProduct: OtherNutritionProduct(r),
-		ResourceType:          "NutritionProduct",
+		NutritionProduct: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

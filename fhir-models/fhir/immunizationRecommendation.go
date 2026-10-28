@@ -49,16 +49,19 @@ type ImmunizationRecommendationRecommendationDateCriterion struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Value             string          `bson:"value" json:"value"`
 }
-type OtherImmunizationRecommendation ImmunizationRecommendation
 
-// MarshalJSON marshals the given ImmunizationRecommendation as JSON into a byte slice
+func (r ImmunizationRecommendation) ResourceType() string {
+	return "ImmunizationRecommendation"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ImmunizationRecommendation) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherImmunizationRecommendation
+		ImmunizationRecommendation
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherImmunizationRecommendation: OtherImmunizationRecommendation(r),
-		ResourceType:                    "ImmunizationRecommendation",
+		ImmunizationRecommendation: r,
+		ResourceType:               r.ResourceType(),
 	})
 }
 

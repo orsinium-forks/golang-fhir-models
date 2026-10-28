@@ -41,16 +41,19 @@ type ActorDefinition struct {
 	Capabilities           *string                  `bson:"capabilities,omitempty" json:"capabilities,omitempty"`
 	DerivedFrom            []string                 `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
 }
-type OtherActorDefinition ActorDefinition
 
-// MarshalJSON marshals the given ActorDefinition as JSON into a byte slice
+func (r ActorDefinition) ResourceType() string {
+	return "ActorDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ActorDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherActorDefinition
+		ActorDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherActorDefinition: OtherActorDefinition(r),
-		ResourceType:         "ActorDefinition",
+		ActorDefinition: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

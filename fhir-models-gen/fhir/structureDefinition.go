@@ -78,16 +78,19 @@ type StructureDefinitionDifferential struct {
 	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Element           []ElementDefinition `bson:"element" json:"element"`
 }
-type OtherStructureDefinition StructureDefinition
 
-// MarshalJSON marshals the given StructureDefinition as JSON into a byte slice
+func (r StructureDefinition) ResourceType() string {
+	return "StructureDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r StructureDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherStructureDefinition
+		StructureDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherStructureDefinition: OtherStructureDefinition(r),
-		ResourceType:             "StructureDefinition",
+		ResourceType:        r.ResourceType(),
+		StructureDefinition: r,
 	})
 }
 

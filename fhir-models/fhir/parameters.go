@@ -85,16 +85,19 @@ type ParametersParameter struct {
 	Resource                   jsontext.Value         `bson:"resource,omitempty" json:"resource,omitempty"`
 	Part                       []ParametersParameter  `bson:"part,omitempty" json:"part,omitempty"`
 }
-type OtherParameters Parameters
 
-// MarshalJSON marshals the given Parameters as JSON into a byte slice
+func (r Parameters) ResourceType() string {
+	return "Parameters"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Parameters) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherParameters
+		Parameters
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherParameters: OtherParameters(r),
-		ResourceType:    "Parameters",
+		Parameters:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

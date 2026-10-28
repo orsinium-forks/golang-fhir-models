@@ -57,16 +57,19 @@ type SearchParameterComponent struct {
 	Definition        string      `bson:"definition" json:"definition"`
 	Expression        string      `bson:"expression" json:"expression"`
 }
-type OtherSearchParameter SearchParameter
 
-// MarshalJSON marshals the given SearchParameter as JSON into a byte slice
+func (r SearchParameter) ResourceType() string {
+	return "SearchParameter"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SearchParameter) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSearchParameter
+		SearchParameter
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSearchParameter: OtherSearchParameter(r),
-		ResourceType:         "SearchParameter",
+		ResourceType:    r.ResourceType(),
+		SearchParameter: r,
 	})
 }
 

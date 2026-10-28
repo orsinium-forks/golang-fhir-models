@@ -77,16 +77,19 @@ type SubstancePolymerRepeatRepeatUnitStructuralRepresentation struct {
 	Format            *CodeableConcept `bson:"format,omitempty" json:"format,omitempty"`
 	Attachment        *Attachment      `bson:"attachment,omitempty" json:"attachment,omitempty"`
 }
-type OtherSubstancePolymer SubstancePolymer
 
-// MarshalJSON marshals the given SubstancePolymer as JSON into a byte slice
+func (r SubstancePolymer) ResourceType() string {
+	return "SubstancePolymer"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstancePolymer) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstancePolymer
+		SubstancePolymer
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstancePolymer: OtherSubstancePolymer(r),
-		ResourceType:          "SubstancePolymer",
+		ResourceType:     r.ResourceType(),
+		SubstancePolymer: r,
 	})
 }
 

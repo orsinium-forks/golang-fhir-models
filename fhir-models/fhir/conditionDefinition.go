@@ -85,16 +85,19 @@ type ConditionDefinitionPlan struct {
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 	Reference         Reference        `bson:"reference" json:"reference"`
 }
-type OtherConditionDefinition ConditionDefinition
 
-// MarshalJSON marshals the given ConditionDefinition as JSON into a byte slice
+func (r ConditionDefinition) ResourceType() string {
+	return "ConditionDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ConditionDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherConditionDefinition
+		ConditionDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherConditionDefinition: OtherConditionDefinition(r),
-		ResourceType:             "ConditionDefinition",
+		ConditionDefinition: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

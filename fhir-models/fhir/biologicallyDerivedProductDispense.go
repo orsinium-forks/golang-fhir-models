@@ -41,16 +41,19 @@ type BiologicallyDerivedProductDispensePerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
-type OtherBiologicallyDerivedProductDispense BiologicallyDerivedProductDispense
 
-// MarshalJSON marshals the given BiologicallyDerivedProductDispense as JSON into a byte slice
+func (r BiologicallyDerivedProductDispense) ResourceType() string {
+	return "BiologicallyDerivedProductDispense"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r BiologicallyDerivedProductDispense) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherBiologicallyDerivedProductDispense
+		BiologicallyDerivedProductDispense
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherBiologicallyDerivedProductDispense: OtherBiologicallyDerivedProductDispense(r),
-		ResourceType:                            "BiologicallyDerivedProductDispense",
+		BiologicallyDerivedProductDispense: r,
+		ResourceType:                       r.ResourceType(),
 	})
 }
 

@@ -51,16 +51,19 @@ type ProvenanceEntity struct {
 	What              Reference            `bson:"what" json:"what"`
 	Agent             []ProvenanceAgent    `bson:"agent,omitempty" json:"agent,omitempty"`
 }
-type OtherProvenance Provenance
 
-// MarshalJSON marshals the given Provenance as JSON into a byte slice
+func (r Provenance) ResourceType() string {
+	return "Provenance"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Provenance) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherProvenance
+		Provenance
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherProvenance: OtherProvenance(r),
-		ResourceType:    "Provenance",
+		Provenance:   r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

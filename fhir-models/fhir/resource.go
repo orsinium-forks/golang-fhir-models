@@ -15,16 +15,19 @@ type Resource struct {
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language      *string `bson:"language,omitempty" json:"language,omitempty"`
 }
-type OtherResource Resource
 
-// MarshalJSON marshals the given Resource as JSON into a byte slice
+func (r Resource) ResourceType() string {
+	return "Resource"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Resource) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherResource
+		Resource
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherResource: OtherResource(r),
-		ResourceType:  "Resource",
+		Resource:     r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

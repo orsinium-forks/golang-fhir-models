@@ -48,16 +48,19 @@ type PractitionerCommunication struct {
 	Language          CodeableConcept `bson:"language" json:"language"`
 	Preferred         *bool           `bson:"preferred,omitempty" json:"preferred,omitempty"`
 }
-type OtherPractitioner Practitioner
 
-// MarshalJSON marshals the given Practitioner as JSON into a byte slice
+func (r Practitioner) ResourceType() string {
+	return "Practitioner"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Practitioner) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherPractitioner
+		Practitioner
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherPractitioner: OtherPractitioner(r),
-		ResourceType:      "Practitioner",
+		Practitioner: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

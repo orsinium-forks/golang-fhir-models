@@ -55,16 +55,19 @@ type RequirementsStatement struct {
 	Reference         []string                 `bson:"reference,omitempty" json:"reference,omitempty"`
 	Source            []Reference              `bson:"source,omitempty" json:"source,omitempty"`
 }
-type OtherRequirements Requirements
 
-// MarshalJSON marshals the given Requirements as JSON into a byte slice
+func (r Requirements) ResourceType() string {
+	return "Requirements"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Requirements) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherRequirements
+		Requirements
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherRequirements: OtherRequirements(r),
-		ResourceType:      "Requirements",
+		Requirements: r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

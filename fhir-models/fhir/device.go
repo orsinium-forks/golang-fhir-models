@@ -103,16 +103,19 @@ type DeviceProperty struct {
 	ValueRange           Range           `bson:"valueRange" json:"valueRange"`
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment"`
 }
-type OtherDevice Device
 
-// MarshalJSON marshals the given Device as JSON into a byte slice
+func (r Device) ResourceType() string {
+	return "Device"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Device) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDevice
+		Device
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDevice:  OtherDevice(r),
-		ResourceType: "Device",
+		Device:       r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

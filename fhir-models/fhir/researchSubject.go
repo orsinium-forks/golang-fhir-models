@@ -38,16 +38,19 @@ type ResearchSubjectProgress struct {
 	StartDate         *string          `bson:"startDate,omitempty" json:"startDate,omitempty"`
 	EndDate           *string          `bson:"endDate,omitempty" json:"endDate,omitempty"`
 }
-type OtherResearchSubject ResearchSubject
 
-// MarshalJSON marshals the given ResearchSubject as JSON into a byte slice
+func (r ResearchSubject) ResourceType() string {
+	return "ResearchSubject"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ResearchSubject) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherResearchSubject
+		ResearchSubject
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherResearchSubject: OtherResearchSubject(r),
-		ResourceType:         "ResearchSubject",
+		ResearchSubject: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 

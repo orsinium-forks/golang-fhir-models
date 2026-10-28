@@ -36,16 +36,19 @@ type GuidanceResponse struct {
 	Result                []Reference            `bson:"result,omitempty" json:"result,omitempty"`
 	DataRequirement       []DataRequirement      `bson:"dataRequirement,omitempty" json:"dataRequirement,omitempty"`
 }
-type OtherGuidanceResponse GuidanceResponse
 
-// MarshalJSON marshals the given GuidanceResponse as JSON into a byte slice
+func (r GuidanceResponse) ResourceType() string {
+	return "GuidanceResponse"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r GuidanceResponse) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherGuidanceResponse
+		GuidanceResponse
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherGuidanceResponse: OtherGuidanceResponse(r),
-		ResourceType:          "GuidanceResponse",
+		GuidanceResponse: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

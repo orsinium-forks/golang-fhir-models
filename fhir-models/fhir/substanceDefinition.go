@@ -165,16 +165,19 @@ type SubstanceDefinitionSourceMaterial struct {
 	Part              *CodeableConcept  `bson:"part,omitempty" json:"part,omitempty"`
 	CountryOfOrigin   []CodeableConcept `bson:"countryOfOrigin,omitempty" json:"countryOfOrigin,omitempty"`
 }
-type OtherSubstanceDefinition SubstanceDefinition
 
-// MarshalJSON marshals the given SubstanceDefinition as JSON into a byte slice
+func (r SubstanceDefinition) ResourceType() string {
+	return "SubstanceDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r SubstanceDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherSubstanceDefinition
+		SubstanceDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherSubstanceDefinition: OtherSubstanceDefinition(r),
-		ResourceType:             "SubstanceDefinition",
+		ResourceType:        r.ResourceType(),
+		SubstanceDefinition: r,
 	})
 }
 

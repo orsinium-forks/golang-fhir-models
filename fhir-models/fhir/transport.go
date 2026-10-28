@@ -182,16 +182,19 @@ type TransportOutput struct {
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta"`
 }
-type OtherTransport Transport
 
-// MarshalJSON marshals the given Transport as JSON into a byte slice
+func (r Transport) ResourceType() string {
+	return "Transport"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Transport) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTransport
+		Transport
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTransport: OtherTransport(r),
-		ResourceType:   "Transport",
+		ResourceType: r.ResourceType(),
+		Transport:    r,
 	})
 }
 

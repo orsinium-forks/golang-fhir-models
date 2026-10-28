@@ -223,16 +223,19 @@ type TestScriptTeardownAction struct {
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Operation         TestScriptSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 }
-type OtherTestScript TestScript
 
-// MarshalJSON marshals the given TestScript as JSON into a byte slice
+func (r TestScript) ResourceType() string {
+	return "TestScript"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r TestScript) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherTestScript
+		TestScript
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherTestScript: OtherTestScript(r),
-		ResourceType:    "TestScript",
+		ResourceType: r.ResourceType(),
+		TestScript:   r,
 	})
 }
 

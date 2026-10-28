@@ -45,16 +45,19 @@ type CompartmentDefinitionResource struct {
 	StartParam        *string      `bson:"startParam,omitempty" json:"startParam,omitempty"`
 	EndParam          *string      `bson:"endParam,omitempty" json:"endParam,omitempty"`
 }
-type OtherCompartmentDefinition CompartmentDefinition
 
-// MarshalJSON marshals the given CompartmentDefinition as JSON into a byte slice
+func (r CompartmentDefinition) ResourceType() string {
+	return "CompartmentDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CompartmentDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCompartmentDefinition
+		CompartmentDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCompartmentDefinition: OtherCompartmentDefinition(r),
-		ResourceType:               "CompartmentDefinition",
+		CompartmentDefinition: r,
+		ResourceType:          r.ResourceType(),
 	})
 }
 

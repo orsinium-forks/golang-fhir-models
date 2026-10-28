@@ -56,16 +56,19 @@ type VisionPrescriptionLensSpecificationPrism struct {
 	Amount            decimal.Decimal `bson:"amount" json:"amount"`
 	Base              VisionBase      `bson:"base" json:"base"`
 }
-type OtherVisionPrescription VisionPrescription
 
-// MarshalJSON marshals the given VisionPrescription as JSON into a byte slice
+func (r VisionPrescription) ResourceType() string {
+	return "VisionPrescription"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r VisionPrescription) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherVisionPrescription
+		VisionPrescription
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherVisionPrescription: OtherVisionPrescription(r),
-		ResourceType:            "VisionPrescription",
+		ResourceType:       r.ResourceType(),
+		VisionPrescription: r,
 	})
 }
 

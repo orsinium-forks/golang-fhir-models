@@ -88,16 +88,19 @@ type OperationDefinitionOverload struct {
 	ParameterName     []string    `bson:"parameterName,omitempty" json:"parameterName,omitempty"`
 	Comment           *string     `bson:"comment,omitempty" json:"comment,omitempty"`
 }
-type OtherOperationDefinition OperationDefinition
 
-// MarshalJSON marshals the given OperationDefinition as JSON into a byte slice
+func (r OperationDefinition) ResourceType() string {
+	return "OperationDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r OperationDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherOperationDefinition
+		OperationDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherOperationDefinition: OtherOperationDefinition(r),
-		ResourceType:             "OperationDefinition",
+		OperationDefinition: r,
+		ResourceType:        r.ResourceType(),
 	})
 }
 

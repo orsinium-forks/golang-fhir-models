@@ -396,16 +396,19 @@ type ExplanationOfBenefitBenefitBalanceFinancial struct {
 	UsedUnsignedInt    *int            `bson:"usedUnsignedInt,omitempty" json:"usedUnsignedInt,omitempty"`
 	UsedMoney          *Money          `bson:"usedMoney,omitempty" json:"usedMoney,omitempty"`
 }
-type OtherExplanationOfBenefit ExplanationOfBenefit
 
-// MarshalJSON marshals the given ExplanationOfBenefit as JSON into a byte slice
+func (r ExplanationOfBenefit) ResourceType() string {
+	return "ExplanationOfBenefit"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r ExplanationOfBenefit) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherExplanationOfBenefit
+		ExplanationOfBenefit
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherExplanationOfBenefit: OtherExplanationOfBenefit(r),
-		ResourceType:              "ExplanationOfBenefit",
+		ExplanationOfBenefit: r,
+		ResourceType:         r.ResourceType(),
 	})
 }
 

@@ -182,16 +182,19 @@ type DeviceDefinitionChargeItem struct {
 	EffectivePeriod   *Period           `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty"`
 	UseContext        []UsageContext    `bson:"useContext,omitempty" json:"useContext,omitempty"`
 }
-type OtherDeviceDefinition DeviceDefinition
 
-// MarshalJSON marshals the given DeviceDefinition as JSON into a byte slice
+func (r DeviceDefinition) ResourceType() string {
+	return "DeviceDefinition"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r DeviceDefinition) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherDeviceDefinition
+		DeviceDefinition
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherDeviceDefinition: OtherDeviceDefinition(r),
-		ResourceType:          "DeviceDefinition",
+		DeviceDefinition: r,
+		ResourceType:     r.ResourceType(),
 	})
 }
 

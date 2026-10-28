@@ -46,16 +46,19 @@ type RegulatedAuthorizationCase struct {
 	DateDateTime      *string                      `bson:"dateDateTime,omitempty" json:"dateDateTime,omitempty"`
 	Application       []RegulatedAuthorizationCase `bson:"application,omitempty" json:"application,omitempty"`
 }
-type OtherRegulatedAuthorization RegulatedAuthorization
 
-// MarshalJSON marshals the given RegulatedAuthorization as JSON into a byte slice
+func (r RegulatedAuthorization) ResourceType() string {
+	return "RegulatedAuthorization"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r RegulatedAuthorization) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherRegulatedAuthorization
+		RegulatedAuthorization
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherRegulatedAuthorization: OtherRegulatedAuthorization(r),
-		ResourceType:                "RegulatedAuthorization",
+		RegulatedAuthorization: r,
+		ResourceType:           r.ResourceType(),
 	})
 }
 

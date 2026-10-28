@@ -36,16 +36,19 @@ type CanonicalResource struct {
 	Copyright              *string           `bson:"copyright,omitempty" json:"copyright,omitempty"`
 	CopyrightLabel         *string           `bson:"copyrightLabel,omitempty" json:"copyrightLabel,omitempty"`
 }
-type OtherCanonicalResource CanonicalResource
 
-// MarshalJSON marshals the given CanonicalResource as JSON into a byte slice
+func (r CanonicalResource) ResourceType() string {
+	return "CanonicalResource"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r CanonicalResource) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherCanonicalResource
+		CanonicalResource
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherCanonicalResource: OtherCanonicalResource(r),
-		ResourceType:           "CanonicalResource",
+		CanonicalResource: r,
+		ResourceType:      r.ResourceType(),
 	})
 }
 

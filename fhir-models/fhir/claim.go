@@ -229,16 +229,19 @@ type ClaimItemDetailSubDetail struct {
 	Net                 *Money            `bson:"net,omitempty" json:"net,omitempty"`
 	Udi                 []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
 }
-type OtherClaim Claim
 
-// MarshalJSON marshals the given Claim as JSON into a byte slice
+func (r Claim) ResourceType() string {
+	return "Claim"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r Claim) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherClaim
+		Claim
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherClaim:   OtherClaim(r),
-		ResourceType: "Claim",
+		Claim:        r,
+		ResourceType: r.ResourceType(),
 	})
 }
 

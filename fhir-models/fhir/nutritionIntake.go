@@ -68,16 +68,19 @@ type NutritionIntakePerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
-type OtherNutritionIntake NutritionIntake
 
-// MarshalJSON marshals the given NutritionIntake as JSON into a byte slice
+func (r NutritionIntake) ResourceType() string {
+	return "NutritionIntake"
+}
+
+// MarshalJSON implements json.Marshaler
 func (r NutritionIntake) MarshalJSON() ([]byte, error) {
 	return v2.Marshal(struct {
-		OtherNutritionIntake
+		NutritionIntake
 		ResourceType string `json:"resourceType"`
 	}{
-		OtherNutritionIntake: OtherNutritionIntake(r),
-		ResourceType:         "NutritionIntake",
+		NutritionIntake: r,
+		ResourceType:    r.ResourceType(),
 	})
 }
 
