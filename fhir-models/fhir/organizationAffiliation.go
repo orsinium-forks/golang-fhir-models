@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation
 type OrganizationAffiliation struct {
 	Id                        *string                 `bson:"id,omitempty" json:"id,omitempty"`

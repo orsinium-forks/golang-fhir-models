@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Information about a medication that is used to support knowledge.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MedicationKnowledge
 type MedicationKnowledge struct {
 	Id                         *string                                         `bson:"id,omitempty" json:"id,omitempty"`

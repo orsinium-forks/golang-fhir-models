@@ -10,6 +10,8 @@ import (
 
 // A Map of relationships between 2 structures that can be used to transform data.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/StructureMap
 type StructureMap struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`

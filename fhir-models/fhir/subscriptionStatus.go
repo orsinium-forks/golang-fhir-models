@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // It is not persisted.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubscriptionStatus
 type SubscriptionStatus struct {
 	Id                           *string                               `bson:"id,omitempty" json:"id,omitempty"`

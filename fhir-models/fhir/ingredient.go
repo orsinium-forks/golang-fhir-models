@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // An ingredient of a manufactured item or pharmaceutical product.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Ingredient
 type Ingredient struct {
 	Id                  *string                  `bson:"id,omitempty" json:"id,omitempty"`

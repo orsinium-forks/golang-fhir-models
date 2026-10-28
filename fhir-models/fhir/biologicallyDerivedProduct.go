@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct
 type BiologicallyDerivedProduct struct {
 	Id                      *string                               `bson:"id,omitempty" json:"id,omitempty"`

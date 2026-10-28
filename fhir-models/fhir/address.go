@@ -10,6 +10,8 @@ package fhir
 //
 // Purpose: Need to be able to record postal addresses, along with notes about their use.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Address
 type Address struct {
 	Id         *string      `bson:"id,omitempty" json:"id,omitempty"`

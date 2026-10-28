@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Describes validation requirements, source(s), status and dates for one or more elements.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/VerificationResult
 type VerificationResult struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`

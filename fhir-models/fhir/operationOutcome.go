@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A collection of error, warning, or information messages that result from a system action.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/OperationOutcome
 type OperationOutcome struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`

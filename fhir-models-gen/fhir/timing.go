@@ -10,6 +10,8 @@ import decimal "github.com/shopspring/decimal"
 //
 // Purpose: Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Timing
 type Timing struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EnrollmentRequest
 type EnrollmentRequest struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`

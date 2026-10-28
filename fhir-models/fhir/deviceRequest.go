@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The device may be an implantable device to be subsequently implanted, or an external assistive device, such as a walker, to be delivered and subsequently be used.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DeviceRequest
 type DeviceRequest struct {
 	Id                    *string                  `bson:"id,omitempty" json:"id,omitempty"`

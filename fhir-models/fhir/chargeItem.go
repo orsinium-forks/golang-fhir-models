@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ChargeItem
 type ChargeItem struct {
 	Id                     *string               `bson:"id,omitempty" json:"id,omitempty"`

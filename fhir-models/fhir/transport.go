@@ -10,6 +10,8 @@ import (
 
 // Record of transport.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Transport
 type Transport struct {
 	Id                    *string               `bson:"id,omitempty" json:"id,omitempty"`

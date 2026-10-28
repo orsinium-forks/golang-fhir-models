@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/PaymentNotice
 type PaymentNotice struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`

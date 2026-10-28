@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MedicationRequest
 type MedicationRequest struct {
 	Id                        *string                           `bson:"id,omitempty" json:"id,omitempty"`

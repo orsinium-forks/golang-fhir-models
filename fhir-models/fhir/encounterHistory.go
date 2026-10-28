@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A record of significant events/milestones key data throughout the history of an Encounter
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EncounterHistory
 type EncounterHistory struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`

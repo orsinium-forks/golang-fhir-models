@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to track contact and address information in the same way across multiple resources.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ExtendedContactDetail
 type ExtendedContactDetail struct {
 	Id           *string          `bson:"id,omitempty" json:"id,omitempty"`

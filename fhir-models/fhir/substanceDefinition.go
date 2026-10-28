@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The detailed description of a substance, typically at a level beyond what is used for prescribing.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubstanceDefinition
 type SubstanceDefinition struct {
 	Id                   *string                               `bson:"id,omitempty" json:"id,omitempty"`

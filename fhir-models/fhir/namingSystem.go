@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	Represents a "System" used within the Identifier and Coding data types.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/NamingSystem
 type NamingSystem struct {
 	Id                     *string                `bson:"id,omitempty" json:"id,omitempty"`

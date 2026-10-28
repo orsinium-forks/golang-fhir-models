@@ -4,6 +4,8 @@ package fhir
 
 // Annotation Type: A  text note which also  contains information about who made the statement and when.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Annotation
 type Annotation struct {
 	Id              *string     `bson:"id,omitempty" json:"id,omitempty"`

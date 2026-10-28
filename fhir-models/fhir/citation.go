@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Citation
 type Citation struct {
 	Id                     *string                  `bson:"id,omitempty" json:"id,omitempty"`

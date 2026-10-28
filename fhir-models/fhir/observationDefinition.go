@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ObservationDefinition
 type ObservationDefinition struct {
 	Id                     *string                               `bson:"id,omitempty" json:"id,omitempty"`

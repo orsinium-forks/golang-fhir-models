@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MeasureReport
 type MeasureReport struct {
 	Id                  *string               `bson:"id,omitempty" json:"id,omitempty"`

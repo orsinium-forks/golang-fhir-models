@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Knowledge resources must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RelatedArtifact
 type RelatedArtifact struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`

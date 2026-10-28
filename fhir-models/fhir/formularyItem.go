@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	All of the information in this resource is specific to the inclusion of the item in the formulary and is not inherent to the item itself.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/FormularyItem
 type FormularyItem struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/ContactPoint
 type ContactPoint struct {
 	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`

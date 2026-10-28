@@ -6,6 +6,8 @@ package fhir
 //
 // This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ParameterDefinition
 type ParameterDefinition struct {
 	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Linkage
 type Linkage struct {
 	Id                *string       `bson:"id,omitempty" json:"id,omitempty"`

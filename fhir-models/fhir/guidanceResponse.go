@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: The GuidanceResponse resource supports recording the results of decision support interactions, reportability determination for public health, as well as the communication of additional data requirements for subsequent interactions.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/GuidanceResponse
 type GuidanceResponse struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`

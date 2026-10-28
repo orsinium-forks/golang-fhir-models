@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/NutritionOrder
 type NutritionOrder struct {
 	Id                     *string                       `bson:"id,omitempty" json:"id,omitempty"`

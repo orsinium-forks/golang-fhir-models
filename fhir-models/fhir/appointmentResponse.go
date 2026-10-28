@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/AppointmentResponse
 type AppointmentResponse struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`

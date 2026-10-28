@@ -12,6 +12,8 @@ import (
 //
 // Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/ValueSet
 type ValueSet struct {
 	Id                     *string            `bson:"id,omitempty" json:"id,omitempty"`

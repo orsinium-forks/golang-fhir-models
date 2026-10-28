@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The ActorDefinition resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ActorDefinition
 type ActorDefinition struct {
 	Id                     *string                  `bson:"id,omitempty" json:"id,omitempty"`

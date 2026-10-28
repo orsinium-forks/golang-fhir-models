@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Invoice
 type Invoice struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`

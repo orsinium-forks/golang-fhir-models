@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/List
 type List struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`

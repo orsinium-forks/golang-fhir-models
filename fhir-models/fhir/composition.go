@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Composition
 type Composition struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`

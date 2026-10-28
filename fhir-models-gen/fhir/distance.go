@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // Distance Type: A length - a value with a unit that is a physical distance.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Distance
 type Distance struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`

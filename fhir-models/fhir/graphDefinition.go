@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The Graph Definition resource defines a set and makes rules about the set.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/GraphDefinition
 type GraphDefinition struct {
 	Id                     *string               `bson:"id,omitempty" json:"id,omitempty"`

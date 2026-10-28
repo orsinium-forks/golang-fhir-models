@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need to be able to define and reuse the definition of individual elements of a research question.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EvidenceVariable
 type EvidenceVariable struct {
 	Id                     *string                          `bson:"id,omitempty" json:"id,omitempty"`

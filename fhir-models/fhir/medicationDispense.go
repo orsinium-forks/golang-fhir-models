@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MedicationDispense
 type MedicationDispense struct {
 	Id                        *string                         `bson:"id,omitempty" json:"id,omitempty"`

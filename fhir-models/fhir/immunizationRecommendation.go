@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // forecasting) according to a published schedule with optional supporting justification.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
 type ImmunizationRecommendation struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`

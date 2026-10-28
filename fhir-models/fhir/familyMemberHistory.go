@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Significant health conditions for a person related to the patient relevant in the context of care for the patient.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory
 type FamilyMemberHistory struct {
 	Id                    *string                          `bson:"id,omitempty" json:"id,omitempty"`

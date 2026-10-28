@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A set of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RequestOrchestration
 type RequestOrchestration struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`

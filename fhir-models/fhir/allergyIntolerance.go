@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
 type AllergyIntolerance struct {
 	Id                 *string                         `bson:"id,omitempty" json:"id,omitempty"`

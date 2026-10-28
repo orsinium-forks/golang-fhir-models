@@ -10,6 +10,8 @@ import (
 
 // The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Evidence
 type Evidence struct {
 	Id                     *string                      `bson:"id,omitempty" json:"id,omitempty"`

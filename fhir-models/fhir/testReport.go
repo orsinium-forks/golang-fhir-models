@@ -10,6 +10,8 @@ import (
 
 // A summary of information based on the results of executing a TestScript.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/TestReport
 type TestReport struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`

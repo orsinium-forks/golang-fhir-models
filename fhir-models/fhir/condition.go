@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Condition
 type Condition struct {
 	Id                 *string                `bson:"id,omitempty" json:"id,omitempty"`

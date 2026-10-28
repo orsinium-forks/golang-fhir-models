@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Representation of a molecular sequence.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MolecularSequence
 type MolecularSequence struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`

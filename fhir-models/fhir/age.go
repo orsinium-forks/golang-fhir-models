@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // Age Type: A duration of time during which an organism (or a process) has existed.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Age
 type Age struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`

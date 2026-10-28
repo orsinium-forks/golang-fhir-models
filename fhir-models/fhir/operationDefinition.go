@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/OperationDefinition
 type OperationDefinition struct {
 	Id                     *string                        `bson:"id,omitempty" json:"id,omitempty"`

@@ -10,6 +10,8 @@ import (
 
 // The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/CodeSystem
 type CodeSystem struct {
 	Id                     *string                     `bson:"id,omitempty" json:"id,omitempty"`

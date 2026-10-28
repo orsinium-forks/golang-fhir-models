@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A search parameter that defines a named search item that can be used to search/filter on a resource.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SearchParameter
 type SearchParameter struct {
 	Id                     *string                    `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: References to codes are very common in healthcare models.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Coding
 type Coding struct {
 	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`

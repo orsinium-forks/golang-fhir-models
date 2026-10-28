@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ResearchSubject
 type ResearchSubject struct {
 	Id                      *string                   `bson:"id,omitempty" json:"id,omitempty"`

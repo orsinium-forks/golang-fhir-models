@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // MonetaryComponent Type: Availability data for an {item}.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MonetaryComponent
 type MonetaryComponent struct {
 	Id        *string            `bson:"id,omitempty" json:"id,omitempty"`

@@ -10,6 +10,8 @@ import (
 
 // A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ConceptMap
 type ConceptMap struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`

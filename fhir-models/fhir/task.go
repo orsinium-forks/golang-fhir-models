@@ -10,6 +10,8 @@ import (
 
 // A task to be performed.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Task
 type Task struct {
 	Id                    *string             `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition
 type ManufacturedItemDefinition struct {
 	Id                   *string                               `bson:"id,omitempty" json:"id,omitempty"`

@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // This may result in one or more Encounter(s).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Appointment
 type Appointment struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`

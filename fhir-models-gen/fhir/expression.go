@@ -6,6 +6,8 @@ package fhir
 //
 // The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Expression
 type Expression struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`

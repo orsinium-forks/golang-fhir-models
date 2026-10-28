@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A food or supplement that is consumed by patients.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/NutritionProduct
 type NutritionProduct struct {
 	Id                *string                          `bson:"id,omitempty" json:"id,omitempty"`

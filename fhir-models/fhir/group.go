@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // a collection of entities that isn't an Organization.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Group
 type Group struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`

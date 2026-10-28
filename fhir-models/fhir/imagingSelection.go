@@ -12,6 +12,8 @@ import (
 //
 // This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ImagingSelection
 type ImagingSelection struct {
 	Id                  *string                     `bson:"id,omitempty" json:"id,omitempty"`

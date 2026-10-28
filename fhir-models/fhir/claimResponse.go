@@ -10,6 +10,8 @@ import (
 
 // This resource provides the adjudication details from the processing of a Claim resource.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ClaimResponse
 type ClaimResponse struct {
 	Id                    *string                         `bson:"id,omitempty" json:"id,omitempty"`

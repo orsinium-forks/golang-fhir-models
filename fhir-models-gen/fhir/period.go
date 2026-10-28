@@ -4,6 +4,8 @@ package fhir
 
 // Period Type: A time period defined by a start and end date and optionally time.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Period
 type Period struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`

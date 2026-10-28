@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DetectedIssue
 type DetectedIssue struct {
 	Id                 *string                   `bson:"id,omitempty" json:"id,omitempty"`

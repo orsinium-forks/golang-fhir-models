@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Allows institutions to track their devices.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Device
 type Device struct {
 	Id                    *string             `bson:"id,omitempty" json:"id,omitempty"`

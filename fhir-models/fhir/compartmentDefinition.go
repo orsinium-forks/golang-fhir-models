@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A compartment definition that defines how resources are accessed on a server.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/CompartmentDefinition
 type CompartmentDefinition struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`

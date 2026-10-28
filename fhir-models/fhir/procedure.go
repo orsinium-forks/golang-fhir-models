@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Procedure
 type Procedure struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`

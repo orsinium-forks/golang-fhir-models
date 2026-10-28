@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Organization
 type Organization struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`

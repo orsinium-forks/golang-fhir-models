@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A record of association of a device.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DeviceAssociation
 type DeviceAssociation struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`

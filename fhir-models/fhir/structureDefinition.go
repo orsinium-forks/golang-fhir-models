@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/StructureDefinition
 type StructureDefinition struct {
 	Id                     *string                          `bson:"id,omitempty" json:"id,omitempty"`

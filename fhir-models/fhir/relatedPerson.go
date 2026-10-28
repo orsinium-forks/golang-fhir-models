@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need to track persons related to the patient or the healthcare process.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RelatedPerson
 type RelatedPerson struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`

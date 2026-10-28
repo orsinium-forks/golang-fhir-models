@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A homogeneous material with a definite composition.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Substance
 type Substance struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`

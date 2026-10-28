@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need to track persons potentially across multiple roles.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Person
 type Person struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`

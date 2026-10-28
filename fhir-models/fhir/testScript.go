@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/TestScript
 type TestScript struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`

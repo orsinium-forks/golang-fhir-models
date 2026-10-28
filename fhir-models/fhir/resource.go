@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This is the base resource type for everything.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Resource
 type Resource struct {
 	Id            *string `bson:"id,omitempty" json:"id,omitempty"`

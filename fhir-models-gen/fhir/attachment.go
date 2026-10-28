@@ -8,6 +8,8 @@ import decimal "github.com/shopspring/decimal"
 //
 // Purpose: Many models need to include data defined in other specifications that is complex and opaque to the healthcare model. This includes documents, media recordings, structured data, etc.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Attachment
 type Attachment struct {
 	Id          *string          `bson:"id,omitempty" json:"id,omitempty"`

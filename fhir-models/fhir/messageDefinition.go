@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Allows messages to be defined once and re-used across systems.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MessageDefinition
 type MessageDefinition struct {
 	Id                     *string                            `bson:"id,omitempty" json:"id,omitempty"`

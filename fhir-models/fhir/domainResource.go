@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A resource that includes narrative, extensions, and contained resources.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/DomainResource
 type DomainResource struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`

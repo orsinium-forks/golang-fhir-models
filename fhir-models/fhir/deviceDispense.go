@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	This includes a description of the product (supply) provided and the instructions for using the device.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DeviceDispense
 type DeviceDispense struct {
 	Id                    *string                   `bson:"id,omitempty" json:"id,omitempty"`

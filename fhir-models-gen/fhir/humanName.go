@@ -8,6 +8,8 @@ package fhir
 //
 // Purpose: Need to be able to record names, along with notes about their use.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/HumanName
 type HumanName struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`

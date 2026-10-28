@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The EventDefinition resource provides a reusable description of when a particular event can occur.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EventDefinition
 type EventDefinition struct {
 	Id                     *string             `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to be able to specify ranges of values.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Range
 type Range struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // ElementDefinition Type: Captures constraints on each element within the resource, profile, or extension.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/ElementDefinition
 type ElementDefinition struct {
 	Id                                *string                       `bson:"id,omitempty" json:"id,omitempty"`

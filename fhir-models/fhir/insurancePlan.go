@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Details of a Health Insurance product/plan provided by an organization.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/InsurancePlan
 type InsurancePlan struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`

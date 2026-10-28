@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EnrollmentResponse
 type EnrollmentResponse struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`

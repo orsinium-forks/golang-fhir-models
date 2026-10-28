@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED CT, and/or defined by the provision of text that captures a human sense of the concept.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/CodeableConcept
 type CodeableConcept struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`

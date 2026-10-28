@@ -14,6 +14,8 @@ import (
 //
 // Purpose: To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
 type QuestionnaireResponse struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ExampleScenario
 type ExampleScenario struct {
 	Id                     *string                   `bson:"id,omitempty" json:"id,omitempty"`

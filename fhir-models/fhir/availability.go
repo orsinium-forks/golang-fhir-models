@@ -4,6 +4,8 @@ package fhir
 
 // Availability Type: Availability data for an {item}.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Availability
 type Availability struct {
 	Id               *string                        `bson:"id,omitempty" json:"id,omitempty"`

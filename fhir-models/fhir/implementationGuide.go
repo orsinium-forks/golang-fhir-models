@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ImplementationGuide
 type ImplementationGuide struct {
 	Id                     *string                        `bson:"id,omitempty" json:"id,omitempty"`

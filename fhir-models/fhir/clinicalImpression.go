@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ClinicalImpression
 type ClinicalImpression struct {
 	Id                       *string                     `bson:"id,omitempty" json:"id,omitempty"`

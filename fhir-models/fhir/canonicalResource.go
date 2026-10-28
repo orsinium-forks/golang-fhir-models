@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Common Interface declaration for conformance and knowledge artifact resources.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/CanonicalResource
 type CanonicalResource struct {
 	Id                     *string           `bson:"id,omitempty" json:"id,omitempty"`

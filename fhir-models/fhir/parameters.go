@@ -13,6 +13,8 @@ import (
 //
 //	It is not persisted or allowed to be referenced by other resources except as described in the definition of the Parameters resource.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Parameters
 type Parameters struct {
 	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`

@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Many implementations are not prepared to use REST and need a messaging based infrastructure.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MessageHeader
 type MessageHeader struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`

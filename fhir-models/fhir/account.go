@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	In the healthcare field, used to track charges for a patient, cost centers, etc.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Account
 type Account struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`

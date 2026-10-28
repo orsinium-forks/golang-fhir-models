@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // Money Type: An amount of economic utility in some recognized currency.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Money
 type Money struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`

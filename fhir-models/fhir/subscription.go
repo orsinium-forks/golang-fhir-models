@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The subscription resource describes a particular client's request to be notified about a SubscriptionTopic.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Subscription
 type Subscription struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`

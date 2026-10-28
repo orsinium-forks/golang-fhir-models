@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 //	In the case where there is a hierarchy of services (for example, Lab -> Pathology -> Wound Cultures), this can be represented using a set of linked HealthcareServices.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/HealthcareService
 type HealthcareService struct {
 	Id                   *string                        `bson:"id,omitempty" json:"id,omitempty"`

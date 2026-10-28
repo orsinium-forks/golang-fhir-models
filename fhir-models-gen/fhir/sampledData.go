@@ -10,6 +10,8 @@ import decimal "github.com/shopspring/decimal"
 //
 // Purpose: There is a need for a concise way to handle the data produced by devices that sample a physical state at a high frequency.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SampledData
 type SampledData struct {
 	Id           *string          `bson:"id,omitempty" json:"id,omitempty"`

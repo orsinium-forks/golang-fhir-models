@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A set of analyses performed to analyze and generate genomic data.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/GenomicStudy
 type GenomicStudy struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`

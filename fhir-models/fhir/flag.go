@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Prospective warnings of potential issues when providing care to the patient.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Flag
 type Flag struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`

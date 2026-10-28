@@ -10,6 +10,8 @@ import (
 
 // functional description of an inventory item used in inventory and supply-related workflows.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/InventoryItem
 type InventoryItem struct {
 	Id                      *string                                `bson:"id,omitempty" json:"id,omitempty"`

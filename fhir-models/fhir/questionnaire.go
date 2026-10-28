@@ -14,6 +14,8 @@ import (
 //
 // Purpose: To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Questionnaire
 type Questionnaire struct {
 	Id                     *string             `bson:"id,omitempty" json:"id,omitempty"`

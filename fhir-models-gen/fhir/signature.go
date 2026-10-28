@@ -8,6 +8,8 @@ package fhir
 //
 // Purpose: There are a number of places where content must be signed in healthcare.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Signature
 type Signature struct {
 	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`

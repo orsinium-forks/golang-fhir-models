@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // has been performed).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition
 type AdministrableProductDefinition struct {
 	Id                    *string                                               `bson:"id,omitempty" json:"id,omitempty"`

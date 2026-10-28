@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This Resource provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ArtifactAssessment
 type ArtifactAssessment struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`

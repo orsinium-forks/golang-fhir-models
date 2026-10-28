@@ -4,6 +4,8 @@ package fhir
 
 // Dosage Type: Indicates how the medication is/was taken or should be taken by the patient.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Dosage
 type Dosage struct {
 	Id                       *string             `bson:"id,omitempty" json:"id,omitempty"`

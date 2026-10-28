@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to track contact information in the same way across multiple resources.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/ContactDetail
 type ContactDetail struct {
 	Id        *string        `bson:"id,omitempty" json:"id,omitempty"`

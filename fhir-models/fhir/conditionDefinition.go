@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A definition of a condition and information relevant to managing it.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ConditionDefinition
 type ConditionDefinition struct {
 	Id                     *string                            `bson:"id,omitempty" json:"id,omitempty"`

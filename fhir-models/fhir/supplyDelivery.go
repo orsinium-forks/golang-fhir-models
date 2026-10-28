@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Record of delivery of what is supplied.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SupplyDelivery
 type SupplyDelivery struct {
 	Id                 *string                      `bson:"id,omitempty" json:"id,omitempty"`

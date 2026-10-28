@@ -8,6 +8,8 @@ package fhir
 //
 // Purpose: Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Identifier
 type Identifier struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to be able to specify ranges of ratios.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RatioRange
 type RatioRange struct {
 	Id            *string     `bson:"id,omitempty" json:"id,omitempty"`

@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/PlanDefinition
 type PlanDefinition struct {
 	Id                      *string                `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ package fhir
 //
 // This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Meta
 type Meta struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`

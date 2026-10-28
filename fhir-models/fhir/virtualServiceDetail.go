@@ -4,6 +4,8 @@ package fhir
 
 // VirtualServiceDetail Type: Virtual Service Contact Details.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/VirtualServiceDetail
 type VirtualServiceDetail struct {
 	Id                           *string                `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The Measure resource provides the definition of a quality measure.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Measure
 type Measure struct {
 	Id                              *string                   `bson:"id,omitempty" json:"id,omitempty"`

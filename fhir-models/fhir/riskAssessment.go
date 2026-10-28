@@ -10,6 +10,8 @@ import (
 
 // An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RiskAssessment
 type RiskAssessment struct {
 	Id                 *string                    `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation
 type ImmunizationEvaluation struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`

@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // This may include any security context information.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Endpoint
 type Endpoint struct {
 	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`

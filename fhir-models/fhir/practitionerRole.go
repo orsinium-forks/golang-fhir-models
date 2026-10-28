@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/PractitionerRole
 type PractitionerRole struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`

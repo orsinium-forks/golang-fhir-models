@@ -10,6 +10,8 @@ import (
 
 // Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Contract
 type Contract struct {
 	Id                       *string                      `bson:"id,omitempty" json:"id,omitempty"`

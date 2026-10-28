@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A sample to be used for analysis.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Specimen
 type Specimen struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`

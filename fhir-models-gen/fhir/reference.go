@@ -4,6 +4,8 @@ package fhir
 
 // Reference Type: A reference from one resource to another.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Reference
 type Reference struct {
 	Id         *string     `bson:"id,omitempty" json:"id,omitempty"`

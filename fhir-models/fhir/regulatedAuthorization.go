@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // An example is Market Authorization relating to a Medicinal Product.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization
 type RegulatedAuthorization struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`

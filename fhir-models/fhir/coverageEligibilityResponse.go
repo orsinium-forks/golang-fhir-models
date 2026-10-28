@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse
 type CoverageEligibilityResponse struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`

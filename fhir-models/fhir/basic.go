@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Basic
 type Basic struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`

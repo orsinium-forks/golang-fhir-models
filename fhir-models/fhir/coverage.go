@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Coverage
 type Coverage struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`

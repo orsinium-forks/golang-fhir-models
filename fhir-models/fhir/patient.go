@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Tracking patient is the center of the healthcare process.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Patient
 type Patient struct {
 	Id                   *string                `bson:"id,omitempty" json:"id,omitempty"`

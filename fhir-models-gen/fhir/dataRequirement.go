@@ -4,6 +4,8 @@ package fhir
 
 // DataRequirement Type: Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DataRequirement
 type DataRequirement struct {
 	Id                     *string                      `bson:"id,omitempty" json:"id,omitempty"`

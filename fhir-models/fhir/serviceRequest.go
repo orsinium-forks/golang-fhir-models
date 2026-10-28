@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ServiceRequest
 type ServiceRequest struct {
 	Id                      *string                            `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/AuditEvent
 type AuditEvent struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`

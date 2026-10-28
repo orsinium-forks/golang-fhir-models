@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This resource provides the details including amount of a payment and allocates the payment items being paid.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
 type PaymentReconciliation struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`

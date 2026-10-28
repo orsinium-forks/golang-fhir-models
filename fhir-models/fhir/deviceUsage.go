@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A record of a device being used by a patient where the record is the result of a report from the patient or a clinician.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DeviceUsage
 type DeviceUsage struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`

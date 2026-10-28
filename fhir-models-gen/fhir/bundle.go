@@ -11,6 +11,8 @@ import (
 
 // A container for a collection of resources.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Bundle
 type Bundle struct {
 	Id            *string        `bson:"id,omitempty" json:"id,omitempty"`

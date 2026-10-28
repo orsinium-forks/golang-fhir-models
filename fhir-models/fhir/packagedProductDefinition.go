@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A medically related item or items, in a container or package.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition
 type PackagedProductDefinition struct {
 	Id                    *string                                        `bson:"id,omitempty" json:"id,omitempty"`

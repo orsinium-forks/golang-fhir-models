@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A kind of specimen with associated set of requirements.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SpecimenDefinition
 type SpecimenDefinition struct {
 	Id                     *string                        `bson:"id,omitempty" json:"id,omitempty"`

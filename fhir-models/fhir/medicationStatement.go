@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // The primary difference between a medicationstatement and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationstatement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MedicationStatement
 type MedicationStatement struct {
 	Id                         *string                        `bson:"id,omitempty" json:"id,omitempty"`

@@ -8,6 +8,8 @@ import decimal "github.com/shopspring/decimal"
 //
 // Purpose: The ability to add extensions in a structured way is what keeps FHIR resources simple.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Extension
 type Extension struct {
 	Id                         *string                `bson:"id,omitempty" json:"id,omitempty"`

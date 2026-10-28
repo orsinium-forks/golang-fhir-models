@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // This is a specialized resource that defines the characteristics and capabilities of a device.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DeviceDefinition
 type DeviceDefinition struct {
 	Id                        *string                                `bson:"id,omitempty" json:"id,omitempty"`

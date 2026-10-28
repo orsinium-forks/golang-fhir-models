@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Properties of a substance specific to it being a polymer.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubstancePolymer
 type SubstancePolymer struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`

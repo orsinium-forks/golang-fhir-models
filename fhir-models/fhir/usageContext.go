@@ -8,6 +8,8 @@ package fhir
 //
 // Purpose: Consumers of the resource must be able to determine the intended applicability for the resource. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/UsageContext
 type UsageContext struct {
 	Id                   *string         `bson:"id,omitempty" json:"id,omitempty"`

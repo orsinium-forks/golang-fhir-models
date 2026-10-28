@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: This is a common pattern in record keeping - a reference may be made to a specific condition, observation, plan, or definition, or a reference may be made to a general concept defined in a knowledge base somewhere.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/CodeableReference
 type CodeableReference struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`

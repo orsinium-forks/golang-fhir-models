@@ -10,6 +10,8 @@ import (
 
 // This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit
 type ExplanationOfBenefit struct {
 	Id                    *string                                `bson:"id,omitempty" json:"id,omitempty"`

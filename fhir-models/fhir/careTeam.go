@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/CareTeam
 type CareTeam struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`

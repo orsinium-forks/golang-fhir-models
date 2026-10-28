@@ -6,6 +6,8 @@ import decimal "github.com/shopspring/decimal"
 
 // Duration Type: A length of time.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Duration
 type Duration struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`

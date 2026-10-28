@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubstanceProtein
 type SubstanceProtein struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`

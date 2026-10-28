@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Todo.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation
 type SubstanceReferenceInformation struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`

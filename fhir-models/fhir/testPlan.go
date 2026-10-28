@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A plan for executing testing on an artifact or specifications
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/TestPlan
 type TestPlan struct {
 	Id                     *string              `bson:"id,omitempty" json:"id,omitempty"`

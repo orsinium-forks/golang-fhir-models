@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: To support reporting for any diagnostic report into a clinical data repository.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/DiagnosticReport
 type DiagnosticReport struct {
 	Id                 *string                          `bson:"id,omitempty" json:"id,omitempty"`

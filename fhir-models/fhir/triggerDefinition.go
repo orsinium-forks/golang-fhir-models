@@ -6,6 +6,8 @@ package fhir
 //
 // Triggering events can be named events, data events, or periodic, as determined by the type element.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/TriggerDefinition
 type TriggerDefinition struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`

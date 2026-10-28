@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Permission resource holds access rules for a given data and context.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Permission
 type Permission struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`

@@ -301,6 +301,7 @@ func formatDocstring(def fhir.StructureDefinition) string {
 	if def.Purpose != nil {
 		res += "\n//\n// Purpose: " + strings.ReplaceAll(*def.Purpose, "\n", "\n//")
 	}
+	res += "\n//\n// Status: " + def.Status.Code()
 	res += "\n//\n// " + def.Url
 	return res
 }

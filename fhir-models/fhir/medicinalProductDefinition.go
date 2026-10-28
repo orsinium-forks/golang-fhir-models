@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // regulatory use, drug catalogs, to support prescribing, adverse events management etc.).
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition
 type MedicinalProductDefinition struct {
 	Id                             *string                                    `bson:"id,omitempty" json:"id,omitempty"`

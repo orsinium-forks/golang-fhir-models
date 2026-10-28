@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/CommunicationRequest
 type CommunicationRequest struct {
 	Id                  *string                       `bson:"id,omitempty" json:"id,omitempty"`

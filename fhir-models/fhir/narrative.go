@@ -4,6 +4,8 @@ package fhir
 
 // Narrative Type: A human-readable summary of the resource conveying the essential clinical and business information for the resource.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Narrative
 type Narrative struct {
 	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A container for slots of time that may be available for booking appointments.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Schedule
 type Schedule struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`

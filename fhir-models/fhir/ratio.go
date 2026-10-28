@@ -6,6 +6,8 @@ package fhir
 //
 // Purpose: Need to able to capture ratios for some measurements (titers) and some rates (costs).
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Ratio
 type Ratio struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`

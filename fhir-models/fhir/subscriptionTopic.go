@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubscriptionTopic
 type SubscriptionTopic struct {
 	Id                     *string                              `bson:"id,omitempty" json:"id,omitempty"`

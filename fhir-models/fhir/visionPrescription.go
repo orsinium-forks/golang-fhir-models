@@ -10,6 +10,8 @@ import (
 
 // An authorization for the provision of glasses and/or contact lenses to a patient.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/VisionPrescription
 type VisionPrescription struct {
 	Id                *string                               `bson:"id,omitempty" json:"id,omitempty"`

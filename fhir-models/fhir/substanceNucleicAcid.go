@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid
 type SubstanceNucleicAcid struct {
 	Id                  *string                       `bson:"id,omitempty" json:"id,omitempty"`

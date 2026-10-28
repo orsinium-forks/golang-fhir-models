@@ -10,6 +10,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: There are situations where it is useful or required to handle pure binary content using the same framework as other resources.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Binary
 type Binary struct {
 	Id              *string    `bson:"id,omitempty" json:"id,omitempty"`

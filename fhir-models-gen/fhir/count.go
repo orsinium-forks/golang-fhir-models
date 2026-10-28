@@ -10,6 +10,8 @@ import decimal "github.com/shopspring/decimal"
 //
 // Purpose: Need to able to capture all sorts of measured values, even if the measured value are not precisely quantified. Values include exact measures such as 3.51g, customary units such as 3 tablets, and currencies such as $100.32USD.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Count
 type Count struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`

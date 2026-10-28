@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // A report of inventory or stock items.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/InventoryReport
 type InventoryReport struct {
 	Id                  *string                           `bson:"id,omitempty" json:"id,omitempty"`

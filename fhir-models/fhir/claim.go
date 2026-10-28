@@ -12,6 +12,8 @@ import (
 //
 // Purpose: The Claim resource is used by providers to exchange services and products rendered to patients or planned to be rendered with insurers for reimbuserment. It is also used by insurers to exchange claims information with statutory reporting and data analytics firms.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Claim
 type Claim struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`

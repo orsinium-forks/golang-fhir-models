@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // Purpose: Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
 //
+// Status: active
+//
 // http://hl7.org/fhir/StructureDefinition/Observation
 type Observation struct {
 	Id                    *string                     `bson:"id,omitempty" json:"id,omitempty"`

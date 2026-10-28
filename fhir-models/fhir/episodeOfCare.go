@@ -8,6 +8,8 @@ import v2 "encoding/json/v2"
 //
 // The managing organization assumes a level of responsibility for the patient during this time.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
 type EpisodeOfCare struct {
 	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`

@@ -6,6 +6,8 @@ import v2 "encoding/json/v2"
 
 // Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
 //
+// Status: draft
+//
 // http://hl7.org/fhir/StructureDefinition/Immunization
 type Immunization struct {
 	Id                    *string                          `bson:"id,omitempty" json:"id,omitempty"`
