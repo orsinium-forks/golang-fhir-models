@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// BiologicallyDerivedProductDispense is documented here http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense
+// A record of dispensation of a biologically derived product.
+//
+// http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense
 type BiologicallyDerivedProductDispense struct {
 	Id                     *string                                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                         `bson:"meta,omitempty" json:"meta,omitempty"`

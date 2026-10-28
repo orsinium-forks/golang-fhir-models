@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Slot is documented here http://hl7.org/fhir/StructureDefinition/Slot
+// A slot of time on a schedule that may be available for booking appointments.
+//
+// http://hl7.org/fhir/StructureDefinition/Slot
 type Slot struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

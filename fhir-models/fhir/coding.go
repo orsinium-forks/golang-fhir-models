@@ -2,7 +2,11 @@
 
 package fhir
 
-// Coding is documented here http://hl7.org/fhir/StructureDefinition/Coding
+// Coding Type: A reference to a code defined by a terminology system.
+//
+// Purpose: References to codes are very common in healthcare models.
+//
+// http://hl7.org/fhir/StructureDefinition/Coding
 type Coding struct {
 	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension    []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

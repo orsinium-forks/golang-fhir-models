@@ -2,7 +2,9 @@
 
 package fhir
 
-// VirtualServiceDetail is documented here http://hl7.org/fhir/StructureDefinition/VirtualServiceDetail
+// VirtualServiceDetail Type: Virtual Service Contact Details.
+//
+// http://hl7.org/fhir/StructureDefinition/VirtualServiceDetail
 type VirtualServiceDetail struct {
 	Id                           *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                    []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`

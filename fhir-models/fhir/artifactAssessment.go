@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ArtifactAssessment is documented here http://hl7.org/fhir/StructureDefinition/ArtifactAssessment
+// This Resource provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content.
+//
+// http://hl7.org/fhir/StructureDefinition/ArtifactAssessment
 type ArtifactAssessment struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`

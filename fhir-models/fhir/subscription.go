@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Subscription is documented here http://hl7.org/fhir/StructureDefinition/Subscription
+// The subscription resource describes a particular client's request to be notified about a SubscriptionTopic.
+//
+// http://hl7.org/fhir/StructureDefinition/Subscription
 type Subscription struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

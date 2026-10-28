@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// AdministrableProductDefinition is documented here http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition
+// A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.
+//
+// has been performed).
+//
+// http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition
 type AdministrableProductDefinition struct {
 	Id                    *string                                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                                                 `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceDefinition is documented here http://hl7.org/fhir/StructureDefinition/DeviceDefinition
+// This is a specialized resource that defines the characteristics and capabilities of a device.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceDefinition
 type DeviceDefinition struct {
 	Id                        *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                      *Meta                                  `bson:"meta,omitempty" json:"meta,omitempty"`

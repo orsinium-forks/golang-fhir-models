@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EnrollmentResponse is documented here http://hl7.org/fhir/StructureDefinition/EnrollmentResponse
+// This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
+//
+// http://hl7.org/fhir/StructureDefinition/EnrollmentResponse
 type EnrollmentResponse struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`

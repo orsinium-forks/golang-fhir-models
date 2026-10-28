@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MedicinalProductDefinition is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition
+// Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g.
+//
+// regulatory use, drug catalogs, to support prescribing, adverse events management etc.).
+//
+// http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition
 type MedicinalProductDefinition struct {
 	Id                             *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                           *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`

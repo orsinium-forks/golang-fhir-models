@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// CompartmentDefinition is documented here http://hl7.org/fhir/StructureDefinition/CompartmentDefinition
+// A compartment definition that defines how resources are accessed on a server.
+//
+// http://hl7.org/fhir/StructureDefinition/CompartmentDefinition
 type CompartmentDefinition struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`

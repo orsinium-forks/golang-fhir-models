@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Location is documented here http://hl7.org/fhir/StructureDefinition/Location
+// Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated.
+//
+// http://hl7.org/fhir/StructureDefinition/Location
 type Location struct {
 	Id                   *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceUsage is documented here http://hl7.org/fhir/StructureDefinition/DeviceUsage
+// A record of a device being used by a patient where the record is the result of a report from the patient or a clinician.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceUsage
 type DeviceUsage struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,13 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Device is documented here http://hl7.org/fhir/StructureDefinition/Device
+// This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number).
+//
+// An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element.
+//
+// Purpose: Allows institutions to track their devices.
+//
+// http://hl7.org/fhir/StructureDefinition/Device
 type Device struct {
 	Id                    *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

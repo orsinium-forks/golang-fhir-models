@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// MonetaryComponent is documented here http://hl7.org/fhir/StructureDefinition/MonetaryComponent
+// MonetaryComponent Type: Availability data for an {item}.
+//
+// http://hl7.org/fhir/StructureDefinition/MonetaryComponent
 type MonetaryComponent struct {
 	Id        *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension        `bson:"extension,omitempty" json:"extension,omitempty"`

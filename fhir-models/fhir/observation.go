@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Observation is documented here http://hl7.org/fhir/StructureDefinition/Observation
+// Measurements and simple assertions made about a patient, device or other subject.
+//
+// Purpose: Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
+//
+// http://hl7.org/fhir/StructureDefinition/Observation
 type Observation struct {
 	Id                    *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

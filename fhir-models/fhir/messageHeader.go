@@ -4,7 +4,13 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MessageHeader is documented here http://hl7.org/fhir/StructureDefinition/MessageHeader
+// The header for a message exchange that is either requesting or responding to an action.
+//
+//	The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
+//
+// Purpose: Many implementations are not prepared to use REST and need a messaging based infrastructure.
+//
+// http://hl7.org/fhir/StructureDefinition/MessageHeader
 type MessageHeader struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`

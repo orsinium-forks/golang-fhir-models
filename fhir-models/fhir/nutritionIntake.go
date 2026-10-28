@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// NutritionIntake is documented here http://hl7.org/fhir/StructureDefinition/NutritionIntake
+// A record of food or fluid that is being consumed by a patient.
+//
+//	A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake.
+//
+// http://hl7.org/fhir/StructureDefinition/NutritionIntake
 type NutritionIntake struct {
 	Id                    *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

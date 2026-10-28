@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// RiskAssessment is documented here http://hl7.org/fhir/StructureDefinition/RiskAssessment
+// An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
+//
+// http://hl7.org/fhir/StructureDefinition/RiskAssessment
 type RiskAssessment struct {
 	Id                 *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -8,7 +8,11 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Claim is documented here http://hl7.org/fhir/StructureDefinition/Claim
+// A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
+//
+// Purpose: The Claim resource is used by providers to exchange services and products rendered to patients or planned to be rendered with insurers for reimbuserment. It is also used by insurers to exchange claims information with statutory reporting and data analytics firms.
+//
+// http://hl7.org/fhir/StructureDefinition/Claim
 type Claim struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

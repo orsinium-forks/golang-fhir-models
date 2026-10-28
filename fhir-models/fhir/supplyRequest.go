@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SupplyRequest is documented here http://hl7.org/fhir/StructureDefinition/SupplyRequest
+// A record of a non-patient specific request for a medication, substance, device, certain types of biologically derived product, and nutrition product used in the healthcare setting.
+//
+// http://hl7.org/fhir/StructureDefinition/SupplyRequest
 type SupplyRequest struct {
 	Id                 *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

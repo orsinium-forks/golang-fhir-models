@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MeasureReport is documented here http://hl7.org/fhir/StructureDefinition/MeasureReport
+// The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
+//
+// http://hl7.org/fhir/StructureDefinition/MeasureReport
 type MeasureReport struct {
 	Id                  *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

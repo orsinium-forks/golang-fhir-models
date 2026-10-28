@@ -8,7 +8,13 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// QuestionnaireResponse is documented here http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+// A structured set of questions and their answers.
+//
+// The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
+//
+// Purpose: To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires.
+//
+// http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
 type QuestionnaireResponse struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

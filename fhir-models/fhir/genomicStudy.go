@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// GenomicStudy is documented here http://hl7.org/fhir/StructureDefinition/GenomicStudy
+// A set of analyses performed to analyze and generate genomic data.
+//
+// http://hl7.org/fhir/StructureDefinition/GenomicStudy
 type GenomicStudy struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

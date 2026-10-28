@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// TestPlan is documented here http://hl7.org/fhir/StructureDefinition/TestPlan
+// A plan for executing testing on an artifact or specifications
+//
+// http://hl7.org/fhir/StructureDefinition/TestPlan
 type TestPlan struct {
 	Id                     *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`

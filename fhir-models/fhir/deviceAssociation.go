@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceAssociation is documented here http://hl7.org/fhir/StructureDefinition/DeviceAssociation
+// A record of association of a device.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceAssociation
 type DeviceAssociation struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

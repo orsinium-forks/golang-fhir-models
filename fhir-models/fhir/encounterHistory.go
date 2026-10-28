@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EncounterHistory is documented here http://hl7.org/fhir/StructureDefinition/EncounterHistory
+// A record of significant events/milestones key data throughout the history of an Encounter
+//
+// http://hl7.org/fhir/StructureDefinition/EncounterHistory
 type EncounterHistory struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`

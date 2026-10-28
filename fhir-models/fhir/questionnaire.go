@@ -8,7 +8,13 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Questionnaire is documented here http://hl7.org/fhir/StructureDefinition/Questionnaire
+// A structured set of questions intended to guide the collection of answers from end-users.
+//
+// Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
+//
+// Purpose: To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources).
+//
+// http://hl7.org/fhir/StructureDefinition/Questionnaire
 type Questionnaire struct {
 	Id                     *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

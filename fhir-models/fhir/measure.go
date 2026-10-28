@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Measure is documented here http://hl7.org/fhir/StructureDefinition/Measure
+// The Measure resource provides the definition of a quality measure.
+//
+// http://hl7.org/fhir/StructureDefinition/Measure
 type Measure struct {
 	Id                              *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                            *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

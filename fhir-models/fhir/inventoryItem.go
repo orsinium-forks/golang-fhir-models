@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// InventoryItem is documented here http://hl7.org/fhir/StructureDefinition/InventoryItem
+// functional description of an inventory item used in inventory and supply-related workflows.
+//
+// http://hl7.org/fhir/StructureDefinition/InventoryItem
 type InventoryItem struct {
 	Id                      *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                                  `bson:"meta,omitempty" json:"meta,omitempty"`

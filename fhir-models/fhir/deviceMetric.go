@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceMetric is documented here http://hl7.org/fhir/StructureDefinition/DeviceMetric
+// Describes a measurement, calculation or setting capability of a device.
+//
+//	The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceMetric
 type DeviceMetric struct {
 	Id                   *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Condition is documented here http://hl7.org/fhir/StructureDefinition/Condition
+// A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
+//
+// http://hl7.org/fhir/StructureDefinition/Condition
 type Condition struct {
 	Id                 *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

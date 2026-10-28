@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SubstanceNucleicAcid is documented here http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid
+// Nucleic acids are defined by three distinct elements: the base, sugar and linkage.
+//
+// Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
+//
+// http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid
 type SubstanceNucleicAcid struct {
 	Id                  *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`

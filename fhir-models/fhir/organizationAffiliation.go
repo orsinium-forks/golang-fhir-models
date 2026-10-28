@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// OrganizationAffiliation is documented here http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation
+// Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship.
+//
+// Purpose: Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships).
+//
+// http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation
 type OrganizationAffiliation struct {
 	Id                        *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                      *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

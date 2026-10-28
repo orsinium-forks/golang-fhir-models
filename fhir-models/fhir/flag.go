@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Flag is documented here http://hl7.org/fhir/StructureDefinition/Flag
+// Prospective warnings of potential issues when providing care to the patient.
+//
+// http://hl7.org/fhir/StructureDefinition/Flag
 type Flag struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

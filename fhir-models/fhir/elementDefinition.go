@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// ElementDefinition is documented here http://hl7.org/fhir/StructureDefinition/ElementDefinition
+// ElementDefinition Type: Captures constraints on each element within the resource, profile, or extension.
+//
+// http://hl7.org/fhir/StructureDefinition/ElementDefinition
 type ElementDefinition struct {
 	Id                                *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                         []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`

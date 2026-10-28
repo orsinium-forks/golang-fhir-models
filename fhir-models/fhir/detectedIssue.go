@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DetectedIssue is documented here http://hl7.org/fhir/StructureDefinition/DetectedIssue
+// Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g.
+//
+// Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/DetectedIssue
 type DetectedIssue struct {
 	Id                 *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

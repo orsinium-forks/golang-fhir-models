@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// ClaimResponse is documented here http://hl7.org/fhir/StructureDefinition/ClaimResponse
+// This resource provides the adjudication details from the processing of a Claim resource.
+//
+// http://hl7.org/fhir/StructureDefinition/ClaimResponse
 type ClaimResponse struct {
 	Id                    *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`

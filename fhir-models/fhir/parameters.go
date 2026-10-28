@@ -9,7 +9,11 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Parameters is documented here http://hl7.org/fhir/StructureDefinition/Parameters
+// This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).
+//
+//	It is not persisted or allowed to be referenced by other resources except as described in the definition of the Parameters resource.
+//
+// http://hl7.org/fhir/StructureDefinition/Parameters
 type Parameters struct {
 	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta          *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

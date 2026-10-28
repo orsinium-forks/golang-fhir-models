@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Age is documented here http://hl7.org/fhir/StructureDefinition/Age
+// Age Type: A duration of time during which an organism (or a process) has existed.
+//
+// http://hl7.org/fhir/StructureDefinition/Age
 type Age struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

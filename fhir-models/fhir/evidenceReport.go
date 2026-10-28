@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EvidenceReport is documented here http://hl7.org/fhir/StructureDefinition/EvidenceReport
+// The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts.
+//
+// http://hl7.org/fhir/StructureDefinition/EvidenceReport
 type EvidenceReport struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

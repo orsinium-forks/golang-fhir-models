@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Resource is documented here http://hl7.org/fhir/StructureDefinition/Resource
+// This is the base resource type for everything.
+//
+// http://hl7.org/fhir/StructureDefinition/Resource
 type Resource struct {
 	Id            *string `bson:"id,omitempty" json:"id,omitempty"`
 	Meta          *Meta   `bson:"meta,omitempty" json:"meta,omitempty"`

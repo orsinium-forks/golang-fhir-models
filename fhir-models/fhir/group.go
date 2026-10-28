@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Group is documented here http://hl7.org/fhir/StructureDefinition/Group
+// Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e.
+//
+// a collection of entities that isn't an Organization.
+//
+// http://hl7.org/fhir/StructureDefinition/Group
 type Group struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

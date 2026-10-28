@@ -4,7 +4,13 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Quantity is documented here http://hl7.org/fhir/StructureDefinition/Quantity
+// Quantity Type: A measured amount (or an amount that can potentially be measured).
+//
+// Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
+//
+// Purpose: Need to able to capture all sorts of measured values, even if the measured value are not precisely quantified. Values include exact measures such as 3.51g, customary units such as 3 tablets, and currencies such as $100.32USD.
+//
+// http://hl7.org/fhir/StructureDefinition/Quantity
 type Quantity struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

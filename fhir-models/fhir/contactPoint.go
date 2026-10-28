@@ -2,7 +2,11 @@
 
 package fhir
 
-// ContactPoint is documented here http://hl7.org/fhir/StructureDefinition/ContactPoint
+// ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
+//
+// Purpose: Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/ContactPoint
 type ContactPoint struct {
 	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

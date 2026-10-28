@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// List is documented here http://hl7.org/fhir/StructureDefinition/List
+// A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/List
 type List struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`

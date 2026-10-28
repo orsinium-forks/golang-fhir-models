@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// RegulatedAuthorization is documented here http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization
+// Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act.
+//
+// An example is Market Authorization relating to a Medicinal Product.
+//
+// http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization
 type RegulatedAuthorization struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

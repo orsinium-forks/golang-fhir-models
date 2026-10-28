@@ -4,7 +4,11 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Extension is documented here http://hl7.org/fhir/StructureDefinition/Extension
+// Extension Type: Optional Extension Element - found in all resources.
+//
+// Purpose: The ability to add extensions in a structured way is what keeps FHIR resources simple.
+//
+// http://hl7.org/fhir/StructureDefinition/Extension
 type Extension struct {
 	Id                         *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                  []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ManufacturedItemDefinition is documented here http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition
+// The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.
+//
+// http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition
 type ManufacturedItemDefinition struct {
 	Id                   *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`

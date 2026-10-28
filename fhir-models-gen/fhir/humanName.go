@@ -2,7 +2,13 @@
 
 package fhir
 
-// HumanName is documented here http://hl7.org/fhir/StructureDefinition/HumanName
+// HumanName Type: A name, normally of a human, that can be used for other living entities (e.g.
+//
+// animals but not organizations) that have been assigned names by a human and may need the use of name parts or the need for usage information.
+//
+// Purpose: Need to be able to record names, along with notes about their use.
+//
+// http://hl7.org/fhir/StructureDefinition/HumanName
 type HumanName struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

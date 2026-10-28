@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SubscriptionTopic is documented here http://hl7.org/fhir/StructureDefinition/SubscriptionTopic
+// Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.
+//
+// http://hl7.org/fhir/StructureDefinition/SubscriptionTopic
 type SubscriptionTopic struct {
 	Id                     *string                              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                `bson:"meta,omitempty" json:"meta,omitempty"`

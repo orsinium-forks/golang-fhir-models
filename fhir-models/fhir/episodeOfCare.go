@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EpisodeOfCare is documented here http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+// An association between a patient and an organization / healthcare provider(s) during which time encounters may occur.
+//
+// The managing organization assumes a level of responsibility for the patient during this time.
+//
+// http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
 type EpisodeOfCare struct {
 	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

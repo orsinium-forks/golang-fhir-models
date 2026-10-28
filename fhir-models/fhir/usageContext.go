@@ -2,7 +2,13 @@
 
 package fhir
 
-// UsageContext is documented here http://hl7.org/fhir/StructureDefinition/UsageContext
+// UsageContext Type: Specifies clinical/business/etc.
+//
+// metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
+//
+// Purpose: Consumers of the resource must be able to determine the intended applicability for the resource. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed.
+//
+// http://hl7.org/fhir/StructureDefinition/UsageContext
 type UsageContext struct {
 	Id                   *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

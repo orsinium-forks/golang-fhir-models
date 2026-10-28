@@ -2,7 +2,11 @@
 
 package fhir
 
-// Ratio is documented here http://hl7.org/fhir/StructureDefinition/Ratio
+// Ratio Type: A relationship of two Quantity values - expressed as a numerator and a denominator.
+//
+// Purpose: Need to able to capture ratios for some measurements (titers) and some rates (costs).
+//
+// http://hl7.org/fhir/StructureDefinition/Ratio
 type Ratio struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// CoverageEligibilityRequest is documented here http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest
+// The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
+//
+// http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest
 type CoverageEligibilityRequest struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`

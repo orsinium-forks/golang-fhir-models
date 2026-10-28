@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// StructureDefinition is documented here http://hl7.org/fhir/StructureDefinition/StructureDefinition
+// A definition of a FHIR structure.
+//
+// This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
+//
+// http://hl7.org/fhir/StructureDefinition/StructureDefinition
 type StructureDefinition struct {
 	Id                     *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

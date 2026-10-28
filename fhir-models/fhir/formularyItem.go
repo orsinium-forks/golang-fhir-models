@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// FormularyItem is documented here http://hl7.org/fhir/StructureDefinition/FormularyItem
+// This resource describes a product or service that is available through a program and includes the conditions and constraints of availability.
+//
+//	All of the information in this resource is specific to the inclusion of the item in the formulary and is not inherent to the item itself.
+//
+// http://hl7.org/fhir/StructureDefinition/FormularyItem
 type FormularyItem struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

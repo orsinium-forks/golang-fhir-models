@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ResearchSubject is documented here http://hl7.org/fhir/StructureDefinition/ResearchSubject
+// A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study.
+//
+// http://hl7.org/fhir/StructureDefinition/ResearchSubject
 type ResearchSubject struct {
 	Id                      *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

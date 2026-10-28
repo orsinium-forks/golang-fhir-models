@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// PaymentReconciliation is documented here http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
+// This resource provides the details including amount of a payment and allocates the payment items being paid.
+//
+// http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
 type PaymentReconciliation struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`

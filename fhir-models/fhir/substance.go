@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Substance is documented here http://hl7.org/fhir/StructureDefinition/Substance
+// A homogeneous material with a definite composition.
+//
+// http://hl7.org/fhir/StructureDefinition/Substance
 type Substance struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

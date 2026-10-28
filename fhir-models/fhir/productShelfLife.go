@@ -2,7 +2,9 @@
 
 package fhir
 
-// ProductShelfLife is documented here http://hl7.org/fhir/StructureDefinition/ProductShelfLife
+// ProductShelfLife Type: The shelf-life and storage information for a medicinal product item or container can be described using this class.
+//
+// http://hl7.org/fhir/StructureDefinition/ProductShelfLife
 type ProductShelfLife struct {
 	Id                           *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                    []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

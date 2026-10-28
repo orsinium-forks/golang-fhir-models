@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// VerificationResult is documented here http://hl7.org/fhir/StructureDefinition/VerificationResult
+// Describes validation requirements, source(s), status and dates for one or more elements.
+//
+// http://hl7.org/fhir/StructureDefinition/VerificationResult
 type VerificationResult struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`

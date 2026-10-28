@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Distance is documented here http://hl7.org/fhir/StructureDefinition/Distance
+// Distance Type: A length - a value with a unit that is a physical distance.
+//
+// http://hl7.org/fhir/StructureDefinition/Distance
 type Distance struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

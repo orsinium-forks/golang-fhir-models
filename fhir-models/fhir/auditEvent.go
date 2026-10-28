@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// AuditEvent is documented here http://hl7.org/fhir/StructureDefinition/AuditEvent
+// A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis.
+//
+// http://hl7.org/fhir/StructureDefinition/AuditEvent
 type AuditEvent struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

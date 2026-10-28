@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Duration is documented here http://hl7.org/fhir/StructureDefinition/Duration
+// Duration Type: A length of time.
+//
+// http://hl7.org/fhir/StructureDefinition/Duration
 type Duration struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

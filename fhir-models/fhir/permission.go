@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Permission is documented here http://hl7.org/fhir/StructureDefinition/Permission
+// Permission resource holds access rules for a given data and context.
+//
+// http://hl7.org/fhir/StructureDefinition/Permission
 type Permission struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

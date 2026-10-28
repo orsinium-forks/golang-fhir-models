@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EvidenceVariable is documented here http://hl7.org/fhir/StructureDefinition/EvidenceVariable
+// The EvidenceVariable resource describes an element that knowledge (Evidence) is about.
+//
+// Purpose: Need to be able to define and reuse the definition of individual elements of a research question.
+//
+// http://hl7.org/fhir/StructureDefinition/EvidenceVariable
 type EvidenceVariable struct {
 	Id                     *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

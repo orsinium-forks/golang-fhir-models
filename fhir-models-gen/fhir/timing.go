@@ -4,7 +4,13 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Timing is documented here http://hl7.org/fhir/StructureDefinition/Timing
+// Timing Type: Specifies an event that may occur multiple times.
+//
+// Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.
+//
+// Purpose: Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals.
+//
+// http://hl7.org/fhir/StructureDefinition/Timing
 type Timing struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

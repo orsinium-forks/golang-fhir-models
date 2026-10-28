@@ -2,7 +2,9 @@
 
 package fhir
 
-// Availability is documented here http://hl7.org/fhir/StructureDefinition/Availability
+// Availability Type: Availability data for an {item}.
+//
+// http://hl7.org/fhir/StructureDefinition/Availability
 type Availability struct {
 	Id               *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension        []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`

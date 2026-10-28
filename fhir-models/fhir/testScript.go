@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// TestScript is documented here http://hl7.org/fhir/StructureDefinition/TestScript
+// A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
+//
+// http://hl7.org/fhir/StructureDefinition/TestScript
 type TestScript struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

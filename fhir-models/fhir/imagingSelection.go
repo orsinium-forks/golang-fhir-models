@@ -8,7 +8,11 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// ImagingSelection is documented here http://hl7.org/fhir/StructureDefinition/ImagingSelection
+// A selection of DICOM SOP instances and/or frames within a single Study and Series.
+//
+// This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource.
+//
+// http://hl7.org/fhir/StructureDefinition/ImagingSelection
 type ImagingSelection struct {
 	Id                  *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

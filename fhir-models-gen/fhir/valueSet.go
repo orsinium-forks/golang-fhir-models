@@ -8,7 +8,11 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// ValueSet is documented here http://hl7.org/fhir/StructureDefinition/ValueSet
+// A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context.
+//
+// Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
+//
+// http://hl7.org/fhir/StructureDefinition/ValueSet
 type ValueSet struct {
 	Id                     *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta              `bson:"meta,omitempty" json:"meta,omitempty"`

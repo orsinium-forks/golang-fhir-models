@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MedicationAdministration is documented here http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+// Describes the event of a patient consuming or otherwise being administered a medication.
+//
+//	This may be as simple as swallowing a tablet or it may be a long running infusion. Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. This event can also be used to record waste using a status of not-done and the appropriate statusReason.
+//
+// http://hl7.org/fhir/StructureDefinition/MedicationAdministration
 type MedicationAdministration struct {
 	Id                    *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                               `bson:"meta,omitempty" json:"meta,omitempty"`

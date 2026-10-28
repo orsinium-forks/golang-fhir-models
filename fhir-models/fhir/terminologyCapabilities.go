@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// TerminologyCapabilities is documented here http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities
+// A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+//
+// http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities
 type TerminologyCapabilities struct {
 	Id                     *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                  `bson:"meta,omitempty" json:"meta,omitempty"`

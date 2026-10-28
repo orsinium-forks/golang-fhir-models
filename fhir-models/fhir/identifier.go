@@ -2,7 +2,13 @@
 
 package fhir
 
-// Identifier is documented here http://hl7.org/fhir/StructureDefinition/Identifier
+// Identifier Type: An identifier - identifies some entity uniquely and unambiguously.
+//
+// Typically this is used for business identifiers.
+//
+// Purpose: Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation.
+//
+// http://hl7.org/fhir/StructureDefinition/Identifier
 type Identifier struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

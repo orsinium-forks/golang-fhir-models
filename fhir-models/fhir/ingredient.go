@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Ingredient is documented here http://hl7.org/fhir/StructureDefinition/Ingredient
+// An ingredient of a manufactured item or pharmaceutical product.
+//
+// http://hl7.org/fhir/StructureDefinition/Ingredient
 type Ingredient struct {
 	Id                  *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

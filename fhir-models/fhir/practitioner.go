@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Practitioner is documented here http://hl7.org/fhir/StructureDefinition/Practitioner
+// A person who is directly or indirectly involved in the provisioning of healthcare or related services.
+//
+// Purpose: Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/Practitioner
 type Practitioner struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

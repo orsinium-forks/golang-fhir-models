@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// OperationDefinition is documented here http://hl7.org/fhir/StructureDefinition/OperationDefinition
+// A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
+//
+// http://hl7.org/fhir/StructureDefinition/OperationDefinition
 type OperationDefinition struct {
 	Id                     *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`

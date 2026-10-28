@@ -9,7 +9,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Bundle is documented here http://hl7.org/fhir/StructureDefinition/Bundle
+// A container for a collection of resources.
+//
+// http://hl7.org/fhir/StructureDefinition/Bundle
 type Bundle struct {
 	Id            *string        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta          *Meta          `bson:"meta,omitempty" json:"meta,omitempty"`

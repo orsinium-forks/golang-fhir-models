@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MedicationDispense is documented here http://hl7.org/fhir/StructureDefinition/MedicationDispense
+// Indicates that a medication product is to be or has been dispensed for a named person/patient.
+//
+//	This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
+//
+// http://hl7.org/fhir/StructureDefinition/MedicationDispense
 type MedicationDispense struct {
 	Id                        *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                      *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`

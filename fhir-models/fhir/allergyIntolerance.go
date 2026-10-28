@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// AllergyIntolerance is documented here http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
+// Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
+//
+// Purpose: To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
+//
+// http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
 type AllergyIntolerance struct {
 	Id                 *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`

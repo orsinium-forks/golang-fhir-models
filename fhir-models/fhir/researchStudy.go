@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ResearchStudy is documented here http://hl7.org/fhir/StructureDefinition/ResearchStudy
+// A scientific study of nature that sometimes includes processes involved in health and disease.
+//
+// For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future.
+//
+// http://hl7.org/fhir/StructureDefinition/ResearchStudy
 type ResearchStudy struct {
 	Id                 *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,13 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ImplementationGuide is documented here http://hl7.org/fhir/StructureDefinition/ImplementationGuide
+// A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources.
+//
+// This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+//
+// Purpose: An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating.
+//
+// http://hl7.org/fhir/StructureDefinition/ImplementationGuide
 type ImplementationGuide struct {
 	Id                     *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`

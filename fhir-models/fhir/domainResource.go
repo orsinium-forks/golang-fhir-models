@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DomainResource is documented here http://hl7.org/fhir/StructureDefinition/DomainResource
+// A resource that includes narrative, extensions, and contained resources.
+//
+// http://hl7.org/fhir/StructureDefinition/DomainResource
 type DomainResource struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta       `bson:"meta,omitempty" json:"meta,omitempty"`

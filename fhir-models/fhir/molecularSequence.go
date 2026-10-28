@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MolecularSequence is documented here http://hl7.org/fhir/StructureDefinition/MolecularSequence
+// Representation of a molecular sequence.
+//
+// http://hl7.org/fhir/StructureDefinition/MolecularSequence
 type MolecularSequence struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

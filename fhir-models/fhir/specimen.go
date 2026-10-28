@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Specimen is documented here http://hl7.org/fhir/StructureDefinition/Specimen
+// A sample to be used for analysis.
+//
+// http://hl7.org/fhir/StructureDefinition/Specimen
 type Specimen struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`

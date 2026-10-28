@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceDispense is documented here http://hl7.org/fhir/StructureDefinition/DeviceDispense
+// Indicates that a device is to be or has been dispensed for a named person/patient.
+//
+//	This includes a description of the product (supply) provided and the instructions for using the device.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceDispense
 type DeviceDispense struct {
 	Id                    *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

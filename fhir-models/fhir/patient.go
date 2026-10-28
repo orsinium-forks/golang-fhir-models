@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Patient is documented here http://hl7.org/fhir/StructureDefinition/Patient
+// Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+//
+// Purpose: Tracking patient is the center of the healthcare process.
+//
+// http://hl7.org/fhir/StructureDefinition/Patient
 type Patient struct {
 	Id                   *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

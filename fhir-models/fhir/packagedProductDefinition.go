@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// PackagedProductDefinition is documented here http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition
+// A medically related item or items, in a container or package.
+//
+// http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition
 type PackagedProductDefinition struct {
 	Id                    *string                                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                                          `bson:"meta,omitempty" json:"meta,omitempty"`

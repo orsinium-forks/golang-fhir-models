@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Evidence is documented here http://hl7.org/fhir/StructureDefinition/Evidence
+// The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.
+//
+// http://hl7.org/fhir/StructureDefinition/Evidence
 type Evidence struct {
 	Id                     *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

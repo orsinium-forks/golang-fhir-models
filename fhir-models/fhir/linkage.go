@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Linkage is documented here http://hl7.org/fhir/StructureDefinition/Linkage
+// Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
+//
+// http://hl7.org/fhir/StructureDefinition/Linkage
 type Linkage struct {
 	Id                *string       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta         `bson:"meta,omitempty" json:"meta,omitempty"`

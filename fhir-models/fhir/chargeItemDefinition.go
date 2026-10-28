@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ChargeItemDefinition is documented here http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition
+// The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices.
+//
+// The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
+//
+// http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition
 type ChargeItemDefinition struct {
 	Id                     *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                               `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// PractitionerRole is documented here http://hl7.org/fhir/StructureDefinition/PractitionerRole
+// A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time.
+//
+// Purpose: Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there.
+//
+// http://hl7.org/fhir/StructureDefinition/PractitionerRole
 type PractitionerRole struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

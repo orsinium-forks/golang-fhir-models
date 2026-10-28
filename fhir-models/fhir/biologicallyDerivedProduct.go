@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// BiologicallyDerivedProduct is documented here http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct
+// A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
+//
+// http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct
 type BiologicallyDerivedProduct struct {
 	Id                      *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`

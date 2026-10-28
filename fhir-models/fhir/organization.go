@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Organization is documented here http://hl7.org/fhir/StructureDefinition/Organization
+// A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.
+//
+//	Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/Organization
 type Organization struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SupplyDelivery is documented here http://hl7.org/fhir/StructureDefinition/SupplyDelivery
+// Record of delivery of what is supplied.
+//
+// http://hl7.org/fhir/StructureDefinition/SupplyDelivery
 type SupplyDelivery struct {
 	Id                 *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// CapabilityStatement is documented here http://hl7.org/fhir/StructureDefinition/CapabilityStatement
+// A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+//
+// http://hl7.org/fhir/StructureDefinition/CapabilityStatement
 type CapabilityStatement struct {
 	Id                     *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`

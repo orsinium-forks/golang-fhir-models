@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Communication is documented here http://hl7.org/fhir/StructureDefinition/Communication
+// A clinical or business level record of information being transmitted or shared; e.g.
+//
+// an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition.
+//
+// http://hl7.org/fhir/StructureDefinition/Communication
 type Communication struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

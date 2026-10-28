@@ -2,7 +2,11 @@
 
 package fhir
 
-// Expression is documented here http://hl7.org/fhir/StructureDefinition/Expression
+// Expression Type: A expression that is evaluated in a specified context and returns a value.
+//
+// The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
+//
+// http://hl7.org/fhir/StructureDefinition/Expression
 type Expression struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

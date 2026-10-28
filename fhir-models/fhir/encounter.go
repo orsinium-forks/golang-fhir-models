@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Encounter is documented here http://hl7.org/fhir/StructureDefinition/Encounter
+// An interaction between healthcare provider(s), and/or patient(s) for the purpose of providing healthcare service(s) or assessing the health status of patient(s).
+//
+// http://hl7.org/fhir/StructureDefinition/Encounter
 type Encounter struct {
 	Id                 *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

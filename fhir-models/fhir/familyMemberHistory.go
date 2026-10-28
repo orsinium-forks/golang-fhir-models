@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// FamilyMemberHistory is documented here http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory
+// Significant health conditions for a person related to the patient relevant in the context of care for the patient.
+//
+// http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory
 type FamilyMemberHistory struct {
 	Id                    *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

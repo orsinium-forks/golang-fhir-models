@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Requirements is documented here http://hl7.org/fhir/StructureDefinition/Requirements
+// The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.
+//
+// http://hl7.org/fhir/StructureDefinition/Requirements
 type Requirements struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

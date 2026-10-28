@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SubstanceReferenceInformation is documented here http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation
+// Todo.
+//
+// http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation
 type SubstanceReferenceInformation struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`

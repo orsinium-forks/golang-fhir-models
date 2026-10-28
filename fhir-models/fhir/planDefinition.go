@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// PlanDefinition is documented here http://hl7.org/fhir/StructureDefinition/PlanDefinition
+// This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact.
+//
+// The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications.
+//
+// http://hl7.org/fhir/StructureDefinition/PlanDefinition
 type PlanDefinition struct {
 	Id                      *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

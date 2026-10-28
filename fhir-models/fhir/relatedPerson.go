@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// RelatedPerson is documented here http://hl7.org/fhir/StructureDefinition/RelatedPerson
+// Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
+//
+// Purpose: Need to track persons related to the patient or the healthcare process.
+//
+// http://hl7.org/fhir/StructureDefinition/RelatedPerson
 type RelatedPerson struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

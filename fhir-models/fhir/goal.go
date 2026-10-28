@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Goal is documented here http://hl7.org/fhir/StructureDefinition/Goal
+// Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/Goal
 type Goal struct {
 	Id                   *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

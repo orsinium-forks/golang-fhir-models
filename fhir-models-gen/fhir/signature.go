@@ -2,7 +2,13 @@
 
 package fhir
 
-// Signature is documented here http://hl7.org/fhir/StructureDefinition/Signature
+// Signature Type: A signature along with supporting context.
+//
+// The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
+//
+// Purpose: There are a number of places where content must be signed in healthcare.
+//
+// http://hl7.org/fhir/StructureDefinition/Signature
 type Signature struct {
 	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension    []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

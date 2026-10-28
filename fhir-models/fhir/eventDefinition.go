@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// EventDefinition is documented here http://hl7.org/fhir/StructureDefinition/EventDefinition
+// The EventDefinition resource provides a reusable description of when a particular event can occur.
+//
+// http://hl7.org/fhir/StructureDefinition/EventDefinition
 type EventDefinition struct {
 	Id                     *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

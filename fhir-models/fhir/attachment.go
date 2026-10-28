@@ -4,7 +4,11 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Attachment is documented here http://hl7.org/fhir/StructureDefinition/Attachment
+// Attachment Type: For referring to data content defined in other formats.
+//
+// Purpose: Many models need to include data defined in other specifications that is complex and opaque to the healthcare model. This includes documents, media recordings, structured data, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/Attachment
 type Attachment struct {
 	Id          *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

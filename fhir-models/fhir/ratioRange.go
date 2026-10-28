@@ -2,7 +2,11 @@
 
 package fhir
 
-// RatioRange is documented here http://hl7.org/fhir/StructureDefinition/RatioRange
+// RatioRange Type: A range of ratios expressed as a low and high numerator and a denominator.
+//
+// Purpose: Need to be able to specify ranges of ratios.
+//
+// http://hl7.org/fhir/StructureDefinition/RatioRange
 type RatioRange struct {
 	Id            *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension     []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

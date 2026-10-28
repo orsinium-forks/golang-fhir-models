@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Person is documented here http://hl7.org/fhir/StructureDefinition/Person
+// Demographics and administrative information about a person independent of a specific health-related context.
+//
+// Purpose: Need to track persons potentially across multiple roles.
+//
+// http://hl7.org/fhir/StructureDefinition/Person
 type Person struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

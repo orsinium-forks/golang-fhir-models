@@ -2,7 +2,11 @@
 
 package fhir
 
-// CodeableConcept is documented here http://hl7.org/fhir/StructureDefinition/CodeableConcept
+// CodeableConcept Type: A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
+//
+// Purpose: This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED CT, and/or defined by the provision of text that captures a human sense of the concept.
+//
+// http://hl7.org/fhir/StructureDefinition/CodeableConcept
 type CodeableConcept struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

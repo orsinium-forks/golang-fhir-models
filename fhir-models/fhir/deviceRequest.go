@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DeviceRequest is documented here http://hl7.org/fhir/StructureDefinition/DeviceRequest
+// Represents a request a device to be provided to a specific patient.
+//
+// The device may be an implantable device to be subsequently implanted, or an external assistive device, such as a walker, to be delivered and subsequently be used.
+//
+// http://hl7.org/fhir/StructureDefinition/DeviceRequest
 type DeviceRequest struct {
 	Id                    *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

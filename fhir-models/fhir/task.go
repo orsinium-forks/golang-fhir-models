@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Task is documented here http://hl7.org/fhir/StructureDefinition/Task
+// A task to be performed.
+//
+// http://hl7.org/fhir/StructureDefinition/Task
 type Task struct {
 	Id                    *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

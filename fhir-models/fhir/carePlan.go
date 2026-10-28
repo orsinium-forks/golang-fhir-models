@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// CarePlan is documented here http://hl7.org/fhir/StructureDefinition/CarePlan
+// Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
+//
+// http://hl7.org/fhir/StructureDefinition/CarePlan
 type CarePlan struct {
 	Id                    *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

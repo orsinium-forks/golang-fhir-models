@@ -2,7 +2,15 @@
 
 package fhir
 
-// Address is documented here http://hl7.org/fhir/StructureDefinition/Address
+// Address Type: An address expressed using postal conventions (as opposed to GPS or other location definition formats).
+//
+//	This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
+//
+// The ISO21090-codedString may be used to provide a coded representation of the contents of strings in an Address.
+//
+// Purpose: Need to be able to record postal addresses, along with notes about their use.
+//
+// http://hl7.org/fhir/StructureDefinition/Address
 type Address struct {
 	Id         *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

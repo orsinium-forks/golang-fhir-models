@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// StructureMap is documented here http://hl7.org/fhir/StructureDefinition/StructureMap
+// A Map of relationships between 2 structures that can be used to transform data.
+//
+// http://hl7.org/fhir/StructureDefinition/StructureMap
 type StructureMap struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

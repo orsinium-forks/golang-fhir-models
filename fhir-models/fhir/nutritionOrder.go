@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// NutritionOrder is documented here http://hl7.org/fhir/StructureDefinition/NutritionOrder
+// A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
+//
+// http://hl7.org/fhir/StructureDefinition/NutritionOrder
 type NutritionOrder struct {
 	Id                     *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`

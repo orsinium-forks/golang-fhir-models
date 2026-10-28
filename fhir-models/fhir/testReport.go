@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// TestReport is documented here http://hl7.org/fhir/StructureDefinition/TestReport
+// A summary of information based on the results of executing a TestScript.
+//
+// http://hl7.org/fhir/StructureDefinition/TestReport
 type TestReport struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

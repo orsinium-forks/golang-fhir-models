@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SubstanceDefinition is documented here http://hl7.org/fhir/StructureDefinition/SubstanceDefinition
+// The detailed description of a substance, typically at a level beyond what is used for prescribing.
+//
+// http://hl7.org/fhir/StructureDefinition/SubstanceDefinition
 type SubstanceDefinition struct {
 	Id                   *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`

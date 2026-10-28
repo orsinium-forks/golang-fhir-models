@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Appointment is documented here http://hl7.org/fhir/StructureDefinition/Appointment
+// A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time.
+//
+// This may result in one or more Encounter(s).
+//
+// http://hl7.org/fhir/StructureDefinition/Appointment
 type Appointment struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`

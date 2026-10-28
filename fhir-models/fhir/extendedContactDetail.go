@@ -2,7 +2,11 @@
 
 package fhir
 
-// ExtendedContactDetail is documented here http://hl7.org/fhir/StructureDefinition/ExtendedContactDetail
+// ExtendedContactDetail Type: Specifies contact information for a specific purpose over a period of time, might be handled/monitored by a specific named person or organization.
+//
+// Purpose: Need to track contact and address information in the same way across multiple resources.
+//
+// http://hl7.org/fhir/StructureDefinition/ExtendedContactDetail
 type ExtendedContactDetail struct {
 	Id           *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension    []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

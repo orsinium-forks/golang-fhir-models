@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MedicationRequest is documented here http://hl7.org/fhir/StructureDefinition/MedicationRequest
+// An order or request for both supply of the medication and the instructions for administration of the medication to a patient.
+//
+// The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
+//
+// http://hl7.org/fhir/StructureDefinition/MedicationRequest
 type MedicationRequest struct {
 	Id                        *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                      *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`

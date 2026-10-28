@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Medication is documented here http://hl7.org/fhir/StructureDefinition/Medication
+// This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
+//
+// http://hl7.org/fhir/StructureDefinition/Medication
 type Medication struct {
 	Id                           *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                         *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

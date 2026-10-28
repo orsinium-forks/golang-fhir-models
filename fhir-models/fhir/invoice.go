@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Invoice is documented here http://hl7.org/fhir/StructureDefinition/Invoice
+// Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
+//
+// http://hl7.org/fhir/StructureDefinition/Invoice
 type Invoice struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`

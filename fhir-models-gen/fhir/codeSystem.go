@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// CodeSystem is documented here http://hl7.org/fhir/StructureDefinition/CodeSystem
+// The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
+//
+// http://hl7.org/fhir/StructureDefinition/CodeSystem
 type CodeSystem struct {
 	Id                     *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`

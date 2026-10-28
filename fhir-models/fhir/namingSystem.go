@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// NamingSystem is documented here http://hl7.org/fhir/StructureDefinition/NamingSystem
+// A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.
+//
+//	Represents a "System" used within the Identifier and Coding data types.
+//
+// http://hl7.org/fhir/StructureDefinition/NamingSystem
 type NamingSystem struct {
 	Id                     *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

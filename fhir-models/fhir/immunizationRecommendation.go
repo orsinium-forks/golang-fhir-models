@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ImmunizationRecommendation is documented here http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+// A patient's point-in-time set of recommendations (i.e.
+//
+// forecasting) according to a published schedule with optional supporting justification.
+//
+// http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
 type ImmunizationRecommendation struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`

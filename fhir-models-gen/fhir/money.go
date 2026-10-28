@@ -4,7 +4,9 @@ package fhir
 
 import decimal "github.com/shopspring/decimal"
 
-// Money is documented here http://hl7.org/fhir/StructureDefinition/Money
+// Money Type: An amount of economic utility in some recognized currency.
+//
+// http://hl7.org/fhir/StructureDefinition/Money
 type Money struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

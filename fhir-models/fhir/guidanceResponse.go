@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// GuidanceResponse is documented here http://hl7.org/fhir/StructureDefinition/GuidanceResponse
+// A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
+//
+// Purpose: The GuidanceResponse resource supports recording the results of decision support interactions, reportability determination for public health, as well as the communication of additional data requirements for subsequent interactions.
+//
+// http://hl7.org/fhir/StructureDefinition/GuidanceResponse
 type GuidanceResponse struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

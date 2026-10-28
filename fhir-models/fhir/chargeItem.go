@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ChargeItem is documented here http://hl7.org/fhir/StructureDefinition/ChargeItem
+// The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons.
+//
+// Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
+//
+// http://hl7.org/fhir/StructureDefinition/ChargeItem
 type ChargeItem struct {
 	Id                     *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

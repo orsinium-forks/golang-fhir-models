@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Citation is documented here http://hl7.org/fhir/StructureDefinition/Citation
+// The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution.
+//
+// The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.
+//
+// http://hl7.org/fhir/StructureDefinition/Citation
 type Citation struct {
 	Id                     *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

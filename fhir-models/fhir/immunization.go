@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Immunization is documented here http://hl7.org/fhir/StructureDefinition/Immunization
+// Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
+//
+// http://hl7.org/fhir/StructureDefinition/Immunization
 type Immunization struct {
 	Id                    *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

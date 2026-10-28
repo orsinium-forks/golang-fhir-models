@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ExampleScenario is documented here http://hl7.org/fhir/StructureDefinition/ExampleScenario
+// A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time.
+//
+// http://hl7.org/fhir/StructureDefinition/ExampleScenario
 type ExampleScenario struct {
 	Id                     *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`

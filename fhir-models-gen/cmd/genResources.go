@@ -240,7 +240,7 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 	appendGeneratorComment(file)
 
 	// generate structs
-	file.Commentf("%s is documented here %s", definition.Name, definition.Url)
+	file.Comment(formatDocstring(definition))
 	var err error
 	file.Type().Id(definition.Name).StructFunc(func(rootStruct *jen.Group) {
 		_, err = appendFields(resources, requiredTypes, requiredValueSetBindings, file, rootStruct, definition.Name, elementDefinitions, 1, 1)
@@ -287,6 +287,22 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 	}
 
 	return file, nil
+}
+
+func formatDocstring(def fhir.StructureDefinition) string {
+	res := ""
+	first, rest, hasDot := strings.Cut(*def.Description, ". ")
+	if hasDot {
+		res += "// " + first + "."
+		res += "\n//\n// " + strings.ReplaceAll(rest, "\n", "\n//")
+	} else {
+		res += "//" + *def.Description
+	}
+	if def.Purpose != nil {
+		res += "\n//\n// Purpose: " + strings.ReplaceAll(*def.Purpose, "\n", "\n//")
+	}
+	res += "\n//\n// " + def.Url
+	return res
 }
 
 func appendGeneratorComment(file *jen.File) {

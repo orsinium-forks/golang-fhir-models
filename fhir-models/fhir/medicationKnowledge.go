@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MedicationKnowledge is documented here http://hl7.org/fhir/StructureDefinition/MedicationKnowledge
+// Information about a medication that is used to support knowledge.
+//
+// http://hl7.org/fhir/StructureDefinition/MedicationKnowledge
 type MedicationKnowledge struct {
 	Id                         *string                                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                       *Meta                                           `bson:"meta,omitempty" json:"meta,omitempty"`

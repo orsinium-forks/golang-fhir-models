@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// GraphDefinition is documented here http://hl7.org/fhir/StructureDefinition/GraphDefinition
+// A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references.
+//
+// The Graph Definition resource defines a set and makes rules about the set.
+//
+// http://hl7.org/fhir/StructureDefinition/GraphDefinition
 type GraphDefinition struct {
 	Id                     *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

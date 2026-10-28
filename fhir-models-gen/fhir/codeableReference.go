@@ -2,7 +2,11 @@
 
 package fhir
 
-// CodeableReference is documented here http://hl7.org/fhir/StructureDefinition/CodeableReference
+// CodeableReference Type: A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class).
+//
+// Purpose: This is a common pattern in record keeping - a reference may be made to a specific condition, observation, plan, or definition, or a reference may be made to a general concept defined in a knowledge base somewhere.
+//
+// http://hl7.org/fhir/StructureDefinition/CodeableReference
 type CodeableReference struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

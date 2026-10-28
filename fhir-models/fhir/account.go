@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Account is documented here http://hl7.org/fhir/StructureDefinition/Account
+// A financial tool for tracking value accrued for a particular purpose.
+//
+//	In the healthcare field, used to track charges for a patient, cost centers, etc.
+//
+// http://hl7.org/fhir/StructureDefinition/Account
 type Account struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

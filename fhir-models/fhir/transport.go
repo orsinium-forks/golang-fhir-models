@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Transport is documented here http://hl7.org/fhir/StructureDefinition/Transport
+// Record of transport.
+//
+// http://hl7.org/fhir/StructureDefinition/Transport
 type Transport struct {
 	Id                    *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

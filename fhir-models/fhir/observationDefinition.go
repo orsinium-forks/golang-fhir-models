@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ObservationDefinition is documented here http://hl7.org/fhir/StructureDefinition/ObservationDefinition
+// Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
+//
+// Purpose: In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements.
+//
+// http://hl7.org/fhir/StructureDefinition/ObservationDefinition
 type ObservationDefinition struct {
 	Id                     *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`

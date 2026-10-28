@@ -4,7 +4,13 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// DiagnosticReport is documented here http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+// The findings and interpretation of diagnostic tests performed on patients, groups of patients, products, substances, devices, and locations, and/or specimens derived from these.
+//
+// The report includes clinical context such as requesting provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. The report also includes non-clinical context such as batch analysis and stability reporting of products and substances.
+//
+// Purpose: To support reporting for any diagnostic report into a clinical data repository.
+//
+// http://hl7.org/fhir/StructureDefinition/DiagnosticReport
 type DiagnosticReport struct {
 	Id                 *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`

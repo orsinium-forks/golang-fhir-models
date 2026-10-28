@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// InsurancePlan is documented here http://hl7.org/fhir/StructureDefinition/InsurancePlan
+// Details of a Health Insurance product/plan provided by an organization.
+//
+// http://hl7.org/fhir/StructureDefinition/InsurancePlan
 type InsurancePlan struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

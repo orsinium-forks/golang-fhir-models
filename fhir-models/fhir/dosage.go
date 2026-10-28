@@ -2,7 +2,9 @@
 
 package fhir
 
-// Dosage is documented here http://hl7.org/fhir/StructureDefinition/Dosage
+// Dosage Type: Indicates how the medication is/was taken or should be taken by the patient.
+//
+// http://hl7.org/fhir/StructureDefinition/Dosage
 type Dosage struct {
 	Id                       *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

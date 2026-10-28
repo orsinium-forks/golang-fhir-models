@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// CanonicalResource is documented here http://hl7.org/fhir/StructureDefinition/CanonicalResource
+// Common Interface declaration for conformance and knowledge artifact resources.
+//
+// http://hl7.org/fhir/StructureDefinition/CanonicalResource
 type CanonicalResource struct {
 	Id                     *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

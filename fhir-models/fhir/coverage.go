@@ -4,7 +4,13 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// Coverage is documented here http://hl7.org/fhir/StructureDefinition/Coverage
+// Financial instrument which may be used to reimburse or pay for health care products and services.
+//
+// Includes both insurance and self-payment.
+//
+// Purpose: Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay).
+//
+// http://hl7.org/fhir/StructureDefinition/Coverage
 type Coverage struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

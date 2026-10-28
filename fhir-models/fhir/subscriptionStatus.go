@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// SubscriptionStatus is documented here http://hl7.org/fhir/StructureDefinition/SubscriptionStatus
+// The SubscriptionStatus resource describes the state of a Subscription during notifications.
+//
+// It is not persisted.
+//
+// http://hl7.org/fhir/StructureDefinition/SubscriptionStatus
 type SubscriptionStatus struct {
 	Id                           *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                         *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`

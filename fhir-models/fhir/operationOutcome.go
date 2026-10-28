@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// OperationOutcome is documented here http://hl7.org/fhir/StructureDefinition/OperationOutcome
+// A collection of error, warning, or information messages that result from a system action.
+//
+// http://hl7.org/fhir/StructureDefinition/OperationOutcome
 type OperationOutcome struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`

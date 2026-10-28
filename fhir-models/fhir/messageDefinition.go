@@ -4,7 +4,11 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// MessageDefinition is documented here http://hl7.org/fhir/StructureDefinition/MessageDefinition
+// Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
+//
+// Purpose: Allows messages to be defined once and re-used across systems.
+//
+// http://hl7.org/fhir/StructureDefinition/MessageDefinition
 type MessageDefinition struct {
 	Id                     *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`

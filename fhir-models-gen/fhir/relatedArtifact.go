@@ -2,7 +2,11 @@
 
 package fhir
 
-// RelatedArtifact is documented here http://hl7.org/fhir/StructureDefinition/RelatedArtifact
+// RelatedArtifact Type: Related artifacts such as additional documentation, justification, or bibliographic references.
+//
+// Purpose: Knowledge resources must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.
+//
+// http://hl7.org/fhir/StructureDefinition/RelatedArtifact
 type RelatedArtifact struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

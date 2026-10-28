@@ -8,7 +8,9 @@ import (
 	decimal "github.com/shopspring/decimal"
 )
 
-// Contract is documented here http://hl7.org/fhir/StructureDefinition/Contract
+// Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
+//
+// http://hl7.org/fhir/StructureDefinition/Contract
 type Contract struct {
 	Id                       *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                     *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

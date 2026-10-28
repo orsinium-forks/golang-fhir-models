@@ -4,7 +4,9 @@ package fhir
 
 import v2 "encoding/json/v2"
 
-// ActivityDefinition is documented here http://hl7.org/fhir/StructureDefinition/ActivityDefinition
+// This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
+//
+// http://hl7.org/fhir/StructureDefinition/ActivityDefinition
 type ActivityDefinition struct {
 	Id                           *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                         *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`
