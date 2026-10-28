@@ -95,7 +95,6 @@ type InsurancePlan struct {
 	Coverage []InsurancePlanCoverage `bson:"coverage,omitempty" json:"coverage,omitempty" xml:"coverage,omitempty"`
 	// Details about an insurance plan.
 	Plan []InsurancePlanPlan `bson:"plan,omitempty" json:"plan,omitempty" xml:"plan,omitempty"`
-	// Details of a Health Insurance product/plan provided by an organization.
 }
 type InsurancePlanCoverage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -124,7 +123,6 @@ type InsurancePlanCoverage struct {
 	Network []Reference `bson:"network,omitempty" json:"network,omitempty" xml:"network,omitempty"`
 	// Specific benefits under this type of coverage.
 	Benefit []InsurancePlanCoverageBenefit `bson:"benefit" json:"benefit" xml:"benefit"`
-	// Details about an insurance plan.
 }
 type InsurancePlanCoverageBenefit struct {
 	// Unique id for the element within a resource (for internal references).
@@ -151,7 +149,6 @@ type InsurancePlanCoverageBenefit struct {
 	Requirement *string `bson:"requirement,omitempty" json:"requirement,omitempty" xml:"requirement,omitempty"`
 	// The specific limits on the benefit.
 	Limit []InsurancePlanCoverageBenefitLimit `bson:"limit,omitempty" json:"limit,omitempty" xml:"limit,omitempty"`
-	// Details about an insurance plan.
 }
 type InsurancePlanCoverageBenefitLimit struct {
 	// Unique id for the element within a resource (for internal references).
@@ -182,7 +179,6 @@ type InsurancePlanCoverageBenefitLimit struct {
 	//
 	// Comment: Use `CodeableConcept.text` element if the data is free (uncoded) text.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	// Details about an insurance plan.
 }
 type InsurancePlanPlan struct {
 	// Unique id for the element within a resource (for internal references).
@@ -217,7 +213,6 @@ type InsurancePlanPlan struct {
 	GeneralCost []InsurancePlanPlanGeneralCost `bson:"generalCost,omitempty" json:"generalCost,omitempty" xml:"generalCost,omitempty"`
 	// Costs associated with the coverage provided by the product.
 	SpecificCost []InsurancePlanPlanSpecificCost `bson:"specificCost,omitempty" json:"specificCost,omitempty" xml:"specificCost,omitempty"`
-	// Details of a Health Insurance product/plan provided by an organization.
 }
 type InsurancePlanPlanGeneralCost struct {
 	// Unique id for the element within a resource (for internal references).
@@ -246,7 +241,6 @@ type InsurancePlanPlanGeneralCost struct {
 	Cost *Money `bson:"cost,omitempty" json:"cost,omitempty" xml:"cost,omitempty"`
 	// Additional information about the general costs associated with this plan.
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
-	// Costs associated with the coverage provided by the product.
 }
 type InsurancePlanPlanSpecificCost struct {
 	// Unique id for the element within a resource (for internal references).
@@ -271,7 +265,6 @@ type InsurancePlanPlanSpecificCost struct {
 	Category CodeableConcept `bson:"category" json:"category" xml:"category"`
 	// List of the specific benefits under this category of benefit.
 	Benefit []InsurancePlanPlanSpecificCostBenefit `bson:"benefit,omitempty" json:"benefit,omitempty" xml:"benefit,omitempty"`
-	// Details of a Health Insurance product/plan provided by an organization.
 }
 type InsurancePlanPlanSpecificCostBenefit struct {
 	// Unique id for the element within a resource (for internal references).
@@ -296,7 +289,6 @@ type InsurancePlanPlanSpecificCostBenefit struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// List of the costs associated with a specific benefit.
 	Cost []InsurancePlanPlanSpecificCostBenefitCost `bson:"cost,omitempty" json:"cost,omitempty" xml:"cost,omitempty"`
-	// Details of a Health Insurance product/plan provided by an organization.
 }
 type InsurancePlanPlanSpecificCostBenefitCost struct {
 	// Unique id for the element within a resource (for internal references).

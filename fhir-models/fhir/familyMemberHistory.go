@@ -127,7 +127,6 @@ type FamilyMemberHistory struct {
 	//
 	// This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure.
 	Procedure []FamilyMemberHistoryProcedure `bson:"procedure,omitempty" json:"procedure,omitempty" xml:"procedure,omitempty"`
-	// Significant health conditions for a person related to the patient relevant in the context of care for the patient.
 }
 type FamilyMemberHistoryParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -152,9 +151,6 @@ type FamilyMemberHistoryParticipant struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what participated in the activities related to the family member history.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// This will either be a name or a description; e.g.
-	//
-	// "Aunt Susan", "my cousin with the red hair".
 }
 type FamilyMemberHistoryCondition struct {
 	// Unique id for the element within a resource (for internal references).
@@ -196,9 +192,6 @@ type FamilyMemberHistoryCondition struct {
 	OnsetString *string `bson:"onsetString,omitempty" json:"onsetString,omitempty" xml:"onsetString,omitempty"`
 	// An area where general notes can be placed about this specific condition.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
-	// The significant Procedures (or procedure) that the family member had.
-	//
-	// This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure.
 }
 type FamilyMemberHistoryProcedure struct {
 	// Unique id for the element within a resource (for internal references).

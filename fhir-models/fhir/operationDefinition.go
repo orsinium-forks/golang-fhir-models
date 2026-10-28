@@ -206,7 +206,6 @@ type OperationDefinition struct {
 	//
 	// Comment: The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative.
 	Overload []OperationDefinitionOverload `bson:"overload,omitempty" json:"overload,omitempty" xml:"overload,omitempty"`
-	// A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
 }
 type OperationDefinitionParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -275,9 +274,6 @@ type OperationDefinitionParameter struct {
 	//
 	// Comment: Query Definitions only have one output parameter, named "result". This might not be described, but can be to allow a profile to be defined.
 	Part []OperationDefinitionParameter `bson:"part,omitempty" json:"part,omitempty"`
-	// Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.
-	//
-	// Comment: The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative.
 }
 type OperationDefinitionParameterBinding struct {
 	// Unique id for the element within a resource (for internal references).
@@ -308,9 +304,6 @@ type OperationDefinitionParameterBinding struct {
 	//
 	// Comment: For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not.
 	ValueSet string `bson:"valueSet" json:"valueSet" xml:"valueSet"`
-	// Identifies other resource parameters within the operation invocation that are expected to resolve to this resource.
-	//
-	// Comment: Resolution applies if the referenced parameter exists.
 }
 type OperationDefinitionParameterReferencedFrom struct {
 	// Unique id for the element within a resource (for internal references).
@@ -335,9 +328,6 @@ type OperationDefinitionParameterReferencedFrom struct {
 	Source string `bson:"source" json:"source" xml:"source"`
 	// The id of the element in the referencing resource that is expected to resolve to this resource.
 	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// The parts of a nested Parameter.
-	//
-	// Comment: Query Definitions only have one output parameter, named "result". This might not be described, but can be to allow a profile to be defined.
 }
 type OperationDefinitionOverload struct {
 	// Unique id for the element within a resource (for internal references).

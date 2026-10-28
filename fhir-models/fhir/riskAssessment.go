@@ -138,7 +138,6 @@ type RiskAssessmentPrediction struct {
 	WhenRange  *Range  `bson:"whenRange,omitempty" json:"whenRange,omitempty" xml:"whenRange,omitempty"`
 	// Additional information explaining the basis for the prediction.
 	Rationale *string `bson:"rationale,omitempty" json:"rationale,omitempty" xml:"rationale,omitempty"`
-	// A description of the steps that might be taken to reduce the identified risk(s).
 }
 
 func (r RiskAssessment) ResourceType() string {

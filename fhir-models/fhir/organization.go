@@ -95,9 +95,6 @@ type Organization struct {
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
 	Qualification []OrganizationQualification `bson:"qualification,omitempty" json:"qualification,omitempty" xml:"qualification,omitempty"`
-	// A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.
-	//
-	//	Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
 }
 type OrganizationQualification struct {
 	// Unique id for the element within a resource (for internal references).

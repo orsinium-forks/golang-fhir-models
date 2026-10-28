@@ -111,7 +111,6 @@ type BodyStructureIncludedStructure struct {
 	SpatialReference []Reference `bson:"spatialReference,omitempty" json:"spatialReference,omitempty" xml:"spatialReference,omitempty"`
 	// Code that represents the included structure qualifier.
 	Qualifier []CodeableConcept `bson:"qualifier,omitempty" json:"qualifier,omitempty" xml:"qualifier,omitempty"`
-	// The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure.
 }
 type BodyStructureIncludedStructureBodyLandmarkOrientation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -140,7 +139,6 @@ type BodyStructureIncludedStructureBodyLandmarkOrientation struct {
 	DistanceFromLandmark []BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark `bson:"distanceFromLandmark,omitempty" json:"distanceFromLandmark,omitempty" xml:"distanceFromLandmark,omitempty"`
 	// The surface area a body location is in relation to a landmark.
 	SurfaceOrientation []CodeableConcept `bson:"surfaceOrientation,omitempty" json:"surfaceOrientation,omitempty" xml:"surfaceOrientation,omitempty"`
-	// XY or XYZ-coordinate orientation for structure.
 }
 type BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark struct {
 	// Unique id for the element within a resource (for internal references).
@@ -165,7 +163,6 @@ type BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark s
 	Device []CodeableReference `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
 	// The measured distance (e.g., in cm) from a body landmark.
 	Value []Quantity `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
-	// The surface area a body location is in relation to a landmark.
 }
 
 func (r BodyStructure) ResourceType() string {

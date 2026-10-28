@@ -181,7 +181,6 @@ type CarePlanActivity struct {
 	//
 	// The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the "basedOn" element.  i.e. Requests that are part of a CarePlan are not "based on" the CarePlan.
 	PlannedActivityReference *Reference `bson:"plannedActivityReference,omitempty" json:"plannedActivityReference,omitempty" xml:"plannedActivityReference,omitempty"`
-	// General notes about the care plan not covered elsewhere.
 }
 
 func (r CarePlan) ResourceType() string {

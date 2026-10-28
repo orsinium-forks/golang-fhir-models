@@ -180,9 +180,6 @@ type ImplementationGuide struct {
 	Definition *ImplementationGuideDefinition `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
 	// Information about an assembled implementation guide, created by the publication tooling.
 	Manifest *ImplementationGuideManifest `bson:"manifest,omitempty" json:"manifest,omitempty" xml:"manifest,omitempty"`
-	// A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources.
-	//
-	// This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
 }
 type ImplementationGuideDependsOn struct {
 	// Unique id for the element within a resource (for internal references).
@@ -217,9 +214,6 @@ type ImplementationGuideDependsOn struct {
 	//
 	// Comment: This doesn't need to enumerate every resource used, but should give some sense of why the dependency exists.  It will be used in the rendered list of dependencies
 	Reason *string `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	// A set of profiles that all resources covered by this implementation guide must conform to.
-	//
-	// Comment: See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide.
 }
 type ImplementationGuideGlobal struct {
 	// Unique id for the element within a resource (for internal references).
@@ -246,9 +240,6 @@ type ImplementationGuideGlobal struct {
 	Type ResourceType `bson:"type" json:"type" xml:"type"`
 	// A reference to the profile that all instances must conform to.
 	Profile string `bson:"profile" json:"profile" xml:"profile"`
-	// The information needed by an IG publisher tool to publish the whole implementation guide.
-	//
-	// Comment: Principally, this consists of information abuot source resource and file locations, and build parameters and templates.
 }
 type ImplementationGuideDefinition struct {
 	// Unique id for the element within a resource (for internal references).
@@ -291,7 +282,6 @@ type ImplementationGuideDefinition struct {
 	Parameter []ImplementationGuideDefinitionParameter `bson:"parameter,omitempty" json:"parameter,omitempty" xml:"parameter,omitempty"`
 	// A template for building resources.
 	Template []ImplementationGuideDefinitionTemplate `bson:"template,omitempty" json:"template,omitempty" xml:"template,omitempty"`
-	// Information about an assembled implementation guide, created by the publication tooling.
 }
 type ImplementationGuideDefinitionGrouping struct {
 	// Unique id for the element within a resource (for internal references).
@@ -316,9 +306,6 @@ type ImplementationGuideDefinitionGrouping struct {
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Human readable text describing the package.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	// A resource that is part of the implementation guide.
-	//
-	// Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.
 }
 type ImplementationGuideDefinitionResource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -375,11 +362,6 @@ type ImplementationGuideDefinitionResource struct {
 	//
 	// Comment: This must correspond to a group.id element within this implementation guide.
 	GroupingId *string `bson:"groupingId,omitempty" json:"groupingId,omitempty" xml:"groupingId,omitempty"`
-	// A page / section in the implementation guide.
-	//
-	// The root page is the implementation guide home page.
-	//
-	// Comment: Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html.
 }
 type ImplementationGuideDefinitionPage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -418,11 +400,6 @@ type ImplementationGuideDefinitionPage struct {
 	//
 	// Comment: The implementation guide breadcrumbs may be generated from this structure.
 	Page []ImplementationGuideDefinitionPage `bson:"page,omitempty" json:"page,omitempty"`
-	// A set of parameters that defines how the implementation guide is built.
-	//
-	// The parameters are defined by the relevant tools that build the implementation guides.
-	//
-	// Comment: see [confluence](https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters) for the parameters defined by the HL7 IG publisher.
 }
 type ImplementationGuideDefinitionParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -447,7 +424,6 @@ type ImplementationGuideDefinitionParameter struct {
 	Code Coding `bson:"code" json:"code" xml:"code"`
 	// Value for named type.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// A template for building resources.
 }
 type ImplementationGuideDefinitionTemplate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -474,7 +450,6 @@ type ImplementationGuideDefinitionTemplate struct {
 	Source string `bson:"source" json:"source" xml:"source"`
 	// The scope in which the template applies.
 	Scope *string `bson:"scope,omitempty" json:"scope,omitempty" xml:"scope,omitempty"`
-	// Information about an assembled implementation guide, created by the publication tooling.
 }
 type ImplementationGuideManifest struct {
 	// Unique id for the element within a resource (for internal references).
@@ -551,7 +526,6 @@ type ImplementationGuideManifestResource struct {
 	//
 	// Comment: Appending 'rendering' + "/" + this should resolve to the resource page.
 	RelativePath *string `bson:"relativePath,omitempty" json:"relativePath,omitempty" xml:"relativePath,omitempty"`
-	// Information about a page within the IG.
 }
 type ImplementationGuideManifestPage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -582,7 +556,6 @@ type ImplementationGuideManifestPage struct {
 	//
 	// Comment: Appending 'rendering' + "/" + page.name + "#" + page.anchor should resolve to the anchor.
 	Anchor []string `bson:"anchor,omitempty" json:"anchor,omitempty" xml:"anchor,omitempty"`
-	// Indicates a relative path to an image that exists within the IG.
 }
 
 func (r ImplementationGuide) ResourceType() string {

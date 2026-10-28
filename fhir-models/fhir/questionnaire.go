@@ -196,9 +196,6 @@ type Questionnaire struct {
 	//
 	// Comment: The content of the questionnaire is constructed from an ordered, hierarchical collection of items.
 	Item []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
-	// A structured set of questions intended to guide the collection of answers from end-users.
-	//
-	// Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
 }
 type QuestionnaireItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -340,9 +337,6 @@ type QuestionnaireItemEnableWhen struct {
 	AnswerCoding    Coding          `bson:"answerCoding" json:"answerCoding" xml:"answerCoding"`
 	AnswerQuantity  Quantity        `bson:"answerQuantity" json:"answerQuantity" xml:"answerQuantity"`
 	AnswerReference Reference       `bson:"answerReference" json:"answerReference" xml:"answerReference"`
-	// Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
-	//
-	// Comment: This element must be specified if more than one enableWhen value is provided.
 }
 type QuestionnaireItemAnswerOption struct {
 	// Unique id for the element within a resource (for internal references).
@@ -374,9 +368,6 @@ type QuestionnaireItemAnswerOption struct {
 	ValueReference Reference `bson:"valueReference" json:"valueReference" xml:"valueReference"`
 	// Indicates whether the answer value is selected when the list of possible answers is initially shown.
 	InitialSelected *bool `bson:"initialSelected,omitempty" json:"initialSelected,omitempty" xml:"initialSelected,omitempty"`
-	// One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.
-	//
-	// Comment: The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value.
 }
 type QuestionnaireItemInitial struct {
 	// Unique id for the element within a resource (for internal references).
@@ -412,9 +403,6 @@ type QuestionnaireItemInitial struct {
 	ValueCoding     Coding          `bson:"valueCoding" json:"valueCoding" xml:"valueCoding"`
 	ValueQuantity   Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueReference  Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
-	// Text, questions and other groups to be nested beneath a question or group.
-	//
-	// Comment: There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting.
 }
 
 func (r Questionnaire) ResourceType() string {

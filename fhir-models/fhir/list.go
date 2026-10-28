@@ -133,9 +133,6 @@ type ListEntry struct {
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
 	// A reference to the actual resource from which data was derived.
 	Item Reference `bson:"item" json:"item" xml:"item"`
-	// If the list is empty, why the list is empty.
-	//
-	// Comment: The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.
 }
 
 func (r List) ResourceType() string {

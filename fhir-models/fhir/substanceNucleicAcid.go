@@ -71,9 +71,6 @@ type SubstanceNucleicAcid struct {
 	OligoNucleotideType *CodeableConcept `bson:"oligoNucleotideType,omitempty" json:"oligoNucleotideType,omitempty" xml:"oligoNucleotideType,omitempty"`
 	// Subunits are listed in order of decreasing length; sequences of the same length will be ordered by molecular weight; subunits that have identical sequences will be repeated multiple times.
 	Subunit []SubstanceNucleicAcidSubunit `bson:"subunit,omitempty" json:"subunit,omitempty" xml:"subunit,omitempty"`
-	// Nucleic acids are defined by three distinct elements: the base, sugar and linkage.
-	//
-	// Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
 }
 type SubstanceNucleicAcidSubunit struct {
 	// Unique id for the element within a resource (for internal references).
@@ -118,9 +115,6 @@ type SubstanceNucleicAcidSubunit struct {
 	Linkage []SubstanceNucleicAcidSubunitLinkage `bson:"linkage,omitempty" json:"linkage,omitempty" xml:"linkage,omitempty"`
 	// 5.3.6.8.1 Sugar ID (Mandatory).
 	Sugar []SubstanceNucleicAcidSubunitSugar `bson:"sugar,omitempty" json:"sugar,omitempty" xml:"sugar,omitempty"`
-	// Nucleic acids are defined by three distinct elements: the base, sugar and linkage.
-	//
-	// Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
 }
 type SubstanceNucleicAcidSubunitLinkage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -153,7 +147,6 @@ type SubstanceNucleicAcidSubunitLinkage struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// Residues shall be captured as described in 5.3.6.8.3.
 	ResidueSite *string `bson:"residueSite,omitempty" json:"residueSite,omitempty" xml:"residueSite,omitempty"`
-	// 5.3.6.8.1 Sugar ID (Mandatory).
 }
 type SubstanceNucleicAcidSubunitSugar struct {
 	// Unique id for the element within a resource (for internal references).

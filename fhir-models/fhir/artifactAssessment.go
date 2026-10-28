@@ -138,7 +138,6 @@ type ArtifactAssessmentContent struct {
 	FreeToShare *bool `bson:"freeToShare,omitempty" json:"freeToShare,omitempty" xml:"freeToShare,omitempty"`
 	// If the informationType is container, the components of the content.
 	Component []ArtifactAssessmentContent `bson:"component,omitempty" json:"component,omitempty"`
-	// Indicates the workflow status of the comment or change request.
 }
 
 func (r ArtifactAssessment) ResourceType() string {

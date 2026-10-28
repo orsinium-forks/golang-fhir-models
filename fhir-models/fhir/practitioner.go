@@ -96,7 +96,6 @@ type Practitioner struct {
 	//
 	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.For animals, language is not a relevant field, and should be absent from the instance.
 	Communication []PractitionerCommunication `bson:"communication,omitempty" json:"communication,omitempty" xml:"communication,omitempty"`
-	// A person who is directly or indirectly involved in the provisioning of healthcare or related services.
 }
 type PractitionerQualification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -125,9 +124,6 @@ type PractitionerQualification struct {
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// Organization that regulates and issues the qualification.
 	Issuer *Reference `bson:"issuer,omitempty" json:"issuer,omitempty" xml:"issuer,omitempty"`
-	// A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).
-	//
-	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.For animals, language is not a relevant field, and should be absent from the instance.
 }
 type PractitionerCommunication struct {
 	// Unique id for the element within a resource (for internal references).

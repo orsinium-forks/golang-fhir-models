@@ -207,7 +207,6 @@ type DeviceUdiCarrier struct {
 	CarrierHRF *string `bson:"carrierHRF,omitempty" json:"carrierHRF,omitempty" xml:"carrierHRF,omitempty"`
 	// A coded entry to indicate how the data was entered.
 	EntryType *UDIEntryType `bson:"entryType,omitempty" json:"entryType,omitempty" xml:"entryType,omitempty"`
-	// The Device record status. This is not the status of the device like availability.
 }
 type DeviceName struct {
 	// Unique id for the element within a resource (for internal references).
@@ -234,7 +233,6 @@ type DeviceName struct {
 	Type DeviceNameType `bson:"type" json:"type" xml:"type"`
 	// Indicates the default or preferred name to be displayed.
 	Display *bool `bson:"display,omitempty" json:"display,omitempty" xml:"display,omitempty"`
-	// The manufacturer's model number for the device.
 }
 type DeviceVersion struct {
 	// Unique id for the element within a resource (for internal references).
@@ -265,9 +263,6 @@ type DeviceVersion struct {
 	InstallDate *string `bson:"installDate,omitempty" json:"installDate,omitempty" xml:"installDate,omitempty"`
 	// The version text.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Identifies the standards, specifications, or formal guidances for the capabilities supported by the device.
-	//
-	// The device may be certified as conformant to these specifications e.g., communication, performance, process, measurement, or specialization standards.
 }
 type DeviceConformsTo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -296,9 +291,6 @@ type DeviceConformsTo struct {
 	//
 	// This may be a 'version number', release, document edition, publication year, or other label.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	// Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes.
-	//
-	// Comment: Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific [DeviceMetric] and recorded using [Observation].  Static characteristics of a device could also be documented in an associated [DeviceDefinition] instance. The Device instance's properties, and their values, could be, but need not be, the same as those described in an associated DeviceDefinition.
 }
 type DeviceProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -331,7 +323,6 @@ type DeviceProperty struct {
 	ValueInteger         int             `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment" xml:"valueAttachment"`
-	// The designated condition for performing a task with the device.
 }
 
 func (r Device) ResourceType() string {

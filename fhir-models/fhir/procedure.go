@@ -207,9 +207,6 @@ type ProcedurePerformer struct {
 	OnBehalfOf *Reference `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty" xml:"onBehalfOf,omitempty"`
 	// Time period during which the performer performed the procedure.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// The location where the procedure actually happened.
-	//
-	//	E.g. a newborn at home, a tracheostomy at a restaurant.
 }
 type ProcedureFocalDevice struct {
 	// Unique id for the element within a resource (for internal references).
@@ -234,9 +231,6 @@ type ProcedureFocalDevice struct {
 	Action *CodeableConcept `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
 	// The device that was manipulated (changed) during the procedure.
 	Manipulated Reference `bson:"manipulated" json:"manipulated" xml:"manipulated"`
-	// Identifies medications, devices and any other substance used as part of the procedure.
-	//
-	// Comment: For devices actually implanted or removed, use Procedure.focalDevice.manipulated.
 }
 
 func (r Procedure) ResourceType() string {

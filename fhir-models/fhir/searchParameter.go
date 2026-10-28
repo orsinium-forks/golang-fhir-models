@@ -212,9 +212,6 @@ type SearchParameter struct {
 	Chain []string `bson:"chain,omitempty" json:"chain,omitempty" xml:"chain,omitempty"`
 	// Used to define the parts of a composite search parameter.
 	Component []SearchParameterComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
-	// A search parameter that defines a named search item that can be used to search/filter on a resource.
-	//
-	// Comment: In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content.
 }
 type SearchParameterComponent struct {
 	// Unique id for the element within a resource (for internal references).

@@ -170,7 +170,6 @@ type ConditionDefinition struct {
 	Questionnaire []ConditionDefinitionQuestionnaire `bson:"questionnaire,omitempty" json:"questionnaire,omitempty" xml:"questionnaire,omitempty"`
 	// Plan that is appropriate.
 	Plan []ConditionDefinitionPlan `bson:"plan,omitempty" json:"plan,omitempty" xml:"plan,omitempty"`
-	// A definition of a condition and information relevant to managing it.
 }
 type ConditionDefinitionObservation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -195,7 +194,6 @@ type ConditionDefinitionObservation struct {
 	Category *CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
 	// Code for relevant Observation.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	// Medications particularly relevant for this condition.
 }
 type ConditionDefinitionMedication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -220,7 +218,6 @@ type ConditionDefinitionMedication struct {
 	Category *CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
 	// Code for relevant Medication.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	// An observation that suggests that this condition applies.
 }
 type ConditionDefinitionPrecondition struct {
 	// Unique id for the element within a resource (for internal references).
@@ -248,7 +245,6 @@ type ConditionDefinitionPrecondition struct {
 	// Value of Observation.
 	ValueCodeableConcept *CodeableConcept `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty" xml:"valueCodeableConcept,omitempty"`
 	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
-	// Appropriate team for this condition.
 }
 type ConditionDefinitionQuestionnaire struct {
 	// Unique id for the element within a resource (for internal references).
@@ -273,7 +269,6 @@ type ConditionDefinitionQuestionnaire struct {
 	Purpose ConditionQuestionnairePurpose `bson:"purpose" json:"purpose" xml:"purpose"`
 	// Specific Questionnaire.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
-	// Plan that is appropriate.
 }
 type ConditionDefinitionPlan struct {
 	// Unique id for the element within a resource (for internal references).

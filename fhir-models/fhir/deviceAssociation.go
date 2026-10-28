@@ -73,7 +73,6 @@ type DeviceAssociation struct {
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// The details about the device when it is in use to describe its operation.
 	Operation []DeviceAssociationOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
-	// A record of association or dissociation of a device with a patient.
 }
 type DeviceAssociationOperation struct {
 	// Unique id for the element within a resource (for internal references).

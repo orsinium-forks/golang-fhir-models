@@ -224,9 +224,6 @@ type ObservationDefinition struct {
 	HasMember []Reference `bson:"hasMember,omitempty" json:"hasMember,omitempty" xml:"hasMember,omitempty"`
 	// Some observations have multiple component observations, expressed as separate code value pairs.
 	Component []ObservationDefinitionComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
-	// Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
-	//
-	// Comment: An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like.
 }
 type ObservationDefinitionQualifiedValue struct {
 	// Unique id for the element within a resource (for internal references).
@@ -275,9 +272,6 @@ type ObservationDefinitionQualifiedValue struct {
 	AbnormalCodedValueSet *string `bson:"abnormalCodedValueSet,omitempty" json:"abnormalCodedValueSet,omitempty" xml:"abnormalCodedValueSet,omitempty"`
 	// The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values.
 	CriticalCodedValueSet *string `bson:"criticalCodedValueSet,omitempty" json:"criticalCodedValueSet,omitempty" xml:"criticalCodedValueSet,omitempty"`
-	// This ObservationDefinition defines a group  observation (e.g.
-	//
-	// a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
 }
 type ObservationDefinitionComponent struct {
 	// Unique id for the element within a resource (for internal references).

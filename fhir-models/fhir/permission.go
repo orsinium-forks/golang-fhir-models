@@ -71,7 +71,6 @@ type Permission struct {
 	Combining PermissionRuleCombining `bson:"combining" json:"combining" xml:"combining"`
 	// A set of rules.
 	Rule []PermissionRule `bson:"rule,omitempty" json:"rule,omitempty" xml:"rule,omitempty"`
-	// Permission resource holds access rules for a given data and context.
 }
 type PermissionJustification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -98,9 +97,6 @@ type PermissionJustification struct {
 	//
 	// Comment: While any resource may be used, DocumentReference, Consent, PlanDefinition, and Contract would be most frequent
 	Evidence []Reference `bson:"evidence,omitempty" json:"evidence,omitempty" xml:"evidence,omitempty"`
-	// Defines a procedure for arriving at an access decision given the set of rules.
-	//
-	// Comment: see [XACML Combining Rules](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html#_Toc325047267)
 }
 type PermissionRule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -161,7 +157,6 @@ type PermissionRuleData struct {
 	Period []Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// Used when other data selection elements are insufficient.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	// A description or definition of which activities are allowed to be done on the data.
 }
 type PermissionRuleDataResource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -186,9 +181,6 @@ type PermissionRuleDataResource struct {
 	Meaning ConsentDataMeaning `bson:"meaning" json:"meaning" xml:"meaning"`
 	// A reference to a specific resource that defines which resources are covered by this consent.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
-	// The data in scope are those with the given codes present in that data .meta.security element.
-	//
-	// Comment: Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of "R" then it applies to all resources that are labeled "R" or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict.
 }
 type PermissionRuleActivity struct {
 	// Unique id for the element within a resource (for internal references).
@@ -217,7 +209,6 @@ type PermissionRuleActivity struct {
 	Action []CodeableConcept `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
 	// The purpose for which the permission is given.
 	Purpose []CodeableConcept `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
-	// What limits apply to the use of the data.
 }
 
 func (r Permission) ResourceType() string {

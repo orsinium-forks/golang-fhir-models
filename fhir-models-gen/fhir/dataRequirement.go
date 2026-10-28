@@ -57,7 +57,6 @@ type DataRequirement struct {
 	//
 	// Comment: This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5". When multiple sorts are specified, they are applied in the order they appear in the resource.
 	Sort []DataRequirementSort `bson:"sort,omitempty" json:"sort,omitempty" xml:"sort,omitempty"`
-	// Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
 }
 type DataRequirementCodeFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -86,9 +85,6 @@ type DataRequirementCodeFilter struct {
 	//
 	// If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.
 	Code []Coding `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	// Date filters specify additional constraints on the data in terms of the applicable date range for specific elements.
-	//
-	// Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.
 }
 type DataRequirementDateFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -115,9 +111,6 @@ type DataRequirementDateFilter struct {
 	ValueDateTime *string   `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty" xml:"valueDateTime,omitempty"`
 	ValuePeriod   *Period   `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty" xml:"valuePeriod,omitempty"`
 	ValueDuration *Duration `bson:"valueDuration,omitempty" json:"valueDuration,omitempty" xml:"valueDuration,omitempty"`
-	// Value filters specify additional constraints on the data for elements other than code-valued or date-valued.
-	//
-	// Each value filter specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not OR'ed).
 }
 type DataRequirementValueFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -144,9 +137,6 @@ type DataRequirementValueFilter struct {
 	ValueDateTime *string   `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty" xml:"valueDateTime,omitempty"`
 	ValuePeriod   *Period   `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty" xml:"valuePeriod,omitempty"`
 	ValueDuration *Duration `bson:"valueDuration,omitempty" json:"valueDuration,omitempty" xml:"valueDuration,omitempty"`
-	// Specifies a maximum number of results that are required (uses the _count search parameter).
-	//
-	// Comment: This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5".
 }
 type DataRequirementSort struct {
 	// Unique id for the element within a resource (for internal references).

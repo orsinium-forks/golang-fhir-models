@@ -83,7 +83,6 @@ type Substance struct {
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// A substance can be composed of other substances.
 	Ingredient []SubstanceIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty" xml:"ingredient,omitempty"`
-	// A homogeneous material with a definite composition.
 }
 type SubstanceIngredient struct {
 	// Unique id for the element within a resource (for internal references).

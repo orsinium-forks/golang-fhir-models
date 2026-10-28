@@ -97,7 +97,4 @@ type DosageDoseAndRate struct {
 	RateRatio    *Ratio    `bson:"rateRatio,omitempty" json:"rateRatio,omitempty" xml:"rateRatio,omitempty"`
 	RateRange    *Range    `bson:"rateRange,omitempty" json:"rateRange,omitempty" xml:"rateRange,omitempty"`
 	RateQuantity *Quantity `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty" xml:"rateQuantity,omitempty"`
-	// Upper limit on medication per unit of time.
-	//
-	// Comment: This is intended for use as an adjunct to the dosage when there is an upper cap.  For example "2 tablets every 4 hours to a maximum of 8/day".
 }

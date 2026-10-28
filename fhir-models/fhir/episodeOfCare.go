@@ -121,11 +121,6 @@ type EpisodeOfCareStatusHistory struct {
 	Status EpisodeOfCareStatus `bson:"status" json:"status" xml:"status"`
 	// The period during this EpisodeOfCare that the specific status applied.
 	Period Period `bson:"period" json:"period" xml:"period"`
-	// A classification of the type of episode of care; e.g.
-	//
-	// specialist referral, disease management, type of funded care.
-	//
-	// Comment: The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications.
 }
 type EpisodeOfCareReason struct {
 	// Unique id for the element within a resource (for internal references).
@@ -152,9 +147,6 @@ type EpisodeOfCareReason struct {
 	Use *CodeableConcept `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
 	// The medical reason that is expected to be addressed during the episode of care, expressed as a text, code or a reference to another resource.
 	Value []CodeableReference `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
-	// The list of medical conditions that were addressed during the episode of care.
-	//
-	// Comment: The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement.
 }
 type EpisodeOfCareDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
@@ -181,7 +173,6 @@ type EpisodeOfCareDiagnosis struct {
 	//
 	// admission, billing, discharge …).
 	Use *CodeableConcept `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
-	// The patient who is the focus of this episode of care.
 }
 
 func (r EpisodeOfCare) ResourceType() string {

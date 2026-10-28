@@ -181,7 +181,6 @@ type TransportRestriction struct {
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for.
 	Recipient []Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
-	// Additional information that may be needed in the execution of the transport.
 }
 type TransportInput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -261,7 +260,6 @@ type TransportInput struct {
 	ValueExtendedContactDetail ExtendedContactDetail `bson:"valueExtendedContactDetail" json:"valueExtendedContactDetail" xml:"valueExtendedContactDetail"`
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
-	// Outputs produced by the Transport.
 }
 type TransportOutput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -339,7 +337,6 @@ type TransportOutput struct {
 	ValueExtendedContactDetail ExtendedContactDetail `bson:"valueExtendedContactDetail" json:"valueExtendedContactDetail" xml:"valueExtendedContactDetail"`
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
-	// The desired or final location for the transport.
 }
 
 func (r Transport) ResourceType() string {

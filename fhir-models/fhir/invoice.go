@@ -138,9 +138,6 @@ type InvoiceParticipant struct {
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// The device, practitioner, etc. who performed or participated in the service.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// The organizationissuing the Invoice.
-	//
-	// Comment: Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered.
 }
 type InvoiceLineItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -175,9 +172,6 @@ type InvoiceLineItem struct {
 	//
 	// A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice as to how the prices have been calculated.
 	PriceComponent []MonetaryComponent `bson:"priceComponent,omitempty" json:"priceComponent,omitempty" xml:"priceComponent,omitempty"`
-	// The total amount for the Invoice may be calculated as the sum of the line items with surcharges/deductions that apply in certain conditions.
-	//
-	//	The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the total price was calculated.
 }
 
 func (r Invoice) ResourceType() string {

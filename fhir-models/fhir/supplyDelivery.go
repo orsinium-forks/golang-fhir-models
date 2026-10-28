@@ -116,9 +116,6 @@ type SupplyDeliverySuppliedItem struct {
 	// This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
 	ItemCodeableConcept *CodeableConcept `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty" xml:"itemCodeableConcept,omitempty"`
 	ItemReference       *Reference       `bson:"itemReference,omitempty" json:"itemReference,omitempty" xml:"itemReference,omitempty"`
-	// The date or time(s) the activity occurred.
-	//
-	// Comment: [The list of types may be constrained as appropriate for the type of event].
 }
 
 func (r SupplyDelivery) ResourceType() string {

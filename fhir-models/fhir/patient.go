@@ -139,7 +139,6 @@ type Patient struct {
 	//
 	// Comment: There is no assumption that linked patient records have mutual links.
 	Link []PatientLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
-	// Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 }
 type PatientContact struct {
 	// Unique id for the element within a resource (for internal references).
@@ -176,9 +175,6 @@ type PatientContact struct {
 	Organization *Reference `bson:"organization,omitempty" json:"organization,omitempty" xml:"organization,omitempty"`
 	// The period during which this contact person or organization is valid to be contacted relating to this patient.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// A language which may be used to communicate with the patient about his or her health.
-	//
-	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
 }
 type PatientCommunication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -209,13 +205,6 @@ type PatientCommunication struct {
 	//
 	// Comment: This language is specifically identified for communicating healthcare information.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
-	// Patient's nominated care provider.
-	//
-	// Comment: This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disability setting, or even organization that will provide people to perform the care provider roles.  It is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.
-	//
-	// Multiple GPs may be recorded against the patient for various reasons, such as a student that has his home GP listed along with the GP at university during the school semesters, or a "fly-in/fly-out" worker that has the onsite GP also included with his home GP to remain aware of medical issues.
-	//
-	// Jurisdictions may decide that they can profile this down to 1 if desired, or 1 per type.
 }
 type PatientLink struct {
 	// Unique id for the element within a resource (for internal references).

@@ -185,7 +185,6 @@ type ContractContentDefinition struct {
 	//
 	// Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
-	// One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
 }
 type ContractTerm struct {
 	// Unique id for the element within a resource (for internal references).
@@ -237,7 +236,6 @@ type ContractTerm struct {
 	Action []ContractTermAction `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
 	// Nested group of Contract Provisions.
 	Group []ContractTerm `bson:"group,omitempty" json:"group,omitempty"`
-	// Information that may be needed by/relevant to the performer in their execution of this term action.
 }
 type ContractTermSecurityLabel struct {
 	// Unique id for the element within a resource (for internal references).
@@ -266,7 +264,6 @@ type ContractTermSecurityLabel struct {
 	Category []Coding `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
 	// Security label privacy tag that specifies the manner in which term and/or term elements are to be protected.
 	Control []Coding `bson:"control,omitempty" json:"control,omitempty" xml:"control,omitempty"`
-	// The matter of concern in the context of this provision of the agrement.
 }
 type ContractTermOffer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -313,7 +310,6 @@ type ContractTermOffer struct {
 	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Security labels that protects the offer.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
-	// Contract Term Asset List.
 }
 type ContractTermOfferParty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -338,11 +334,6 @@ type ContractTermOfferParty struct {
 	Reference []Reference `bson:"reference" json:"reference" xml:"reference"`
 	// How the party participates in the offer.
 	Role CodeableConcept `bson:"role" json:"role" xml:"role"`
-	// The owner of an asset has the residual control rights over the asset: the right to decide all usages of the asset in any way not inconsistent with a prior contract, custom, or law (Hart, 1995, p.
-	//
-	// 30).
-	//
-	// Comment: The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. The Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. However, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.If the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
 }
 type ContractTermOfferAnswer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -376,7 +367,6 @@ type ContractTermOfferAnswer struct {
 	ValueCoding     Coding          `bson:"valueCoding" json:"valueCoding" xml:"valueCoding"`
 	ValueQuantity   Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueReference  Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
-	// Human readable form of this Contract Offer.
 }
 type ContractTermAsset struct {
 	// Unique id for the element within a resource (for internal references).
@@ -427,9 +417,6 @@ type ContractTermAsset struct {
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 	// Contract Valued Item List.
 	ValuedItem []ContractTermAssetValuedItem `bson:"valuedItem,omitempty" json:"valuedItem,omitempty" xml:"valuedItem,omitempty"`
-	// An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
-	//
-	// Comment: Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 }
 type ContractTermAssetContext struct {
 	// Unique id for the element within a resource (for internal references).
@@ -456,7 +443,6 @@ type ContractTermAssetContext struct {
 	Code []CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// Context description.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
-	// Description of the quality and completeness of the asset that may be a factor in its valuation.
 }
 type ContractTermAssetValuedItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -512,9 +498,6 @@ type ContractTermAssetValuedItem struct {
 	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// A set of security labels that define which terms are controlled by this condition.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
-	// An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
-	//
-	// Comment: Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 }
 type ContractTermAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -577,7 +560,6 @@ type ContractTermAction struct {
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// Security labels that protects the action.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
-	// Nested group of Contract Provisions.
 }
 type ContractTermActionSubject struct {
 	// Unique id for the element within a resource (for internal references).
@@ -602,7 +584,6 @@ type ContractTermActionSubject struct {
 	Reference []Reference `bson:"reference" json:"reference" xml:"reference"`
 	// Role type of agent assigned roles in this Contract.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
-	// Reason or purpose for the action stipulated by this Contract Provision.
 }
 type ContractSigner struct {
 	// Unique id for the element within a resource (for internal references).
@@ -629,9 +610,6 @@ type ContractSigner struct {
 	Party Reference `bson:"party" json:"party" xml:"party"`
 	// Legally binding Contract DSIG signature contents in Base64.
 	Signature []Signature `bson:"signature" json:"signature" xml:"signature"`
-	// The "patient friendly language" versionof the Contract in whole or in parts.
-	//
-	// "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
 }
 type ContractFriendly struct {
 	// Unique id for the element within a resource (for internal references).
@@ -655,7 +633,6 @@ type ContractFriendly struct {
 	// Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.
 	ContentAttachment Attachment `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference  Reference  `bson:"contentReference" json:"contentReference" xml:"contentReference"`
-	// List of Legal expressions or representations of this Contract.
 }
 type ContractLegal struct {
 	// Unique id for the element within a resource (for internal references).
@@ -679,7 +656,6 @@ type ContractLegal struct {
 	// Contract legal text in human renderable form.
 	ContentAttachment Attachment `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference  Reference  `bson:"contentReference" json:"contentReference" xml:"contentReference"`
-	// List of Computable Policy Rule Language Representations of this Contract.
 }
 type ContractRule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -703,7 +679,6 @@ type ContractRule struct {
 	// Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
 	ContentAttachment Attachment `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference  Reference  `bson:"contentReference" json:"contentReference" xml:"contentReference"`
-	// Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.
 }
 
 func (r Contract) ResourceType() string {

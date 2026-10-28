@@ -97,9 +97,6 @@ type AdministrableProductDefinition struct {
 	//
 	// In some regions this is referred to as the licenced or approved route. RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa).
 	RouteOfAdministration []AdministrableProductDefinitionRouteOfAdministration `bson:"routeOfAdministration" json:"routeOfAdministration" xml:"routeOfAdministration"`
-	// A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.
-	//
-	// has been performed).
 }
 type AdministrableProductDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -132,9 +129,6 @@ type AdministrableProductDefinitionProperty struct {
 	ValueReference       *Reference       `bson:"valueReference,omitempty" json:"valueReference,omitempty" xml:"valueReference,omitempty"`
 	// The status of characteristic e.g. assigned or pending.
 	Status *CodeableConcept `bson:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
-	// The path by which the product is taken into or makes contact with the body.
-	//
-	// In some regions this is referred to as the licenced or approved route. RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa).
 }
 type AdministrableProductDefinitionRouteOfAdministration struct {
 	// Unique id for the element within a resource (for internal references).
@@ -169,9 +163,6 @@ type AdministrableProductDefinitionRouteOfAdministration struct {
 	MaxTreatmentPeriod *Duration `bson:"maxTreatmentPeriod,omitempty" json:"maxTreatmentPeriod,omitempty" xml:"maxTreatmentPeriod,omitempty"`
 	// A species for which this route applies.
 	TargetSpecies []AdministrableProductDefinitionRouteOfAdministrationTargetSpecies `bson:"targetSpecies,omitempty" json:"targetSpecies,omitempty" xml:"targetSpecies,omitempty"`
-	// A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.
-	//
-	// has been performed).
 }
 type AdministrableProductDefinitionRouteOfAdministrationTargetSpecies struct {
 	// Unique id for the element within a resource (for internal references).
@@ -196,9 +187,6 @@ type AdministrableProductDefinitionRouteOfAdministrationTargetSpecies struct {
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// A species specific time during which consumption of animal product is not appropriate.
 	WithdrawalPeriod []AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod `bson:"withdrawalPeriod,omitempty" json:"withdrawalPeriod,omitempty" xml:"withdrawalPeriod,omitempty"`
-	// A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.
-	//
-	// has been performed).
 }
 type AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod struct {
 	// Unique id for the element within a resource (for internal references).

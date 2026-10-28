@@ -179,7 +179,6 @@ type SpecimenDefinition struct {
 	Collection []CodeableConcept `bson:"collection,omitempty" json:"collection,omitempty" xml:"collection,omitempty"`
 	// Specimen conditioned in a container as expected by the testing laboratory.
 	TypeTested []SpecimenDefinitionTypeTested `bson:"typeTested,omitempty" json:"typeTested,omitempty" xml:"typeTested,omitempty"`
-	// A kind of specimen with associated set of requirements.
 }
 type SpecimenDefinitionTypeTested struct {
 	// Unique id for the element within a resource (for internal references).
@@ -261,7 +260,6 @@ type SpecimenDefinitionTypeTestedContainer struct {
 	Additive []SpecimenDefinitionTypeTestedContainerAdditive `bson:"additive,omitempty" json:"additive,omitempty" xml:"additive,omitempty"`
 	// Special processing that should be applied to the container for this kind of specimen.
 	Preparation *string `bson:"preparation,omitempty" json:"preparation,omitempty" xml:"preparation,omitempty"`
-	// Requirements for delivery and special handling of this kind of conditioned specimen.
 }
 type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	// Unique id for the element within a resource (for internal references).
@@ -287,7 +285,6 @@ type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	// Examples: Formalin, Citrate, EDTA.
 	AdditiveCodeableConcept CodeableConcept `bson:"additiveCodeableConcept" json:"additiveCodeableConcept" xml:"additiveCodeableConcept"`
 	AdditiveReference       Reference       `bson:"additiveReference" json:"additiveReference" xml:"additiveReference"`
-	// Special processing that should be applied to the container for this kind of specimen.
 }
 type SpecimenDefinitionTypeTestedHandling struct {
 	// Unique id for the element within a resource (for internal references).
@@ -320,7 +317,6 @@ type SpecimenDefinitionTypeTestedHandling struct {
 	//
 	// For instance, 'Protect from light exposure'.
 	Instruction *string `bson:"instruction,omitempty" json:"instruction,omitempty" xml:"instruction,omitempty"`
-	// Where the specimen will be tested: e.g., lab, sector, device or any combination of these.
 }
 
 func (r SpecimenDefinition) ResourceType() string {

@@ -175,9 +175,6 @@ type Appointment struct {
 	OccurrenceChanged *bool `bson:"occurrenceChanged,omitempty" json:"occurrenceChanged,omitempty" xml:"occurrenceChanged,omitempty"`
 	// The details of the recurrence pattern or template that is used to generate recurring appointments.
 	RecurrenceTemplate []AppointmentRecurrenceTemplate `bson:"recurrenceTemplate,omitempty" json:"recurrenceTemplate,omitempty" xml:"recurrenceTemplate,omitempty"`
-	// A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time.
-	//
-	// This may result in one or more Encounter(s).
 }
 type AppointmentParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -216,7 +213,6 @@ type AppointmentParticipant struct {
 	Required *bool `bson:"required,omitempty" json:"required,omitempty" xml:"required,omitempty"`
 	// Participation status of the actor.
 	Status ParticipationStatus `bson:"status" json:"status" xml:"status"`
-	// The sequence number that identifies a specific appointment in a recurring pattern.
 }
 type AppointmentRecurrenceTemplate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -299,7 +295,6 @@ type AppointmentRecurrenceTemplateWeeklyTemplate struct {
 	//
 	// The default is every week, so it is expected that this value will be 2 or more.e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3.
 	WeekInterval *int `bson:"weekInterval,omitempty" json:"weekInterval,omitempty" xml:"weekInterval,omitempty"`
-	// Information about monthly recurring appointments.
 }
 type AppointmentRecurrenceTemplateMonthlyTemplate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -330,7 +325,6 @@ type AppointmentRecurrenceTemplateMonthlyTemplate struct {
 	DayOfWeek *Coding `bson:"dayOfWeek,omitempty" json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
 	// Indicates that recurring appointments should occur every nth month.
 	MonthInterval int `bson:"monthInterval" json:"monthInterval" xml:"monthInterval"`
-	// Information about yearly recurring appointments.
 }
 type AppointmentRecurrenceTemplateYearlyTemplate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -353,9 +347,6 @@ type AppointmentRecurrenceTemplateYearlyTemplate struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Appointment recurs every nth year.
 	YearInterval int `bson:"yearInterval" json:"yearInterval" xml:"yearInterval"`
-	// Any dates, such as holidays, that should be excluded from the recurrence.
-	//
-	// Comment: excludingDate is an alternative to excludingRecurrenceId.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property.
 }
 
 func (r Appointment) ResourceType() string {

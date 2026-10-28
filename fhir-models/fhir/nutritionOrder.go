@@ -163,7 +163,6 @@ type NutritionOrderOralDiet struct {
 	//
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	Instruction *string `bson:"instruction,omitempty" json:"instruction,omitempty" xml:"instruction,omitempty"`
-	// Oral nutritional products given in order to add further nutritional value to the patient's diet.
 }
 type NutritionOrderOralDietSchedule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -192,7 +191,6 @@ type NutritionOrderOralDietSchedule struct {
 	AsNeeded *bool `bson:"asNeeded,omitempty" json:"asNeeded,omitempty" xml:"asNeeded,omitempty"`
 	// Indicates whether the product is only taken based on a precondition for taking the product.
 	AsNeededFor *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty" xml:"asNeededFor,omitempty"`
-	// Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
 }
 type NutritionOrderOralDietNutrient struct {
 	// Unique id for the element within a resource (for internal references).
@@ -217,7 +215,6 @@ type NutritionOrderOralDietNutrient struct {
 	Modifier *CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
 	// The quantity of the specified nutrient to include in diet.
 	Amount *Quantity `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
-	// Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
 }
 type NutritionOrderOralDietTexture struct {
 	// Unique id for the element within a resource (for internal references).
@@ -250,9 +247,6 @@ type NutritionOrderOralDietTexture struct {
 	//
 	// Comment: Coupled with the `texture.modifier`; could be (All Foods).
 	FoodType *CodeableConcept `bson:"foodType,omitempty" json:"foodType,omitempty" xml:"foodType,omitempty"`
-	// The required consistency (e.g.
-	//
-	// honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
 }
 type NutritionOrderSupplement struct {
 	// Unique id for the element within a resource (for internal references).
@@ -285,7 +279,6 @@ type NutritionOrderSupplement struct {
 	//
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	Instruction *string `bson:"instruction,omitempty" json:"instruction,omitempty" xml:"instruction,omitempty"`
-	// Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
 }
 type NutritionOrderSupplementSchedule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -314,7 +307,6 @@ type NutritionOrderSupplementSchedule struct {
 	AsNeeded *bool `bson:"asNeeded,omitempty" json:"asNeeded,omitempty" xml:"asNeeded,omitempty"`
 	// Indicates whether the supplement is only taken based on a precondition for taking the supplement.
 	AsNeededFor *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty" xml:"asNeededFor,omitempty"`
-	// The amount of the nutritional supplement to be given.
 }
 type NutritionOrderEnteralFormula struct {
 	// Unique id for the element within a resource (for internal references).
@@ -365,9 +357,6 @@ type NutritionOrderEnteralFormula struct {
 	//
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	AdministrationInstruction *string `bson:"administrationInstruction,omitempty" json:"administrationInstruction,omitempty" xml:"administrationInstruction,omitempty"`
-	// Comments made about the {{title}} by the requester, performer, subject or other participants.
-	//
-	// Comment: This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements.
 }
 type NutritionOrderEnteralFormulaAdditive struct {
 	// Unique id for the element within a resource (for internal references).
@@ -394,9 +383,6 @@ type NutritionOrderEnteralFormulaAdditive struct {
 	ProductName *string `bson:"productName,omitempty" json:"productName,omitempty" xml:"productName,omitempty"`
 	// The amount of additive to be given in addition or to be mixed in with the base formula.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.
-	//
-	//	For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.
 }
 type NutritionOrderEnteralFormulaAdministration struct {
 	// Unique id for the element within a resource (for internal references).
@@ -428,9 +414,6 @@ type NutritionOrderEnteralFormulaAdministration struct {
 	// Comment: Ratio is used when the quantity value in the denominator is not "1", otherwise use Quantity. For example, the Ratio datatype is used for "200 mL/4 hrs" versus the Quantity datatype for "50 mL/hr".
 	RateQuantity *Quantity `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty" xml:"rateQuantity,omitempty"`
 	RateRatio    *Ratio    `bson:"rateRatio,omitempty" json:"rateRatio,omitempty" xml:"rateRatio,omitempty"`
-	// The maximum total quantity of formula that may be administered to a subject over the period of time, e.g.
-	//
-	// 1440 mL over 24 hours.
 }
 type NutritionOrderEnteralFormulaAdministrationSchedule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -459,7 +442,6 @@ type NutritionOrderEnteralFormulaAdministrationSchedule struct {
 	AsNeeded *bool `bson:"asNeeded,omitempty" json:"asNeeded,omitempty" xml:"asNeeded,omitempty"`
 	// Indicates whether the enteral formula is only taken based on a precondition for taking the enteral formula.
 	AsNeededFor *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty" xml:"asNeededFor,omitempty"`
-	// The volume of formula to provide to the patient per the specified administration schedule.
 }
 
 func (r NutritionOrder) ResourceType() string {

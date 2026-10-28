@@ -167,9 +167,6 @@ type ChargeItemPerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// The device, practitioner, etc. who performed or participated in the service.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// The organization performing the service.
-	//
-	// Comment: Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered.
 }
 
 func (r ChargeItem) ResourceType() string {

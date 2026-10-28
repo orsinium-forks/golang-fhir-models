@@ -115,7 +115,6 @@ type InventoryItemName struct {
 	Language string `bson:"language" json:"language" xml:"language"`
 	// The name or designation that the item is given.
 	Name string `bson:"name" json:"name" xml:"name"`
-	// Organization(s) responsible for the product.
 }
 type InventoryItemResponsibleOrganization struct {
 	// Unique id for the element within a resource (for internal references).
@@ -142,7 +141,6 @@ type InventoryItemResponsibleOrganization struct {
 	//
 	// manufacturer, distributor, responsible, etc.
 	Organization Reference `bson:"organization" json:"organization" xml:"organization"`
-	// The descriptive characteristics of the inventory item.
 }
 type InventoryItemDescription struct {
 	// Unique id for the element within a resource (for internal references).
@@ -167,9 +165,6 @@ type InventoryItemDescription struct {
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
 	// Textual description of the item.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	// The usage status e.g.
-	//
-	// recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc.
 }
 type InventoryItemAssociation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -200,7 +195,6 @@ type InventoryItemAssociation struct {
 	//
 	// Denominator is the quantity of the present product. For example a value of 20 means that this product contains 20 units of the related product; a value of 1:20 means the inverse - that the contained product contains 20 units of the present product.
 	Quantity Ratio `bson:"quantity" json:"quantity" xml:"quantity"`
-	// The descriptive or identifying characteristics of the item.
 }
 type InventoryItemCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -239,7 +233,6 @@ type InventoryItemCharacteristic struct {
 	ValueAddress         Address         `bson:"valueAddress" json:"valueAddress" xml:"valueAddress"`
 	ValueDuration        Duration        `bson:"valueDuration" json:"valueDuration" xml:"valueDuration"`
 	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept" xml:"valueCodeableConcept"`
-	// Instances or occurrences of the product.
 }
 type InventoryItemInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -270,7 +263,6 @@ type InventoryItemInstance struct {
 	Subject *Reference `bson:"subject,omitempty" json:"subject,omitempty" xml:"subject,omitempty"`
 	// The location that the item is associated with.
 	Location *Reference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
-	// Link to a product resource used in clinical workflows.
 }
 
 func (r InventoryItem) ResourceType() string {

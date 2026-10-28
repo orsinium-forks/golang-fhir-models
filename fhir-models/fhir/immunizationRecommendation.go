@@ -69,9 +69,6 @@ type ImmunizationRecommendation struct {
 	//
 	// Comment: A given instance of the .recommendation backbone element should correspond to a single recommended administration.
 	Recommendation []ImmunizationRecommendationRecommendation `bson:"recommendation" json:"recommendation" xml:"recommendation"`
-	// A patient's point-in-time set of recommendations (i.e.
-	//
-	// forecasting) according to a published schedule with optional supporting justification.
 }
 type ImmunizationRecommendationRecommendation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -154,7 +151,6 @@ type ImmunizationRecommendationRecommendationDateCriterion struct {
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// The date whose meaning is specified by dateCriterion.code.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Contains the description about the protocol under which the vaccine was administered.
 }
 
 func (r ImmunizationRecommendation) ResourceType() string {

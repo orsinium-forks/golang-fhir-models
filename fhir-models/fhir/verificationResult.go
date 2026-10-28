@@ -83,7 +83,6 @@ type VerificationResult struct {
 	Attestation *VerificationResultAttestation `bson:"attestation,omitempty" json:"attestation,omitempty" xml:"attestation,omitempty"`
 	// Information about the entity validating information.
 	Validator []VerificationResultValidator `bson:"validator,omitempty" json:"validator,omitempty" xml:"validator,omitempty"`
-	// Describes validation requirements, source(s), status and dates for one or more elements.
 }
 type VerificationResultPrimarySource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -118,7 +117,6 @@ type VerificationResultPrimarySource struct {
 	CanPushUpdates *CodeableConcept `bson:"canPushUpdates,omitempty" json:"canPushUpdates,omitempty" xml:"canPushUpdates,omitempty"`
 	// Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source).
 	PushTypeAvailable []CodeableConcept `bson:"pushTypeAvailable,omitempty" json:"pushTypeAvailable,omitempty" xml:"pushTypeAvailable,omitempty"`
-	// Information about the entity attesting to information.
 }
 type VerificationResultAttestation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -155,7 +153,6 @@ type VerificationResultAttestation struct {
 	ProxySignature *Signature `bson:"proxySignature,omitempty" json:"proxySignature,omitempty" xml:"proxySignature,omitempty"`
 	// Signed assertion by the attestation source that they have attested to the information.
 	SourceSignature *Signature `bson:"sourceSignature,omitempty" json:"sourceSignature,omitempty" xml:"sourceSignature,omitempty"`
-	// Information about the entity validating information.
 }
 type VerificationResultValidator struct {
 	// Unique id for the element within a resource (for internal references).

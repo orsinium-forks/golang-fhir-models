@@ -138,9 +138,6 @@ type CompartmentDefinition struct {
 	Search bool `bson:"search" json:"search" xml:"search"`
 	// Information about how a resource is related to the compartment.
 	Resource []CompartmentDefinitionResource `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	// A compartment definition that defines how resources are accessed on a server.
-	//
-	// Comment: In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content.
 }
 type CompartmentDefinitionResource struct {
 	// Unique id for the element within a resource (for internal references).

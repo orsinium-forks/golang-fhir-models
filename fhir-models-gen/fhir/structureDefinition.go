@@ -210,9 +210,6 @@ type StructureDefinition struct {
 	Snapshot *StructureDefinitionSnapshot `bson:"snapshot,omitempty" json:"snapshot,omitempty" xml:"snapshot,omitempty"`
 	// A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
 	Differential *StructureDefinitionDifferential `bson:"differential,omitempty" json:"differential,omitempty" xml:"differential,omitempty"`
-	// A definition of a FHIR structure.
-	//
-	// This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
 }
 type StructureDefinitionMapping struct {
 	// Unique id for the element within a resource (for internal references).
@@ -245,7 +242,6 @@ type StructureDefinitionMapping struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
-	// Defines the kind of structure that this definition is describing.
 }
 type StructureDefinitionContext struct {
 	// Unique id for the element within a resource (for internal references).
@@ -270,11 +266,6 @@ type StructureDefinitionContext struct {
 	Type ExtensionContextType `bson:"type" json:"type" xml:"type"`
 	// An expression that defines where an extension can be used in resources.
 	Expression string `bson:"expression" json:"expression" xml:"expression"`
-	// A set of rules as FHIRPath Invariants about when the extension can be used (e.g.
-	//
-	// co-occurrence variants for the extension). All the rules must be true.
-	//
-	// Comment: The rules are only evaluated when the extension is present. When evaluating the invariant, the FHIRPath focus is the element that holds the extension, and %extension refers to the extension itself.
 }
 type StructureDefinitionSnapshot struct {
 	// Unique id for the element within a resource (for internal references).
@@ -297,7 +288,6 @@ type StructureDefinitionSnapshot struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Captures constraints on each element within the resource.
 	Element []ElementDefinition `bson:"element" json:"element" xml:"element"`
-	// A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
 }
 type StructureDefinitionDifferential struct {
 	// Unique id for the element within a resource (for internal references).

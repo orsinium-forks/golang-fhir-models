@@ -57,9 +57,6 @@ type OperationOutcome struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// An error, warning, or information message that results from a system action.
 	Issue []OperationOutcomeIssue `bson:"issue" json:"issue" xml:"issue"`
-	// A collection of error, warning, or information messages that result from a system action.
-	//
-	// Comment: Can result from the failure of a REST call or be part of the response message returned from a request message.
 }
 type OperationOutcomeIssue struct {
 	// Unique id for the element within a resource (for internal references).

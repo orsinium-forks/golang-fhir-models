@@ -140,7 +140,6 @@ type Immunization struct {
 	Reaction []ImmunizationReaction `bson:"reaction,omitempty" json:"reaction,omitempty" xml:"reaction,omitempty"`
 	// The protocol (set of recommendations) being followed by the provider who administered the dose.
 	ProtocolApplied []ImmunizationProtocolApplied `bson:"protocolApplied,omitempty" json:"protocolApplied,omitempty" xml:"protocolApplied,omitempty"`
-	// Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
 }
 type ImmunizationPerformer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -167,7 +166,6 @@ type ImmunizationPerformer struct {
 	//
 	// Comment: When the individual practitioner who performed the action is known, it is best to send.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// Extra information about the immunization that is not conveyed by the other attributes.
 }
 type ImmunizationProgramEligibility struct {
 	// Unique id for the element within a resource (for internal references).
@@ -192,9 +190,6 @@ type ImmunizationProgramEligibility struct {
 	Program CodeableConcept `bson:"program" json:"program" xml:"program"`
 	// Indicates the patient's eligility status for for a specific payment program.
 	ProgramStatus CodeableConcept `bson:"programStatus" json:"programStatus" xml:"programStatus"`
-	// Indicates the source of the vaccine actually administered.
-	//
-	// This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
 }
 type ImmunizationReaction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -221,7 +216,6 @@ type ImmunizationReaction struct {
 	Manifestation *CodeableReference `bson:"manifestation,omitempty" json:"manifestation,omitempty" xml:"manifestation,omitempty"`
 	// Self-reported indicator.
 	Reported *bool `bson:"reported,omitempty" json:"reported,omitempty" xml:"reported,omitempty"`
-	// The protocol (set of recommendations) being followed by the provider who administered the dose.
 }
 type ImmunizationProtocolApplied struct {
 	// Unique id for the element within a resource (for internal references).

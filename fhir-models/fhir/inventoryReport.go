@@ -105,7 +105,6 @@ type InventoryReportInventoryListing struct {
 	CountingDateTime *string `bson:"countingDateTime,omitempty" json:"countingDateTime,omitempty" xml:"countingDateTime,omitempty"`
 	// The item or items in this listing.
 	Item []InventoryReportInventoryListingItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
-	// A note associated with the InventoryReport.
 }
 type InventoryReportInventoryListingItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -134,7 +133,6 @@ type InventoryReportInventoryListingItem struct {
 	Quantity Quantity `bson:"quantity" json:"quantity" xml:"quantity"`
 	// The code or reference to the item type.
 	Item CodeableReference `bson:"item" json:"item" xml:"item"`
-	// A note associated with the InventoryReport.
 }
 
 func (r InventoryReport) ResourceType() string {

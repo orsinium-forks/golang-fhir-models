@@ -127,7 +127,6 @@ type PackagedProductDefinitionLegalStatusOfSupply struct {
 	//
 	// When not specified, this indicates it is unknown in this context.
 	Jurisdiction *CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	// Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated.
 }
 type PackagedProductDefinitionPackaging struct {
 	// Unique id for the element within a resource (for internal references).
@@ -182,7 +181,6 @@ type PackagedProductDefinitionPackaging struct {
 	//
 	// See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition).
 	Packaging []PackagedProductDefinitionPackaging `bson:"packaging,omitempty" json:"packaging,omitempty"`
-	// Allows the key features to be recorded, such as "hospital pack", "nurse prescribable", "calendar pack".
 }
 type PackagedProductDefinitionPackagingProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -211,7 +209,6 @@ type PackagedProductDefinitionPackagingProperty struct {
 	ValueDate            *string          `bson:"valueDate,omitempty" json:"valueDate,omitempty" xml:"valueDate,omitempty"`
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty" xml:"valueBoolean,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
-	// The item(s) within the packaging.
 }
 type PackagedProductDefinitionPackagingContainedItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -240,9 +237,6 @@ type PackagedProductDefinitionPackagingContainedItem struct {
 	//
 	// See also PackagedProductDefinition.containedItemQuantity (especially the long definition).
 	Amount *Quantity `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
-	// Allows containers (and parts of containers) within containers, still as a part of a single packaged product.
-	//
-	// See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition).
 }
 
 func (r PackagedProductDefinition) ResourceType() string {

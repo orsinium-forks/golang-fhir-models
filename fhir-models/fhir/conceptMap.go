@@ -224,7 +224,6 @@ type ConceptMap struct {
 	TargetScopeCanonical *string `bson:"targetScopeCanonical,omitempty" json:"targetScopeCanonical,omitempty" xml:"targetScopeCanonical,omitempty"`
 	// A group of mappings that all have the same source and target system.
 	Group []ConceptMapGroup `bson:"group,omitempty" json:"group,omitempty" xml:"group,omitempty"`
-	// A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
 }
 type ConceptMapProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -257,11 +256,6 @@ type ConceptMapProperty struct {
 	Type ConceptMapPropertyType `bson:"type" json:"type" xml:"type"`
 	// The CodeSystem that defines the codes from which values of type ```code``` in property values.
 	System *string `bson:"system,omitempty" json:"system,omitempty" xml:"system,omitempty"`
-	// An additionalAttribute defines an additional data element found in the source or target data model where the data will come from or be mapped to.
-	//
-	// Some mappings are based on data in addition to the source data element, where codes in multiple fields are combined to a single field (or vice versa).
-	//
-	// Comment: Additional attributes are used to define additional data elements where mapping data can be found. For an example, see [Specimen Type v2 -> SNOMED CT Mapping(conceptmap-example-specimen-type.html)
 }
 type ConceptMapAdditionalAttribute struct {
 	// Unique id for the element within a resource (for internal references).
@@ -296,11 +290,6 @@ type ConceptMapAdditionalAttribute struct {
 	//
 	// Comment: When the source or target is not content defined by FHIR, some additional application logic might be required to map from the FHIR Datatype to the externally defined content
 	Type ConceptMapAttributeType `bson:"type" json:"type" xml:"type"`
-	// Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.
-	//
-	//	Limits the scope of the map to source codes (ConceptMap.group.element code or valueSet) that are members of this value set.
-	//
-	// Comment: Should be a version specific reference. URIs SHOULD be absolute. If there is no sourceScope or targetScope value set, there is no specified context for the map (not recommended).  The sourceScope value set may select codes from either an explicit (standard or local) or implicit code system.
 }
 type ConceptMapGroup struct {
 	// Unique id for the element within a resource (for internal references).
@@ -339,7 +328,6 @@ type ConceptMapGroup struct {
 	//
 	// Comment: The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true.
 	Unmapped *ConceptMapGroupUnmapped `bson:"unmapped,omitempty" json:"unmapped,omitempty" xml:"unmapped,omitempty"`
-	// A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
 }
 type ConceptMapGroupElement struct {
 	// Unique id for the element within a resource (for internal references).
@@ -380,11 +368,6 @@ type ConceptMapGroupElement struct {
 	//
 	// Comment: Ideally there would only be one map, with an 'equivalent' mapping. But multiple maps are allowed for several narrower (i.e. source-is-broader-than-target) options, or to assert that other concepts are not related.
 	Target []ConceptMapGroupElementTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
-	// What to do when there is no mapping to a target concept from the source concept and ConceptMap.group.element.noMap is not true.
-	//
-	// This provides the "default" to be applied when there is no target concept mapping specified or the expansion of ConceptMap.group.element.target.valueSet is empty.
-	//
-	// Comment: The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true.
 }
 type ConceptMapGroupElementTarget struct {
 	// Unique id for the element within a resource (for internal references).
@@ -435,11 +418,6 @@ type ConceptMapGroupElementTarget struct {
 	DependsOn []ConceptMapGroupElementTargetDependsOn `bson:"dependsOn,omitempty" json:"dependsOn,omitempty" xml:"dependsOn,omitempty"`
 	// Product is the output of a ConceptMap that provides additional values that go in other attributes / data elemnts of the target data.
 	Product []ConceptMapGroupElementTargetDependsOn `bson:"product,omitempty" json:"product,omitempty"`
-	// What to do when there is no mapping to a target concept from the source concept and ConceptMap.group.element.noMap is not true.
-	//
-	// This provides the "default" to be applied when there is no target concept mapping specified or the expansion of ConceptMap.group.element.target.valueSet is empty.
-	//
-	// Comment: The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true.
 }
 type ConceptMapGroupElementTargetProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -472,9 +450,6 @@ type ConceptMapGroupElementTargetProperty struct {
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
 	ValueCode     string          `bson:"valueCode" json:"valueCode" xml:"valueCode"`
-	// A set of additional dependencies for this mapping to hold.
-	//
-	// This mapping is only applicable if the specified data attribute can be resolved, and it has the specified value.
 }
 type ConceptMapGroupElementTargetDependsOn struct {
 	// Unique id for the element within a resource (for internal references).
@@ -507,7 +482,6 @@ type ConceptMapGroupElementTargetDependsOn struct {
 	ValueQuantity *Quantity `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
 	// This mapping applies if the data element value is a code from this value set.
 	ValueSet *string `bson:"valueSet,omitempty" json:"valueSet,omitempty" xml:"valueSet,omitempty"`
-	// Product is the output of a ConceptMap that provides additional values that go in other attributes / data elemnts of the target data.
 }
 type ConceptMapGroupUnmapped struct {
 	// Unique id for the element within a resource (for internal references).

@@ -159,9 +159,6 @@ type LocationPosition struct {
 	//
 	// The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes on Location main page).
 	Altitude *decimal.Decimal `bson:"altitude,omitempty" json:"altitude,omitempty" xml:"altitude,omitempty"`
-	// The organization responsible for the provisioning and upkeep of the location.
-	//
-	// Comment: This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
 }
 
 func (r Location) ResourceType() string {

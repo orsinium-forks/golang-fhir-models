@@ -81,7 +81,6 @@ type ManufacturedItemDefinition struct {
 	//
 	// This is distinct from the ingredients that are part of its chemical makeup.
 	Component []ManufacturedItemDefinitionComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
-	// The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.
 }
 type ManufacturedItemDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -112,9 +111,6 @@ type ManufacturedItemDefinitionProperty struct {
 	ValueMarkdown        *string          `bson:"valueMarkdown,omitempty" json:"valueMarkdown,omitempty" xml:"valueMarkdown,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
 	ValueReference       *Reference       `bson:"valueReference,omitempty" json:"valueReference,omitempty" xml:"valueReference,omitempty"`
-	// Physical parts of the manufactured item, that it is intrisically made from.
-	//
-	// This is distinct from the ingredients that are part of its chemical makeup.
 }
 type ManufacturedItemDefinitionComponent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -185,7 +181,6 @@ type ManufacturedItemDefinitionComponentConstituent struct {
 	Function []CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// The ingredient that is the constituent of the given component.
 	HasIngredient []CodeableReference `bson:"hasIngredient,omitempty" json:"hasIngredient,omitempty" xml:"hasIngredient,omitempty"`
-	// General characteristics of this component.
 }
 
 func (r ManufacturedItemDefinition) ResourceType() string {

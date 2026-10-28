@@ -158,9 +158,6 @@ type GraphDefinition struct {
 	Node []GraphDefinitionNode `bson:"node,omitempty" json:"node,omitempty" xml:"node,omitempty"`
 	// Links this graph makes rules about.
 	Link []GraphDefinitionLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
-	// A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references.
-	//
-	// The Graph Definition resource defines a set and makes rules about the set.
 }
 type GraphDefinitionNode struct {
 	// Unique id for the element within a resource (for internal references).
@@ -189,7 +186,6 @@ type GraphDefinitionNode struct {
 	Type string `bson:"type" json:"type" xml:"type"`
 	// Profile for the target resource.
 	Profile *string `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
-	// Links this graph makes rules about.
 }
 type GraphDefinitionLink struct {
 	// Unique id for the element within a resource (for internal references).
@@ -232,9 +228,6 @@ type GraphDefinitionLink struct {
 	Params *string `bson:"params,omitempty" json:"params,omitempty" xml:"params,omitempty"`
 	// Compartment Consistency Rules.
 	Compartment []GraphDefinitionLinkCompartment `bson:"compartment,omitempty" json:"compartment,omitempty" xml:"compartment,omitempty"`
-	// A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references.
-	//
-	// The Graph Definition resource defines a set and makes rules about the set.
 }
 type GraphDefinitionLinkCompartment struct {
 	// Unique id for the element within a resource (for internal references).

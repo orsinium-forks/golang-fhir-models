@@ -267,7 +267,6 @@ type PlanDefinitionGoal struct {
 	Documentation []RelatedArtifact `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 	// Indicates what should be done and within what timeframe.
 	Target []PlanDefinitionGoalTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
-	// Actors represent the individuals or groups involved in the execution of the defined set of activities.
 }
 type PlanDefinitionGoalTarget struct {
 	// Unique id for the element within a resource (for internal references).
@@ -306,7 +305,6 @@ type PlanDefinitionGoalTarget struct {
 	DetailRatio           *Ratio           `bson:"detailRatio,omitempty" json:"detailRatio,omitempty" xml:"detailRatio,omitempty"`
 	// Indicates the timeframe after the start of the goal in which the goal should be met.
 	Due *Duration `bson:"due,omitempty" json:"due,omitempty" xml:"due,omitempty"`
-	// Actors represent the individuals or groups involved in the execution of the defined set of activities.
 }
 type PlanDefinitionActor struct {
 	// Unique id for the element within a resource (for internal references).
@@ -333,11 +331,6 @@ type PlanDefinitionActor struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// The characteristics of the candidates that could serve as the actor.
 	Option []PlanDefinitionActorOption `bson:"option" json:"option" xml:"option"`
-	// An action or group of actions to be taken as part of the plan.
-	//
-	// For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification.
-	//
-	// Comment: Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information.
 }
 type PlanDefinitionActorOption struct {
 	// Unique id for the element within a resource (for internal references).
@@ -368,11 +361,6 @@ type PlanDefinitionActorOption struct {
 	TypeReference *Reference `bson:"typeReference,omitempty" json:"typeReference,omitempty" xml:"typeReference,omitempty"`
 	// The role the participant should play in performing the described action.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
-	// An action or group of actions to be taken as part of the plan.
-	//
-	// For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification.
-	//
-	// Comment: Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information.
 }
 type PlanDefinitionAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -499,9 +487,6 @@ type PlanDefinitionAction struct {
 	//
 	// The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
 	Action []PlanDefinitionAction `bson:"action,omitempty" json:"action,omitempty"`
-	// If a CodeableConcept is present, it indicates the pre-condition for performing the service.
-	//
-	//	For example "pain", "on flare-up", etc.
 }
 type PlanDefinitionActionCondition struct {
 	// Unique id for the element within a resource (for internal references).
@@ -530,7 +515,6 @@ type PlanDefinitionActionCondition struct {
 	//
 	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	// Defines input data requirements for the action.
 }
 type PlanDefinitionActionInput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -561,7 +545,6 @@ type PlanDefinitionActionInput struct {
 	//
 	// Comment: The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
-	// Defines the outputs of the action, if any.
 }
 type PlanDefinitionActionOutput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -592,9 +575,6 @@ type PlanDefinitionActionOutput struct {
 	//
 	// Comment: The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
-	// A relationship to another action such as "before" or "30-60 minutes after start of".
-	//
-	// Comment: When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency.
 }
 type PlanDefinitionActionRelatedAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -626,9 +606,6 @@ type PlanDefinitionActionRelatedAction struct {
 	// For example, 30-60 minutes before.
 	OffsetDuration *Duration `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty" xml:"offsetDuration,omitempty"`
 	OffsetRange    *Range    `bson:"offsetRange,omitempty" json:"offsetRange,omitempty" xml:"offsetRange,omitempty"`
-	// An optional value describing when the action should be performed.
-	//
-	// Comment: The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity.
 }
 type PlanDefinitionActionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -663,7 +640,6 @@ type PlanDefinitionActionParticipant struct {
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// Indicates how the actor will be involved in the action - author, reviewer, witness, etc.
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
-	// The type of action to perform (create, update, remove).
 }
 type PlanDefinitionActionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).
@@ -694,9 +670,6 @@ type PlanDefinitionActionDynamicValue struct {
 	//
 	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	// Sub actions that are contained within the action.
-	//
-	// The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
 }
 
 func (r PlanDefinition) ResourceType() string {

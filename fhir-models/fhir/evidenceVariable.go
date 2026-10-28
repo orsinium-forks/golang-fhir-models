@@ -198,9 +198,6 @@ type EvidenceVariable struct {
 	Handling *EvidenceVariableHandling `bson:"handling,omitempty" json:"handling,omitempty" xml:"handling,omitempty"`
 	// A grouping for ordinal or polychotomous variables.
 	Category []EvidenceVariableCategory `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	// The EvidenceVariable resource describes an element that knowledge (Evidence) is about.
-	//
-	// Comment: The EvidenceVariable may be an exposure variable (intervention, condition, or state), a measured variable (outcome or observed parameter), or other variable (such as confounding factor).
 }
 type EvidenceVariableCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -255,7 +252,6 @@ type EvidenceVariableCharacteristic struct {
 	DurationRange    *Range    `bson:"durationRange,omitempty" json:"durationRange,omitempty" xml:"durationRange,omitempty"`
 	// Timing in which the characteristic is determined.
 	TimeFromEvent []EvidenceVariableCharacteristicTimeFromEvent `bson:"timeFromEvent,omitempty" json:"timeFromEvent,omitempty" xml:"timeFromEvent,omitempty"`
-	// The method of handling in statistical analysis.
 }
 type EvidenceVariableCharacteristicDefinitionByTypeAndValue struct {
 	// Unique id for the element within a resource (for internal references).
@@ -291,7 +287,6 @@ type EvidenceVariableCharacteristicDefinitionByTypeAndValue struct {
 	ValueId              string          `bson:"valueId" json:"valueId" xml:"valueId"`
 	// Defines the reference point for comparison when valueQuantity or valueRange is not compared to zero.
 	Offset *CodeableConcept `bson:"offset,omitempty" json:"offset,omitempty" xml:"offset,omitempty"`
-	// Defines the characteristic as a combination of two or more characteristics.
 }
 type EvidenceVariableCharacteristicDefinitionByCombination struct {
 	// Unique id for the element within a resource (for internal references).
@@ -318,7 +313,6 @@ type EvidenceVariableCharacteristicDefinitionByCombination struct {
 	Threshold *int `bson:"threshold,omitempty" json:"threshold,omitempty" xml:"threshold,omitempty"`
 	// A defining factor of the characteristic.
 	Characteristic []EvidenceVariableCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty"`
-	// Number of occurrences meeting the characteristic.
 }
 type EvidenceVariableCharacteristicTimeFromEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -352,7 +346,6 @@ type EvidenceVariableCharacteristicTimeFromEvent struct {
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// Used to express the observation within a period before and/or after the event.
 	Range *Range `bson:"range,omitempty" json:"range,omitempty" xml:"range,omitempty"`
-	// The method of handling in statistical analysis.
 }
 type EvidenceVariableCategory struct {
 	// Unique id for the element within a resource (for internal references).

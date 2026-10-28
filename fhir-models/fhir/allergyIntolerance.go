@@ -121,9 +121,6 @@ type AllergyIntolerance struct {
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// Details about each adverse reaction event linked to exposure to the identified substance.
 	Reaction []AllergyIntoleranceReaction `bson:"reaction,omitempty" json:"reaction,omitempty" xml:"reaction,omitempty"`
-	// Risk of harmful or undesirable physiological response which is specific to an individual and associated with exposure to a substance.
-	//
-	// Comment: Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
 }
 type AllergyIntoleranceParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -148,9 +145,6 @@ type AllergyIntoleranceParticipant struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what participated in the activities related to the allergy or intolerance.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// Represents the date and/or time of the last known occurrence of a reaction event.
-	//
-	// Comment: This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. 'In Childhood, '10 years ago' the AllergyIntolerance.note element should be used.
 }
 type AllergyIntoleranceReaction struct {
 	// Unique id for the element within a resource (for internal references).

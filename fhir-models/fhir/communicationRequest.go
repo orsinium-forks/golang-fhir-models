@@ -164,7 +164,6 @@ type CommunicationRequestPayload struct {
 	ContentAttachment      Attachment      `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference       Reference       `bson:"contentReference" json:"contentReference" xml:"contentReference"`
 	ContentCodeableConcept CodeableConcept `bson:"contentCodeableConcept" json:"contentCodeableConcept" xml:"contentCodeableConcept"`
-	// The time when this communication is to occur.
 }
 
 func (r CommunicationRequest) ResourceType() string {

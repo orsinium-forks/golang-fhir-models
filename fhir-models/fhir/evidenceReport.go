@@ -132,7 +132,6 @@ type EvidenceReport struct {
 	RelatesTo []EvidenceReportRelatesTo `bson:"relatesTo,omitempty" json:"relatesTo,omitempty" xml:"relatesTo,omitempty"`
 	// The root of the sections that make up the composition.
 	Section []EvidenceReportSection `bson:"section,omitempty" json:"section,omitempty" xml:"section,omitempty"`
-	// The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts.
 }
 type EvidenceReportSubject struct {
 	// Unique id for the element within a resource (for internal references).
@@ -157,9 +156,6 @@ type EvidenceReportSubject struct {
 	Characteristic []EvidenceReportSubjectCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty" xml:"characteristic,omitempty"`
 	// Used for general notes and annotations not coded elsewhere.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
-	// The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report.
-	//
-	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the evidence report is the organization or individual primarily responsible for the maintenance and upkeep of the evidence report. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence report. This item SHOULD be populated unless the information is available from context.
 }
 type EvidenceReportSubjectCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -196,7 +192,6 @@ type EvidenceReportSubjectCharacteristic struct {
 	Exclude *bool `bson:"exclude,omitempty" json:"exclude,omitempty" xml:"exclude,omitempty"`
 	// Timeframe for the characteristic.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// Used for general notes and annotations not coded elsewhere.
 }
 type EvidenceReportRelatesTo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -223,7 +218,6 @@ type EvidenceReportRelatesTo struct {
 	Code ReportRelationshipType `bson:"code" json:"code" xml:"code"`
 	// The target composition/document of this relationship.
 	Target EvidenceReportRelatesToTarget `bson:"target" json:"target" xml:"target"`
-	// The root of the sections that make up the composition.
 }
 type EvidenceReportRelatesToTarget struct {
 	// Unique id for the element within a resource (for internal references).
@@ -252,7 +246,6 @@ type EvidenceReportRelatesToTarget struct {
 	Display *string `bson:"display,omitempty" json:"display,omitempty" xml:"display,omitempty"`
 	// Target of the relationship Resource reference.
 	Resource *Reference `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	// The root of the sections that make up the composition.
 }
 type EvidenceReportSection struct {
 	// Unique id for the element within a resource (for internal references).

@@ -96,7 +96,6 @@ type CoverageEligibilityRequest struct {
 	Insurance []CoverageEligibilityRequestInsurance `bson:"insurance,omitempty" json:"insurance,omitempty" xml:"insurance,omitempty"`
 	// Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor.
 	Item []CoverageEligibilityRequestItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
-	// The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
 }
 type CoverageEligibilityRequestEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -122,7 +121,6 @@ type CoverageEligibilityRequestEvent struct {
 	// A date or period in the past or future indicating when the event occurred or is expectd to occur.
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
-	// The date or dates when the enclosed suite of services were performed or completed.
 }
 type CoverageEligibilityRequestSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -153,9 +151,6 @@ type CoverageEligibilityRequestSupportingInfo struct {
 	Information Reference `bson:"information" json:"information" xml:"information"`
 	// The supporting materials are applicable for all detail items, product/servce categories and specific billing codes.
 	AppliesToAll *bool `bson:"appliesToAll,omitempty" json:"appliesToAll,omitempty" xml:"appliesToAll,omitempty"`
-	// Financial instruments for reimbursement for the health care products and services.
-	//
-	// Comment: All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 }
 type CoverageEligibilityRequestInsurance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -186,7 +181,6 @@ type CoverageEligibilityRequestInsurance struct {
 	Coverage Reference `bson:"coverage" json:"coverage" xml:"coverage"`
 	// A business agreement number established between the provider and the insurer for special business processing purposes.
 	BusinessArrangement *string `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty" xml:"businessArrangement,omitempty"`
-	// Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor.
 }
 type CoverageEligibilityRequestItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -256,7 +250,6 @@ type CoverageEligibilityRequestItemDiagnosis struct {
 	// The nature of illness or problem in a coded form or as a reference to an external defined Condition.
 	DiagnosisCodeableConcept *CodeableConcept `bson:"diagnosisCodeableConcept,omitempty" json:"diagnosisCodeableConcept,omitempty" xml:"diagnosisCodeableConcept,omitempty"`
 	DiagnosisReference       *Reference       `bson:"diagnosisReference,omitempty" json:"diagnosisReference,omitempty" xml:"diagnosisReference,omitempty"`
-	// The plan/proposal/order describing the proposed service in detail.
 }
 
 func (r CoverageEligibilityRequest) ResourceType() string {

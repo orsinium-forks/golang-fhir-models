@@ -156,11 +156,6 @@ type MeasureReportGroup struct {
 	MeasureScoreDuration        *Duration        `bson:"measureScoreDuration,omitempty" json:"measureScoreDuration,omitempty" xml:"measureScoreDuration,omitempty"`
 	// When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
 	Stratifier []MeasureReportGroupStratifier `bson:"stratifier,omitempty" json:"stratifier,omitempty" xml:"stratifier,omitempty"`
-	// A reference to a Resource that represents additional information collected for the report.
-	//
-	// If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource.
-	//
-	// Comment: For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population.
 }
 type MeasureReportGroupPopulation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -197,7 +192,6 @@ type MeasureReportGroupPopulation struct {
 	//
 	// Comment: Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be an actual (as opposed to a definitional) group.
 	Subjects *Reference `bson:"subjects,omitempty" json:"subjects,omitempty" xml:"subjects,omitempty"`
-	// The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
 }
 type MeasureReportGroupStratifier struct {
 	// Unique id for the element within a resource (for internal references).
@@ -226,11 +220,6 @@ type MeasureReportGroupStratifier struct {
 	//
 	// For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value.
 	Stratum []MeasureReportGroupStratifierStratum `bson:"stratum,omitempty" json:"stratum,omitempty" xml:"stratum,omitempty"`
-	// A reference to a Resource that represents additional information collected for the report.
-	//
-	// If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource.
-	//
-	// Comment: For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population.
 }
 type MeasureReportGroupStratifierStratum struct {
 	// Unique id for the element within a resource (for internal references).
@@ -270,11 +259,6 @@ type MeasureReportGroupStratifierStratum struct {
 	MeasureScorePeriod          *Period          `bson:"measureScorePeriod,omitempty" json:"measureScorePeriod,omitempty" xml:"measureScorePeriod,omitempty"`
 	MeasureScoreRange           *Range           `bson:"measureScoreRange,omitempty" json:"measureScoreRange,omitempty" xml:"measureScoreRange,omitempty"`
 	MeasureScoreDuration        *Duration        `bson:"measureScoreDuration,omitempty" json:"measureScoreDuration,omitempty" xml:"measureScoreDuration,omitempty"`
-	// A reference to a Resource that represents additional information collected for the report.
-	//
-	// If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource.
-	//
-	// Comment: For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population.
 }
 type MeasureReportGroupStratifierStratumComponent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -305,7 +289,6 @@ type MeasureReportGroupStratifierStratumComponent struct {
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueReference       Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
-	// The populations that make up the stratum, one for each type of population appropriate to the measure.
 }
 type MeasureReportGroupStratifierStratumPopulation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -342,7 +325,6 @@ type MeasureReportGroupStratifierStratumPopulation struct {
 	//
 	// Comment: Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be an actual (as opposed to a definitional) group.
 	Subjects *Reference `bson:"subjects,omitempty" json:"subjects,omitempty" xml:"subjects,omitempty"`
-	// The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
 }
 
 func (r MeasureReport) ResourceType() string {

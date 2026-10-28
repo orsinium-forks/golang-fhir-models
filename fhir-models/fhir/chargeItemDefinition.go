@@ -186,9 +186,6 @@ type ChargeItemDefinition struct {
 	//
 	// If no applicability rules are established for the group, then all properties always apply.
 	PropertyGroup []ChargeItemDefinitionPropertyGroup `bson:"propertyGroup,omitempty" json:"propertyGroup,omitempty" xml:"propertyGroup,omitempty"`
-	// The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices.
-	//
-	// The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
 }
 type ChargeItemDefinitionApplicability struct {
 	// Unique id for the element within a resource (for internal references).
@@ -223,9 +220,6 @@ type ChargeItemDefinitionApplicability struct {
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
 	// Reference to / quotation of the external source of the group of properties.
 	RelatedArtifact *RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
-	// Group of properties which are applicable under the same conditions.
-	//
-	// If no applicability rules are established for the group, then all properties always apply.
 }
 type ChargeItemDefinitionPropertyGroup struct {
 	// Unique id for the element within a resource (for internal references).

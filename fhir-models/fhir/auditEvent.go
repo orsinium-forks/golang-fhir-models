@@ -108,9 +108,6 @@ type AuditEvent struct {
 	//
 	// Comment: Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
 	Entity []AuditEventEntity `bson:"entity,omitempty" json:"entity,omitempty" xml:"entity,omitempty"`
-	// A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis.
-	//
-	// Comment: Based on IHE-ATNA.
 }
 type AuditEventOutcome struct {
 	// Unique id for the element within a resource (for internal references).
@@ -141,9 +138,6 @@ type AuditEventOutcome struct {
 	//
 	// Comment: A human readable description of the error issue SHOULD be placed in details.text.
 	Detail []CodeableConcept `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The authorization (e.g., PurposeOfUse) that was used during the event being recorded.
-	//
-	// Comment: Use AuditEvent.agent.authorization when you know that it is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
 }
 type AuditEventAgent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -200,9 +194,6 @@ type AuditEventAgent struct {
 	//
 	// Comment: Use AuditEvent.agent.authorization when you know that is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
 	Authorization []CodeableConcept `bson:"authorization,omitempty" json:"authorization,omitempty" xml:"authorization,omitempty"`
-	// The actor that is reporting the event.
-	//
-	// Comment: Events are reported by the actor that detected them. This may be one of the participating actors, but may also be different. The actor may be a human such as a medical-records clerk disclosing data manually, that clerk would be the source for the record of disclosure.
 }
 type AuditEventSource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -231,9 +222,6 @@ type AuditEventSource struct {
 	Observer Reference `bson:"observer" json:"observer" xml:"observer"`
 	// Code specifying the type of source where event originated.
 	Type []CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	// Specific instances of data or objects that have been accessed.
-	//
-	// Comment: Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
 }
 type AuditEventEntity struct {
 	// Unique id for the element within a resource (for internal references).
@@ -314,11 +302,6 @@ type AuditEventEntityDetail struct {
 	ValueDateTime        string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValuePeriod          Period          `bson:"valuePeriod" json:"valuePeriod" xml:"valuePeriod"`
 	ValueBase64Binary    string          `bson:"valueBase64Binary" json:"valueBase64Binary" xml:"valueBase64Binary"`
-	// The entity is attributed to an agent to express the agent's responsibility for that entity in the activity.
-	//
-	// This is most used to indicate when persistence media (the entity) are used by an agent. For example when importing data from a device, the device would be described in an entity, and the user importing data from that media would be indicated as the entity.agent.
-	//
-	// Comment: A usecase where one AuditEvent.entity.agent is used where the Entity that was used in the creation/updating of a target resource, is not in the context of the same custodianship as the target resource, and thus the meaning of AuditEvent.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 V2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the provenance of that Entity's use in the context of this AuditEvent activity.
 }
 
 func (r AuditEvent) ResourceType() string {

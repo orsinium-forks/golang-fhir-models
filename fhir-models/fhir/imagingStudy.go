@@ -125,9 +125,6 @@ type ImagingStudy struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Each study has one or more series of images or other content.
 	Series []ImagingStudySeries `bson:"series,omitempty" json:"series,omitempty" xml:"series,omitempty"`
-	// Representation of the content produced in a DICOM imaging study.
-	//
-	// A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
 }
 type ImagingStudySeries struct {
 	// Unique id for the element within a resource (for internal references).
@@ -188,9 +185,6 @@ type ImagingStudySeries struct {
 	Performer []ImagingStudySeriesPerformer `bson:"performer,omitempty" json:"performer,omitempty" xml:"performer,omitempty"`
 	// A single SOP instance within the series, e.g. an image, or presentation state.
 	Instance []ImagingStudySeriesInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
-	// Representation of the content produced in a DICOM imaging study.
-	//
-	// A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
 }
 type ImagingStudySeriesPerformer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -215,7 +209,6 @@ type ImagingStudySeriesPerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what performed the series.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// A single SOP instance within the series, e.g. an image, or presentation state.
 }
 type ImagingStudySeriesInstance struct {
 	// Unique id for the element within a resource (for internal references).

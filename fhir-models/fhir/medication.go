@@ -121,7 +121,6 @@ type MedicationIngredient struct {
 	StrengthRatio           *Ratio           `bson:"strengthRatio,omitempty" json:"strengthRatio,omitempty" xml:"strengthRatio,omitempty"`
 	StrengthCodeableConcept *CodeableConcept `bson:"strengthCodeableConcept,omitempty" json:"strengthCodeableConcept,omitempty" xml:"strengthCodeableConcept,omitempty"`
 	StrengthQuantity        *Quantity        `bson:"strengthQuantity,omitempty" json:"strengthQuantity,omitempty" xml:"strengthQuantity,omitempty"`
-	// Information that only applies to packages (not products).
 }
 type MedicationBatch struct {
 	// Unique id for the element within a resource (for internal references).
@@ -146,7 +145,6 @@ type MedicationBatch struct {
 	LotNumber *string `bson:"lotNumber,omitempty" json:"lotNumber,omitempty" xml:"lotNumber,omitempty"`
 	// When this specific batch of product will expire.
 	ExpirationDate *string `bson:"expirationDate,omitempty" json:"expirationDate,omitempty" xml:"expirationDate,omitempty"`
-	// A reference to a knowledge resource that provides more information about this medication.
 }
 
 func (r Medication) ResourceType() string {

@@ -151,11 +151,6 @@ type GoalTarget struct {
 	// Indicates either the date or the duration after start by which the goal should be met.
 	DueDate     *string   `bson:"dueDate,omitempty" json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	DueDuration *Duration `bson:"dueDuration,omitempty" json:"dueDuration,omitempty" xml:"dueDuration,omitempty"`
-	// Identifies when the current status.
-	//
-	//	I.e. When initially created, when achieved, when cancelled, etc.
-	//
-	// Comment: To see the date for past statuses, query history.
 }
 
 func (r Goal) ResourceType() string {

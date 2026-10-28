@@ -178,7 +178,6 @@ type TestScript struct {
 	Test []TestScriptTest `bson:"test,omitempty" json:"test,omitempty" xml:"test,omitempty"`
 	// A series of operations required to clean up after all the tests are executed (successfully or otherwise).
 	Teardown *TestScriptTeardown `bson:"teardown,omitempty" json:"teardown,omitempty" xml:"teardown,omitempty"`
-	// A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
 }
 type TestScriptOrigin struct {
 	// Unique id for the element within a resource (for internal references).
@@ -217,9 +216,6 @@ type TestScriptOrigin struct {
 	//
 	// Comment: If provided, the test engine is not expected to prompt for or accept external input of this value.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// An abstract server used in operations within this test script in the destination element.
-	//
-	// Comment: The purpose of this element is to define the profile of a destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
 }
 type TestScriptDestination struct {
 	// Unique id for the element within a resource (for internal references).
@@ -258,7 +254,6 @@ type TestScriptDestination struct {
 	//
 	// Comment: If provided, the test engine is not expected to prompt for or accept external input of this value.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 }
 type TestScriptMetadata struct {
 	// Unique id for the element within a resource (for internal references).
@@ -285,7 +280,6 @@ type TestScriptMetadata struct {
 	//
 	// Comment: When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.
 	Capability []TestScriptMetadataCapability `bson:"capability" json:"capability" xml:"capability"`
-	// The scope indicates a conformance artifact that is tested by the test(s) within this test case and the expectation of the test outcome(s) as well as the intended test phase inclusion.
 }
 type TestScriptMetadataLink struct {
 	// Unique id for the element within a resource (for internal references).
@@ -310,9 +304,6 @@ type TestScriptMetadataLink struct {
 	Url string `bson:"url" json:"url" xml:"url"`
 	// Short description of the link.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	// Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
-	//
-	// Comment: When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.
 }
 type TestScriptMetadataCapability struct {
 	// Unique id for the element within a resource (for internal references).
@@ -351,7 +342,6 @@ type TestScriptMetadataCapability struct {
 	//
 	// Comment: The conformance statement of the server has to contain at a minimum the contents of the reference pointed to by this element.
 	Capabilities string `bson:"capabilities" json:"capabilities" xml:"capabilities"`
-	// The scope indicates a conformance artifact that is tested by the test(s) within this test case and the expectation of the test outcome(s) as well as the intended test phase inclusion.
 }
 type TestScriptScope struct {
 	// Unique id for the element within a resource (for internal references).
@@ -380,9 +370,6 @@ type TestScriptScope struct {
 	Conformance *CodeableConcept `bson:"conformance,omitempty" json:"conformance,omitempty" xml:"conformance,omitempty"`
 	// The phase of testing for this artifact: unit - development / implementation phase, integration - internal system to system phase, production - live system to system phase (Note, this may involve pii/phi data).
 	Phase *CodeableConcept `bson:"phase,omitempty" json:"phase,omitempty" xml:"phase,omitempty"`
-	// Fixture in the test script - by reference (uri).
-	//
-	// All fixtures are required for the test script to execute.
 }
 type TestScriptFixture struct {
 	// Unique id for the element within a resource (for internal references).
@@ -417,9 +404,6 @@ type TestScriptFixture struct {
 	//
 	// Comment: See the [Resource List](resourcelist.html) for complete list of resource types.
 	Resource *Reference `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	// Reference to the profile to be used for validation.
-	//
-	// Comment: See the [Resource List](resourcelist.html) for complete list of resource types.
 }
 type TestScriptVariable struct {
 	// Unique id for the element within a resource (for internal references).
@@ -472,7 +456,6 @@ type TestScriptVariable struct {
 	//
 	// Comment: This can be a statically defined fixture (at the top of the TestScript) or a dynamically set fixture created by responseId of the `action.operation` element.
 	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	// A series of required setup operations before tests are executed.
 }
 type TestScriptSetup struct {
 	// Unique id for the element within a resource (for internal references).
@@ -497,7 +480,6 @@ type TestScriptSetup struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestScriptSetupAction `bson:"action" json:"action" xml:"action"`
-	// A test in this script.
 }
 type TestScriptSetupAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -524,7 +506,6 @@ type TestScriptSetupAction struct {
 	//
 	// Comment: In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 	Assert *TestScriptSetupActionAssert `bson:"assert,omitempty" json:"assert,omitempty" xml:"assert,omitempty"`
-	// A test in this script.
 }
 type TestScriptSetupActionOperation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -617,9 +598,6 @@ type TestScriptSetupActionOperation struct {
 	//
 	// Comment: Used to set the request URL explicitly.  If "url" element is defined, then "targetId", "resource", and "params" elements will be ignored.  Test engines would use whatever is specified in "url" without tampering with the string (beyond encoding the URL for HTTP).  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// Evaluates the results of previous operations to determine if the server under test behaves appropriately.
-	//
-	// Comment: In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 }
 type TestScriptSetupActionOperationRequestHeader struct {
 	// Unique id for the element within a resource (for internal references).
@@ -648,9 +626,6 @@ type TestScriptSetupActionOperationRequestHeader struct {
 	//
 	// Comment: If header element is specified, then value is required.  No conversions will be done by the test engine e.g. "xml" to "application/fhir+xml".  The values will be set in HTTP headers "as-is".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// The fixture id (maybe new) to map to the request.
-	//
-	// Comment: If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by "requestId".  If requestId is not specified, it is the test engine's responsibility to store the request and use it as the requestId in subsequent assertions when assertion path and/or headerField is specified, direction is equal to request, and the requestId in not specified.
 }
 type TestScriptSetupActionAssert struct {
 	// Unique id for the element within a resource (for internal references).
@@ -779,7 +754,6 @@ type TestScriptSetupActionAssert struct {
 	//
 	// Comment: TestScript and TestReport instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements.
 	Requirement []TestScriptSetupActionAssertRequirement `bson:"requirement,omitempty" json:"requirement,omitempty" xml:"requirement,omitempty"`
-	// A test in this script.
 }
 type TestScriptSetupActionAssertRequirement struct {
 	// Unique id for the element within a resource (for internal references).
@@ -803,7 +777,6 @@ type TestScriptSetupActionAssertRequirement struct {
 	// Link or reference providing traceability to the testing requirement for this test.
 	LinkUri       *string `bson:"linkUri,omitempty" json:"linkUri,omitempty" xml:"linkUri,omitempty"`
 	LinkCanonical *string `bson:"linkCanonical,omitempty" json:"linkCanonical,omitempty" xml:"linkCanonical,omitempty"`
-	// A test in this script.
 }
 type TestScriptTest struct {
 	// Unique id for the element within a resource (for internal references).
@@ -832,7 +805,6 @@ type TestScriptTest struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestScriptTestAction `bson:"action" json:"action" xml:"action"`
-	// A series of operations required to clean up after all the tests are executed (successfully or otherwise).
 }
 type TestScriptTestAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -859,7 +831,6 @@ type TestScriptTestAction struct {
 	//
 	// Comment: In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 	Assert *TestScriptSetupActionAssert `bson:"assert,omitempty" json:"assert,omitempty"`
-	// A series of operations required to clean up after all the tests are executed (successfully or otherwise).
 }
 type TestScriptTeardown struct {
 	// Unique id for the element within a resource (for internal references).
@@ -884,7 +855,6 @@ type TestScriptTeardown struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestScriptTeardownAction `bson:"action" json:"action" xml:"action"`
-	// A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
 }
 type TestScriptTeardownAction struct {
 	// Unique id for the element within a resource (for internal references).

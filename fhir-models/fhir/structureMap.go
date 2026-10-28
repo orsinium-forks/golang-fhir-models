@@ -166,7 +166,6 @@ type StructureMap struct {
 	Const []StructureMapConst `bson:"const,omitempty" json:"const,omitempty" xml:"const,omitempty"`
 	// Organizes the mapping into managable chunks for human review/ease of maintenance.
 	Group []StructureMapGroup `bson:"group" json:"group" xml:"group"`
-	// A Map of relationships between 2 structures that can be used to transform data.
 }
 type StructureMapStructure struct {
 	// Unique id for the element within a resource (for internal references).
@@ -197,7 +196,6 @@ type StructureMapStructure struct {
 	Alias *string `bson:"alias,omitempty" json:"alias,omitempty" xml:"alias,omitempty"`
 	// Documentation that describes how the structure is used in the mapping.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// Other maps used by this map (canonical URLs).
 }
 type StructureMapConst struct {
 	// Unique id for the element within a resource (for internal references).
@@ -222,7 +220,6 @@ type StructureMapConst struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// A FHIRPath expression that is the value of this variable.
 	Value *string `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
-	// Organizes the mapping into managable chunks for human review/ease of maintenance.
 }
 type StructureMapGroup struct {
 	// Unique id for the element within a resource (for internal references).
@@ -261,7 +258,6 @@ type StructureMapGroup struct {
 	Input []StructureMapGroupInput `bson:"input" json:"input" xml:"input"`
 	// Transform Rule from source to target.
 	Rule []StructureMapGroupRule `bson:"rule,omitempty" json:"rule,omitempty" xml:"rule,omitempty"`
-	// A Map of relationships between 2 structures that can be used to transform data.
 }
 type StructureMapGroupInput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -290,7 +286,6 @@ type StructureMapGroupInput struct {
 	Mode StructureMapInputMode `bson:"mode" json:"mode" xml:"mode"`
 	// Documentation for this instance of data.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// Transform Rule from source to target.
 }
 type StructureMapGroupRule struct {
 	// Unique id for the element within a resource (for internal references).
@@ -375,7 +370,6 @@ type StructureMapGroupRuleSource struct {
 	//
 	// Comment: This is typically used for recording that something Is not transformed to the target for some reason.
 	LogMessage *string `bson:"logMessage,omitempty" json:"logMessage,omitempty" xml:"logMessage,omitempty"`
-	// Content to create because of this mapping rule.
 }
 type StructureMapGroupRuleTarget struct {
 	// Unique id for the element within a resource (for internal references).
@@ -410,7 +404,6 @@ type StructureMapGroupRuleTarget struct {
 	Transform *StructureMapTransform `bson:"transform,omitempty" json:"transform,omitempty" xml:"transform,omitempty"`
 	// Parameters to the transform.
 	Parameter []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty" xml:"parameter,omitempty"`
-	// Rules contained in this rule.
 }
 type StructureMapGroupRuleTargetParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -440,7 +433,6 @@ type StructureMapGroupRuleTargetParameter struct {
 	ValueDate     string          `bson:"valueDate" json:"valueDate" xml:"valueDate"`
 	ValueTime     string          `bson:"valueTime" json:"valueTime" xml:"valueTime"`
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
-	// Rules contained in this rule.
 }
 type StructureMapGroupRuleDependent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -465,7 +457,6 @@ type StructureMapGroupRuleDependent struct {
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Parameter to pass to the rule or group.
 	Parameter []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
-	// Documentation for this instance of data.
 }
 
 func (r StructureMap) ResourceType() string {

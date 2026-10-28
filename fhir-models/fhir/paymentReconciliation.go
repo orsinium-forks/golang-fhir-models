@@ -123,7 +123,6 @@ type PaymentReconciliation struct {
 	FormCode *CodeableConcept `bson:"formCode,omitempty" json:"formCode,omitempty" xml:"formCode,omitempty"`
 	// A note that describes or explains the processing in a human readable form.
 	ProcessNote []PaymentReconciliationProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty" xml:"processNote,omitempty"`
-	// This resource provides the details including amount of a payment and allocates the payment items being paid.
 }
 type PaymentReconciliationAllocation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -176,9 +175,6 @@ type PaymentReconciliationAllocation struct {
 	Payee *Reference `bson:"payee,omitempty" json:"payee,omitempty" xml:"payee,omitempty"`
 	// The monetary amount allocated from the total payment to the payable.
 	Amount *Money `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
-	// A code for the form to be used for printing the content.
-	//
-	// Comment: May be needed to identify specific jurisdictional forms.
 }
 type PaymentReconciliationProcessNote struct {
 	// Unique id for the element within a resource (for internal references).

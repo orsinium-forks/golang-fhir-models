@@ -141,9 +141,6 @@ type AccountCoverage struct {
 	//
 	// Comment: It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming).
 	Priority *int `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
-	// Indicates the service area, hospital, department, etc.
-	//
-	// with responsibility for managing the Account.
 }
 type AccountGuarantor struct {
 	// Unique id for the element within a resource (for internal references).
@@ -170,7 +167,6 @@ type AccountGuarantor struct {
 	OnHold *bool `bson:"onHold,omitempty" json:"onHold,omitempty" xml:"onHold,omitempty"`
 	// The timeframe during which the guarantor accepts responsibility for the account.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// When using an account for billing a specific Encounter the set of diagnoses that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s).
 }
 type AccountDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
@@ -207,7 +203,6 @@ type AccountDiagnosis struct {
 	//
 	// Such as DRGs.
 	PackageCode []CodeableConcept `bson:"packageCode,omitempty" json:"packageCode,omitempty" xml:"packageCode,omitempty"`
-	// When using an account for billing a specific Encounter the set of procedures that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s).
 }
 type AccountProcedure struct {
 	// Unique id for the element within a resource (for internal references).
@@ -244,7 +239,6 @@ type AccountProcedure struct {
 	PackageCode []CodeableConcept `bson:"packageCode,omitempty" json:"packageCode,omitempty" xml:"packageCode,omitempty"`
 	// Any devices that were associated with the procedure relevant to the account.
 	Device []Reference `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
-	// Other associated accounts related to this account.
 }
 type AccountRelatedAccount struct {
 	// Unique id for the element within a resource (for internal references).
@@ -269,7 +263,6 @@ type AccountRelatedAccount struct {
 	Relationship *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty" xml:"relationship,omitempty"`
 	// Reference to an associated Account.
 	Account Reference `bson:"account" json:"account" xml:"account"`
-	// The default currency for the account.
 }
 type AccountBalance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -298,9 +291,6 @@ type AccountBalance struct {
 	Estimate *bool `bson:"estimate,omitempty" json:"estimate,omitempty" xml:"estimate,omitempty"`
 	// The actual balance value calculated for the age defined in the term property.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
-	// Time the balance amount was calculated.
-	//
-	// Comment: The total(s) are not typically updated using the restful API but more often by back-end processes included in a typical finance system.
 }
 
 func (r Account) ResourceType() string {

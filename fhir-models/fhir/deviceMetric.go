@@ -93,9 +93,6 @@ type DeviceMetric struct {
 	MeasurementFrequency *Quantity `bson:"measurementFrequency,omitempty" json:"measurementFrequency,omitempty" xml:"measurementFrequency,omitempty"`
 	// Describes the calibrations that have been performed or that are required to be performed.
 	Calibration []DeviceMetricCalibration `bson:"calibration,omitempty" json:"calibration,omitempty" xml:"calibration,omitempty"`
-	// Describes a measurement, calculation or setting capability of a device.
-	//
-	// Comment: The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable.
 }
 type DeviceMetricCalibration struct {
 	// Unique id for the element within a resource (for internal references).

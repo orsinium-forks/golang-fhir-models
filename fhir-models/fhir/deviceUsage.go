@@ -131,7 +131,6 @@ type DeviceUsageAdherence struct {
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// Reason for adherence type.
 	Reason []CodeableConcept `bson:"reason" json:"reason" xml:"reason"`
-	// Who reported the device was being used by the patient.
 }
 
 func (r DeviceUsage) ResourceType() string {

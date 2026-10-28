@@ -39,11 +39,6 @@ type Parameters struct {
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
 	// A parameter passed to or received from the operation.
 	Parameter []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty" xml:"parameter,omitempty"`
-	// This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).
-	//
-	//	It is not persisted or allowed to be referenced by other resources.
-	//
-	// Comment: The parameters that may be used are defined by the OperationDefinition resource.
 }
 type ParametersParameter struct {
 	// Unique id for the element within a resource (for internal references).

@@ -111,7 +111,6 @@ type SubstanceDefinition struct {
 	Protein *Reference `bson:"protein,omitempty" json:"protein,omitempty" xml:"protein,omitempty"`
 	// Material or taxonomic/anatomical source for the substance.
 	SourceMaterial *SubstanceDefinitionSourceMaterial `bson:"sourceMaterial,omitempty" json:"sourceMaterial,omitempty" xml:"sourceMaterial,omitempty"`
-	// The detailed description of a substance, typically at a level beyond what is used for prescribing.
 }
 type SubstanceDefinitionMoiety struct {
 	// Unique id for the element within a resource (for internal references).
@@ -151,7 +150,6 @@ type SubstanceDefinitionMoiety struct {
 	//
 	// In capturing the actual relative amounts of substances or molecular fragments it may be necessary to indicate whether the amount refers to, for example, a mole ratio or weight ratio.
 	MeasurementType *CodeableConcept `bson:"measurementType,omitempty" json:"measurementType,omitempty" xml:"measurementType,omitempty"`
-	// General specifications for this substance.
 }
 type SubstanceDefinitionCharacterization struct {
 	// Unique id for the element within a resource (for internal references).
@@ -182,7 +180,6 @@ type SubstanceDefinitionCharacterization struct {
 	//
 	// Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis.
 	File []Attachment `bson:"file,omitempty" json:"file,omitempty" xml:"file,omitempty"`
-	// General specifications for this substance.
 }
 type SubstanceDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -211,7 +208,6 @@ type SubstanceDefinitionProperty struct {
 	ValueDate            *string          `bson:"valueDate,omitempty" json:"valueDate,omitempty" xml:"valueDate,omitempty"`
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty" xml:"valueBoolean,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
-	// General information detailing this substance.
 }
 type SubstanceDefinitionMolecularWeight struct {
 	// Unique id for the element within a resource (for internal references).
@@ -242,7 +238,6 @@ type SubstanceDefinitionMolecularWeight struct {
 	//
 	// If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
 	Amount Quantity `bson:"amount" json:"amount" xml:"amount"`
-	// Structural information.
 }
 type SubstanceDefinitionStructure struct {
 	// Unique id for the element within a resource (for internal references).
@@ -283,7 +278,6 @@ type SubstanceDefinitionStructure struct {
 	SourceDocument []Reference `bson:"sourceDocument,omitempty" json:"sourceDocument,omitempty" xml:"sourceDocument,omitempty"`
 	// A depiction of the structure of the substance.
 	Representation []SubstanceDefinitionStructureRepresentation `bson:"representation,omitempty" json:"representation,omitempty" xml:"representation,omitempty"`
-	// Codes associated with the substance.
 }
 type SubstanceDefinitionStructureRepresentation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -316,7 +310,6 @@ type SubstanceDefinitionStructureRepresentation struct {
 	//
 	// a molecular structure graphic of the substance, a JCAMP or AnIML file.
 	Document *Reference `bson:"document,omitempty" json:"document,omitempty" xml:"document,omitempty"`
-	// Codes associated with the substance.
 }
 type SubstanceDefinitionCode struct {
 	// Unique id for the element within a resource (for internal references).
@@ -347,7 +340,6 @@ type SubstanceDefinitionCode struct {
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// Names applicable to this substance.
 }
 type SubstanceDefinitionName struct {
 	// Unique id for the element within a resource (for internal references).
@@ -390,7 +382,6 @@ type SubstanceDefinitionName struct {
 	Official []SubstanceDefinitionNameOfficial `bson:"official,omitempty" json:"official,omitempty" xml:"official,omitempty"`
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// A link between this substance and another, with details of the relationship.
 }
 type SubstanceDefinitionNameOfficial struct {
 	// Unique id for the element within a resource (for internal references).
@@ -417,7 +408,6 @@ type SubstanceDefinitionNameOfficial struct {
 	Status *CodeableConcept `bson:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
 	// Date of the official name change.
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	// Supporting literature.
 }
 type SubstanceDefinitionRelationship struct {
 	// Unique id for the element within a resource (for internal references).
@@ -455,7 +445,6 @@ type SubstanceDefinitionRelationship struct {
 	Comparator *CodeableConcept `bson:"comparator,omitempty" json:"comparator,omitempty" xml:"comparator,omitempty"`
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// Data items specific to nucleic acids.
 }
 type SubstanceDefinitionSourceMaterial struct {
 	// Unique id for the element within a resource (for internal references).

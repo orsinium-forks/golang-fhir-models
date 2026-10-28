@@ -165,7 +165,6 @@ type CommunicationPayload struct {
 	ContentAttachment      Attachment      `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference       Reference       `bson:"contentReference" json:"contentReference" xml:"contentReference"`
 	ContentCodeableConcept CodeableConcept `bson:"contentCodeableConcept" json:"contentCodeableConcept" xml:"contentCodeableConcept"`
-	// Additional notes or commentary about the communication by the sender, receiver or other interested parties.
 }
 
 func (r Communication) ResourceType() string {

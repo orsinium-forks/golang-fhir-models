@@ -140,7 +140,6 @@ type ClinicalImpressionFinding struct {
 	Item *CodeableReference `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 	// Which investigations support finding or diagnosis.
 	Basis *string `bson:"basis,omitempty" json:"basis,omitempty" xml:"basis,omitempty"`
-	// Estimate of likely outcome.
 }
 
 func (r ClinicalImpression) ResourceType() string {

@@ -184,7 +184,6 @@ type TerminologyCapabilities struct {
 	Translation *TerminologyCapabilitiesTranslation `bson:"translation,omitempty" json:"translation,omitempty" xml:"translation,omitempty"`
 	// Whether the $closure operation is supported.
 	Closure *TerminologyCapabilitiesClosure `bson:"closure,omitempty" json:"closure,omitempty" xml:"closure,omitempty"`
-	// A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
 }
 type TerminologyCapabilitiesSoftware struct {
 	// Unique id for the element within a resource (for internal references).
@@ -211,9 +210,6 @@ type TerminologyCapabilitiesSoftware struct {
 	//
 	// Comment: If possible, a version should be specified, as statements are likely to be different for different versions of software.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	// Identifies a specific implementation instance that is described by the terminology capability statement - i.e.
-	//
-	// a particular installation, rather than the capabilities of a software program.
 }
 type TerminologyCapabilitiesImplementation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -238,7 +234,6 @@ type TerminologyCapabilitiesImplementation struct {
 	Description string `bson:"description" json:"description" xml:"description"`
 	// An absolute base URL for the implementation.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// Whether the server supports lockedDate.
 }
 type TerminologyCapabilitiesCodeSystem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -269,7 +264,6 @@ type TerminologyCapabilitiesCodeSystem struct {
 	Content CodeSystemContentMode `bson:"content" json:"content" xml:"content"`
 	// True if subsumption is supported for this version of the code system.
 	Subsumption *bool `bson:"subsumption,omitempty" json:"subsumption,omitempty" xml:"subsumption,omitempty"`
-	// Information about the [ValueSet/$expand](valueset-operation-expand.html) operation.
 }
 type TerminologyCapabilitiesCodeSystemVersion struct {
 	// Unique id for the element within a resource (for internal references).
@@ -302,7 +296,6 @@ type TerminologyCapabilitiesCodeSystemVersion struct {
 	Filter []TerminologyCapabilitiesCodeSystemVersionFilter `bson:"filter,omitempty" json:"filter,omitempty" xml:"filter,omitempty"`
 	// Properties supported for $lookup.
 	Property []string `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
-	// The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
 }
 type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -327,7 +320,6 @@ type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	Code string `bson:"code" json:"code" xml:"code"`
 	// Operations supported for the property.
 	Op []string `bson:"op" json:"op" xml:"op"`
-	// Properties supported for $lookup.
 }
 type TerminologyCapabilitiesExpansion struct {
 	// Unique id for the element within a resource (for internal references).
@@ -360,9 +352,6 @@ type TerminologyCapabilitiesExpansion struct {
 	//
 	// Comment: This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters.
 	TextFilter *string `bson:"textFilter,omitempty" json:"textFilter,omitempty" xml:"textFilter,omitempty"`
-	// The degree to which the server supports the code search parameter on ValueSet, if it is supported.
-	//
-	// Comment: See notes on the [ValueSet](valueset.html#) resource.
 }
 type TerminologyCapabilitiesExpansionParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -387,9 +376,6 @@ type TerminologyCapabilitiesExpansionParameter struct {
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Description of support for parameter.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// Documentation about text searching works.
-	//
-	// Comment: This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters.
 }
 type TerminologyCapabilitiesValidateCode struct {
 	// Unique id for the element within a resource (for internal references).
@@ -412,7 +398,6 @@ type TerminologyCapabilitiesValidateCode struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Whether translations are validated.
 	Translations bool `bson:"translations" json:"translations" xml:"translations"`
-	// Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation.
 }
 type TerminologyCapabilitiesTranslation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -435,7 +420,6 @@ type TerminologyCapabilitiesTranslation struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Whether the client must identify the map.
 	NeedsMap bool `bson:"needsMap" json:"needsMap" xml:"needsMap"`
-	// Whether the $closure operation is supported.
 }
 type TerminologyCapabilitiesClosure struct {
 	// Unique id for the element within a resource (for internal references).

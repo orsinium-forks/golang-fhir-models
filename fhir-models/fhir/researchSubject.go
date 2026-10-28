@@ -117,7 +117,6 @@ type ResearchSubjectProgress struct {
 	StartDate *string `bson:"startDate,omitempty" json:"startDate,omitempty" xml:"startDate,omitempty"`
 	// The date when the state ended.
 	EndDate *string `bson:"endDate,omitempty" json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// The dates the subject began and ended their participation in the study.
 }
 
 func (r ResearchSubject) ResourceType() string {

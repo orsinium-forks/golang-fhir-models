@@ -283,7 +283,6 @@ type ActivityDefinition struct {
 	//
 	// Comment: Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform.
 	DynamicValue []ActivityDefinitionDynamicValue `bson:"dynamicValue,omitempty" json:"dynamicValue,omitempty" xml:"dynamicValue,omitempty"`
-	// This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
 }
 type ActivityDefinitionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -316,7 +315,6 @@ type ActivityDefinitionParticipant struct {
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// Indicates how the actor will be involved in the action - author, reviewer, witness, etc.
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
-	// Identifies the food, drug or other product being consumed or supplied in the activity.
 }
 type ActivityDefinitionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).

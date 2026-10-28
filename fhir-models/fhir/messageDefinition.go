@@ -209,9 +209,6 @@ type MessageDefinitionFocus struct {
 	Min int `bson:"min" json:"min" xml:"min"`
 	// Identifies the maximum number of resources of this type that must be pointed to by a message in order for it to be valid against this MessageDefinition.
 	Max *string `bson:"max,omitempty" json:"max,omitempty" xml:"max,omitempty"`
-	// Declare at a message definition level whether a response is required or only upon error or success, or never.
-	//
-	// Comment: This enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message instance level whether a response is required or only upon error or success, or never.
 }
 type MessageDefinitionAllowedResponse struct {
 	// Unique id for the element within a resource (for internal references).
@@ -236,9 +233,6 @@ type MessageDefinitionAllowedResponse struct {
 	Message string `bson:"message" json:"message" xml:"message"`
 	// Provides a description of the circumstances in which this response should be used (as opposed to one of the alternative responses).
 	Situation *string `bson:"situation,omitempty" json:"situation,omitempty" xml:"situation,omitempty"`
-	// Graph is Canonical reference to a GraphDefinition.
-	//
-	// If a URL is provided, it is the canonical reference to a GraphDefinition that it controls what additional resources are to be added to the Bundle when building the message. The GraphDefinition can also specify profiles that apply to the various resources.
 }
 
 func (r MessageDefinition) ResourceType() string {

@@ -151,7 +151,6 @@ type AdverseEventParticipant struct {
 	//
 	// Comment: For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// The research study that the subject is enrolled in.
 }
 type AdverseEventSuspectEntity struct {
 	// Unique id for the element within a resource (for internal references).
@@ -179,7 +178,6 @@ type AdverseEventSuspectEntity struct {
 	InstanceReference       Reference       `bson:"instanceReference" json:"instanceReference" xml:"instanceReference"`
 	// Information on the possible cause of the event.
 	Causality *AdverseEventSuspectEntityCausality `bson:"causality,omitempty" json:"causality,omitempty" xml:"causality,omitempty"`
-	// The contributing factors suspected to have increased the probability or severity of the adverse event.
 }
 type AdverseEventSuspectEntityCausality struct {
 	// Unique id for the element within a resource (for internal references).
@@ -206,7 +204,6 @@ type AdverseEventSuspectEntityCausality struct {
 	EntityRelatedness *CodeableConcept `bson:"entityRelatedness,omitempty" json:"entityRelatedness,omitempty" xml:"entityRelatedness,omitempty"`
 	// The author of the information on the possible cause of the event.
 	Author *Reference `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
-	// The contributing factors suspected to have increased the probability or severity of the adverse event.
 }
 type AdverseEventContributingFactor struct {
 	// Unique id for the element within a resource (for internal references).
@@ -230,7 +227,6 @@ type AdverseEventContributingFactor struct {
 	// The item that is suspected to have increased the probability or severity of the adverse event.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
-	// Preventive actions that contributed to avoiding the adverse event.
 }
 type AdverseEventPreventiveAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -254,7 +250,6 @@ type AdverseEventPreventiveAction struct {
 	// The action that contributed to avoiding the adverse event.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
-	// The ameliorating action taken after the adverse event occured in order to reduce the extent of harm.
 }
 type AdverseEventMitigatingAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -278,7 +273,6 @@ type AdverseEventMitigatingAction struct {
 	// The ameliorating action taken after the adverse event occured in order to reduce the extent of harm.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
-	// Supporting information relevant to the event.
 }
 type AdverseEventSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -304,7 +298,6 @@ type AdverseEventSupportingInfo struct {
 	// In a clinical care context, an example being a patient had an adverse event following a pencillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
-	// Comments made about the adverse event by the performer, subject or other participants.
 }
 
 func (r AdverseEvent) ResourceType() string {

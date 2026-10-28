@@ -247,9 +247,6 @@ type MedicationRequestDispenseRequest struct {
 	DispenserInstruction []Annotation `bson:"dispenserInstruction,omitempty" json:"dispenserInstruction,omitempty" xml:"dispenserInstruction,omitempty"`
 	// Provides information about the type of adherence packaging to be supplied for the medication dispense.
 	DoseAdministrationAid *CodeableConcept `bson:"doseAdministrationAid,omitempty" json:"doseAdministrationAid,omitempty" xml:"doseAdministrationAid,omitempty"`
-	// Indicates whether or not substitution can or should be part of the dispense.
-	//
-	// In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.
 }
 type MedicationRequestDispenseRequestInitialFill struct {
 	// Unique id for the element within a resource (for internal references).
@@ -274,7 +271,6 @@ type MedicationRequestDispenseRequestInitialFill struct {
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// The length of time that the first dispense is expected to last.
 	Duration *Duration `bson:"duration,omitempty" json:"duration,omitempty" xml:"duration,omitempty"`
-	// The minimum period of time that must occur between dispenses of the medication.
 }
 type MedicationRequestSubstitution struct {
 	// Unique id for the element within a resource (for internal references).
@@ -302,9 +298,6 @@ type MedicationRequestSubstitution struct {
 	AllowedCodeableConcept CodeableConcept `bson:"allowedCodeableConcept" json:"allowedCodeableConcept" xml:"allowedCodeableConcept"`
 	// Indicates the reason for the substitution, or why substitution must or must not be performed.
 	Reason *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	// Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
-	//
-	// Comment: This might not include provenances for all versions of the request – only those deemed "relevant" or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a "relevant" change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
 }
 
 func (r MedicationRequest) ResourceType() string {

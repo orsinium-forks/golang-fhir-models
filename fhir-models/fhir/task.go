@@ -167,7 +167,6 @@ type Task struct {
 	Input []TaskInput `bson:"input,omitempty" json:"input,omitempty" xml:"input,omitempty"`
 	// Outputs produced by the Task.
 	Output []TaskOutput `bson:"output,omitempty" json:"output,omitempty" xml:"output,omitempty"`
-	// A task to be performed.
 }
 type TaskPerformer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -192,9 +191,6 @@ type TaskPerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// The actor or entity who performed the task.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// Principal physical location where this task is performed.
-	//
-	// Comment: This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values.
 }
 type TaskRestriction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -227,7 +223,6 @@ type TaskRestriction struct {
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for.
 	Recipient []Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
-	// Additional information that may be needed in the execution of the task.
 }
 type TaskInput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -307,7 +302,6 @@ type TaskInput struct {
 	ValueExtendedContactDetail ExtendedContactDetail `bson:"valueExtendedContactDetail" json:"valueExtendedContactDetail" xml:"valueExtendedContactDetail"`
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
-	// Outputs produced by the Task.
 }
 type TaskOutput struct {
 	// Unique id for the element within a resource (for internal references).

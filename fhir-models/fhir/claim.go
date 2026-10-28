@@ -197,9 +197,6 @@ type ClaimRelated struct {
 	//
 	// Comment: For example, Property/Casualty insurer claim # or Workers Compensation case # .
 	Reference *Identifier `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
-	// Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought.
-	//
-	// Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments.
 }
 type ClaimPayee struct {
 	// Unique id for the element within a resource (for internal references).
@@ -226,11 +223,6 @@ type ClaimPayee struct {
 	//
 	// Comment: Not required if the payee is 'subscriber' or 'provider'.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
-	// The referral information received by the claim author, it is not to be used when the author generates a referral for a patient.
-	//
-	// A copy of that referral may be provided as supporting information. Some insurers require proof of referral to pay for services or to pay specialist rates for services.
-	//
-	// Comment: The referral resource which lists the date, practitioner, reason and other supporting information.
 }
 type ClaimEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -256,7 +248,6 @@ type ClaimEvent struct {
 	// A date or period in the past or future indicating when the event occurred or is expectd to occur.
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
-	// The members of the team who provided the products and services.
 }
 type ClaimCareTeam struct {
 	// Unique id for the element within a resource (for internal references).
@@ -291,9 +282,6 @@ type ClaimCareTeam struct {
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// The specialization of the practitioner or provider which is applicable for this service.
 	Specialty *CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty" xml:"specialty,omitempty"`
-	// Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.
-	//
-	// Comment: Often there are multiple jurisdiction specific valuesets which are required.
 }
 type ClaimSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -340,7 +328,6 @@ type ClaimSupportingInfo struct {
 	//
 	// Comment: For example: the reason for the additional stay, or why a tooth is  missing.
 	Reason *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	// Information about diagnoses relevant to the claim items.
 }
 type ClaimDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
@@ -374,7 +361,6 @@ type ClaimDiagnosis struct {
 	Type []CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// Indication of whether the diagnosis was present on admission to a facility.
 	OnAdmission *CodeableConcept `bson:"onAdmission,omitempty" json:"onAdmission,omitempty" xml:"onAdmission,omitempty"`
-	// Procedures performed on the patient relevant to the billing items with the claim.
 }
 type ClaimProcedure struct {
 	// Unique id for the element within a resource (for internal references).
@@ -408,9 +394,6 @@ type ClaimProcedure struct {
 	ProcedureReference       Reference       `bson:"procedureReference" json:"procedureReference" xml:"procedureReference"`
 	// Unique Device Identifiers associated with this line item.
 	Udi []Reference `bson:"udi,omitempty" json:"udi,omitempty" xml:"udi,omitempty"`
-	// Financial instruments for reimbursement for the health care products and services specified on the claim.
-	//
-	// Comment: All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'Coverage.subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 }
 type ClaimInsurance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -455,7 +438,6 @@ type ClaimInsurance struct {
 	//
 	// Comment: Must not be specified when 'focal=true' for this insurance.
 	ClaimResponse *Reference `bson:"claimResponse,omitempty" json:"claimResponse,omitempty" xml:"claimResponse,omitempty"`
-	// Details of an accident which resulted in injuries which required the products and services listed in the claim.
 }
 type ClaimAccident struct {
 	// Unique id for the element within a resource (for internal references).
@@ -485,7 +467,6 @@ type ClaimAccident struct {
 	// The physical location of the accident event.
 	LocationAddress   *Address   `bson:"locationAddress,omitempty" json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
 	LocationReference *Reference `bson:"locationReference,omitempty" json:"locationReference,omitempty" xml:"locationReference,omitempty"`
-	// The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services.
 }
 type ClaimItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -585,7 +566,6 @@ type ClaimItem struct {
 	//
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	Detail []ClaimItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The total value of the all the items in the claim.
 }
 type ClaimItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
@@ -612,9 +592,6 @@ type ClaimItemBodySite struct {
 	Site []CodeableReference `bson:"site" json:"site" xml:"site"`
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
-	// Healthcare encounters related to this claim.
-	//
-	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter.
 }
 type ClaimItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -691,7 +668,6 @@ type ClaimItemDetail struct {
 	//
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	SubDetail []ClaimItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
-	// The total value of the all the items in the claim.
 }
 type ClaimItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -764,7 +740,6 @@ type ClaimItemDetailSubDetail struct {
 	Net *Money `bson:"net,omitempty" json:"net,omitempty" xml:"net,omitempty"`
 	// Unique Device Identifiers associated with this line item.
 	Udi []Reference `bson:"udi,omitempty" json:"udi,omitempty" xml:"udi,omitempty"`
-	// The total value of the all the items in the claim.
 }
 
 func (r Claim) ResourceType() string {

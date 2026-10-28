@@ -300,10 +300,10 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 	for i := start; i < len(elementDefinitions); i++ {
 		element := elementDefinitions[i]
 		pathParts := strings.Split(element.Path, ".")
-		if element.Definition != nil {
-			fields.Comment(formatFieldDoc(element))
-		}
 		if len(pathParts) == level+1 {
+			if element.Definition != nil {
+				fields.Comment(formatFieldDoc(element))
+			}
 			// direct childs
 			name := strings.Title(pathParts[level])
 

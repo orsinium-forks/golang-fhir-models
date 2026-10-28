@@ -113,7 +113,6 @@ type MedicationKnowledge struct {
 	Regulatory []MedicationKnowledgeRegulatory `bson:"regulatory,omitempty" json:"regulatory,omitempty" xml:"regulatory,omitempty"`
 	// Along with the link to a Medicinal Product Definition resource, this information provides common definitional elements that are needed to understand the specific medication that is being described.
 	Definitional *MedicationKnowledgeDefinitional `bson:"definitional,omitempty" json:"definitional,omitempty" xml:"definitional,omitempty"`
-	// Information about a medication that is used to support knowledge.
 }
 type MedicationKnowledgeRelatedMedicationKnowledge struct {
 	// Unique id for the element within a resource (for internal references).
@@ -138,7 +137,6 @@ type MedicationKnowledgeRelatedMedicationKnowledge struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// Associated documentation about the associated medication knowledge.
 	Reference []Reference `bson:"reference" json:"reference" xml:"reference"`
-	// Links to associated medications that could be prescribed, dispensed or administered.
 }
 type MedicationKnowledgeMonograph struct {
 	// Unique id for the element within a resource (for internal references).
@@ -165,7 +163,6 @@ type MedicationKnowledgeMonograph struct {
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// Associated documentation about the medication.
 	Source *Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// The instructions for preparing the medication.
 }
 type MedicationKnowledgeCost struct {
 	// Unique id for the element within a resource (for internal references).
@@ -197,7 +194,6 @@ type MedicationKnowledgeCost struct {
 	// The price or representation of the cost (for example, Band A, Band B or $, $$) of the medication.
 	CostMoney           Money           `bson:"costMoney" json:"costMoney" xml:"costMoney"`
 	CostCodeableConcept CodeableConcept `bson:"costCodeableConcept" json:"costCodeableConcept" xml:"costCodeableConcept"`
-	// The program under which the medication is reviewed.
 }
 type MedicationKnowledgeMonitoringProgram struct {
 	// Unique id for the element within a resource (for internal references).
@@ -222,7 +218,6 @@ type MedicationKnowledgeMonitoringProgram struct {
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// Name of the reviewing program.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	// Guidelines or protocols that are applicable for the administration of the medication based on indication.
 }
 type MedicationKnowledgeIndicationGuideline struct {
 	// Unique id for the element within a resource (for internal references).
@@ -247,7 +242,6 @@ type MedicationKnowledgeIndicationGuideline struct {
 	Indication []CodeableReference `bson:"indication,omitempty" json:"indication,omitempty" xml:"indication,omitempty"`
 	// The guidelines for the dosage of the medication for the indication.
 	DosingGuideline []MedicationKnowledgeIndicationGuidelineDosingGuideline `bson:"dosingGuideline,omitempty" json:"dosingGuideline,omitempty" xml:"dosingGuideline,omitempty"`
-	// Categorization of the medication within a formulary or classification system.
 }
 type MedicationKnowledgeIndicationGuidelineDosingGuideline struct {
 	// Unique id for the element within a resource (for internal references).
@@ -276,7 +270,6 @@ type MedicationKnowledgeIndicationGuidelineDosingGuideline struct {
 	AdministrationTreatment *CodeableConcept `bson:"administrationTreatment,omitempty" json:"administrationTreatment,omitempty" xml:"administrationTreatment,omitempty"`
 	// Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.).
 	PatientCharacteristic []MedicationKnowledgeIndicationGuidelineDosingGuidelinePatientCharacteristic `bson:"patientCharacteristic,omitempty" json:"patientCharacteristic,omitempty" xml:"patientCharacteristic,omitempty"`
-	// Categorization of the medication within a formulary or classification system.
 }
 type MedicationKnowledgeIndicationGuidelineDosingGuidelineDosage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -301,7 +294,6 @@ type MedicationKnowledgeIndicationGuidelineDosingGuidelineDosage struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// Dosage for the medication for the specific guidelines.
 	Dosage []Dosage `bson:"dosage" json:"dosage" xml:"dosage"`
-	// The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc.
 }
 type MedicationKnowledgeIndicationGuidelineDosingGuidelinePatientCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -330,7 +322,6 @@ type MedicationKnowledgeIndicationGuidelineDosingGuidelinePatientCharacteristic 
 	ValueCodeableConcept *CodeableConcept `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty" xml:"valueCodeableConcept,omitempty"`
 	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
 	ValueRange           *Range           `bson:"valueRange,omitempty" json:"valueRange,omitempty" xml:"valueRange,omitempty"`
-	// Categorization of the medication within a formulary or classification system.
 }
 type MedicationKnowledgeMedicineClassification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -360,7 +351,6 @@ type MedicationKnowledgeMedicineClassification struct {
 	//
 	// anti-infective, anti-hypertensive, antibiotic, etc.).
 	Classification []CodeableConcept `bson:"classification,omitempty" json:"classification,omitempty" xml:"classification,omitempty"`
-	// Information that only applies to packages (not products).
 }
 type MedicationKnowledgePackaging struct {
 	// Unique id for the element within a resource (for internal references).
@@ -385,7 +375,6 @@ type MedicationKnowledgePackaging struct {
 	Cost []MedicationKnowledgeCost `bson:"cost,omitempty" json:"cost,omitempty"`
 	// A reference to a PackagedProductDefinition that provides the details of the product that is in the packaging and is being priced.
 	PackagedProduct *Reference `bson:"packagedProduct,omitempty" json:"packagedProduct,omitempty" xml:"packagedProduct,omitempty"`
-	// Potential clinical issue with or between medication(s) (for example, drug-drug interaction, drug-disease contraindication, drug-allergy interaction, etc.).
 }
 type MedicationKnowledgeStorageGuideline struct {
 	// Unique id for the element within a resource (for internal references).
@@ -416,7 +405,6 @@ type MedicationKnowledgeStorageGuideline struct {
 	//
 	//  Environment settings may involve temperature, humidity, or exposure to light.
 	EnvironmentalSetting []MedicationKnowledgeStorageGuidelineEnvironmentalSetting `bson:"environmentalSetting,omitempty" json:"environmentalSetting,omitempty" xml:"environmentalSetting,omitempty"`
-	// Regulatory information about a medication.
 }
 type MedicationKnowledgeStorageGuidelineEnvironmentalSetting struct {
 	// Unique id for the element within a resource (for internal references).
@@ -443,7 +431,6 @@ type MedicationKnowledgeStorageGuidelineEnvironmentalSetting struct {
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept" xml:"valueCodeableConcept"`
-	// Regulatory information about a medication.
 }
 type MedicationKnowledgeRegulatory struct {
 	// Unique id for the element within a resource (for internal references).
@@ -472,7 +459,6 @@ type MedicationKnowledgeRegulatory struct {
 	Schedule []CodeableConcept `bson:"schedule,omitempty" json:"schedule,omitempty" xml:"schedule,omitempty"`
 	// The maximum number of units of the medication that can be dispensed in a period.
 	MaxDispense *MedicationKnowledgeRegulatoryMaxDispense `bson:"maxDispense,omitempty" json:"maxDispense,omitempty" xml:"maxDispense,omitempty"`
-	// Along with the link to a Medicinal Product Definition resource, this information provides common definitional elements that are needed to understand the specific medication that is being described.
 }
 type MedicationKnowledgeRegulatorySubstitution struct {
 	// Unique id for the element within a resource (for internal references).
@@ -497,7 +483,6 @@ type MedicationKnowledgeRegulatorySubstitution struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// Specifies if regulation allows for changes in the medication when dispensing.
 	Allowed bool `bson:"allowed" json:"allowed" xml:"allowed"`
-	// Specifies the schedule of a medication in jurisdiction.
 }
 type MedicationKnowledgeRegulatoryMaxDispense struct {
 	// Unique id for the element within a resource (for internal references).
@@ -522,7 +507,6 @@ type MedicationKnowledgeRegulatoryMaxDispense struct {
 	Quantity Quantity `bson:"quantity" json:"quantity" xml:"quantity"`
 	// The period that applies to the maximum number of units.
 	Period *Duration `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// Along with the link to a Medicinal Product Definition resource, this information provides common definitional elements that are needed to understand the specific medication that is being described.
 }
 type MedicationKnowledgeDefinitional struct {
 	// Unique id for the element within a resource (for internal references).
@@ -555,7 +539,6 @@ type MedicationKnowledgeDefinitional struct {
 	Ingredient []MedicationKnowledgeDefinitionalIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty" xml:"ingredient,omitempty"`
 	// Specifies descriptive properties of the medicine, such as color, shape, imprints, etc.
 	DrugCharacteristic []MedicationKnowledgeDefinitionalDrugCharacteristic `bson:"drugCharacteristic,omitempty" json:"drugCharacteristic,omitempty" xml:"drugCharacteristic,omitempty"`
-	// Information about a medication that is used to support knowledge.
 }
 type MedicationKnowledgeDefinitionalIngredient struct {
 	// Unique id for the element within a resource (for internal references).
@@ -586,7 +569,6 @@ type MedicationKnowledgeDefinitionalIngredient struct {
 	StrengthRatio           *Ratio           `bson:"strengthRatio,omitempty" json:"strengthRatio,omitempty" xml:"strengthRatio,omitempty"`
 	StrengthCodeableConcept *CodeableConcept `bson:"strengthCodeableConcept,omitempty" json:"strengthCodeableConcept,omitempty" xml:"strengthCodeableConcept,omitempty"`
 	StrengthQuantity        *Quantity        `bson:"strengthQuantity,omitempty" json:"strengthQuantity,omitempty" xml:"strengthQuantity,omitempty"`
-	// Specifies descriptive properties of the medicine, such as color, shape, imprints, etc.
 }
 type MedicationKnowledgeDefinitionalDrugCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).

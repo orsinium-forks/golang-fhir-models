@@ -136,7 +136,6 @@ type ProvenanceAgent struct {
 	Who Reference `bson:"who" json:"who" xml:"who"`
 	// The agent that delegated authority to perform the activity performed by the agent.who element.
 	OnBehalfOf *Reference `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty" xml:"onBehalfOf,omitempty"`
-	// An entity used in this activity.
 }
 type ProvenanceEntity struct {
 	// Unique id for the element within a resource (for internal references).
@@ -171,9 +170,6 @@ type ProvenanceEntity struct {
 	//
 	// Comment: A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 V2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity.
 	Agent []ProvenanceAgent `bson:"agent,omitempty" json:"agent,omitempty"`
-	// A digital signature on the target Reference(s).
-	//
-	// The signer should match a Provenance.agent. The purpose of the signature is indicated.
 }
 
 func (r Provenance) ResourceType() string {

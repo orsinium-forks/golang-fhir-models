@@ -159,9 +159,6 @@ type NutritionIntakeConsumedItem struct {
 	NotConsumed *bool `bson:"notConsumed,omitempty" json:"notConsumed,omitempty" xml:"notConsumed,omitempty"`
 	// Document the reason the food or fluid was not consumed, such as refused, held, etc.
 	NotConsumedReason *CodeableConcept `bson:"notConsumedReason,omitempty" json:"notConsumedReason,omitempty" xml:"notConsumedReason,omitempty"`
-	// Total nutrient amounts for the whole meal, product, serving, etc.
-	//
-	// Comment: Individual item nutrients are not currently included in the resource and will likely end up as a reference in nutritionProduct to represent the individual items.
 }
 type NutritionIntakeIngredientLabel struct {
 	// Unique id for the element within a resource (for internal references).
@@ -188,7 +185,6 @@ type NutritionIntakeIngredientLabel struct {
 	Nutrient CodeableReference `bson:"nutrient" json:"nutrient" xml:"nutrient"`
 	// Total amount of nutrient consumed.
 	Amount Quantity `bson:"amount" json:"amount" xml:"amount"`
-	// Who performed the intake and how they were involved.
 }
 type NutritionIntakePerformer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -213,7 +209,6 @@ type NutritionIntakePerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Who performed the intake.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// Where the intake occurred.
 }
 
 func (r NutritionIntake) ResourceType() string {

@@ -98,7 +98,6 @@ type CoverageEligibilityResponse struct {
 	Form *CodeableConcept `bson:"form,omitempty" json:"form,omitempty" xml:"form,omitempty"`
 	// Errors encountered during the processing of the request.
 	Error []CoverageEligibilityResponseError `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
-	// This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
 }
 type CoverageEligibilityResponseEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -124,7 +123,6 @@ type CoverageEligibilityResponseEvent struct {
 	// A date or period in the past or future indicating when the event occurred or is expectd to occur.
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
-	// The date or dates when the enclosed suite of services were performed or completed.
 }
 type CoverageEligibilityResponseInsurance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -155,7 +153,6 @@ type CoverageEligibilityResponseInsurance struct {
 	BenefitPeriod *Period `bson:"benefitPeriod,omitempty" json:"benefitPeriod,omitempty" xml:"benefitPeriod,omitempty"`
 	// Benefits and optionally current balances, and authorization details by category or service.
 	Item []CoverageEligibilityResponseInsuranceItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
-	// A reference from the Insurer to which these services pertain to be used on further communication and as proof that the request occurred.
 }
 type CoverageEligibilityResponseInsuranceItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -214,7 +211,6 @@ type CoverageEligibilityResponseInsuranceItem struct {
 	AuthorizationSupporting []CodeableConcept `bson:"authorizationSupporting,omitempty" json:"authorizationSupporting,omitempty" xml:"authorizationSupporting,omitempty"`
 	// A web location for obtaining requirements or descriptive information regarding the preauthorization.
 	AuthorizationUrl *string `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty" xml:"authorizationUrl,omitempty"`
-	// A reference from the Insurer to which these services pertain to be used on further communication and as proof that the request occurred.
 }
 type CoverageEligibilityResponseInsuranceItemBenefit struct {
 	// Unique id for the element within a resource (for internal references).
@@ -247,7 +243,6 @@ type CoverageEligibilityResponseInsuranceItemBenefit struct {
 	UsedUnsignedInt *int    `bson:"usedUnsignedInt,omitempty" json:"usedUnsignedInt,omitempty" xml:"usedUnsignedInt,omitempty"`
 	UsedString      *string `bson:"usedString,omitempty" json:"usedString,omitempty" xml:"usedString,omitempty"`
 	UsedMoney       *Money  `bson:"usedMoney,omitempty" json:"usedMoney,omitempty" xml:"usedMoney,omitempty"`
-	// A boolean flag indicating whether a preauthorization is required prior to actual service delivery.
 }
 type CoverageEligibilityResponseError struct {
 	// Unique id for the element within a resource (for internal references).

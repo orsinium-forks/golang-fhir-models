@@ -210,9 +210,6 @@ type CapabilityStatement struct {
 	Messaging []CapabilityStatementMessaging `bson:"messaging,omitempty" json:"messaging,omitempty" xml:"messaging,omitempty"`
 	// A document definition.
 	Document []CapabilityStatementDocument `bson:"document,omitempty" json:"document,omitempty" xml:"document,omitempty"`
-	// A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
-	//
-	// Comment: Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system's support for a particular version of FHIR, and the server will have multiple statements, one for each version.
 }
 type CapabilityStatementSoftware struct {
 	// Unique id for the element within a resource (for internal references).
@@ -241,9 +238,6 @@ type CapabilityStatementSoftware struct {
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
 	// Date this version of the software was released.
 	ReleaseDate *string `bson:"releaseDate,omitempty" json:"releaseDate,omitempty" xml:"releaseDate,omitempty"`
-	// Identifies a specific implementation instance that is described by the capability statement - i.e.
-	//
-	// a particular installation, rather than the capabilities of a software program.
 }
 type CapabilityStatementImplementation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -272,11 +266,6 @@ type CapabilityStatementImplementation struct {
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 	// The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.
 	Custodian *Reference `bson:"custodian,omitempty" json:"custodian,omitempty" xml:"custodian,omitempty"`
-	// The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself).
-	//
-	// There is no default value.
-	//
-	// Comment: Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version.
 }
 type CapabilityStatementRest struct {
 	// Unique id for the element within a resource (for internal references).
@@ -325,9 +314,6 @@ type CapabilityStatementRest struct {
 	//
 	// Comment: At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html).
 	Compartment []string `bson:"compartment,omitempty" json:"compartment,omitempty" xml:"compartment,omitempty"`
-	// A description of the messaging capabilities of the solution.
-	//
-	// Comment: Multiple repetitions allow the documentation of multiple endpoints per solution.
 }
 type CapabilityStatementRestSecurity struct {
 	// Unique id for the element within a resource (for internal references).
@@ -356,9 +342,6 @@ type CapabilityStatementRestSecurity struct {
 	Service []CodeableConcept `bson:"service,omitempty" json:"service,omitempty" xml:"service,omitempty"`
 	// General description of how security works.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	// A specification of the restful capabilities of the solution for a specific resource type.
-	//
-	// Comment: Max of one repetition per resource type.
 }
 type CapabilityStatementRestResource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -465,7 +448,6 @@ type CapabilityStatementRestResource struct {
 	//
 	// If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
 	Operation []CapabilityStatementRestResourceOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
-	// A specification of restful operations supported by the system.
 }
 type CapabilityStatementRestResourceInteraction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -490,11 +472,6 @@ type CapabilityStatementRestResourceInteraction struct {
 	Code TypeRestfulInteraction `bson:"code" json:"code" xml:"code"`
 	// Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type.
-	//
-	// If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
-	//
-	// Comment: If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so.
 }
 type CapabilityStatementRestResourceSearchParam struct {
 	// Unique id for the element within a resource (for internal references).
@@ -535,13 +512,6 @@ type CapabilityStatementRestResourceSearchParam struct {
 	//
 	//  For example, text matching algorithms.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// Definition of an operation or a named query together with its parameters and their meaning and type.
-	//
-	// Consult the definition of the operation for details about how to invoke the operation, and the parameters.
-	//
-	// Comment: Operations linked from CapabilityStatement.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.
-	//
-	// If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
 }
 type CapabilityStatementRestResourceOperation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -576,7 +546,6 @@ type CapabilityStatementRestResourceOperation struct {
 	Definition string `bson:"definition" json:"definition" xml:"definition"`
 	// Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// A specification of restful operations supported by the system.
 }
 type CapabilityStatementRestInteraction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -601,11 +570,6 @@ type CapabilityStatementRestInteraction struct {
 	Code SystemRestfulInteraction `bson:"code" json:"code" xml:"code"`
 	// Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	// Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
-	//
-	// This is only for searches executed against the system-level endpoint.
-	//
-	// Comment: Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions.
 }
 type CapabilityStatementMessaging struct {
 	// Unique id for the element within a resource (for internal references).
@@ -640,7 +604,6 @@ type CapabilityStatementMessaging struct {
 	//
 	// Comment: This is a proposed alternative to the messaging.event structure.
 	SupportedMessage []CapabilityStatementMessagingSupportedMessage `bson:"supportedMessage,omitempty" json:"supportedMessage,omitempty" xml:"supportedMessage,omitempty"`
-	// A document definition.
 }
 type CapabilityStatementMessagingEndpoint struct {
 	// Unique id for the element within a resource (for internal references).
@@ -667,9 +630,6 @@ type CapabilityStatementMessagingEndpoint struct {
 	//
 	// For solutions that do not use network addresses for routing, it can be just an identifier.
 	Address string `bson:"address" json:"address" xml:"address"`
-	// Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
-	//
-	// Comment: If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging.
 }
 type CapabilityStatementMessagingSupportedMessage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -694,7 +654,6 @@ type CapabilityStatementMessagingSupportedMessage struct {
 	Mode EventCapabilityMode `bson:"mode" json:"mode" xml:"mode"`
 	// Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
 	Definition string `bson:"definition" json:"definition" xml:"definition"`
-	// A document definition.
 }
 type CapabilityStatementDocument struct {
 	// Unique id for the element within a resource (for internal references).

@@ -79,7 +79,6 @@ type VisionPrescription struct {
 	Prescriber Reference `bson:"prescriber" json:"prescriber" xml:"prescriber"`
 	// Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.
 	LensSpecification []VisionPrescriptionLensSpecification `bson:"lensSpecification" json:"lensSpecification" xml:"lensSpecification"`
-	// An authorization for the provision of glasses and/or contact lenses to a patient.
 }
 type VisionPrescriptionLensSpecification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -160,7 +159,6 @@ type VisionPrescriptionLensSpecificationPrism struct {
 	Amount decimal.Decimal `bson:"amount" json:"amount" xml:"amount"`
 	// The relative base, or reference lens edge, for the prism.
 	Base VisionBase `bson:"base" json:"base" xml:"base"`
-	// Power adjustment for multifocal lenses measured in dioptres (0.25 units).
 }
 
 func (r VisionPrescription) ResourceType() string {

@@ -87,7 +87,6 @@ type Ingredient struct {
 	Manufacturer []IngredientManufacturer `bson:"manufacturer,omitempty" json:"manufacturer,omitempty" xml:"manufacturer,omitempty"`
 	// The substance that comprises this ingredient.
 	Substance IngredientSubstance `bson:"substance" json:"substance" xml:"substance"`
-	// An ingredient of a manufactured item or pharmaceutical product.
 }
 type IngredientManufacturer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -114,7 +113,6 @@ type IngredientManufacturer struct {
 	Role *IngredientManufacturerRole `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// An organization that manufactures this ingredient.
 	Manufacturer Reference `bson:"manufacturer" json:"manufacturer" xml:"manufacturer"`
-	// The substance that comprises this ingredient.
 }
 type IngredientSubstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -141,7 +139,6 @@ type IngredientSubstance struct {
 	//
 	// The allowed repetitions do not represent different strengths, but are different representations - mathematically equivalent - of a single strength.
 	Strength []IngredientSubstanceStrength `bson:"strength,omitempty" json:"strength,omitempty" xml:"strength,omitempty"`
-	// An ingredient of a manufactured item or pharmaceutical product.
 }
 type IngredientSubstanceStrength struct {
 	// Unique id for the element within a resource (for internal references).
@@ -190,7 +187,6 @@ type IngredientSubstanceStrength struct {
 	//
 	// For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g. salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed.
 	ReferenceStrength []IngredientSubstanceStrengthReferenceStrength `bson:"referenceStrength,omitempty" json:"referenceStrength,omitempty" xml:"referenceStrength,omitempty"`
-	// An ingredient of a manufactured item or pharmaceutical product.
 }
 type IngredientSubstanceStrengthReferenceStrength struct {
 	// Unique id for the element within a resource (for internal references).

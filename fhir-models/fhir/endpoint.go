@@ -135,15 +135,6 @@ type EndpointPayload struct {
 	//
 	// Comment: Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured.
 	MimeType []string `bson:"mimeType,omitempty" json:"mimeType,omitempty" xml:"mimeType,omitempty"`
-	// The uri that describes the actual end-point to connect to.
-	//
-	// Comment: For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)
-	//
-	// This address will be to the service base, without any parameters, or sub-services or resources tacked on.
-	//
-	// E.g. for a WADO-RS endpoint, the url should be "https://pacs.hospital.org/wado-rs"
-	//
-	// and not "https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/...".
 }
 
 func (r Endpoint) ResourceType() string {

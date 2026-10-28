@@ -63,7 +63,6 @@ type SubstanceReferenceInformation struct {
 	GeneElement []SubstanceReferenceInformationGeneElement `bson:"geneElement,omitempty" json:"geneElement,omitempty" xml:"geneElement,omitempty"`
 	// Todo.
 	Target []SubstanceReferenceInformationTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
-	// Todo.
 }
 type SubstanceReferenceInformationGene struct {
 	// Unique id for the element within a resource (for internal references).
@@ -90,7 +89,6 @@ type SubstanceReferenceInformationGene struct {
 	Gene *CodeableConcept `bson:"gene,omitempty" json:"gene,omitempty" xml:"gene,omitempty"`
 	// Todo.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// Todo.
 }
 type SubstanceReferenceInformationGeneElement struct {
 	// Unique id for the element within a resource (for internal references).
@@ -117,7 +115,6 @@ type SubstanceReferenceInformationGeneElement struct {
 	Element *Identifier `bson:"element,omitempty" json:"element,omitempty" xml:"element,omitempty"`
 	// Todo.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
-	// Todo.
 }
 type SubstanceReferenceInformationTarget struct {
 	// Unique id for the element within a resource (for internal references).

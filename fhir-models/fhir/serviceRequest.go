@@ -206,7 +206,6 @@ type ServiceRequestOrderDetail struct {
 	ParameterFocus *CodeableReference `bson:"parameterFocus,omitempty" json:"parameterFocus,omitempty" xml:"parameterFocus,omitempty"`
 	// The parameter details for the service being requested.
 	Parameter []ServiceRequestOrderDetailParameter `bson:"parameter" json:"parameter" xml:"parameter"`
-	// An amount of service being requested which can be a quantity ( for example $1,500 home modification), a ratio ( for example, 20 half day visits per month), or a range (2.0 to 1.8 Gy per fraction).
 }
 type ServiceRequestOrderDetailParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -239,7 +238,6 @@ type ServiceRequestOrderDetailParameter struct {
 	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept" xml:"valueCodeableConcept"`
 	ValueString          string          `bson:"valueString" json:"valueString" xml:"valueString"`
 	ValuePeriod          Period          `bson:"valuePeriod" json:"valuePeriod" xml:"valuePeriod"`
-	// An amount of service being requested which can be a quantity ( for example $1,500 home modification), a ratio ( for example, 20 half day visits per month), or a range (2.0 to 1.8 Gy per fraction).
 }
 type ServiceRequestPatientInstruction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -263,9 +261,6 @@ type ServiceRequestPatientInstruction struct {
 	// Instructions in terms that are understood by the patient or consumer.
 	InstructionMarkdown  *string    `bson:"instructionMarkdown,omitempty" json:"instructionMarkdown,omitempty" xml:"instructionMarkdown,omitempty"`
 	InstructionReference *Reference `bson:"instructionReference,omitempty" json:"instructionReference,omitempty" xml:"instructionReference,omitempty"`
-	// Key events in the history of the request.
-	//
-	// Comment: This might not include provenances for all versions of the request – only those deemed “relevant” or important.This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revincludeAll Provenances should have some historical version of this Request as their subject.
 }
 
 func (r ServiceRequest) ResourceType() string {

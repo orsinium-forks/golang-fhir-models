@@ -101,7 +101,6 @@ type RequestOrchestration struct {
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// The actions, if any, produced by the evaluation of the artifact.
 	Action []RequestOrchestrationAction `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
-	// A set of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
 }
 type RequestOrchestrationAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -238,7 +237,6 @@ type RequestOrchestrationActionCondition struct {
 	//
 	// Comment: The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	// Defines input data requirements for the action.
 }
 type RequestOrchestrationActionInput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -269,7 +267,6 @@ type RequestOrchestrationActionInput struct {
 	//
 	// Comment: The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
-	// Defines the outputs of the action, if any.
 }
 type RequestOrchestrationActionOutput struct {
 	// Unique id for the element within a resource (for internal references).
@@ -300,7 +297,6 @@ type RequestOrchestrationActionOutput struct {
 	//
 	// Comment: The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
-	// A relationship to another action such as "before" or "30-60 minutes after start of".
 }
 type RequestOrchestrationActionRelatedAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -332,9 +328,6 @@ type RequestOrchestrationActionRelatedAction struct {
 	// For example, 30-60 minutes before.
 	OffsetDuration *Duration `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty" xml:"offsetDuration,omitempty"`
 	OffsetRange    *Range    `bson:"offsetRange,omitempty" json:"offsetRange,omitempty" xml:"offsetRange,omitempty"`
-	// An optional value describing when the action should be performed.
-	//
-	// Comment: The intent of the timing element is to provide timing for when the action should be performed. The timing may be absolute (specified as a dateTime or Period) or relative (specified as an Age, Duration, or Range), or it may be a more complex, potentially repeating timing specified using Timing.
 }
 type RequestOrchestrationActionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -370,7 +363,6 @@ type RequestOrchestrationActionParticipant struct {
 	// A reference to the actual participant.
 	ActorCanonical *string    `bson:"actorCanonical,omitempty" json:"actorCanonical,omitempty" xml:"actorCanonical,omitempty"`
 	ActorReference *Reference `bson:"actorReference,omitempty" json:"actorReference,omitempty" xml:"actorReference,omitempty"`
-	// The type of action to perform (create, update, remove).
 }
 type RequestOrchestrationActionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).
@@ -401,7 +393,6 @@ type RequestOrchestrationActionDynamicValue struct {
 	//
 	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	// Sub actions.
 }
 
 func (r RequestOrchestration) ResourceType() string {

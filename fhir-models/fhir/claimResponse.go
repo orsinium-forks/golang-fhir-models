@@ -159,7 +159,6 @@ type ClaimResponse struct {
 	//
 	// Comment: If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
 	Error []ClaimResponseError `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
-	// This resource provides the adjudication details from the processing of a Claim resource.
 }
 type ClaimResponseEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -185,7 +184,6 @@ type ClaimResponseEvent struct {
 	// A date or period in the past or future indicating when the event occurred or is expectd to occur.
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
-	// Type of Party to be reimbursed: subscriber, provider, other.
 }
 type ClaimResponseItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -224,7 +222,6 @@ type ClaimResponseItem struct {
 	//
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	Detail []ClaimResponseItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ClaimResponseItemReviewOutcome struct {
 	// Unique id for the element within a resource (for internal references).
@@ -257,9 +254,6 @@ type ClaimResponseItemReviewOutcome struct {
 	PreAuthRef *string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
 	// The time frame during which this authorization is effective.
 	PreAuthPeriod *Period `bson:"preAuthPeriod,omitempty" json:"preAuthPeriod,omitempty" xml:"preAuthPeriod,omitempty"`
-	// If this item is a group then the values here are a summary of the adjudication of the detail items.
-	//
-	// If this item is a simple product or service then this is the result of the adjudication of this item.
 }
 type ClaimResponseItemAdjudication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -300,9 +294,6 @@ type ClaimResponseItemAdjudication struct {
 	//
 	// Comment: For example: eligible percentage or co-payment percentage.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// A claim detail.
-	//
-	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 }
 type ClaimResponseItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -337,7 +328,6 @@ type ClaimResponseItemDetail struct {
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// A sub-detail adjudication of a simple product or service.
 	SubDetail []ClaimResponseItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ClaimResponseItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -370,7 +360,6 @@ type ClaimResponseItemDetailSubDetail struct {
 	ReviewOutcome *ClaimResponseItemReviewOutcome `bson:"reviewOutcome,omitempty" json:"reviewOutcome,omitempty"`
 	// The adjudication results.
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ClaimResponseAddItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -460,7 +449,6 @@ type ClaimResponseAddItem struct {
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// The second-tier service adjudications for payor added services.
 	Detail []ClaimResponseAddItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ClaimResponseAddItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
@@ -487,7 +475,6 @@ type ClaimResponseAddItemBodySite struct {
 	Site []CodeableReference `bson:"site" json:"site" xml:"site"`
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
-	// The numbers associated with notes below which apply to the adjudication of this item.
 }
 type ClaimResponseAddItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -554,7 +541,6 @@ type ClaimResponseAddItemDetail struct {
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// The third-tier service adjudications for payor added services.
 	SubDetail []ClaimResponseAddItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ClaimResponseAddItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -619,7 +605,6 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	ReviewOutcome *ClaimResponseItemReviewOutcome `bson:"reviewOutcome,omitempty" json:"reviewOutcome,omitempty"`
 	// The adjudication results.
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ClaimResponseTotal struct {
 	// Unique id for the element within a resource (for internal references).
@@ -648,7 +633,6 @@ type ClaimResponseTotal struct {
 	Category CodeableConcept `bson:"category" json:"category" xml:"category"`
 	// Monetary total amount associated with the category.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
-	// Payment details for the adjudication of the claim.
 }
 type ClaimResponsePayment struct {
 	// Unique id for the element within a resource (for internal references).
@@ -685,9 +669,6 @@ type ClaimResponsePayment struct {
 	//
 	// Comment: For example: EFT number or check number.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	// A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom.
-	//
-	// Comment: Fund would be release by a future claim quoting the preAuthRef of this response. Examples of values include: provider, patient, none.
 }
 type ClaimResponseProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
@@ -718,9 +699,6 @@ type ClaimResponseProcessNote struct {
 	//
 	// Comment: Only required if the language is different from the resource language.
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	// Request for additional supporting or authorizing information.
-	//
-	// Comment: For example: professional reports, documents, images, clinical resources, or accident reports.
 }
 type ClaimResponseInsurance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -757,9 +735,6 @@ type ClaimResponseInsurance struct {
 	//
 	// Comment: Must not be specified when 'focal=true' for this insurance.
 	ClaimResponse *Reference `bson:"claimResponse,omitempty" json:"claimResponse,omitempty" xml:"claimResponse,omitempty"`
-	// Errors encountered during the processing of the adjudication.
-	//
-	// Comment: If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
 }
 type ClaimResponseError struct {
 	// Unique id for the element within a resource (for internal references).

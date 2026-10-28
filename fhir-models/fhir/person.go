@@ -102,9 +102,6 @@ type Person struct {
 	ManagingOrganization *Reference `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty" xml:"managingOrganization,omitempty"`
 	// Link to a resource that concerns the same actual person.
 	Link []PersonLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
-	// Demographics and administrative information about a person independent of a specific health-related context.
-	//
-	// Comment: The Person resource does justice to person registries that keep track of persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare).
 }
 type PersonCommunication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -135,7 +132,6 @@ type PersonCommunication struct {
 	//
 	// Comment: This language is specifically identified for communicating healthcare information.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
-	// The organization that is the custodian of the person record.
 }
 type PersonLink struct {
 	// Unique id for the element within a resource (for internal references).

@@ -130,7 +130,6 @@ type CareTeamParticipant struct {
 	// Comment: This is populated while creating / managing the CareTeam to ensure there is coverage when servicing CarePlan activities from the Schedule.
 	CoveragePeriod *Period `bson:"coveragePeriod,omitempty" json:"coveragePeriod,omitempty" xml:"coveragePeriod,omitempty"`
 	CoverageTiming *Timing `bson:"coverageTiming,omitempty" json:"coverageTiming,omitempty" xml:"coverageTiming,omitempty"`
-	// Describes why the care team exists.
 }
 
 func (r CareTeam) ResourceType() string {

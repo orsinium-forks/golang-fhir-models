@@ -111,7 +111,6 @@ type SubscriptionStatusNotificationEvent struct {
 	//
 	// Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects.
 	AdditionalContext []Reference `bson:"additionalContext,omitempty" json:"additionalContext,omitempty" xml:"additionalContext,omitempty"`
-	// The reference to the Subscription which generated this notification.
 }
 
 func (r SubscriptionStatus) ResourceType() string {

@@ -248,7 +248,6 @@ type CodeSystem struct {
 	//
 	// Comment: If this is empty, it means that the code system resource does not represent the content of the code system.
 	Concept []CodeSystemConcept `bson:"concept,omitempty" json:"concept,omitempty" xml:"concept,omitempty"`
-	// The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
 }
 type CodeSystemFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -277,9 +276,6 @@ type CodeSystemFilter struct {
 	Operator []FilterOperator `bson:"operator" json:"operator" xml:"operator"`
 	// A description of what the value for the filter should be.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// A property defines an additional slot through which additional information can be provided about a concept.
-	//
-	// Comment: Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where     CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept.
 }
 type CodeSystemProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -314,11 +310,6 @@ type CodeSystemProperty struct {
 	//
 	// Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
 	Type PropertyType `bson:"type" json:"type" xml:"type"`
-	// Concepts that are in the code system.
-	//
-	// The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meanings of the hierarchical relationships are.
-	//
-	// Comment: If this is empty, it means that the code system resource does not represent the content of the code system.
 }
 type CodeSystemConcept struct {
 	// Unique id for the element within a resource (for internal references).
@@ -391,7 +382,6 @@ type CodeSystemConceptDesignation struct {
 	AdditionalUse []Coding `bson:"additionalUse,omitempty" json:"additionalUse,omitempty" xml:"additionalUse,omitempty"`
 	// The text value for this designation.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// A property value for this concept.
 }
 type CodeSystemConceptProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -422,9 +412,6 @@ type CodeSystemConceptProperty struct {
 	ValueBoolean  bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
-	// Defines children of a concept to produce a hierarchy of concepts.
-	//
-	// The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.
 }
 
 func (r CodeSystem) ResourceType() string {

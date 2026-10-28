@@ -151,11 +151,6 @@ type DocumentReference struct {
 	//
 	// Comment: content element shall not contain different versions of the same content. For version handling use multiple DocumentReference with .relatesTo.
 	Content []DocumentReferenceContent `bson:"content" json:"content" xml:"content"`
-	// A reference to a document of any kind for any purpose.
-	//
-	// While the term “document” implies a more narrow focus, for this resource this "document" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference.
-	//
-	// Comment: Usually, this is used for documents other than those defined by FHIR.
 }
 type DocumentReferenceAttester struct {
 	// Unique id for the element within a resource (for internal references).
@@ -182,9 +177,6 @@ type DocumentReferenceAttester struct {
 	Time *string `bson:"time,omitempty" json:"time,omitempty" xml:"time,omitempty"`
 	// Who attested the document in the specified way.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
-	// Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
-	//
-	// Comment: Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization.
 }
 type DocumentReferenceRelatesTo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -211,9 +203,6 @@ type DocumentReferenceRelatesTo struct {
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// The target document of this relationship.
 	Target Reference `bson:"target" json:"target" xml:"target"`
-	// Human-readable description of the source document.
-	//
-	// Comment: What the document is about,  a terse summary of the document.
 }
 type DocumentReferenceContent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -242,11 +231,6 @@ type DocumentReferenceContent struct {
 	//
 	// For FHIR content, .profile should indicate the structureDefinition profile canonical URI(s) that the content complies with.
 	Profile []DocumentReferenceContentProfile `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
-	// A reference to a document of any kind for any purpose.
-	//
-	// While the term “document” implies a more narrow focus, for this resource this "document" encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference.
-	//
-	// Comment: Usually, this is used for documents other than those defined by FHIR.
 }
 type DocumentReferenceContentProfile struct {
 	// Unique id for the element within a resource (for internal references).

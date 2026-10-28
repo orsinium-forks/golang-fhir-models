@@ -153,9 +153,6 @@ type ConditionParticipant struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what participated in the activities related to the condition.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// A simple summary of the stage such as "Stage 3" or "Early Onset".
-	//
-	// The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease.
 }
 type ConditionStage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -184,9 +181,6 @@ type ConditionStage struct {
 	Assessment []Reference `bson:"assessment,omitempty" json:"assessment,omitempty" xml:"assessment,omitempty"`
 	// The kind of staging, such as pathological or clinical staging.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	// Supporting evidence / manifestations that are the basis of the Condition's verification status, such as evidence that confirmed or refuted the condition.
-	//
-	// Comment: If the condition was confirmed, but subsequently refuted, then the evidence can be cumulative including all evidence over time.  The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both.  For example, if the Condition.code is pneumonia, then there could be an evidence list where Condition.evidence.concept = fever (CodeableConcept), Condition.evidence.concept = cough (CodeableConcept), and Condition.evidence.reference = bronchitis (reference to Condition).
 }
 
 func (r Condition) ResourceType() string {

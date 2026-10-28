@@ -186,7 +186,6 @@ type SubscriptionTopic struct {
 	CanFilterBy []SubscriptionTopicCanFilterBy `bson:"canFilterBy,omitempty" json:"canFilterBy,omitempty" xml:"canFilterBy,omitempty"`
 	// List of properties to describe the shape (e.g., resources) included in notifications from this Subscription Topic.
 	NotificationShape []SubscriptionTopicNotificationShape `bson:"notificationShape,omitempty" json:"notificationShape,omitempty" xml:"notificationShape,omitempty"`
-	// Describes a stream of resource state changes or events and annotated with labels useful to filter projections from this topic.
 }
 type SubscriptionTopicResourceTrigger struct {
 	// Unique id for the element within a resource (for internal references).
@@ -225,7 +224,6 @@ type SubscriptionTopicResourceTrigger struct {
 	//
 	// Comment: FHIRPath expression with %previous and %current vars.
 	FhirPathCriteria *string `bson:"fhirPathCriteria,omitempty" json:"fhirPathCriteria,omitempty" xml:"fhirPathCriteria,omitempty"`
-	// Event definition which can be used to trigger the SubscriptionTopic.
 }
 type SubscriptionTopicResourceTriggerQueryCriteria struct {
 	// Unique id for the element within a resource (for internal references).
@@ -268,9 +266,6 @@ type SubscriptionTopicResourceTriggerQueryCriteria struct {
 	//
 	// Comment: Please note the interaction between this element and the `resultForCreate`/`resultForDelete` elements during `create` and `delete` interactions.  For example, if `resultForCreate` is set to `test-passes`, setting `requireBoth` to `false` means that every `create` will trigger a notification while setting `requireBoth` to `true` will result in notifications if the `current` test passes.  Similarly, if `resultForCreate` is set to `test-fails`, setting `requireBoth` to `true` means that no `create` will be able to generate a notification while setting `requireBoth` to `false` will result in notifications if the `current` test passes.
 	RequireBoth *bool `bson:"requireBoth,omitempty" json:"requireBoth,omitempty" xml:"requireBoth,omitempty"`
-	// The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic.
-	//
-	// Comment: FHIRPath expression with %previous and %current vars.
 }
 type SubscriptionTopicEventTrigger struct {
 	// Unique id for the element within a resource (for internal references).
@@ -303,9 +298,6 @@ type SubscriptionTopicEventTrigger struct {
 	//
 	//  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, "Patient" maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see <a href="elementdefinition-definitions.html#ElementDefinition.type.code">ElementDefinition.type.code</a>.
 	Resource string `bson:"resource" json:"resource" xml:"resource"`
-	// List of properties by which Subscriptions on the SubscriptionTopic can be filtered.
-	//
-	// May be defined Search Parameters (e.g., Encounter.patient) or parameters defined within this SubscriptionTopic context (e.g., hub.event).
 }
 type SubscriptionTopicCanFilterBy struct {
 	// Unique id for the element within a resource (for internal references).
@@ -350,7 +342,6 @@ type SubscriptionTopicCanFilterBy struct {
 	//
 	// Comment: If no modifiers are listed, clients should not expect servers to support any modifiers.
 	Modifier []SearchModifierCode `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
-	// List of properties to describe the shape (e.g., resources) included in notifications from this Subscription Topic.
 }
 type SubscriptionTopicNotificationShape struct {
 	// Unique id for the element within a resource (for internal references).

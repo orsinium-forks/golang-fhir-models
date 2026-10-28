@@ -158,7 +158,6 @@ type ExampleScenario struct {
 	//
 	// Comment: Some scenarios might describe only one process.
 	Process []ExampleScenarioProcess `bson:"process,omitempty" json:"process,omitempty" xml:"process,omitempty"`
-	// Example of workflow instance.
 }
 type ExampleScenarioActor struct {
 	// Unique id for the element within a resource (for internal references).
@@ -187,7 +186,6 @@ type ExampleScenarioActor struct {
 	Title string `bson:"title" json:"title" xml:"title"`
 	// An explanation of who/what the actor is and its role in the scenario.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	// A single data collection that is shared as part of the scenario.
 }
 type ExampleScenarioInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -235,9 +233,6 @@ type ExampleScenarioInstance struct {
 	//
 	// the observations contained in a bundle).
 	ContainedInstance []ExampleScenarioInstanceContainedInstance `bson:"containedInstance,omitempty" json:"containedInstance,omitempty" xml:"containedInstance,omitempty"`
-	// A group of operations that represents a significant step within a scenario.
-	//
-	// Comment: Some scenarios might describe only one process.
 }
 type ExampleScenarioInstanceVersion struct {
 	// Unique id for the element within a resource (for internal references).
@@ -268,9 +263,6 @@ type ExampleScenarioInstanceVersion struct {
 	//
 	// Comment: If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary.
 	Content *Reference `bson:"content,omitempty" json:"content,omitempty" xml:"content,omitempty"`
-	// References to other instances that can be found within this instance (e.g.
-	//
-	// the observations contained in a bundle).
 }
 type ExampleScenarioInstanceContainedInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -297,9 +289,6 @@ type ExampleScenarioInstanceContainedInstance struct {
 	//
 	// Comment: Required if the referenced instance has versions
 	VersionReference *string `bson:"versionReference,omitempty" json:"versionReference,omitempty" xml:"versionReference,omitempty"`
-	// A group of operations that represents a significant step within a scenario.
-	//
-	// Comment: Some scenarios might describe only one process.
 }
 type ExampleScenarioProcess struct {
 	// Unique id for the element within a resource (for internal references).
@@ -332,7 +321,6 @@ type ExampleScenarioProcess struct {
 	PostConditions *string `bson:"postConditions,omitempty" json:"postConditions,omitempty" xml:"postConditions,omitempty"`
 	// A significant action that occurs as part of the process.
 	Step []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty" xml:"step,omitempty"`
-	// Example of workflow instance.
 }
 type ExampleScenarioProcessStep struct {
 	// Unique id for the element within a resource (for internal references).
@@ -417,9 +405,6 @@ type ExampleScenarioProcessStepOperation struct {
 	Request *ExampleScenarioInstanceContainedInstance `bson:"request,omitempty" json:"request,omitempty"`
 	// A reference to the instance that is transmitted from receiver to requester as part of the operation's synchronous response (if any).
 	Response *ExampleScenarioInstanceContainedInstance `bson:"response,omitempty" json:"response,omitempty"`
-	// Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.
-	//
-	//	E.g. to represent non-happy-path/exceptional/atypical circumstances.
 }
 type ExampleScenarioProcessStepAlternative struct {
 	// Unique id for the element within a resource (for internal references).
@@ -446,7 +431,6 @@ type ExampleScenarioProcessStepAlternative struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Indicates the operation, sub-process or scenario that happens if the alternative option is selected.
 	Step []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty"`
-	// If true, indicates that, following this step, there is a pause in the flow and the subsequent step will occur at some later time (triggered by some event).
 }
 
 func (r ExampleScenario) ResourceType() string {

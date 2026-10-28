@@ -131,7 +131,6 @@ type SpecimenFeature struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// Description of the feature of the specimen.
 	Description string `bson:"description" json:"description" xml:"description"`
-	// Details concerning the specimen collection.
 }
 type SpecimenCollection struct {
 	// Unique id for the element within a resource (for internal references).
@@ -180,7 +179,6 @@ type SpecimenCollection struct {
 	// Comment: Representing fasting status using this element is preferred to representing it with an observation using a 'pre-coordinated code'  such as  LOINC 2005-7 (Calcium [Moles/​time] in 2 hour Urine --12 hours fasting), or  using  a component observation ` such as `Observation.component code`  = LOINC 49541-6 (Fasting status - Reported).
 	FastingStatusCodeableConcept *CodeableConcept `bson:"fastingStatusCodeableConcept,omitempty" json:"fastingStatusCodeableConcept,omitempty" xml:"fastingStatusCodeableConcept,omitempty"`
 	FastingStatusDuration        *Duration        `bson:"fastingStatusDuration,omitempty" json:"fastingStatusDuration,omitempty" xml:"fastingStatusDuration,omitempty"`
-	// Details concerning processing and processing steps for the specimen.
 }
 type SpecimenProcessing struct {
 	// Unique id for the element within a resource (for internal references).
@@ -212,9 +210,6 @@ type SpecimenProcessing struct {
 	//  For example the time of sample fixation or the period of time the sample was in formalin.
 	TimeDateTime *string `bson:"timeDateTime,omitempty" json:"timeDateTime,omitempty" xml:"timeDateTime,omitempty"`
 	TimePeriod   *Period `bson:"timePeriod,omitempty" json:"timePeriod,omitempty" xml:"timePeriod,omitempty"`
-	// The container holding the specimen.
-	//
-	//	The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
 }
 type SpecimenContainer struct {
 	// Unique id for the element within a resource (for internal references).
@@ -243,9 +238,6 @@ type SpecimenContainer struct {
 	Location *Reference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
 	// The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.
 	SpecimenQuantity *Quantity `bson:"specimenQuantity,omitempty" json:"specimenQuantity,omitempty" xml:"specimenQuantity,omitempty"`
-	// A mode or state of being that describes the nature of the specimen.
-	//
-	// Comment: Specimen condition is an observation made about the specimen.  It's a point-in-time assessment.  It can be used to assess its quality or appropriateness for a specific test.
 }
 
 func (r Specimen) ResourceType() string {

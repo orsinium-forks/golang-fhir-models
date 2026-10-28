@@ -105,7 +105,6 @@ type NutritionProductNutrient struct {
 	Item *CodeableReference `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 	// The amount of nutrient expressed in one or more units: X per pack / per serving / per dose.
 	Amount []Ratio `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
-	// Ingredients contained in this product.
 }
 type NutritionProductIngredient struct {
 	// Unique id for the element within a resource (for internal references).
@@ -130,7 +129,6 @@ type NutritionProductIngredient struct {
 	Item CodeableReference `bson:"item" json:"item" xml:"item"`
 	// The amount of ingredient that is in the product.
 	Amount []Ratio `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
-	// Allergens that are known or suspected to be a part of this nutrition product.
 }
 type NutritionProductCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -162,9 +160,6 @@ type NutritionProductCharacteristic struct {
 	ValueBase64Binary    string          `bson:"valueBase64Binary" json:"valueBase64Binary" xml:"valueBase64Binary"`
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment" xml:"valueAttachment"`
 	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
-	// Conveys instance-level information about this product item.
-	//
-	// One or several physical, countable instances or occurrences of the product.
 }
 type NutritionProductInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -201,7 +196,6 @@ type NutritionProductInstance struct {
 	//
 	// Comment: Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier.
 	BiologicalSourceEvent *Identifier `bson:"biologicalSourceEvent,omitempty" json:"biologicalSourceEvent,omitempty" xml:"biologicalSourceEvent,omitempty"`
-	// Comments made about the product.
 }
 
 func (r NutritionProduct) ResourceType() string {

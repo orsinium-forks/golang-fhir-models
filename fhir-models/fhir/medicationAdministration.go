@@ -149,7 +149,6 @@ type MedicationAdministrationPerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what performed the medication administration.
 	Actor CodeableReference `bson:"actor" json:"actor" xml:"actor"`
-	// A code, Condition or observation that supports why the medication was administered.
 }
 type MedicationAdministrationDosage struct {
 	// Unique id for the element within a resource (for internal references).
@@ -203,9 +202,6 @@ type MedicationAdministrationDosage struct {
 	// Comment: If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.
 	RateRatio    *Ratio    `bson:"rateRatio,omitempty" json:"rateRatio,omitempty" xml:"rateRatio,omitempty"`
 	RateQuantity *Quantity `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty" xml:"rateQuantity,omitempty"`
-	// A summary of the events of interest that have occurred, such as when the administration was verified.
-	//
-	// Comment: This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.
 }
 
 func (r MedicationAdministration) ResourceType() string {

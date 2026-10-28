@@ -119,11 +119,6 @@ type QuestionnaireResponse struct {
 	//
 	// Comment: Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).\nWhen dealing with repeating items, each group repetition will be handled by a separate item.  However, repeating questions are handled with a single question item and potentially multiple answers.
 	Item []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
-	// A structured set of questions and their answers.
-	//
-	// The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
-	//
-	// Comment: The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse.
 }
 type QuestionnaireResponseItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -203,9 +198,6 @@ type QuestionnaireResponseItemAnswer struct {
 	//
 	// Comment: Only used when nesting beneath a question - see item.item for nesting beneath groups
 	Item []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
-	// Sub-questions, sub-groups or display items nested beneath a group.
-	//
-	// Comment: Only used when nesting beneath a group - see item.answer.item for nesting beneath questions
 }
 
 func (r QuestionnaireResponse) ResourceType() string {

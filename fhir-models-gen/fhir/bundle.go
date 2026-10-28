@@ -111,7 +111,6 @@ type BundleLink struct {
 	Relation LinkRelationTypes `bson:"relation" json:"relation" xml:"relation"`
 	// The reference details for the link.
 	Url string `bson:"url" json:"url" xml:"url"`
-	// An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).
 }
 type BundleEntry struct {
 	// Unique id for the element within a resource (for internal references).
@@ -160,9 +159,6 @@ type BundleEntry struct {
 	Request *BundleEntryRequest `bson:"request,omitempty" json:"request,omitempty" xml:"request,omitempty"`
 	// Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.
 	Response *BundleEntryResponse `bson:"response,omitempty" json:"response,omitempty" xml:"response,omitempty"`
-	// Digital Signature - base64 encoded. XML-DSig or a JWS.
-	//
-	// Comment: The signature could be created by the "author" of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific.
 }
 type BundleEntrySearch struct {
 	// Unique id for the element within a resource (for internal references).
@@ -193,9 +189,6 @@ type BundleEntrySearch struct {
 	//
 	// See [Patient Match](patient-operation-match.html) for the EMPI search which relates to this element.
 	Score *decimal.Decimal `bson:"score,omitempty" json:"score,omitempty" xml:"score,omitempty"`
-	// Additional information about how this entry should be processed as part of a transaction or batch.
-	//
-	//	For history, it shows how the entry was processed to create the version contained in the entry.
 }
 type BundleEntryRequest struct {
 	// Unique id for the element within a resource (for internal references).
@@ -240,7 +233,6 @@ type BundleEntryRequest struct {
 	//
 	// For further information, see the API documentation for ["Conditional Create"](http.html#ccreate). This is just the query portion of the URL - what follows the "?" (not including the "?").
 	IfNoneExist *string `bson:"ifNoneExist,omitempty" json:"ifNoneExist,omitempty" xml:"ifNoneExist,omitempty"`
-	// Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.
 }
 type BundleEntryResponse struct {
 	// Unique id for the element within a resource (for internal references).
@@ -281,9 +273,6 @@ type BundleEntryResponse struct {
 	//
 	// This outcome is not used for error responses in batch/transaction, only for hints and warnings. In a batch operation, the error will be in Bundle.entry.response, and for transaction, there will be a single OperationOutcome instead of a bundle in the case of an error.
 	Outcome jsontext.Value `bson:"outcome,omitempty" json:"outcome,omitempty" xml:"outcome,omitempty"`
-	// Digital Signature - base64 encoded. XML-DSig or a JWS.
-	//
-	// Comment: The signature could be created by the "author" of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific.
 }
 
 func (r Bundle) ResourceType() string {

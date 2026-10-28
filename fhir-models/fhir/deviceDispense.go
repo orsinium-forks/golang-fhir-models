@@ -143,7 +143,6 @@ type DeviceDispensePerformer struct {
 	//
 	// who performed the action.  It should be assumed that the actor is the dispenser of the device.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// The principal physical location where the dispense was performed.
 }
 
 func (r DeviceDispense) ResourceType() string {

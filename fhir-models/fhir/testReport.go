@@ -95,7 +95,6 @@ type TestReport struct {
 	Test []TestReportTest `bson:"test,omitempty" json:"test,omitempty" xml:"test,omitempty"`
 	// The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise).
 	Teardown *TestReportTeardown `bson:"teardown,omitempty" json:"teardown,omitempty" xml:"teardown,omitempty"`
-	// A summary of information based on the results of executing a TestScript.
 }
 type TestReportParticipant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -122,7 +121,6 @@ type TestReportParticipant struct {
 	Uri string `bson:"uri" json:"uri" xml:"uri"`
 	// The display name of the participant.
 	Display *string `bson:"display,omitempty" json:"display,omitempty" xml:"display,omitempty"`
-	// The results of the series of required setup operations before the tests were executed.
 }
 type TestReportSetup struct {
 	// Unique id for the element within a resource (for internal references).
@@ -147,7 +145,6 @@ type TestReportSetup struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestReportSetupAction `bson:"action" json:"action" xml:"action"`
-	// A test executed from the test script.
 }
 type TestReportSetupAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -172,7 +169,6 @@ type TestReportSetupAction struct {
 	Operation *TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
 	// The results of the assertion performed on the previous operations.
 	Assert *TestReportSetupActionAssert `bson:"assert,omitempty" json:"assert,omitempty" xml:"assert,omitempty"`
-	// A test executed from the test script.
 }
 type TestReportSetupActionOperation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -199,7 +195,6 @@ type TestReportSetupActionOperation struct {
 	Message *string `bson:"message,omitempty" json:"message,omitempty" xml:"message,omitempty"`
 	// A link to further details on the result.
 	Detail *string `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The results of the assertion performed on the previous operations.
 }
 type TestReportSetupActionAssert struct {
 	// Unique id for the element within a resource (for internal references).
@@ -230,7 +225,6 @@ type TestReportSetupActionAssert struct {
 	//
 	// Comment: TestScript and TestReport instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements.
 	Requirement []TestReportSetupActionAssertRequirement `bson:"requirement,omitempty" json:"requirement,omitempty" xml:"requirement,omitempty"`
-	// A test executed from the test script.
 }
 type TestReportSetupActionAssertRequirement struct {
 	// Unique id for the element within a resource (for internal references).
@@ -254,7 +248,6 @@ type TestReportSetupActionAssertRequirement struct {
 	// Link or reference providing traceability to the testing requirement for this test.
 	LinkUri       *string `bson:"linkUri,omitempty" json:"linkUri,omitempty" xml:"linkUri,omitempty"`
 	LinkCanonical *string `bson:"linkCanonical,omitempty" json:"linkCanonical,omitempty" xml:"linkCanonical,omitempty"`
-	// A test executed from the test script.
 }
 type TestReportTest struct {
 	// Unique id for the element within a resource (for internal references).
@@ -283,7 +276,6 @@ type TestReportTest struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestReportTestAction `bson:"action" json:"action" xml:"action"`
-	// The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise).
 }
 type TestReportTestAction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -308,7 +300,6 @@ type TestReportTestAction struct {
 	Operation *TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 	// The results of the assertion performed on the previous operations.
 	Assert *TestReportSetupActionAssert `bson:"assert,omitempty" json:"assert,omitempty"`
-	// The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise).
 }
 type TestReportTeardown struct {
 	// Unique id for the element within a resource (for internal references).
@@ -333,7 +324,6 @@ type TestReportTeardown struct {
 	//
 	// Comment: An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 	Action []TestReportTeardownAction `bson:"action" json:"action" xml:"action"`
-	// A summary of information based on the results of executing a TestScript.
 }
 type TestReportTeardownAction struct {
 	// Unique id for the element within a resource (for internal references).

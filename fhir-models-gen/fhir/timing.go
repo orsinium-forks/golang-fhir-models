@@ -112,9 +112,4 @@ type TimingRepeat struct {
 	//
 	// If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.
 	Offset *int `bson:"offset,omitempty" json:"offset,omitempty" xml:"offset,omitempty"`
-	// A code for the timing schedule (or just text in code.text).
-	//
-	// Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
-	//
-	// Comment: BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times).
 }

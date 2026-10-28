@@ -133,9 +133,6 @@ type MessageHeaderDestination struct {
 	Target *Reference `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
 	// Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
 	Receiver *Reference `bson:"receiver,omitempty" json:"receiver,omitempty" xml:"receiver,omitempty"`
-	// Identifies the sending system to allow the use of a trust relationship.
-	//
-	// Comment: Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information.
 }
 type MessageHeaderSource struct {
 	// Unique id for the element within a resource (for internal references).
@@ -169,11 +166,6 @@ type MessageHeaderSource struct {
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
 	// An e-mail, phone, website or other contact point to use to resolve issues with message communications.
 	Contact *ContactPoint `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	// The person or organization that accepts overall responsibility for the contents of the message.
-	//
-	// The implication is that the message event happened under the policies of the responsible party.
-	//
-	// Comment: Usually only for the request but can be used in a response.Proposing to remove and rely on Task to convey this information.
 }
 type MessageHeaderResponse struct {
 	// Unique id for the element within a resource (for internal references).
@@ -204,11 +196,6 @@ type MessageHeaderResponse struct {
 	//
 	// Comment: This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error.
 	Details *Reference `bson:"details,omitempty" json:"details,omitempty" xml:"details,omitempty"`
-	// The actual data of the message - a reference to the root/focus class of the event.
-	//
-	// This is allowed to be a Parameters resource.
-	//
-	// Comment: The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The resources it references should be contained in the bundle but are not also listed here.  Multiple repetitions are allowed to cater for merges and other situations with multiple focal targets.
 }
 
 func (r MessageHeader) ResourceType() string {

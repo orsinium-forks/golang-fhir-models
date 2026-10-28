@@ -147,7 +147,6 @@ type CoveragePaymentBy struct {
 	Party Reference `bson:"party" json:"party" xml:"party"`
 	//  Description of the financial responsibility.
 	Responsibility *string `bson:"responsibility,omitempty" json:"responsibility,omitempty" xml:"responsibility,omitempty"`
-	// The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
 }
 type CoverageClass struct {
 	// Unique id for the element within a resource (for internal references).
@@ -178,9 +177,6 @@ type CoverageClass struct {
 	Value Identifier `bson:"value" json:"value" xml:"value"`
 	// A short description for the class.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	// The order of applicability of this coverage relative to other coverages which are currently in force.
-	//
-	// Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis.
 }
 type CoverageCostToBeneficiary struct {
 	// Unique id for the element within a resource (for internal references).
@@ -222,9 +218,6 @@ type CoverageCostToBeneficiary struct {
 	ValueMoney    *Money    `bson:"valueMoney,omitempty" json:"valueMoney,omitempty" xml:"valueMoney,omitempty"`
 	// A suite of codes indicating exceptions or reductions to patient costs and their effective periods.
 	Exception []CoverageCostToBeneficiaryException `bson:"exception,omitempty" json:"exception,omitempty" xml:"exception,omitempty"`
-	// When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs.
-	//
-	// Comment: Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims.
 }
 type CoverageCostToBeneficiaryException struct {
 	// Unique id for the element within a resource (for internal references).
@@ -249,9 +242,6 @@ type CoverageCostToBeneficiaryException struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// The timeframe the exception is in force.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs.
-	//
-	// Comment: Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims.
 }
 
 func (r Coverage) ResourceType() string {

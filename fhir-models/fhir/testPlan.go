@@ -160,7 +160,6 @@ type TestPlan struct {
 	ExitCriteria *string `bson:"exitCriteria,omitempty" json:"exitCriteria,omitempty" xml:"exitCriteria,omitempty"`
 	// The individual test cases that are part of this plan, when they they are made explicit.
 	TestCase []TestPlanTestCase `bson:"testCase,omitempty" json:"testCase,omitempty" xml:"testCase,omitempty"`
-	// A plan for executing testing on an artifact or specifications.
 }
 type TestPlanDependency struct {
 	// Unique id for the element within a resource (for internal references).
@@ -185,7 +184,6 @@ type TestPlanDependency struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Predecessor test plans - those that are expected to be successfully performed as a dependency for the execution of this test plan.
 	Predecessor *Reference `bson:"predecessor,omitempty" json:"predecessor,omitempty" xml:"predecessor,omitempty"`
-	// The threshold or criteria for the test plan to be considered successfully executed - narrative.
 }
 type TestPlanTestCase struct {
 	// Unique id for the element within a resource (for internal references).
@@ -218,7 +216,6 @@ type TestPlanTestCase struct {
 	TestData []TestPlanTestCaseTestData `bson:"testData,omitempty" json:"testData,omitempty" xml:"testData,omitempty"`
 	// The test assertions - the expectations of test results from the execution of the test case.
 	Assertion []TestPlanTestCaseAssertion `bson:"assertion,omitempty" json:"assertion,omitempty" xml:"assertion,omitempty"`
-	// A plan for executing testing on an artifact or specifications.
 }
 type TestPlanTestCaseDependency struct {
 	// Unique id for the element within a resource (for internal references).
@@ -243,7 +240,6 @@ type TestPlanTestCaseDependency struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Link to predecessor test plans.
 	Predecessor *Reference `bson:"predecessor,omitempty" json:"predecessor,omitempty" xml:"predecessor,omitempty"`
-	// The actual test to be executed.
 }
 type TestPlanTestCaseTestRun struct {
 	// Unique id for the element within a resource (for internal references).
@@ -268,7 +264,6 @@ type TestPlanTestCaseTestRun struct {
 	Narrative *string `bson:"narrative,omitempty" json:"narrative,omitempty" xml:"narrative,omitempty"`
 	// The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript.
 	Script *TestPlanTestCaseTestRunScript `bson:"script,omitempty" json:"script,omitempty" xml:"script,omitempty"`
-	// The test data used in the test case.
 }
 type TestPlanTestCaseTestRunScript struct {
 	// Unique id for the element within a resource (for internal references).
@@ -294,7 +289,6 @@ type TestPlanTestCaseTestRunScript struct {
 	// The actual content of the cases - references to TestScripts or externally defined content.
 	SourceString    *string    `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceReference *Reference `bson:"sourceReference,omitempty" json:"sourceReference,omitempty" xml:"sourceReference,omitempty"`
-	// The test data used in the test case.
 }
 type TestPlanTestCaseTestData struct {
 	// Unique id for the element within a resource (for internal references).
@@ -324,7 +318,6 @@ type TestPlanTestCaseTestData struct {
 	// synthetic data generation, etc.
 	SourceString    *string    `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceReference *Reference `bson:"sourceReference,omitempty" json:"sourceReference,omitempty" xml:"sourceReference,omitempty"`
-	// The test assertions - the expectations of test results from the execution of the test case.
 }
 type TestPlanTestCaseAssertion struct {
 	// Unique id for the element within a resource (for internal references).

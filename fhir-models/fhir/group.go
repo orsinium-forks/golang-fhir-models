@@ -99,11 +99,6 @@ type Group struct {
 	Characteristic []GroupCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty" xml:"characteristic,omitempty"`
 	// Identifies the resource instances that are members of the group.
 	Member []GroupMember `bson:"member,omitempty" json:"member,omitempty" xml:"member,omitempty"`
-	// Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e.
-	//
-	// a collection of entities that isn't an Organization.
-	//
-	// Comment: If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics.
 }
 type GroupCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -142,7 +137,6 @@ type GroupCharacteristic struct {
 	//
 	// the patient had an operation during the month of June.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	// Identifies the resource instances that are members of the group.
 }
 type GroupMember struct {
 	// Unique id for the element within a resource (for internal references).

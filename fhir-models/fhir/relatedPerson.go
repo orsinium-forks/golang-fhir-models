@@ -95,7 +95,6 @@ type RelatedPerson struct {
 	//
 	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple RelatedPerson.Communication associations.   If the RelatedPerson does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
 	Communication []RelatedPersonCommunication `bson:"communication,omitempty" json:"communication,omitempty" xml:"communication,omitempty"`
-	// Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
 }
 type RelatedPersonCommunication struct {
 	// Unique id for the element within a resource (for internal references).

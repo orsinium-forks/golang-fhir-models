@@ -100,9 +100,6 @@ type DetectedIssue struct {
 	//
 	//  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
 	Mitigation []DetectedIssueMitigation `bson:"mitigation,omitempty" json:"mitigation,omitempty" xml:"mitigation,omitempty"`
-	// Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g.
-	//
-	// Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc.
 }
 type DetectedIssueEvidence struct {
 	// Unique id for the element within a resource (for internal references).
@@ -127,9 +124,6 @@ type DetectedIssueEvidence struct {
 	Code []CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// Links to resources that constitute evidence for the detected issue such as a GuidanceResponse or MeasureReport.
 	Detail []Reference `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// A textual explanation of the detected issue.
-	//
-	// Comment: Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.
 }
 type DetectedIssueMitigation struct {
 	// Unique id for the element within a resource (for internal references).

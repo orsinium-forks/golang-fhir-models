@@ -162,7 +162,6 @@ type Requirements struct {
 	Actor []string `bson:"actor,omitempty" json:"actor,omitempty" xml:"actor,omitempty"`
 	// The actual statement of requirement, in markdown format.
 	Statement []RequirementsStatement `bson:"statement,omitempty" json:"statement,omitempty" xml:"statement,omitempty"`
-	// A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals.
 }
 type RequirementsStatement struct {
 	// Unique id for the element within a resource (for internal references).

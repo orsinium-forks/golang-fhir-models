@@ -95,13 +95,6 @@ type BiologicallyDerivedProduct struct {
 	//
 	// Comment: Property can be used to provide information on a wide range of additional information specific to a particular biologicallyDerivedProduct.
 	Property []BiologicallyDerivedProductProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
-	// This resource reflects an instance of a biologically derived product.
-	//
-	// # A material substance originating from a biological entity intended to be transplanted or infused
-	//
-	// into another (possibly the same) biological entity.
-	//
-	// Comment: Substances include, but are not limited to: whole blood, bone marrow, organs, and manipulated blood cells.
 }
 type BiologicallyDerivedProductCollection struct {
 	// Unique id for the element within a resource (for internal references).
@@ -129,9 +122,6 @@ type BiologicallyDerivedProductCollection struct {
 	// Time of product collection.
 	CollectedDateTime *string `bson:"collectedDateTime,omitempty" json:"collectedDateTime,omitempty" xml:"collectedDateTime,omitempty"`
 	CollectedPeriod   *Period `bson:"collectedPeriod,omitempty" json:"collectedPeriod,omitempty" xml:"collectedPeriod,omitempty"`
-	// The temperature requirements for storage of the biologically-derived product.
-	//
-	// Comment: May be extracted from information held in the Product Description Code.
 }
 type BiologicallyDerivedProductProperty struct {
 	// Unique id for the element within a resource (for internal references).

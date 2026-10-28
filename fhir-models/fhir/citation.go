@@ -208,9 +208,6 @@ type Citation struct {
 	RelatedArtifact []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
 	// The article or artifact being described.
 	CitedArtifact *CitationCitedArtifact `bson:"citedArtifact,omitempty" json:"citedArtifact,omitempty" xml:"citedArtifact,omitempty"`
-	// The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution.
-	//
-	// The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.
 }
 type CitationSummary struct {
 	// Unique id for the element within a resource (for internal references).
@@ -235,9 +232,6 @@ type CitationSummary struct {
 	Style *CodeableConcept `bson:"style,omitempty" json:"style,omitempty" xml:"style,omitempty"`
 	// The human-readable display of the citation summary.
 	Text string `bson:"text" json:"text" xml:"text"`
-	// The assignment to an organizing scheme.
-	//
-	// Comment: Use this element if you need to classify the citation record independently from classifying the cited artifact.
 }
 type CitationClassification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -262,7 +256,6 @@ type CitationClassification struct {
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// The specific classification value.
 	Classifier []CodeableConcept `bson:"classifier,omitempty" json:"classifier,omitempty" xml:"classifier,omitempty"`
-	// Used for general notes and annotations not coded elsewhere.
 }
 type CitationStatusDate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -291,9 +284,6 @@ type CitationStatusDate struct {
 	//
 	// Comment: For an instance, place the same value in both start and end elements.
 	Period Period `bson:"period" json:"period" xml:"period"`
-	// Artifact related to the citation record.
-	//
-	// Comment: Use this if needed for reporting artifacts related to the citation record, NOT FOR reporting artifacts related to the cited article. For example, one may use this element to report the data source for generation of the Citation Resource instance if it was automatically generated, such as conversion from a citation repository.
 }
 type CitationCitedArtifact struct {
 	// Unique id for the element within a resource (for internal references).
@@ -380,7 +370,6 @@ type CitationCitedArtifactVersion struct {
 	//
 	// Comment: When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be version-specific.
 	BaseCitation *Reference `bson:"baseCitation,omitempty" json:"baseCitation,omitempty" xml:"baseCitation,omitempty"`
-	// The status of the cited artifact.
 }
 type CitationCitedArtifactStatusDate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -409,7 +398,6 @@ type CitationCitedArtifactStatusDate struct {
 	//
 	// Comment: For an instance, place the same value in both start and end elements.
 	Period Period `bson:"period" json:"period" xml:"period"`
-	// The title details of the article or artifact.
 }
 type CitationCitedArtifactTitle struct {
 	// Unique id for the element within a resource (for internal references).
@@ -436,7 +424,6 @@ type CitationCitedArtifactTitle struct {
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
 	// The title of the article or artifact.
 	Text string `bson:"text" json:"text" xml:"text"`
-	// The abstract may be used to convey article-contained abstracts, externally-created abstracts, or other descriptive summaries.
 }
 type CitationCitedArtifactAbstract struct {
 	// Unique id for the element within a resource (for internal references).
@@ -467,7 +454,6 @@ type CitationCitedArtifactAbstract struct {
 	//
 	// Comment: There is also a copyright element in the publicationForm element, so this copyright element is intended for copyright of the abstract.
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
-	// The component of the article or artifact.
 }
 type CitationCitedArtifactPart struct {
 	// Unique id for the element within a resource (for internal references).
@@ -496,9 +482,6 @@ type CitationCitedArtifactPart struct {
 	//
 	// Comment: When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be specific to the citation of the specified part. For example, the part-specific Citation may have additional contributorship data that supercedes the contributorship data for the full citation when there is a need to uniquely report the contributorship for an image or supplement associated with the fuller citation record.
 	BaseCitation *Reference `bson:"baseCitation,omitempty" json:"baseCitation,omitempty" xml:"baseCitation,omitempty"`
-	// The artifact related to the cited artifact.
-	//
-	// Comment: The citedArtifact.relatesTo element uses a BackboneElement instead of the RelatedArtifact Datatype to enable use of an extended value set for the required code for the type of relationship.
 }
 type CitationCitedArtifactRelatesTo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -547,9 +530,6 @@ type CitationCitedArtifactRelatesTo struct {
 	//
 	// Comment: If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases.
 	ResourceReference *Reference `bson:"resourceReference,omitempty" json:"resourceReference,omitempty" xml:"resourceReference,omitempty"`
-	// If multiple, used to represent alternative forms of the article that are not separate citations.
-	//
-	// Comment: A common use is a journal article with a publication date and pagination for a print version and a different publication date for the online version of the same article.
 }
 type CitationCitedArtifactPublicationForm struct {
 	// Unique id for the element within a resource (for internal references).
@@ -614,7 +594,6 @@ type CitationCitedArtifactPublicationForm struct {
 	//
 	// Comment: It is possible that different publication forms have different copyright notices.
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
-	// Used for any URL for the article or artifact cited.
 }
 type CitationCitedArtifactPublicationFormPublishedIn struct {
 	// Unique id for the element within a resource (for internal references).
@@ -649,9 +628,6 @@ type CitationCitedArtifactPublicationFormPublishedIn struct {
 	Publisher *Reference `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
 	// Geographic location of the publisher.
 	PublisherLocation *string `bson:"publisherLocation,omitempty" json:"publisherLocation,omitempty" xml:"publisherLocation,omitempty"`
-	// Describes the form of the medium cited.
-	//
-	// Common codes are "Internet" or "Print". The CitedMedium value set has 6 codes. The codes internet, print, and offline-digital-storage are the common codes for a typical publication form, though internet and print are more common for study citations. Three additional codes (each appending one of the primary codes with "-without-issue" are used for situations when a study is published both within an issue (of a periodical release as commonly done for journals) AND is published separately from the issue (as commonly done with early online publication), to represent specific identification of the publication form not associated with the issue.
 }
 type CitationCitedArtifactWebLocation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -680,7 +656,6 @@ type CitationCitedArtifactWebLocation struct {
 	//
 	// Comment: Persistent URLs, like doi, are preferred.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// The assignment to an organizing scheme.
 }
 type CitationCitedArtifactClassification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -709,7 +684,6 @@ type CitationCitedArtifactClassification struct {
 	//
 	// Comment: Examples relevant to study citations include MeSH Headings or Keywords that contain qualifier codings or sub-classifications, and include risk of bias assessments created by persons different from the creator of the citation record.
 	ArtifactAssessment []Reference `bson:"artifactAssessment,omitempty" json:"artifactAssessment,omitempty" xml:"artifactAssessment,omitempty"`
-	// This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements.
 }
 type CitationCitedArtifactContributorship struct {
 	// Unique id for the element within a resource (for internal references).
@@ -740,7 +714,6 @@ type CitationCitedArtifactContributorship struct {
 	Entry []CitationCitedArtifactContributorshipEntry `bson:"entry,omitempty" json:"entry,omitempty" xml:"entry,omitempty"`
 	// Used to record a display of the author/contributor list without separate data element for each list member.
 	Summary []CitationCitedArtifactContributorshipSummary `bson:"summary,omitempty" json:"summary,omitempty" xml:"summary,omitempty"`
-	// Any additional information or content for the article or artifact.
 }
 type CitationCitedArtifactContributorshipEntry struct {
 	// Unique id for the element within a resource (for internal references).
@@ -789,7 +762,6 @@ type CitationCitedArtifactContributorshipEntry struct {
 	//
 	// Comment: Used to retain order of authorship as structured data
 	RankingOrder *int `bson:"rankingOrder,omitempty" json:"rankingOrder,omitempty" xml:"rankingOrder,omitempty"`
-	// Used to record a display of the author/contributor list without separate data element for each list member.
 }
 type CitationCitedArtifactContributorshipEntryContributionInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -814,9 +786,6 @@ type CitationCitedArtifactContributorshipEntryContributionInstance struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// The time that the contribution was made.
 	Time *string `bson:"time,omitempty" json:"time,omitempty" xml:"time,omitempty"`
-	// Whether the contributor is the corresponding contributor for the role.
-	//
-	// Comment: If there are multiple authors and one serves as the corresponding author, then that one would have correspondingContact = true.
 }
 type CitationCitedArtifactContributorshipSummary struct {
 	// Unique id for the element within a resource (for internal references).
@@ -845,7 +814,6 @@ type CitationCitedArtifactContributorshipSummary struct {
 	Source *CodeableConcept `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 	// The display string for the author list, contributor list, or contributorship statement.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Any additional information or content for the article or artifact.
 }
 
 func (r Citation) ResourceType() string {

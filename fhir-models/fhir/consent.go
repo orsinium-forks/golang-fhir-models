@@ -113,9 +113,6 @@ type Consent struct {
 	//
 	// An exception can be an addition or removal of access permissions.
 	Provision []ConsentProvision `bson:"provision,omitempty" json:"provision,omitempty" xml:"provision,omitempty"`
-	// A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
-	//
-	// Comment: Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment and consent for research participation and data sharing.
 }
 type ConsentPolicyBasis struct {
 	// Unique id for the element within a resource (for internal references).
@@ -142,7 +139,6 @@ type ConsentPolicyBasis struct {
 	Reference *Reference `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
 	// A URL that links to a computable version of the policy the organization will enforce for this Consent.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// A Reference to the human readable policy explaining the basis for the Consent.
 }
 type ConsentVerification struct {
 	// Unique id for the element within a resource (for internal references).
@@ -177,7 +173,6 @@ type ConsentVerification struct {
 	//
 	// Comment: Allows for history of verification/validation.
 	VerificationDate []string `bson:"verificationDate,omitempty" json:"verificationDate,omitempty" xml:"verificationDate,omitempty"`
-	// Action to take - permit or deny - as default.
 }
 type ConsentProvision struct {
 	// Unique id for the element within a resource (for internal references).
@@ -270,9 +265,6 @@ type ConsentProvisionActor struct {
 	//
 	// To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
 	Reference *Reference `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
-	// Actions controlled by this provision.
-	//
-	// Comment: Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is 'read'.
 }
 type ConsentProvisionData struct {
 	// Unique id for the element within a resource (for internal references).
@@ -297,9 +289,6 @@ type ConsentProvisionData struct {
 	Meaning ConsentDataMeaning `bson:"meaning" json:"meaning" xml:"meaning"`
 	// A reference to a specific resource that defines which resources are covered by this consent.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
-	// A computable (FHIRPath or other) definition of what is controlled by this consent.
-	//
-	// Comment: Constraining the expression type for a specific implementation via profile is recommended
 }
 
 func (r Consent) ResourceType() string {

@@ -117,7 +117,6 @@ type BiologicallyDerivedProductDispensePerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Identifies the person responsible for the action.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// The physical location where the dispense was performed.
 }
 
 func (r BiologicallyDerivedProductDispense) ResourceType() string {

@@ -171,11 +171,6 @@ type Composition struct {
 	Event []CompositionEvent `bson:"event,omitempty" json:"event,omitempty" xml:"event,omitempty"`
 	// The root of the sections that make up the composition.
 	Section []CompositionSection `bson:"section,omitempty" json:"section,omitempty" xml:"section,omitempty"`
-	// A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.
-	//
-	// A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
-	//
-	// Comment: While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical.
 }
 type CompositionAttester struct {
 	// Unique id for the element within a resource (for internal references).
@@ -202,9 +197,6 @@ type CompositionAttester struct {
 	Time *string `bson:"time,omitempty" json:"time,omitempty" xml:"time,omitempty"`
 	// Who attested the composition in the specified way.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
-	// Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.
-	//
-	// Comment: This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However, it is important that this information be known when working with a derived document, so providing a custodian is encouraged.
 }
 type CompositionEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -235,7 +227,6 @@ type CompositionEvent struct {
 	//
 	// Comment: An event can further specialize the act inherent in the typeCode, such as where it is simply "Procedure Report" and the procedure was a "colonoscopy". If one or more events are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries.
 	Detail []CodeableReference `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The root of the sections that make up the composition.
 }
 type CompositionSection struct {
 	// Unique id for the element within a resource (for internal references).

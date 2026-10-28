@@ -222,9 +222,6 @@ type ValueSet struct {
 	Expansion *ValueSetExpansion `bson:"expansion,omitempty" json:"expansion,omitempty" xml:"expansion,omitempty"`
 	// Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.
 	Scope *ValueSetScope `bson:"scope,omitempty" json:"scope,omitempty" xml:"scope,omitempty"`
-	// A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context.
-	//
-	// Value sets link between [CodeSystem](codesystem.html) definitions and their use in [coded elements](terminologies.html).
 }
 type ValueSetCompose struct {
 	// Unique id for the element within a resource (for internal references).
@@ -271,13 +268,6 @@ type ValueSetCompose struct {
 	//
 	// Comment: Note that property names can clash, so using a URI is recommended.
 	Property []string `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
-	// A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes.
-	//
-	// This element holds the expansion, if it has been performed.
-	//
-	// Comment: Expansion is performed to produce a collection of codes that are ready to use for data entry or validation. Value set expansions are always considered to be stateless - they are a record of the set of codes in the value set at a point in time under a given set of conditions, and are not subject to ongoing maintenance.
-	//
-	// Expansion.parameter is  a simplified list of parameters - a subset of the features of the [Parameters](parameters.html) resource.
 }
 type ValueSetComposeInclude struct {
 	// Unique id for the element within a resource (for internal references).
@@ -324,9 +314,6 @@ type ValueSetComposeInclude struct {
 	ValueSet []string `bson:"valueSet,omitempty" json:"valueSet,omitempty" xml:"valueSet,omitempty"`
 	// A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present).
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
-	// Exclude one or more codes from the value set based on code system filters and/or other value sets.
-	//
-	// Comment: Usually this is used to selectively exclude codes that were included by subsumption in the inclusions. Any display names specified for the codes are ignored.
 }
 type ValueSetComposeIncludeConcept struct {
 	// Unique id for the element within a resource (for internal references).
@@ -361,11 +348,6 @@ type ValueSetComposeIncludeConcept struct {
 	//
 	// Comment: Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of "primary code" and a language equal to the [Resource Language](resource.html#language).
 	Designation []ValueSetComposeIncludeConceptDesignation `bson:"designation,omitempty" json:"designation,omitempty" xml:"designation,omitempty"`
-	// Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system.
-	//
-	// If multiple filters are specified within the include, they SHALL all be true.
-	//
-	// Comment: Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party.
 }
 type ValueSetComposeIncludeConceptDesignation struct {
 	// Unique id for the element within a resource (for internal references).
@@ -400,11 +382,6 @@ type ValueSetComposeIncludeConceptDesignation struct {
 	AdditionalUse []Coding `bson:"additionalUse,omitempty" json:"additionalUse,omitempty" xml:"additionalUse,omitempty"`
 	// The text value for this designation.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system.
-	//
-	// If multiple filters are specified within the include, they SHALL all be true.
-	//
-	// Comment: Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party.
 }
 type ValueSetComposeIncludeFilter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -435,11 +412,6 @@ type ValueSetComposeIncludeFilter struct {
 	//
 	// Comment: Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Selects the concepts found in this value set (based on its value set definition).
-	//
-	// This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the intersection of the contents of all of the referenced value sets.
-	//
-	// Comment: The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set](https://terminology.hl7.org/SNOMEDCT.html), or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved.
 }
 type ValueSetExpansion struct {
 	// Unique id for the element within a resource (for internal references).
@@ -496,7 +468,6 @@ type ValueSetExpansion struct {
 	Property []ValueSetExpansionProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
 	// The codes that are contained in the value set expansion.
 	Contains []ValueSetExpansionContains `bson:"contains,omitempty" json:"contains,omitempty" xml:"contains,omitempty"`
-	// Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.
 }
 type ValueSetExpansionParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -529,7 +500,6 @@ type ValueSetExpansionParameter struct {
 	ValueUri      *string          `bson:"valueUri,omitempty" json:"valueUri,omitempty" xml:"valueUri,omitempty"`
 	ValueCode     *string          `bson:"valueCode,omitempty" json:"valueCode,omitempty" xml:"valueCode,omitempty"`
 	ValueDateTime *string          `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty" xml:"valueDateTime,omitempty"`
-	// A property defines an additional slot through which additional information can be provided about a concept.
 }
 type ValueSetExpansionProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -558,7 +528,6 @@ type ValueSetExpansionProperty struct {
 	//
 	// One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
 	Uri *string `bson:"uri,omitempty" json:"uri,omitempty" xml:"uri,omitempty"`
-	// The codes that are contained in the value set expansion.
 }
 type ValueSetExpansionContains struct {
 	// Unique id for the element within a resource (for internal references).
@@ -615,7 +584,6 @@ type ValueSetExpansionContains struct {
 	//
 	// Comment: If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 	Contains []ValueSetExpansionContains `bson:"contains,omitempty" json:"contains,omitempty"`
-	// Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.
 }
 type ValueSetExpansionContainsProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -648,9 +616,6 @@ type ValueSetExpansionContainsProperty struct {
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
 	// A subproperty value for this concept.
 	SubProperty []ValueSetExpansionContainsPropertySubProperty `bson:"subProperty,omitempty" json:"subProperty,omitempty" xml:"subProperty,omitempty"`
-	// Other codes and entries contained under this entry in the hierarchy.
-	//
-	// Comment: If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 }
 type ValueSetExpansionContainsPropertySubProperty struct {
 	// Unique id for the element within a resource (for internal references).
@@ -681,9 +646,6 @@ type ValueSetExpansionContainsPropertySubProperty struct {
 	ValueBoolean  bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
-	// Other codes and entries contained under this entry in the hierarchy.
-	//
-	// Comment: If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 }
 type ValueSetScope struct {
 	// Unique id for the element within a resource (for internal references).

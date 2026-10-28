@@ -168,9 +168,6 @@ type DiagnosticReportSupportingInfo struct {
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 	// The reference for the supporting information in the diagnostic report.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
-	// A list of key images or data associated with this report.
-	//
-	// The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
 }
 type DiagnosticReportMedia struct {
 	// Unique id for the element within a resource (for internal references).
@@ -199,9 +196,6 @@ type DiagnosticReportMedia struct {
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
 	// Reference to the image or data source.
 	Link Reference `bson:"link" json:"link" xml:"link"`
-	// Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport.
-	//
-	// Comment: The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of an anatomic pathology structured report.
 }
 
 func (r DiagnosticReport) ResourceType() string {

@@ -215,9 +215,6 @@ type Observation struct {
 	//
 	// Comment: For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.
 	Component []ObservationComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
-	// Measurements and simple assertions made about a patient, device or other subject.
-	//
-	// Comment: Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc.
 }
 type ObservationTriggeredBy struct {
 	// Unique id for the element within a resource (for internal references).
@@ -246,11 +243,6 @@ type ObservationTriggeredBy struct {
 	Type TriggeredBytype `bson:"type" json:"type" xml:"type"`
 	// Provides the reason why this observation was performed as a result of the observation(s) referenced.
 	Reason *string `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	// A larger event of which this particular Observation is a component or step.
-	//
-	//	For example,  an observation as part of a procedure.
-	//
-	// Comment: To link an Observation to an Encounter use `encounter`.  See the  [Notes](observation.html#obsgrouping) below for guidance on referencing another Observation.
 }
 type ObservationReferenceRange struct {
 	// Unique id for the element within a resource (for internal references).
@@ -301,11 +293,6 @@ type ObservationReferenceRange struct {
 	//
 	//  An example would be a reference value of "Negative" or a list or table of "normals".
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
-	// This observation is a group observation (e.g.
-	//
-	// a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
-	//
-	// Comment: When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below.  Note that a system may calculate results from [QuestionnaireResponse](questionnaireresponse.html)  into a final score and represent the score as an Observation.
 }
 type ObservationComponent struct {
 	// Unique id for the element within a resource (for internal references).

@@ -83,7 +83,6 @@ type ClinicalUseDefinition struct {
 	//
 	// For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'.
 	Warning *ClinicalUseDefinitionWarning `bson:"warning,omitempty" json:"warning,omitempty" xml:"warning,omitempty"`
-	// A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure.
 }
 type ClinicalUseDefinitionContraindication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -118,7 +117,6 @@ type ClinicalUseDefinitionContraindication struct {
 	Applicability *Expression `bson:"applicability,omitempty" json:"applicability,omitempty" xml:"applicability,omitempty"`
 	// Information about the use of the medicinal product in relation to other therapies described as part of the contraindication.
 	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty" xml:"otherTherapy,omitempty"`
-	// Specifics for when this is an indication.
 }
 type ClinicalUseDefinitionContraindicationOtherTherapy struct {
 	// Unique id for the element within a resource (for internal references).
@@ -143,7 +141,6 @@ type ClinicalUseDefinitionContraindicationOtherTherapy struct {
 	RelationshipType CodeableConcept `bson:"relationshipType" json:"relationshipType" xml:"relationshipType"`
 	// Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication.
 	Treatment CodeableReference `bson:"treatment" json:"treatment" xml:"treatment"`
-	// Specifics for when this is an indication.
 }
 type ClinicalUseDefinitionIndication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -185,7 +182,6 @@ type ClinicalUseDefinitionIndication struct {
 	Applicability *Expression `bson:"applicability,omitempty" json:"applicability,omitempty" xml:"applicability,omitempty"`
 	// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
 	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
-	// Specifics for when this is an interaction.
 }
 type ClinicalUseDefinitionInteraction struct {
 	// Unique id for the element within a resource (for internal references).
@@ -218,7 +214,6 @@ type ClinicalUseDefinitionInteraction struct {
 	Incidence *CodeableConcept `bson:"incidence,omitempty" json:"incidence,omitempty" xml:"incidence,omitempty"`
 	// Actions for managing the interaction.
 	Management []CodeableConcept `bson:"management,omitempty" json:"management,omitempty" xml:"management,omitempty"`
-	// The population group to which this applies.
 }
 type ClinicalUseDefinitionInteractionInteractant struct {
 	// Unique id for the element within a resource (for internal references).
@@ -242,9 +237,6 @@ type ClinicalUseDefinitionInteractionInteractant struct {
 	// The specific medication, product, food, substance etc. or laboratory test that interacts.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
-	// The type of the interaction e.g.
-	//
-	// drug-drug interaction, drug-food interaction, drug-lab test interaction.
 }
 type ClinicalUseDefinitionUndesirableEffect struct {
 	// Unique id for the element within a resource (for internal references).
@@ -271,9 +263,6 @@ type ClinicalUseDefinitionUndesirableEffect struct {
 	Classification *CodeableConcept `bson:"classification,omitempty" json:"classification,omitempty" xml:"classification,omitempty"`
 	// How often the effect is seen.
 	FrequencyOfOccurrence *CodeableConcept `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty" xml:"frequencyOfOccurrence,omitempty"`
-	// A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user.
-	//
-	// For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'.
 }
 type ClinicalUseDefinitionWarning struct {
 	// Unique id for the element within a resource (for internal references).

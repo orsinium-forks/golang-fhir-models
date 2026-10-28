@@ -153,7 +153,6 @@ type SubscriptionFilterBy struct {
 	Modifier *SearchModifierCode `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
 	// The literal value or resource path as is legal in search - for example, `Patient/123` or `le1950`.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// The type of channel to send notifications on.
 }
 type SubscriptionParameter struct {
 	// Unique id for the element within a resource (for internal references).
@@ -178,9 +177,6 @@ type SubscriptionParameter struct {
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Parameter value for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the value would be `Bearer 0193...`.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// If present, a 'heartbeat' notification (keep-alive) is sent via this channel with an interval period equal to this elements integer value in seconds.
-	//
-	//	If not present, a heartbeat notification is not sent.
 }
 
 func (r Subscription) ResourceType() string {

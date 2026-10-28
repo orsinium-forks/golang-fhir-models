@@ -213,7 +213,6 @@ type ExplanationOfBenefit struct {
 	BenefitPeriod *Period `bson:"benefitPeriod,omitempty" json:"benefitPeriod,omitempty" xml:"benefitPeriod,omitempty"`
 	// Balance by Benefit Category.
 	BenefitBalance []ExplanationOfBenefitBenefitBalance `bson:"benefitBalance,omitempty" json:"benefitBalance,omitempty" xml:"benefitBalance,omitempty"`
-	// This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
 }
 type ExplanationOfBenefitRelated struct {
 	// Unique id for the element within a resource (for internal references).
@@ -244,9 +243,6 @@ type ExplanationOfBenefitRelated struct {
 	//
 	// Comment: For example, Property/Casualty insurer claim number or Workers Compensation case number.
 	Reference *Identifier `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
-	// Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought.
-	//
-	// Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments.
 }
 type ExplanationOfBenefitEvent struct {
 	// Unique id for the element within a resource (for internal references).
@@ -272,9 +268,6 @@ type ExplanationOfBenefitEvent struct {
 	// A date or period in the past or future indicating when the event occurred or is expectd to occur.
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
-	// The party to be reimbursed for cost of the products and services according to the terms of the policy.
-	//
-	// Comment: Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead.
 }
 type ExplanationOfBenefitPayee struct {
 	// Unique id for the element within a resource (for internal references).
@@ -301,11 +294,6 @@ type ExplanationOfBenefitPayee struct {
 	//
 	// Comment: Not required if the payee is 'subscriber' or 'provider'.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
-	// The referral information received by the claim author, it is not to be used when the author generates a referral for a patient.
-	//
-	// A copy of that referral may be provided as supporting information. Some insurers require proof of referral to pay for services or to pay specialist rates for services.
-	//
-	// Comment: The referral resource which lists the date, practitioner, reason and other supporting information.
 }
 type ExplanationOfBenefitCareTeam struct {
 	// Unique id for the element within a resource (for internal references).
@@ -340,9 +328,6 @@ type ExplanationOfBenefitCareTeam struct {
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 	// The specialization of the practitioner or provider which is applicable for this service.
 	Specialty *CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty" xml:"specialty,omitempty"`
-	// Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.
-	//
-	// Comment: Often there are multiple jurisdiction specific valuesets which are required.
 }
 type ExplanationOfBenefitSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
@@ -391,7 +376,6 @@ type ExplanationOfBenefitSupportingInfo struct {
 	//
 	// Comment: For example: the reason for the additional stay, or why a tooth is  missing.
 	Reason *Coding `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	// Information about diagnoses relevant to the claim items.
 }
 type ExplanationOfBenefitDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
@@ -425,7 +409,6 @@ type ExplanationOfBenefitDiagnosis struct {
 	Type []CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// Indication of whether the diagnosis was present on admission to a facility.
 	OnAdmission *CodeableConcept `bson:"onAdmission,omitempty" json:"onAdmission,omitempty" xml:"onAdmission,omitempty"`
-	// Procedures performed on the patient relevant to the billing items with the claim.
 }
 type ExplanationOfBenefitProcedure struct {
 	// Unique id for the element within a resource (for internal references).
@@ -457,7 +440,6 @@ type ExplanationOfBenefitProcedure struct {
 	ProcedureReference       Reference       `bson:"procedureReference" json:"procedureReference" xml:"procedureReference"`
 	// Unique Device Identifiers associated with this line item.
 	Udi []Reference `bson:"udi,omitempty" json:"udi,omitempty" xml:"udi,omitempty"`
-	// This indicates the relative order of a series of EOBs related to different coverages for the same suite of services.
 }
 type ExplanationOfBenefitInsurance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -490,7 +472,6 @@ type ExplanationOfBenefitInsurance struct {
 	//
 	// Comment: This value is an alphanumeric string that may be provided over the phone, via text, via paper, or within a ClaimResponse resource and is not a FHIR Identifier.
 	PreAuthRef []string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
-	// Details of a accident which resulted in injuries which required the products and services listed in the claim.
 }
 type ExplanationOfBenefitAccident struct {
 	// Unique id for the element within a resource (for internal references).
@@ -520,7 +501,6 @@ type ExplanationOfBenefitAccident struct {
 	// The physical location of the accident event.
 	LocationAddress   *Address   `bson:"locationAddress,omitempty" json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
 	LocationReference *Reference `bson:"locationReference,omitempty" json:"locationReference,omitempty" xml:"locationReference,omitempty"`
-	// The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services.
 }
 type ExplanationOfBenefitItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -624,7 +604,6 @@ type ExplanationOfBenefitItem struct {
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty" xml:"adjudication,omitempty"`
 	// Second-tier of goods and services.
 	Detail []ExplanationOfBenefitItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ExplanationOfBenefitItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
@@ -651,7 +630,6 @@ type ExplanationOfBenefitItemBodySite struct {
 	Site []CodeableReference `bson:"site" json:"site" xml:"site"`
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
-	// Healthcare encounters related to this claim.
 }
 type ExplanationOfBenefitItemReviewOutcome struct {
 	// Unique id for the element within a resource (for internal references).
@@ -684,9 +662,6 @@ type ExplanationOfBenefitItemReviewOutcome struct {
 	PreAuthRef *string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
 	// The time frame during which this authorization is effective.
 	PreAuthPeriod *Period `bson:"preAuthPeriod,omitempty" json:"preAuthPeriod,omitempty" xml:"preAuthPeriod,omitempty"`
-	// If this item is a group then the values here are a summary of the adjudication of the detail items.
-	//
-	// If this item is a simple product or service then this is the result of the adjudication of this item.
 }
 type ExplanationOfBenefitItemAdjudication struct {
 	// Unique id for the element within a resource (for internal references).
@@ -727,7 +702,6 @@ type ExplanationOfBenefitItemAdjudication struct {
 	//
 	// Comment: For example: eligible percentage or co-payment percentage.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// Second-tier of goods and services.
 }
 type ExplanationOfBenefitItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -810,7 +784,6 @@ type ExplanationOfBenefitItemDetail struct {
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// Third-tier of goods and services.
 	SubDetail []ExplanationOfBenefitItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ExplanationOfBenefitItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -891,7 +864,6 @@ type ExplanationOfBenefitItemDetailSubDetail struct {
 	ReviewOutcome *ExplanationOfBenefitItemReviewOutcome `bson:"reviewOutcome,omitempty" json:"reviewOutcome,omitempty"`
 	// The adjudication results.
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	// The first-tier service adjudications for payor added product or service lines.
 }
 type ExplanationOfBenefitAddItem struct {
 	// Unique id for the element within a resource (for internal references).
@@ -983,7 +955,6 @@ type ExplanationOfBenefitAddItem struct {
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// The second-tier service adjudications for payor added services.
 	Detail []ExplanationOfBenefitAddItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ExplanationOfBenefitAddItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1010,7 +981,6 @@ type ExplanationOfBenefitAddItemBodySite struct {
 	Site []CodeableReference `bson:"site" json:"site" xml:"site"`
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
-	// The numbers associated with notes below which apply to the adjudication of this item.
 }
 type ExplanationOfBenefitAddItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1079,7 +1049,6 @@ type ExplanationOfBenefitAddItemDetail struct {
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	// The third-tier service adjudications for payor added services.
 	SubDetail []ExplanationOfBenefitAddItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ExplanationOfBenefitAddItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1146,7 +1115,6 @@ type ExplanationOfBenefitAddItemDetailSubDetail struct {
 	ReviewOutcome *ExplanationOfBenefitItemReviewOutcome `bson:"reviewOutcome,omitempty" json:"reviewOutcome,omitempty"`
 	// The adjudication results.
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 }
 type ExplanationOfBenefitTotal struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1175,7 +1143,6 @@ type ExplanationOfBenefitTotal struct {
 	Category CodeableConcept `bson:"category" json:"category" xml:"category"`
 	// Monetary total amount associated with the category.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
-	// Payment details for the adjudication of the claim.
 }
 type ExplanationOfBenefitPayment struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1212,9 +1179,6 @@ type ExplanationOfBenefitPayment struct {
 	//
 	// Comment: For example: EFT number or check number.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	// A code for the form to be used for printing the content.
-	//
-	// Comment: May be needed to identify specific jurisdictional forms.
 }
 type ExplanationOfBenefitProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1245,9 +1209,6 @@ type ExplanationOfBenefitProcessNote struct {
 	//
 	// Comment: Only required if the language is different from the resource language.
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	// The term of the benefits documented in this response.
-	//
-	// Comment: Not applicable when use=claim.
 }
 type ExplanationOfBenefitBenefitBalance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -1290,7 +1251,6 @@ type ExplanationOfBenefitBenefitBalance struct {
 	Term *CodeableConcept `bson:"term,omitempty" json:"term,omitempty" xml:"term,omitempty"`
 	// Benefits Used to date.
 	Financial []ExplanationOfBenefitBenefitBalanceFinancial `bson:"financial,omitempty" json:"financial,omitempty" xml:"financial,omitempty"`
-	// This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
 }
 type ExplanationOfBenefitBenefitBalanceFinancial struct {
 	// Unique id for the element within a resource (for internal references).

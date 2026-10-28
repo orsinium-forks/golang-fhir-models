@@ -197,7 +197,6 @@ type Evidence struct {
 	Statistic []EvidenceStatistic `bson:"statistic,omitempty" json:"statistic,omitempty" xml:"statistic,omitempty"`
 	// Assessment of certainty, confidence in the estimates, or quality of the evidence.
 	Certainty []EvidenceCertainty `bson:"certainty,omitempty" json:"certainty,omitempty" xml:"certainty,omitempty"`
-	// The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.
 }
 type EvidenceVariableDefinition struct {
 	// Unique id for the element within a resource (for internal references).
@@ -230,7 +229,6 @@ type EvidenceVariableDefinition struct {
 	Intended *Reference `bson:"intended,omitempty" json:"intended,omitempty" xml:"intended,omitempty"`
 	// Indication of quality of match between intended variable to actual variable.
 	DirectnessMatch *CodeableConcept `bson:"directnessMatch,omitempty" json:"directnessMatch,omitempty" xml:"directnessMatch,omitempty"`
-	// The method to combine studies.
 }
 type EvidenceStatistic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -277,7 +275,6 @@ type EvidenceStatistic struct {
 	AttributeEstimate []EvidenceStatisticAttributeEstimate `bson:"attributeEstimate,omitempty" json:"attributeEstimate,omitempty" xml:"attributeEstimate,omitempty"`
 	// A component of the method to generate the statistic.
 	ModelCharacteristic []EvidenceStatisticModelCharacteristic `bson:"modelCharacteristic,omitempty" json:"modelCharacteristic,omitempty" xml:"modelCharacteristic,omitempty"`
-	// Assessment of certainty, confidence in the estimates, or quality of the evidence.
 }
 type EvidenceStatisticSampleSize struct {
 	// Unique id for the element within a resource (for internal references).
@@ -308,7 +305,6 @@ type EvidenceStatisticSampleSize struct {
 	NumberOfParticipants *int `bson:"numberOfParticipants,omitempty" json:"numberOfParticipants,omitempty" xml:"numberOfParticipants,omitempty"`
 	// Number of participants with known results for measured variables.
 	KnownDataCount *int `bson:"knownDataCount,omitempty" json:"knownDataCount,omitempty" xml:"knownDataCount,omitempty"`
-	// A statistical attribute of the statistic such as a measure of heterogeneity.
 }
 type EvidenceStatisticAttributeEstimate struct {
 	// Unique id for the element within a resource (for internal references).
@@ -347,7 +343,6 @@ type EvidenceStatisticAttributeEstimate struct {
 	//
 	// Comment: A nested attribute estimate; which is the attribute estimate of an attribute estimate
 	AttributeEstimate []EvidenceStatisticAttributeEstimate `bson:"attributeEstimate,omitempty" json:"attributeEstimate,omitempty"`
-	// A component of the method to generate the statistic.
 }
 type EvidenceStatisticModelCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
@@ -376,7 +371,6 @@ type EvidenceStatisticModelCharacteristic struct {
 	Variable []EvidenceStatisticModelCharacteristicVariable `bson:"variable,omitempty" json:"variable,omitempty" xml:"variable,omitempty"`
 	// An attribute of the statistic used as a model characteristic.
 	AttributeEstimate []EvidenceStatisticAttributeEstimate `bson:"attributeEstimate,omitempty" json:"attributeEstimate,omitempty"`
-	// Assessment of certainty, confidence in the estimates, or quality of the evidence.
 }
 type EvidenceStatisticModelCharacteristicVariable struct {
 	// Unique id for the element within a resource (for internal references).
@@ -407,7 +401,6 @@ type EvidenceStatisticModelCharacteristicVariable struct {
 	ValueQuantity []Quantity `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
 	// Range of values for grouping of ordinal or polychotomous variables.
 	ValueRange []Range `bson:"valueRange,omitempty" json:"valueRange,omitempty" xml:"valueRange,omitempty"`
-	// An attribute of the statistic used as a model characteristic.
 }
 type EvidenceCertainty struct {
 	// Unique id for the element within a resource (for internal references).
