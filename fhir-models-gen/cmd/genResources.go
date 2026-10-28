@@ -143,7 +143,6 @@ var genResourcesCmd = &cobra.Command{
 			}
 			return nil
 		})
-
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
@@ -274,7 +273,7 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 		file.Commentf("MarshalJSON marshals the given %s as JSON into a byte slice", definition.Name)
 		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("MarshalJSON").Params().
 			Params(jen.Op("[]").Byte(), jen.Error()).Block(
-			jen.Return().Qual("encoding/json", "Marshal").Call(jen.Struct(
+			jen.Return().Qual("encoding/json/v2", "Marshal").Call(jen.Struct(
 				jen.Id("Other"+definition.Name),
 				jen.Id("ResourceType").String().Tag(map[string]string{"json": "resourceType"}),
 			).Values(jen.Dict{
@@ -293,7 +292,7 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 			Block(
 				jen.Var().Id(FirstLower(definition.Name)).Id(definition.Name),
 				jen.If(
-					jen.Err().Op(":=").Qual("encoding/json", "Unmarshal").Call(
+					jen.Err().Op(":=").Qual("encoding/json/v2", "Unmarshal").Call(
 						jen.Id("b"),
 						jen.Op("&").Id(FirstLower(definition.Name)),
 					),
@@ -320,8 +319,9 @@ func appendGeneratorComment(file *jen.File) {
 
 func appendFields(resources ResourceMap, requiredTypes map[string]bool, requiredValueSetBindings map[string]bool,
 	file *jen.File, fields *jen.Group, parentName string, elementDefinitions []fhir.ElementDefinition, start,
-	level int) (int, error) {
-	//fmt.Printf("appendFields parentName=%s, start=%d, level=%d\n", parentName, start, level)
+	level int,
+) (int, error) {
+	// fmt.Printf("appendFields parentName=%s, start=%d, level=%d\n", parentName, start, level)
 	for i := start; i < len(elementDefinitions); i++ {
 		element := elementDefinitions[i]
 		pathParts := Split(element.Path, ".")
@@ -352,11 +352,10 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 					var err error
 					i, err = addFieldStatement(resources, requiredTypes, requiredValueSetBindings, file, fields,
 						pathParts[level], parentName, elementDefinitions, i, level, element.Type[0])
-
 					if err != nil {
 						return 0, err
 					}
-				default: //polymorphic type
+				default: // polymorphic type
 					name = Replace(pathParts[level], "[x]", "", -1)
 					for _, eleType := range element.Type {
 						name := name + Title(eleType.Code)
@@ -364,7 +363,6 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 						var err error
 						i, err = addFieldStatement(resources, requiredTypes, requiredValueSetBindings, file, fields,
 							name, parentName, elementDefinitions, i, level, eleType)
-
 						if err != nil {
 							return 0, err
 						}
@@ -433,7 +431,7 @@ func addFieldStatement(
 			statement.Id("string")
 		}
 	case "Resource":
-		statement.Qual("encoding/json", "RawMessage")
+		statement.Qual("encoding/json/jsontext", "Value")
 	default:
 		if *element.Max == "*" {
 			statement.Op("[]")
@@ -453,7 +451,7 @@ func addFieldStatement(
 			statement.Id(backboneElementName)
 			var err error
 			file.Type().Id(backboneElementName).StructFunc(func(childFields *jen.Group) {
-				//var err error
+				// var err error
 				elementIndex, err = appendFields(resources, requiredTypes, requiredValueSetBindings, file, childFields,
 					backboneElementName, elementDefinitions, elementIndex+1, level+1)
 			})
@@ -462,7 +460,7 @@ func addFieldStatement(
 			}
 			elementIndex--
 		} else if typeIdentifier == "decimal" {
-			statement.Qual("encoding/json", "Number")
+			statement.Qual("github.com/shopspring/decimal", "Decimal")
 		} else {
 			if unicode.IsUpper(rune(typeIdentifier[0])) {
 				requiredTypes[typeIdentifier] = true
@@ -471,11 +469,16 @@ func addFieldStatement(
 		}
 	}
 
+	jsonSuffix := ""
+	bsonSuffix := ""
 	if *element.Min == 0 {
-		statement.Tag(map[string]string{"json": name + ",omitempty", "bson": name + ",omitempty"})
-	} else {
-		statement.Tag(map[string]string{"json": name, "bson": name})
+		jsonSuffix += ",omitempty"
+		bsonSuffix += ",omitempty"
 	}
+	if elementType.Code == "integer64" {
+		jsonSuffix += ",string"
+	}
+	statement.Tag(map[string]string{"json": name + jsonSuffix, "bson": name + bsonSuffix})
 
 	return elementIndex, err
 }
@@ -510,6 +513,8 @@ func typeCodeToTypeIdentifier(typeCode string) string {
 		return "string"
 	case "integer":
 		return "int"
+	case "integer64":
+		return "int64"
 	case "markdown":
 		return "string"
 	case "oid":
