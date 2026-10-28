@@ -276,16 +276,11 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 			Params(jen.Id(definition.Name), jen.Error()).
 			Block(
 				jen.Var().Id(FirstLower(definition.Name)).Id(definition.Name),
-				jen.If(
-					jen.Err().Op(":=").Qual("encoding/json/v2", "Unmarshal").Call(
-						jen.Id("b"),
-						jen.Op("&").Id(FirstLower(definition.Name)),
-					),
-					jen.Err().Op("!=").Nil(),
-				).Block(
-					jen.Return(jen.Id(FirstLower(definition.Name)), jen.Err()),
+				jen.Err().Op(":=").Qual("encoding/json/v2", "Unmarshal").Call(
+					jen.Id("b"),
+					jen.Op("&").Id(FirstLower(definition.Name)),
 				),
-				jen.Return(jen.Id(FirstLower(definition.Name)), jen.Nil()),
+				jen.Return(jen.Id(FirstLower(definition.Name)), jen.Err()),
 			)
 	}
 
