@@ -10,89 +10,300 @@ import v2 "encoding/json/v2"
 //
 // http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition
 type ClinicalUseDefinition struct {
-	Id                *string                                 `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                                   `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                                 `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                              `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                            `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Type              ClinicalUseDefinitionType               `bson:"type" json:"type"`
-	Category          []CodeableConcept                       `bson:"category,omitempty" json:"category,omitempty"`
-	Subject           []Reference                             `bson:"subject,omitempty" json:"subject,omitempty"`
-	Status            *CodeableConcept                        `bson:"status,omitempty" json:"status,omitempty"`
-	Contraindication  *ClinicalUseDefinitionContraindication  `bson:"contraindication,omitempty" json:"contraindication,omitempty"`
-	Indication        *ClinicalUseDefinitionIndication        `bson:"indication,omitempty" json:"indication,omitempty"`
-	Interaction       *ClinicalUseDefinitionInteraction       `bson:"interaction,omitempty" json:"interaction,omitempty"`
-	Population        []Reference                             `bson:"population,omitempty" json:"population,omitempty"`
-	Library           []string                                `bson:"library,omitempty" json:"library,omitempty"`
+	// The logical id of the resource, as used in the URL for the resource.
+	//
+	// Once assigned, this value never changes.
+	//
+	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// The metadata about the resource.
+	//
+	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
+	Meta *Meta `bson:"meta,omitempty" json:"meta,omitempty"`
+	// A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
+	//
+	// Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+	//
+	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
+	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	//The base language in which the resource is written.
+	//
+	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
+	Language *string `bson:"language,omitempty" json:"language,omitempty"`
+	// A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human.
+	//
+	// The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
+	//
+	// Comment: Contained resources do not have a narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a "text blob" or where text is additionally entered raw or narrated and encoded information is added later.
+	Text *Narrative `bson:"text,omitempty" json:"text,omitempty"`
+	// These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope.
+	//
+	// This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning.
+	//
+	// Comment: This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags in their meta elements, but SHALL NOT have security labels.
+	// May be used to represent additional information that is not part of the basic definition of the resource.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// Business identifier for this issue.
+	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	// indication | contraindication | interaction | undesirable-effect | warning.
+	Type ClinicalUseDefinitionType `bson:"type" json:"type"`
+	// A categorisation of the issue, primarily for dividing warnings into subject heading areas such as "Pregnancy and Lactation", "Overdose", "Effects on Ability to Drive and Use Machines".
+	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty"`
+	// The medication, product, substance, device, procedure etc.
+	//
+	// for which this is an indication.
+	Subject []Reference `bson:"subject,omitempty" json:"subject,omitempty"`
+	// Whether this is a current issue or one that has been retired etc.
+	Status *CodeableConcept `bson:"status,omitempty" json:"status,omitempty"`
+	// Specifics for when this is a contraindication.
+	Contraindication *ClinicalUseDefinitionContraindication `bson:"contraindication,omitempty" json:"contraindication,omitempty"`
+	// Specifics for when this is an indication.
+	Indication *ClinicalUseDefinitionIndication `bson:"indication,omitempty" json:"indication,omitempty"`
+	// Specifics for when this is an interaction.
+	Interaction *ClinicalUseDefinitionInteraction `bson:"interaction,omitempty" json:"interaction,omitempty"`
+	// The population group to which this applies.
+	Population []Reference `bson:"population,omitempty" json:"population,omitempty"`
+	// Logic used by the clinical use definition.
+	Library []string `bson:"library,omitempty" json:"library,omitempty"`
+	// Describe the possible undesirable effects (negative outcomes) from the use of the medicinal product as treatment.
 	UndesirableEffect *ClinicalUseDefinitionUndesirableEffect `bson:"undesirableEffect,omitempty" json:"undesirableEffect,omitempty"`
-	Warning           *ClinicalUseDefinitionWarning           `bson:"warning,omitempty" json:"warning,omitempty"`
+	// A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user.
+	//
+	// For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'.
+	Warning *ClinicalUseDefinitionWarning `bson:"warning,omitempty" json:"warning,omitempty"`
+	// A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure.
 }
 type ClinicalUseDefinitionContraindication struct {
-	Id                      *string                                             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension               []Extension                                         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension       []Extension                                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	DiseaseSymptomProcedure *CodeableReference                                  `bson:"diseaseSymptomProcedure,omitempty" json:"diseaseSymptomProcedure,omitempty"`
-	DiseaseStatus           *CodeableReference                                  `bson:"diseaseStatus,omitempty" json:"diseaseStatus,omitempty"`
-	Comorbidity             []CodeableReference                                 `bson:"comorbidity,omitempty" json:"comorbidity,omitempty"`
-	Indication              []Reference                                         `bson:"indication,omitempty" json:"indication,omitempty"`
-	Applicability           *Expression                                         `bson:"applicability,omitempty" json:"applicability,omitempty"`
-	OtherTherapy            []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The situation that is being documented as contraindicating against this item.
+	DiseaseSymptomProcedure *CodeableReference `bson:"diseaseSymptomProcedure,omitempty" json:"diseaseSymptomProcedure,omitempty"`
+	// The status of the disease or symptom for the contraindication, for example "chronic" or "metastatic".
+	DiseaseStatus *CodeableReference `bson:"diseaseStatus,omitempty" json:"diseaseStatus,omitempty"`
+	// A comorbidity (concurrent condition) or coinfection.
+	Comorbidity []CodeableReference `bson:"comorbidity,omitempty" json:"comorbidity,omitempty"`
+	// The indication which this is a contraidication for.
+	Indication []Reference `bson:"indication,omitempty" json:"indication,omitempty"`
+	//An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements.
+	//
+	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
+	Applicability *Expression `bson:"applicability,omitempty" json:"applicability,omitempty"`
+	// Information about the use of the medicinal product in relation to other therapies described as part of the contraindication.
+	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
+	// Specifics for when this is an indication.
 }
 type ClinicalUseDefinitionContraindicationOtherTherapy struct {
-	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	RelationshipType  CodeableConcept   `bson:"relationshipType" json:"relationshipType"`
-	Treatment         CodeableReference `bson:"treatment" json:"treatment"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The type of relationship between the medicinal product indication or contraindication and another therapy.
+	RelationshipType CodeableConcept `bson:"relationshipType" json:"relationshipType"`
+	// Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication.
+	Treatment CodeableReference `bson:"treatment" json:"treatment"`
+	// Specifics for when this is an indication.
 }
 type ClinicalUseDefinitionIndication struct {
-	Id                      *string                                             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension               []Extension                                         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension       []Extension                                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	DiseaseSymptomProcedure *CodeableReference                                  `bson:"diseaseSymptomProcedure,omitempty" json:"diseaseSymptomProcedure,omitempty"`
-	DiseaseStatus           *CodeableReference                                  `bson:"diseaseStatus,omitempty" json:"diseaseStatus,omitempty"`
-	Comorbidity             []CodeableReference                                 `bson:"comorbidity,omitempty" json:"comorbidity,omitempty"`
-	IntendedEffect          *CodeableReference                                  `bson:"intendedEffect,omitempty" json:"intendedEffect,omitempty"`
-	DurationRange           *Range                                              `bson:"durationRange,omitempty" json:"durationRange,omitempty"`
-	DurationString          *string                                             `bson:"durationString,omitempty" json:"durationString,omitempty"`
-	UndesirableEffect       []Reference                                         `bson:"undesirableEffect,omitempty" json:"undesirableEffect,omitempty"`
-	Applicability           *Expression                                         `bson:"applicability,omitempty" json:"applicability,omitempty"`
-	OtherTherapy            []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The situation that is being documented as an indicaton for this item.
+	DiseaseSymptomProcedure *CodeableReference `bson:"diseaseSymptomProcedure,omitempty" json:"diseaseSymptomProcedure,omitempty"`
+	// The status of the disease or symptom for the indication, for example "chronic" or "metastatic".
+	DiseaseStatus *CodeableReference `bson:"diseaseStatus,omitempty" json:"diseaseStatus,omitempty"`
+	// A comorbidity (concurrent condition) or coinfection as part of the indication.
+	Comorbidity []CodeableReference `bson:"comorbidity,omitempty" json:"comorbidity,omitempty"`
+	// The intended effect, aim or strategy to be achieved.
+	IntendedEffect *CodeableReference `bson:"intendedEffect,omitempty" json:"intendedEffect,omitempty"`
+	// Timing or duration information, that may be associated with use with the indicated condition e.g.
+	//
+	// Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months).
+	DurationRange  *Range  `bson:"durationRange,omitempty" json:"durationRange,omitempty"`
+	DurationString *string `bson:"durationString,omitempty" json:"durationString,omitempty"`
+	// An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication.
+	UndesirableEffect []Reference `bson:"undesirableEffect,omitempty" json:"undesirableEffect,omitempty"`
+	//An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements.
+	//
+	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
+	Applicability *Expression `bson:"applicability,omitempty" json:"applicability,omitempty"`
+	// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
+	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
+	// Specifics for when this is an interaction.
 }
 type ClinicalUseDefinitionInteraction struct {
-	Id                *string                                       `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                                   `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Interactant       []ClinicalUseDefinitionInteractionInteractant `bson:"interactant,omitempty" json:"interactant,omitempty"`
-	Type              *CodeableConcept                              `bson:"type,omitempty" json:"type,omitempty"`
-	Effect            *CodeableReference                            `bson:"effect,omitempty" json:"effect,omitempty"`
-	Incidence         *CodeableConcept                              `bson:"incidence,omitempty" json:"incidence,omitempty"`
-	Management        []CodeableConcept                             `bson:"management,omitempty" json:"management,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The specific medication, product, food, substance etc.
+	//
+	// or laboratory test that interacts.
+	Interactant []ClinicalUseDefinitionInteractionInteractant `bson:"interactant,omitempty" json:"interactant,omitempty"`
+	// The type of the interaction e.g.
+	//
+	// drug-drug interaction, drug-food interaction, drug-lab test interaction.
+	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
+	// The effect of the interaction, for example "reduced gastric absorption of primary medication".
+	Effect *CodeableReference `bson:"effect,omitempty" json:"effect,omitempty"`
+	// The incidence of the interaction, e.g.
+	//
+	// theoretical, observed.
+	Incidence *CodeableConcept `bson:"incidence,omitempty" json:"incidence,omitempty"`
+	// Actions for managing the interaction.
+	Management []CodeableConcept `bson:"management,omitempty" json:"management,omitempty"`
+	// The population group to which this applies.
 }
 type ClinicalUseDefinitionInteractionInteractant struct {
-	Id                  *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The specific medication, product, food, substance etc.
+	//
+	// or laboratory test that interacts.
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept"`
+	// The type of the interaction e.g.
+	//
+	// drug-drug interaction, drug-food interaction, drug-lab test interaction.
 }
 type ClinicalUseDefinitionUndesirableEffect struct {
-	Id                     *string            `bson:"id,omitempty" json:"id,omitempty"`
-	Extension              []Extension        `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension        `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The situation in which the undesirable effect may manifest.
 	SymptomConditionEffect *CodeableReference `bson:"symptomConditionEffect,omitempty" json:"symptomConditionEffect,omitempty"`
-	Classification         *CodeableConcept   `bson:"classification,omitempty" json:"classification,omitempty"`
-	FrequencyOfOccurrence  *CodeableConcept   `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty"`
+	// High level classification of the effect.
+	Classification *CodeableConcept `bson:"classification,omitempty" json:"classification,omitempty"`
+	// How often the effect is seen.
+	FrequencyOfOccurrence *CodeableConcept `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty"`
+	// A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user.
+	//
+	// For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'.
 }
 type ClinicalUseDefinitionWarning struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// A textual definition of this warning, with formatting.
+	Description *string `bson:"description,omitempty" json:"description,omitempty"`
+	// A coded or unformatted textual definition of this warning.
+	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 }
 
 func (r ClinicalUseDefinition) ResourceType() string {

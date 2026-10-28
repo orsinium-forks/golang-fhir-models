@@ -12,9 +12,21 @@ import decimal "github.com/shopspring/decimal"
 //
 // http://hl7.org/fhir/StructureDefinition/Extension
 type Extension struct {
-	Id                         *string                `bson:"id,omitempty" json:"id,omitempty"`
-	Extension                  []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
-	Url                        string                 `bson:"url" json:"url"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	//Source of the definition for the extension code - a logical name or a URL.
+	//
+	// Comment: The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.
+	Url string `bson:"url" json:"url"`
+	// Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
 	ValueBase64Binary          *string                `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
 	ValueBoolean               *bool                  `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueCanonical             *string                `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`

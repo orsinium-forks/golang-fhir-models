@@ -17,17 +17,56 @@ import (
 //
 // http://hl7.org/fhir/StructureDefinition/Parameters
 type Parameters struct {
-	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Meta          *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language      *string               `bson:"language,omitempty" json:"language,omitempty"`
-	Parameter     []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
+	// The logical id of the resource, as used in the URL for the resource.
+	//
+	// Once assigned, this value never changes.
+	//
+	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// The metadata about the resource.
+	//
+	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
+	Meta *Meta `bson:"meta,omitempty" json:"meta,omitempty"`
+	// A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
+	//
+	// Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+	//
+	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
+	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	//The base language in which the resource is written.
+	//
+	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
+	Language *string `bson:"language,omitempty" json:"language,omitempty"`
+	// A parameter passed to or received from the operation.
+	Parameter []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
+	// This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).
+	//
+	//	It is not persisted or allowed to be referenced by other resources.
+	//
+	// Comment: The parameters that may be used are defined by the OperationDefinition resource.
 }
 type ParametersParameter struct {
-	Id                         *string                `bson:"id,omitempty" json:"id,omitempty"`
-	Extension                  []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension          []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name                       string                 `bson:"name" json:"name"`
+	// Unique id for the element within a resource (for internal references).
+	//
+	// This may be any string value that does not contain spaces.
+	Id *string `bson:"id,omitempty" json:"id,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element.
+	//
+	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	// May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants.
+	//
+	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+	//
+	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	//
+	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	// The name of the parameter (reference to the operation definition).
+	Name string `bson:"name" json:"name"`
+	// Conveys the content if the parameter is a data type.
 	ValueBase64Binary          *string                `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
 	ValueBoolean               *bool                  `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueCanonical             *string                `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
@@ -82,8 +121,12 @@ type ParametersParameter struct {
 	ValueExtendedContactDetail *ExtendedContactDetail `bson:"valueExtendedContactDetail,omitempty" json:"valueExtendedContactDetail,omitempty"`
 	ValueDosage                *Dosage                `bson:"valueDosage,omitempty" json:"valueDosage,omitempty"`
 	ValueMeta                  *Meta                  `bson:"valueMeta,omitempty" json:"valueMeta,omitempty"`
-	Resource                   jsontext.Value         `bson:"resource,omitempty" json:"resource,omitempty"`
-	Part                       []ParametersParameter  `bson:"part,omitempty" json:"part,omitempty"`
+	//Conveys the content if the parameter is a whole resource.
+	//
+	// Comment: When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to its general resource resolution methods.
+	Resource jsontext.Value `bson:"resource,omitempty" json:"resource,omitempty"`
+	// A named part of a multi-part parameter.
+	Part []ParametersParameter `bson:"part,omitempty" json:"part,omitempty"`
 }
 
 func (r Parameters) ResourceType() string {

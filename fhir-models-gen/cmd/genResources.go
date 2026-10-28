@@ -276,12 +276,12 @@ func formatDocstring(def fhir.StructureDefinition) string {
 	first, rest, hasDot := strings.Cut(*def.Description, ". ")
 	if hasDot {
 		res += "// " + first + "."
-		res += "\n//\n// " + strings.ReplaceAll(rest, "\n", "\n//")
+		res += "\n//\n// " + safeComment(rest)
 	} else {
 		res += "//" + *def.Description
 	}
 	if def.Purpose != nil {
-		res += "\n//\n// Purpose: " + strings.ReplaceAll(*def.Purpose, "\n", "\n//")
+		res += "\n//\n// Purpose: " + safeComment(*def.Purpose)
 	}
 	res += "\n//\n// Status: " + def.Status.Code()
 	res += "\n//\n// " + def.Url
@@ -300,6 +300,9 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 	for i := start; i < len(elementDefinitions); i++ {
 		element := elementDefinitions[i]
 		pathParts := strings.Split(element.Path, ".")
+		if element.Definition != nil {
+			fields.Comment(formatFieldDoc(element))
+		}
 		if len(pathParts) == level+1 {
 			// direct childs
 			name := strings.Title(pathParts[level])
@@ -350,6 +353,27 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 		}
 	}
 	return 0, nil
+}
+
+func formatFieldDoc(def fhir.ElementDefinition) string {
+	res := ""
+	if def.Definition != nil {
+		first, rest, hasDot := strings.Cut(*def.Definition, ". ")
+		if hasDot {
+			res += "// " + safeComment(first+".")
+			res += "\n//\n// " + safeComment(rest)
+		} else {
+			res += "//" + safeComment(*def.Definition)
+		}
+	}
+	if def.Comment != nil {
+		res += "\n//\n// Comment: " + safeComment(*def.Comment)
+	}
+	return res
+}
+
+func safeComment(s string) string {
+	return strings.ReplaceAll(s, "\n", "\n//")
 }
 
 func addFieldStatement(
