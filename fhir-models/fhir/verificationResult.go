@@ -84,6 +84,7 @@ type VerificationResult struct {
 	// Information about the entity validating information.
 	Validator []VerificationResultValidator `bson:"validator,omitempty" json:"validator,omitempty" xml:"validator,omitempty"`
 }
+
 type VerificationResultPrimarySource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -118,6 +119,7 @@ type VerificationResultPrimarySource struct {
 	// Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source).
 	PushTypeAvailable []CodeableConcept `bson:"pushTypeAvailable,omitempty" json:"pushTypeAvailable,omitempty" xml:"pushTypeAvailable,omitempty"`
 }
+
 type VerificationResultAttestation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -154,6 +156,7 @@ type VerificationResultAttestation struct {
 	// Signed assertion by the attestation source that they have attested to the information.
 	SourceSignature *Signature `bson:"sourceSignature,omitempty" json:"sourceSignature,omitempty" xml:"sourceSignature,omitempty"`
 }
+
 type VerificationResultValidator struct {
 	// Unique id for the element within a resource (for internal references).
 	//

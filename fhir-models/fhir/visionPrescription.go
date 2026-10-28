@@ -80,6 +80,7 @@ type VisionPrescription struct {
 	// Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.
 	LensSpecification []VisionPrescriptionLensSpecification `bson:"lensSpecification" json:"lensSpecification" xml:"lensSpecification"`
 }
+
 type VisionPrescriptionLensSpecification struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -136,6 +137,7 @@ type VisionPrescriptionLensSpecification struct {
 	// Notes for special requirements such as coatings and lens materials.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type VisionPrescriptionLensSpecificationPrism struct {
 	// Unique id for the element within a resource (for internal references).
 	//

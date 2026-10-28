@@ -100,6 +100,7 @@ type PackagedProductDefinition struct {
 	// Allows the key features to be recorded, such as "hospital pack", "nurse prescribable", "calendar pack".
 	Characteristic []PackagedProductDefinitionPackagingProperty `bson:"characteristic,omitempty" json:"characteristic,omitempty"`
 }
+
 type PackagedProductDefinitionLegalStatusOfSupply struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -128,6 +129,7 @@ type PackagedProductDefinitionLegalStatusOfSupply struct {
 	// When not specified, this indicates it is unknown in this context.
 	Jurisdiction *CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
 }
+
 type PackagedProductDefinitionPackaging struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -182,6 +184,7 @@ type PackagedProductDefinitionPackaging struct {
 	// See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition).
 	Packaging []PackagedProductDefinitionPackaging `bson:"packaging,omitempty" json:"packaging,omitempty"`
 }
+
 type PackagedProductDefinitionPackagingProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -210,6 +213,7 @@ type PackagedProductDefinitionPackagingProperty struct {
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty" xml:"valueBoolean,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
 }
+
 type PackagedProductDefinitionPackagingContainedItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

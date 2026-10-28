@@ -78,6 +78,7 @@ type InventoryReport struct {
 	// A note associated with the InventoryReport.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type InventoryReportInventoryListing struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -106,6 +107,7 @@ type InventoryReportInventoryListing struct {
 	// The item or items in this listing.
 	Item []InventoryReportInventoryListingItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 }
+
 type InventoryReportInventoryListingItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

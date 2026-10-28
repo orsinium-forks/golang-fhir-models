@@ -128,6 +128,7 @@ type NutritionOrder struct {
 	// Comment: This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type NutritionOrderOralDiet struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -164,6 +165,7 @@ type NutritionOrderOralDiet struct {
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	Instruction *string `bson:"instruction,omitempty" json:"instruction,omitempty" xml:"instruction,omitempty"`
 }
+
 type NutritionOrderOralDietSchedule struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -192,6 +194,7 @@ type NutritionOrderOralDietSchedule struct {
 	// Indicates whether the product is only taken based on a precondition for taking the product.
 	AsNeededFor *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty" xml:"asNeededFor,omitempty"`
 }
+
 type NutritionOrderOralDietNutrient struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -216,6 +219,7 @@ type NutritionOrderOralDietNutrient struct {
 	// The quantity of the specified nutrient to include in diet.
 	Amount *Quantity `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
 }
+
 type NutritionOrderOralDietTexture struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -248,6 +252,7 @@ type NutritionOrderOralDietTexture struct {
 	// Comment: Coupled with the `texture.modifier`; could be (All Foods).
 	FoodType *CodeableConcept `bson:"foodType,omitempty" json:"foodType,omitempty" xml:"foodType,omitempty"`
 }
+
 type NutritionOrderSupplement struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -280,6 +285,7 @@ type NutritionOrderSupplement struct {
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	Instruction *string `bson:"instruction,omitempty" json:"instruction,omitempty" xml:"instruction,omitempty"`
 }
+
 type NutritionOrderSupplementSchedule struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -308,6 +314,7 @@ type NutritionOrderSupplementSchedule struct {
 	// Indicates whether the supplement is only taken based on a precondition for taking the supplement.
 	AsNeededFor *CodeableConcept `bson:"asNeededFor,omitempty" json:"asNeededFor,omitempty" xml:"asNeededFor,omitempty"`
 }
+
 type NutritionOrderEnteralFormula struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -358,6 +365,7 @@ type NutritionOrderEnteralFormula struct {
 	// Comment: Free text dosage instructions can be used for cases where the instructions are too complex to code.
 	AdministrationInstruction *string `bson:"administrationInstruction,omitempty" json:"administrationInstruction,omitempty" xml:"administrationInstruction,omitempty"`
 }
+
 type NutritionOrderEnteralFormulaAdditive struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -384,6 +392,7 @@ type NutritionOrderEnteralFormulaAdditive struct {
 	// The amount of additive to be given in addition or to be mixed in with the base formula.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 }
+
 type NutritionOrderEnteralFormulaAdministration struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -415,6 +424,7 @@ type NutritionOrderEnteralFormulaAdministration struct {
 	RateQuantity *Quantity `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty" xml:"rateQuantity,omitempty"`
 	RateRatio    *Ratio    `bson:"rateRatio,omitempty" json:"rateRatio,omitempty" xml:"rateRatio,omitempty"`
 }
+
 type NutritionOrderEnteralFormulaAdministrationSchedule struct {
 	// Unique id for the element within a resource (for internal references).
 	//

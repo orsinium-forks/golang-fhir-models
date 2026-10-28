@@ -152,6 +152,7 @@ type DocumentReference struct {
 	// Comment: content element shall not contain different versions of the same content. For version handling use multiple DocumentReference with .relatesTo.
 	Content []DocumentReferenceContent `bson:"content" json:"content" xml:"content"`
 }
+
 type DocumentReferenceAttester struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -178,6 +179,7 @@ type DocumentReferenceAttester struct {
 	// Who attested the document in the specified way.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
 }
+
 type DocumentReferenceRelatesTo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -204,6 +206,7 @@ type DocumentReferenceRelatesTo struct {
 	// The target document of this relationship.
 	Target Reference `bson:"target" json:"target" xml:"target"`
 }
+
 type DocumentReferenceContent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -232,6 +235,7 @@ type DocumentReferenceContent struct {
 	// For FHIR content, .profile should indicate the structureDefinition profile canonical URI(s) that the content complies with.
 	Profile []DocumentReferenceContentProfile `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
 }
+
 type DocumentReferenceContentProfile struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -122,6 +122,7 @@ type MedicationStatement struct {
 	// Comment: This element can be used to indicate whether a patient is following a course of treatment as instructed/prescribed or whether they are taking medications of their own volition.  It can also be used to indicate that a patient is not taking a medication, either because they were told not to or because they decided on their own.
 	Adherence *MedicationStatementAdherence `bson:"adherence,omitempty" json:"adherence,omitempty" xml:"adherence,omitempty"`
 }
+
 type MedicationStatementAdherence struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -230,6 +230,7 @@ type PlanDefinition struct {
 	AsNeededBoolean         *bool            `bson:"asNeededBoolean,omitempty" json:"asNeededBoolean,omitempty" xml:"asNeededBoolean,omitempty"`
 	AsNeededCodeableConcept *CodeableConcept `bson:"asNeededCodeableConcept,omitempty" json:"asNeededCodeableConcept,omitempty" xml:"asNeededCodeableConcept,omitempty"`
 }
+
 type PlanDefinitionGoal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -268,6 +269,7 @@ type PlanDefinitionGoal struct {
 	// Indicates what should be done and within what timeframe.
 	Target []PlanDefinitionGoalTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
 }
+
 type PlanDefinitionGoalTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -306,6 +308,7 @@ type PlanDefinitionGoalTarget struct {
 	// Indicates the timeframe after the start of the goal in which the goal should be met.
 	Due *Duration `bson:"due,omitempty" json:"due,omitempty" xml:"due,omitempty"`
 }
+
 type PlanDefinitionActor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -332,6 +335,7 @@ type PlanDefinitionActor struct {
 	// The characteristics of the candidates that could serve as the actor.
 	Option []PlanDefinitionActorOption `bson:"option" json:"option" xml:"option"`
 }
+
 type PlanDefinitionActorOption struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -362,6 +366,7 @@ type PlanDefinitionActorOption struct {
 	// The role the participant should play in performing the described action.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 }
+
 type PlanDefinitionAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -488,6 +493,7 @@ type PlanDefinitionAction struct {
 	// The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
 	Action []PlanDefinitionAction `bson:"action,omitempty" json:"action,omitempty"`
 }
+
 type PlanDefinitionActionCondition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -516,6 +522,7 @@ type PlanDefinitionActionCondition struct {
 	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
 }
+
 type PlanDefinitionActionInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -546,6 +553,7 @@ type PlanDefinitionActionInput struct {
 	// Comment: The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
 }
+
 type PlanDefinitionActionOutput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -576,6 +584,7 @@ type PlanDefinitionActionOutput struct {
 	// Comment: The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
 }
+
 type PlanDefinitionActionRelatedAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -607,6 +616,7 @@ type PlanDefinitionActionRelatedAction struct {
 	OffsetDuration *Duration `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty" xml:"offsetDuration,omitempty"`
 	OffsetRange    *Range    `bson:"offsetRange,omitempty" json:"offsetRange,omitempty" xml:"offsetRange,omitempty"`
 }
+
 type PlanDefinitionActionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -641,6 +651,7 @@ type PlanDefinitionActionParticipant struct {
 	// Indicates how the actor will be involved in the action - author, reviewer, witness, etc.
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 }
+
 type PlanDefinitionActionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).
 	//

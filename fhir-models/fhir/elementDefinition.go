@@ -408,6 +408,7 @@ type ElementDefinition struct {
 	// Comment: Mappings are not necessarily specific enough for safe translation.
 	Mapping []ElementDefinitionMapping `bson:"mapping,omitempty" json:"mapping,omitempty" xml:"mapping,omitempty"`
 }
+
 type ElementDefinitionSlicing struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -442,6 +443,7 @@ type ElementDefinitionSlicing struct {
 	// Comment: Allowing additional elements makes for a much for flexible template - it's open for use in wider contexts, but also means that the content of the resource is not closed, and applications have to decide how to handle content not described by the profile.
 	Rules SlicingRules `bson:"rules" json:"rules" xml:"rules"`
 }
+
 type ElementDefinitionSlicingDiscriminator struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -460,6 +462,7 @@ type ElementDefinitionSlicingDiscriminator struct {
 	// A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
 	Path string `bson:"path" json:"path" xml:"path"`
 }
+
 type ElementDefinitionBase struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -484,6 +487,7 @@ type ElementDefinitionBase struct {
 	// Comment: This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ.
 	Max string `bson:"max" json:"max" xml:"max"`
 }
+
 type ElementDefinitionType struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -520,6 +524,7 @@ type ElementDefinitionType struct {
 	// Comment: The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification.
 	Versioning *ReferenceVersionRules `bson:"versioning,omitempty" json:"versioning,omitempty" xml:"versioning,omitempty"`
 }
+
 type ElementDefinitionExample struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -589,6 +594,7 @@ type ElementDefinitionExample struct {
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
 }
+
 type ElementDefinitionConstraint struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -629,6 +635,7 @@ type ElementDefinitionConstraint struct {
 	// Comment: This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot.
 	Source *string `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type ElementDefinitionBinding struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -655,6 +662,7 @@ type ElementDefinitionBinding struct {
 	// Additional bindings do not replace the main binding but provide more information and/or context.
 	Additional []ElementDefinitionBindingAdditional `bson:"additional,omitempty" json:"additional,omitempty" xml:"additional,omitempty"`
 }
+
 type ElementDefinitionBindingAdditional struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -689,6 +697,7 @@ type ElementDefinitionBindingAdditional struct {
 	// Comment: A common pattern is to make a conformance binding to all repeats, and then make a binding that one of the repeats must conform to.
 	Any *bool `bson:"any,omitempty" json:"any,omitempty" xml:"any,omitempty"`
 }
+
 type ElementDefinitionMapping struct {
 	// Unique id for the element within a resource (for internal references).
 	//

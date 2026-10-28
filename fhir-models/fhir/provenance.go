@@ -103,6 +103,7 @@ type Provenance struct {
 	// The signer should match a Provenance.agent. The purpose of the signature is indicated.
 	Signature []Signature `bson:"signature,omitempty" json:"signature,omitempty" xml:"signature,omitempty"`
 }
+
 type ProvenanceAgent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -137,6 +138,7 @@ type ProvenanceAgent struct {
 	// The agent that delegated authority to perform the activity performed by the agent.who element.
 	OnBehalfOf *Reference `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty" xml:"onBehalfOf,omitempty"`
 }
+
 type ProvenanceEntity struct {
 	// Unique id for the element within a resource (for internal references).
 	//

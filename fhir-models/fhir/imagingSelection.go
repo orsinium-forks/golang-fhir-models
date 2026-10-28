@@ -124,6 +124,7 @@ type ImagingSelection struct {
 	// Each imaging selection includes one or more selected DICOM SOP instances.
 	Instance []ImagingSelectionInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
 }
+
 type ImagingSelectionPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -148,6 +149,7 @@ type ImagingSelectionPerformer struct {
 	// Author – human or machine.
 	Actor *Reference `bson:"actor,omitempty" json:"actor,omitempty" xml:"actor,omitempty"`
 }
+
 type ImagingSelectionInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -202,6 +204,7 @@ type ImagingSelectionInstance struct {
 	// Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates.
 	ImageRegion3D []ImagingSelectionInstanceImageRegion3D `bson:"imageRegion3D,omitempty" json:"imageRegion3D,omitempty" xml:"imageRegion3D,omitempty"`
 }
+
 type ImagingSelectionInstanceImageRegion2D struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -234,6 +237,7 @@ type ImagingSelectionInstanceImageRegion2D struct {
 	// Comment: For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html).
 	Coordinate []decimal.Decimal `bson:"coordinate" json:"coordinate" xml:"coordinate"`
 }
+
 type ImagingSelectionInstanceImageRegion3D struct {
 	// Unique id for the element within a resource (for internal references).
 	//

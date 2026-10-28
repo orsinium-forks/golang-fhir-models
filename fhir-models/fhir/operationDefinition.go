@@ -207,6 +207,7 @@ type OperationDefinition struct {
 	// Comment: The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative.
 	Overload []OperationDefinitionOverload `bson:"overload,omitempty" json:"overload,omitempty" xml:"overload,omitempty"`
 }
+
 type OperationDefinitionParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -275,6 +276,7 @@ type OperationDefinitionParameter struct {
 	// Comment: Query Definitions only have one output parameter, named "result". This might not be described, but can be to allow a profile to be defined.
 	Part []OperationDefinitionParameter `bson:"part,omitempty" json:"part,omitempty"`
 }
+
 type OperationDefinitionParameterBinding struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -305,6 +307,7 @@ type OperationDefinitionParameterBinding struct {
 	// Comment: For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not.
 	ValueSet string `bson:"valueSet" json:"valueSet" xml:"valueSet"`
 }
+
 type OperationDefinitionParameterReferencedFrom struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +332,7 @@ type OperationDefinitionParameterReferencedFrom struct {
 	// The id of the element in the referencing resource that is expected to resolve to this resource.
 	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
+
 type OperationDefinitionOverload struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -64,6 +64,7 @@ type Linkage struct {
 	// Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items.
 	Item []LinkageItem `bson:"item" json:"item" xml:"item"`
 }
+
 type LinkageItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -101,6 +101,7 @@ type DetectedIssue struct {
 	//  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
 	Mitigation []DetectedIssueMitigation `bson:"mitigation,omitempty" json:"mitigation,omitempty" xml:"mitigation,omitempty"`
 }
+
 type DetectedIssueEvidence struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -125,6 +126,7 @@ type DetectedIssueEvidence struct {
 	// Links to resources that constitute evidence for the detected issue such as a GuidanceResponse or MeasureReport.
 	Detail []Reference `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type DetectedIssueMitigation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

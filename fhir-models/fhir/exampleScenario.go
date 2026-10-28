@@ -159,6 +159,7 @@ type ExampleScenario struct {
 	// Comment: Some scenarios might describe only one process.
 	Process []ExampleScenarioProcess `bson:"process,omitempty" json:"process,omitempty" xml:"process,omitempty"`
 }
+
 type ExampleScenarioActor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -187,6 +188,7 @@ type ExampleScenarioActor struct {
 	// An explanation of who/what the actor is and its role in the scenario.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 }
+
 type ExampleScenarioInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -234,6 +236,7 @@ type ExampleScenarioInstance struct {
 	// the observations contained in a bundle).
 	ContainedInstance []ExampleScenarioInstanceContainedInstance `bson:"containedInstance,omitempty" json:"containedInstance,omitempty" xml:"containedInstance,omitempty"`
 }
+
 type ExampleScenarioInstanceVersion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -264,6 +267,7 @@ type ExampleScenarioInstanceVersion struct {
 	// Comment: If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary.
 	Content *Reference `bson:"content,omitempty" json:"content,omitempty" xml:"content,omitempty"`
 }
+
 type ExampleScenarioInstanceContainedInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -290,6 +294,7 @@ type ExampleScenarioInstanceContainedInstance struct {
 	// Comment: Required if the referenced instance has versions
 	VersionReference *string `bson:"versionReference,omitempty" json:"versionReference,omitempty" xml:"versionReference,omitempty"`
 }
+
 type ExampleScenarioProcess struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -322,6 +327,7 @@ type ExampleScenarioProcess struct {
 	// A significant action that occurs as part of the process.
 	Step []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty" xml:"step,omitempty"`
 }
+
 type ExampleScenarioProcessStep struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -358,6 +364,7 @@ type ExampleScenarioProcessStep struct {
 	// If true, indicates that, following this step, there is a pause in the flow and the subsequent step will occur at some later time (triggered by some event).
 	Pause *bool `bson:"pause,omitempty" json:"pause,omitempty" xml:"pause,omitempty"`
 }
+
 type ExampleScenarioProcessStepOperation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -406,6 +413,7 @@ type ExampleScenarioProcessStepOperation struct {
 	// A reference to the instance that is transmitted from receiver to requester as part of the operation's synchronous response (if any).
 	Response *ExampleScenarioInstanceContainedInstance `bson:"response,omitempty" json:"response,omitempty"`
 }
+
 type ExampleScenarioProcessStepAlternative struct {
 	// Unique id for the element within a resource (for internal references).
 	//

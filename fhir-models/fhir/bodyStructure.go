@@ -82,6 +82,7 @@ type BodyStructure struct {
 	// The person to which the body site belongs.
 	Patient Reference `bson:"patient" json:"patient" xml:"patient"`
 }
+
 type BodyStructureIncludedStructure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -112,6 +113,7 @@ type BodyStructureIncludedStructure struct {
 	// Code that represents the included structure qualifier.
 	Qualifier []CodeableConcept `bson:"qualifier,omitempty" json:"qualifier,omitempty" xml:"qualifier,omitempty"`
 }
+
 type BodyStructureIncludedStructureBodyLandmarkOrientation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -140,6 +142,7 @@ type BodyStructureIncludedStructureBodyLandmarkOrientation struct {
 	// The surface area a body location is in relation to a landmark.
 	SurfaceOrientation []CodeableConcept `bson:"surfaceOrientation,omitempty" json:"surfaceOrientation,omitempty" xml:"surfaceOrientation,omitempty"`
 }
+
 type BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark struct {
 	// Unique id for the element within a resource (for internal references).
 	//

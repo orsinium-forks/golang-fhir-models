@@ -225,6 +225,7 @@ type ConceptMap struct {
 	// A group of mappings that all have the same source and target system.
 	Group []ConceptMapGroup `bson:"group,omitempty" json:"group,omitempty" xml:"group,omitempty"`
 }
+
 type ConceptMapProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -257,6 +258,7 @@ type ConceptMapProperty struct {
 	// The CodeSystem that defines the codes from which values of type ```code``` in property values.
 	System *string `bson:"system,omitempty" json:"system,omitempty" xml:"system,omitempty"`
 }
+
 type ConceptMapAdditionalAttribute struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -291,6 +293,7 @@ type ConceptMapAdditionalAttribute struct {
 	// Comment: When the source or target is not content defined by FHIR, some additional application logic might be required to map from the FHIR Datatype to the externally defined content
 	Type ConceptMapAttributeType `bson:"type" json:"type" xml:"type"`
 }
+
 type ConceptMapGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +332,7 @@ type ConceptMapGroup struct {
 	// Comment: The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true.
 	Unmapped *ConceptMapGroupUnmapped `bson:"unmapped,omitempty" json:"unmapped,omitempty" xml:"unmapped,omitempty"`
 }
+
 type ConceptMapGroupElement struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -369,6 +373,7 @@ type ConceptMapGroupElement struct {
 	// Comment: Ideally there would only be one map, with an 'equivalent' mapping. But multiple maps are allowed for several narrower (i.e. source-is-broader-than-target) options, or to assert that other concepts are not related.
 	Target []ConceptMapGroupElementTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
 }
+
 type ConceptMapGroupElementTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -419,6 +424,7 @@ type ConceptMapGroupElementTarget struct {
 	// Product is the output of a ConceptMap that provides additional values that go in other attributes / data elemnts of the target data.
 	Product []ConceptMapGroupElementTargetDependsOn `bson:"product,omitempty" json:"product,omitempty"`
 }
+
 type ConceptMapGroupElementTargetProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -451,6 +457,7 @@ type ConceptMapGroupElementTargetProperty struct {
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
 	ValueCode     string          `bson:"valueCode" json:"valueCode" xml:"valueCode"`
 }
+
 type ConceptMapGroupElementTargetDependsOn struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -483,6 +490,7 @@ type ConceptMapGroupElementTargetDependsOn struct {
 	// This mapping applies if the data element value is a code from this value set.
 	ValueSet *string `bson:"valueSet,omitempty" json:"valueSet,omitempty" xml:"valueSet,omitempty"`
 }
+
 type ConceptMapGroupUnmapped struct {
 	// Unique id for the element within a resource (for internal references).
 	//

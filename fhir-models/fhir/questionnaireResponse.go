@@ -120,6 +120,7 @@ type QuestionnaireResponse struct {
 	// Comment: Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).\nWhen dealing with repeating items, each group repetition will be handled by a separate item.  However, repeating questions are handled with a single question item and potentially multiple answers.
 	Item []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 }
+
 type QuestionnaireResponseItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -160,6 +161,7 @@ type QuestionnaireResponseItem struct {
 	// Comment: Only used when nesting beneath a group - see item.answer.item for nesting beneath questions
 	Item []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
 }
+
 type QuestionnaireResponseItemAnswer struct {
 	// Unique id for the element within a resource (for internal references).
 	//

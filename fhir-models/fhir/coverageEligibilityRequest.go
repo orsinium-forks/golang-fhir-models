@@ -97,6 +97,7 @@ type CoverageEligibilityRequest struct {
 	// Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor.
 	Item []CoverageEligibilityRequestItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 }
+
 type CoverageEligibilityRequestEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -122,6 +123,7 @@ type CoverageEligibilityRequestEvent struct {
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
 }
+
 type CoverageEligibilityRequestSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -152,6 +154,7 @@ type CoverageEligibilityRequestSupportingInfo struct {
 	// The supporting materials are applicable for all detail items, product/servce categories and specific billing codes.
 	AppliesToAll *bool `bson:"appliesToAll,omitempty" json:"appliesToAll,omitempty" xml:"appliesToAll,omitempty"`
 }
+
 type CoverageEligibilityRequestInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -182,6 +185,7 @@ type CoverageEligibilityRequestInsurance struct {
 	// A business agreement number established between the provider and the insurer for special business processing purposes.
 	BusinessArrangement *string `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty" xml:"businessArrangement,omitempty"`
 }
+
 type CoverageEligibilityRequestItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -228,6 +232,7 @@ type CoverageEligibilityRequestItem struct {
 	// The plan/proposal/order describing the proposed service in detail.
 	Detail []Reference `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type CoverageEligibilityRequestItemDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -130,6 +130,7 @@ type DeviceDefinition struct {
 	// Billing code or reference associated with the device.
 	ChargeItem []DeviceDefinitionChargeItem `bson:"chargeItem,omitempty" json:"chargeItem,omitempty" xml:"chargeItem,omitempty"`
 }
+
 type DeviceDefinitionUdiDeviceIdentifier struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -158,6 +159,7 @@ type DeviceDefinitionUdiDeviceIdentifier struct {
 	// Indicates where and when the device is available on the market.
 	MarketDistribution []DeviceDefinitionUdiDeviceIdentifierMarketDistribution `bson:"marketDistribution,omitempty" json:"marketDistribution,omitempty" xml:"marketDistribution,omitempty"`
 }
+
 type DeviceDefinitionUdiDeviceIdentifierMarketDistribution struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -182,6 +184,7 @@ type DeviceDefinitionUdiDeviceIdentifierMarketDistribution struct {
 	// National state or territory to which the marketDistribution recers, typically where the device is commercialized.
 	SubJurisdiction string `bson:"subJurisdiction" json:"subJurisdiction" xml:"subJurisdiction"`
 }
+
 type DeviceDefinitionRegulatoryIdentifier struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -210,6 +213,7 @@ type DeviceDefinitionRegulatoryIdentifier struct {
 	// The jurisdiction to which the deviceIdentifier applies.
 	Jurisdiction string `bson:"jurisdiction" json:"jurisdiction" xml:"jurisdiction"`
 }
+
 type DeviceDefinitionDeviceName struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -236,6 +240,7 @@ type DeviceDefinitionDeviceName struct {
 	// RegisteredName | UserFriendlyName | PatientReportedName.
 	Type DeviceNameType `bson:"type" json:"type" xml:"type"`
 }
+
 type DeviceDefinitionClassification struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -260,6 +265,7 @@ type DeviceDefinitionClassification struct {
 	// Further information qualifying this classification of the device model.
 	Justification []RelatedArtifact `bson:"justification,omitempty" json:"justification,omitempty" xml:"justification,omitempty"`
 }
+
 type DeviceDefinitionConformsTo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -290,6 +296,7 @@ type DeviceDefinitionConformsTo struct {
 	// Standard, regulation, certification, or guidance website, document, or other publication, or similar, supporting the conformance.
 	Source []RelatedArtifact `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type DeviceDefinitionHasPart struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -314,6 +321,7 @@ type DeviceDefinitionHasPart struct {
 	// Number of instances of the component device in the current device.
 	Count *int `bson:"count,omitempty" json:"count,omitempty" xml:"count,omitempty"`
 }
+
 type DeviceDefinitionPackaging struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -346,6 +354,7 @@ type DeviceDefinitionPackaging struct {
 	// Allows packages within packages.
 	Packaging []DeviceDefinitionPackaging `bson:"packaging,omitempty" json:"packaging,omitempty"`
 }
+
 type DeviceDefinitionPackagingDistributor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -370,6 +379,7 @@ type DeviceDefinitionPackagingDistributor struct {
 	// Distributor as an Organization resource.
 	OrganizationReference []Reference `bson:"organizationReference,omitempty" json:"organizationReference,omitempty" xml:"organizationReference,omitempty"`
 }
+
 type DeviceDefinitionVersion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -398,6 +408,7 @@ type DeviceDefinitionVersion struct {
 	// The version text.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type DeviceDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -430,6 +441,7 @@ type DeviceDefinitionProperty struct {
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment" xml:"valueAttachment"`
 }
+
 type DeviceDefinitionLink struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -454,6 +466,7 @@ type DeviceDefinitionLink struct {
 	// A reference to the linked device.
 	RelatedDevice CodeableReference `bson:"relatedDevice" json:"relatedDevice" xml:"relatedDevice"`
 }
+
 type DeviceDefinitionMaterial struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -482,6 +495,7 @@ type DeviceDefinitionMaterial struct {
 	// Whether the substance is a known or suspected allergen.
 	AllergenicIndicator *bool `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty" xml:"allergenicIndicator,omitempty"`
 }
+
 type DeviceDefinitionGuideline struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -522,6 +536,7 @@ type DeviceDefinitionGuideline struct {
 	// A description of the general purpose or medical use of the device or its function.
 	IntendedUse *string `bson:"intendedUse,omitempty" json:"intendedUse,omitempty" xml:"intendedUse,omitempty"`
 }
+
 type DeviceDefinitionCorrectiveAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -550,6 +565,7 @@ type DeviceDefinitionCorrectiveAction struct {
 	// Start and end dates of the  corrective action.
 	Period Period `bson:"period" json:"period" xml:"period"`
 }
+
 type DeviceDefinitionChargeItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

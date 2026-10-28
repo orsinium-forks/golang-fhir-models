@@ -150,6 +150,7 @@ type Contract struct {
 	LegallyBindingAttachment *Attachment `bson:"legallyBindingAttachment,omitempty" json:"legallyBindingAttachment,omitempty" xml:"legallyBindingAttachment,omitempty"`
 	LegallyBindingReference  *Reference  `bson:"legallyBindingReference,omitempty" json:"legallyBindingReference,omitempty" xml:"legallyBindingReference,omitempty"`
 }
+
 type ContractContentDefinition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -186,6 +187,7 @@ type ContractContentDefinition struct {
 	// Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
 }
+
 type ContractTerm struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -237,6 +239,7 @@ type ContractTerm struct {
 	// Nested group of Contract Provisions.
 	Group []ContractTerm `bson:"group,omitempty" json:"group,omitempty"`
 }
+
 type ContractTermSecurityLabel struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -265,6 +268,7 @@ type ContractTermSecurityLabel struct {
 	// Security label privacy tag that specifies the manner in which term and/or term elements are to be protected.
 	Control []Coding `bson:"control,omitempty" json:"control,omitempty" xml:"control,omitempty"`
 }
+
 type ContractTermOffer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -311,6 +315,7 @@ type ContractTermOffer struct {
 	// Security labels that protects the offer.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 }
+
 type ContractTermOfferParty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -335,6 +340,7 @@ type ContractTermOfferParty struct {
 	// How the party participates in the offer.
 	Role CodeableConcept `bson:"role" json:"role" xml:"role"`
 }
+
 type ContractTermOfferAnswer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -368,6 +374,7 @@ type ContractTermOfferAnswer struct {
 	ValueQuantity   Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueReference  Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
 }
+
 type ContractTermAsset struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -418,6 +425,7 @@ type ContractTermAsset struct {
 	// Contract Valued Item List.
 	ValuedItem []ContractTermAssetValuedItem `bson:"valuedItem,omitempty" json:"valuedItem,omitempty" xml:"valuedItem,omitempty"`
 }
+
 type ContractTermAssetContext struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -444,6 +452,7 @@ type ContractTermAssetContext struct {
 	// Context description.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
 }
+
 type ContractTermAssetValuedItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -499,6 +508,7 @@ type ContractTermAssetValuedItem struct {
 	// A set of security labels that define which terms are controlled by this condition.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 }
+
 type ContractTermAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -561,6 +571,7 @@ type ContractTermAction struct {
 	// Security labels that protects the action.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 }
+
 type ContractTermActionSubject struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -585,6 +596,7 @@ type ContractTermActionSubject struct {
 	// Role type of agent assigned roles in this Contract.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 }
+
 type ContractSigner struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -611,6 +623,7 @@ type ContractSigner struct {
 	// Legally binding Contract DSIG signature contents in Base64.
 	Signature []Signature `bson:"signature" json:"signature" xml:"signature"`
 }
+
 type ContractFriendly struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -634,6 +647,7 @@ type ContractFriendly struct {
 	ContentAttachment Attachment `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference  Reference  `bson:"contentReference" json:"contentReference" xml:"contentReference"`
 }
+
 type ContractLegal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -657,6 +671,7 @@ type ContractLegal struct {
 	ContentAttachment Attachment `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference  Reference  `bson:"contentReference" json:"contentReference" xml:"contentReference"`
 }
+
 type ContractRule struct {
 	// Unique id for the element within a resource (for internal references).
 	//

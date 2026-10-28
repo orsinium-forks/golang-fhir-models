@@ -94,6 +94,7 @@ type CareTeam struct {
 	// Comments made about the CareTeam.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type CareTeamParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//

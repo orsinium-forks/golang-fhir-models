@@ -23,6 +23,7 @@ type Availability struct {
 	// Not available during this time due to provided reason.
 	NotAvailableTime []AvailabilityNotAvailableTime `bson:"notAvailableTime,omitempty" json:"notAvailableTime,omitempty" xml:"notAvailableTime,omitempty"`
 }
+
 type AvailabilityAvailableTime struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -47,6 +48,7 @@ type AvailabilityAvailableTime struct {
 	// Comment: The timezone is expected to be specified or implied by the context this datatype is used.
 	AvailableEndTime *string `bson:"availableEndTime,omitempty" json:"availableEndTime,omitempty" xml:"availableEndTime,omitempty"`
 }
+
 type AvailabilityNotAvailableTime struct {
 	// Unique id for the element within a resource (for internal references).
 	//

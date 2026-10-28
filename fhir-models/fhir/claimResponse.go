@@ -160,6 +160,7 @@ type ClaimResponse struct {
 	// Comment: If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
 	Error []ClaimResponseError `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
 }
+
 type ClaimResponseEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -185,6 +186,7 @@ type ClaimResponseEvent struct {
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
 }
+
 type ClaimResponseItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -223,6 +225,7 @@ type ClaimResponseItem struct {
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	Detail []ClaimResponseItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type ClaimResponseItemReviewOutcome struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -255,6 +258,7 @@ type ClaimResponseItemReviewOutcome struct {
 	// The time frame during which this authorization is effective.
 	PreAuthPeriod *Period `bson:"preAuthPeriod,omitempty" json:"preAuthPeriod,omitempty" xml:"preAuthPeriod,omitempty"`
 }
+
 type ClaimResponseItemAdjudication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -295,6 +299,7 @@ type ClaimResponseItemAdjudication struct {
 	// Comment: For example: eligible percentage or co-payment percentage.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 }
+
 type ClaimResponseItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +334,7 @@ type ClaimResponseItemDetail struct {
 	// A sub-detail adjudication of a simple product or service.
 	SubDetail []ClaimResponseItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
 }
+
 type ClaimResponseItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -361,6 +367,7 @@ type ClaimResponseItemDetailSubDetail struct {
 	// The adjudication results.
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
 type ClaimResponseAddItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -450,6 +457,7 @@ type ClaimResponseAddItem struct {
 	// The second-tier service adjudications for payor added services.
 	Detail []ClaimResponseAddItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type ClaimResponseAddItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -476,6 +484,7 @@ type ClaimResponseAddItemBodySite struct {
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
 }
+
 type ClaimResponseAddItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -542,6 +551,7 @@ type ClaimResponseAddItemDetail struct {
 	// The third-tier service adjudications for payor added services.
 	SubDetail []ClaimResponseAddItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
 }
+
 type ClaimResponseAddItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -606,6 +616,7 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	// The adjudication results.
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
 type ClaimResponseTotal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -634,6 +645,7 @@ type ClaimResponseTotal struct {
 	// Monetary total amount associated with the category.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
 }
+
 type ClaimResponsePayment struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -670,6 +682,7 @@ type ClaimResponsePayment struct {
 	// Comment: For example: EFT number or check number.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 }
+
 type ClaimResponseProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -700,6 +713,7 @@ type ClaimResponseProcessNote struct {
 	// Comment: Only required if the language is different from the resource language.
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
 }
+
 type ClaimResponseInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -736,6 +750,7 @@ type ClaimResponseInsurance struct {
 	// Comment: Must not be specified when 'focal=true' for this insurance.
 	ClaimResponse *Reference `bson:"claimResponse,omitempty" json:"claimResponse,omitempty" xml:"claimResponse,omitempty"`
 }
+
 type ClaimResponseError struct {
 	// Unique id for the element within a resource (for internal references).
 	//

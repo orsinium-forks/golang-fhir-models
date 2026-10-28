@@ -64,6 +64,7 @@ type SubstanceReferenceInformation struct {
 	// Todo.
 	Target []SubstanceReferenceInformationTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
 }
+
 type SubstanceReferenceInformationGene struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -90,6 +91,7 @@ type SubstanceReferenceInformationGene struct {
 	// Todo.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type SubstanceReferenceInformationGeneElement struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -116,6 +118,7 @@ type SubstanceReferenceInformationGeneElement struct {
 	// Todo.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type SubstanceReferenceInformationTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//

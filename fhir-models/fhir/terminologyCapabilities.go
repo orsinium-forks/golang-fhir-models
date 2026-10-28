@@ -185,6 +185,7 @@ type TerminologyCapabilities struct {
 	// Whether the $closure operation is supported.
 	Closure *TerminologyCapabilitiesClosure `bson:"closure,omitempty" json:"closure,omitempty" xml:"closure,omitempty"`
 }
+
 type TerminologyCapabilitiesSoftware struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -211,6 +212,7 @@ type TerminologyCapabilitiesSoftware struct {
 	// Comment: If possible, a version should be specified, as statements are likely to be different for different versions of software.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
 }
+
 type TerminologyCapabilitiesImplementation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -235,6 +237,7 @@ type TerminologyCapabilitiesImplementation struct {
 	// An absolute base URL for the implementation.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 }
+
 type TerminologyCapabilitiesCodeSystem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -265,6 +268,7 @@ type TerminologyCapabilitiesCodeSystem struct {
 	// True if subsumption is supported for this version of the code system.
 	Subsumption *bool `bson:"subsumption,omitempty" json:"subsumption,omitempty" xml:"subsumption,omitempty"`
 }
+
 type TerminologyCapabilitiesCodeSystemVersion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -297,6 +301,7 @@ type TerminologyCapabilitiesCodeSystemVersion struct {
 	// Properties supported for $lookup.
 	Property []string `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
 }
+
 type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -321,6 +326,7 @@ type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	// Operations supported for the property.
 	Op []string `bson:"op" json:"op" xml:"op"`
 }
+
 type TerminologyCapabilitiesExpansion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -353,6 +359,7 @@ type TerminologyCapabilitiesExpansion struct {
 	// Comment: This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters.
 	TextFilter *string `bson:"textFilter,omitempty" json:"textFilter,omitempty" xml:"textFilter,omitempty"`
 }
+
 type TerminologyCapabilitiesExpansionParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -377,6 +384,7 @@ type TerminologyCapabilitiesExpansionParameter struct {
 	// Description of support for parameter.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type TerminologyCapabilitiesValidateCode struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -399,6 +407,7 @@ type TerminologyCapabilitiesValidateCode struct {
 	// Whether translations are validated.
 	Translations bool `bson:"translations" json:"translations" xml:"translations"`
 }
+
 type TerminologyCapabilitiesTranslation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -421,6 +430,7 @@ type TerminologyCapabilitiesTranslation struct {
 	// Whether the client must identify the map.
 	NeedsMap bool `bson:"needsMap" json:"needsMap" xml:"needsMap"`
 }
+
 type TerminologyCapabilitiesClosure struct {
 	// Unique id for the element within a resource (for internal references).
 	//

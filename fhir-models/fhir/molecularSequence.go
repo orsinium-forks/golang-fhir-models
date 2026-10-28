@@ -80,6 +80,7 @@ type MolecularSequence struct {
 	// A sequence defined relative to another sequence.
 	Relative []MolecularSequenceRelative `bson:"relative,omitempty" json:"relative,omitempty" xml:"relative,omitempty"`
 }
+
 type MolecularSequenceRelative struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -112,6 +113,7 @@ type MolecularSequenceRelative struct {
 	// Changes in sequence from the starting sequence.
 	Edit []MolecularSequenceRelativeEdit `bson:"edit,omitempty" json:"edit,omitempty" xml:"edit,omitempty"`
 }
+
 type MolecularSequenceRelativeStartingSequence struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -164,6 +166,7 @@ type MolecularSequenceRelativeStartingSequence struct {
 	// The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.
 	Strand *StrandType `bson:"strand,omitempty" json:"strand,omitempty" xml:"strand,omitempty"`
 }
+
 type MolecularSequenceRelativeEdit struct {
 	// Unique id for the element within a resource (for internal references).
 	//

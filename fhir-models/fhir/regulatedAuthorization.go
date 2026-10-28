@@ -96,6 +96,7 @@ type RegulatedAuthorization struct {
 	// An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page).
 	Case *RegulatedAuthorizationCase `bson:"case,omitempty" json:"case,omitempty" xml:"case,omitempty"`
 }
+
 type RegulatedAuthorizationCase struct {
 	// Unique id for the element within a resource (for internal references).
 	//

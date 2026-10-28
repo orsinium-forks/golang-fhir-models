@@ -96,6 +96,7 @@ type SubstanceSourceMaterial struct {
 	// To do.
 	PartDescription []SubstanceSourceMaterialPartDescription `bson:"partDescription,omitempty" json:"partDescription,omitempty" xml:"partDescription,omitempty"`
 }
+
 type SubstanceSourceMaterialFractionDescription struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -122,6 +123,7 @@ type SubstanceSourceMaterialFractionDescription struct {
 	// For Herbal preparations the particulars of the extracts (liquid/dry) is described in Specified Substance Group 1.
 	MaterialType *CodeableConcept `bson:"materialType,omitempty" json:"materialType,omitempty" xml:"materialType,omitempty"`
 }
+
 type SubstanceSourceMaterialOrganism struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -160,6 +162,7 @@ type SubstanceSourceMaterialOrganism struct {
 	// 4.9.13.7.1 Kingdom (Conditional).
 	OrganismGeneral *SubstanceSourceMaterialOrganismOrganismGeneral `bson:"organismGeneral,omitempty" json:"organismGeneral,omitempty" xml:"organismGeneral,omitempty"`
 }
+
 type SubstanceSourceMaterialOrganismAuthor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -188,6 +191,7 @@ type SubstanceSourceMaterialOrganismAuthor struct {
 	// The author year of an organism shall also be specified when applicable; refers to the year in which the first author(s) published the infraspecific plant/animal name (of any rank).
 	AuthorDescription *string `bson:"authorDescription,omitempty" json:"authorDescription,omitempty" xml:"authorDescription,omitempty"`
 }
+
 type SubstanceSourceMaterialOrganismHybrid struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -222,6 +226,7 @@ type SubstanceSourceMaterialOrganismHybrid struct {
 	// The hybrid type of an organism shall be specified.
 	HybridType *CodeableConcept `bson:"hybridType,omitempty" json:"hybridType,omitempty" xml:"hybridType,omitempty"`
 }
+
 type SubstanceSourceMaterialOrganismOrganismGeneral struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -250,6 +255,7 @@ type SubstanceSourceMaterialOrganismOrganismGeneral struct {
 	// The order of an organism shall be specified,.
 	Order *CodeableConcept `bson:"order,omitempty" json:"order,omitempty" xml:"order,omitempty"`
 }
+
 type SubstanceSourceMaterialPartDescription struct {
 	// Unique id for the element within a resource (for internal references).
 	//

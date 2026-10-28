@@ -113,6 +113,7 @@ type Invoice struct {
 	// Comments made about the invoice by the issuer, subject, or other participants.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type InvoiceParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -139,6 +140,7 @@ type InvoiceParticipant struct {
 	// The device, practitioner, etc. who performed or participated in the service.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type InvoiceLineItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

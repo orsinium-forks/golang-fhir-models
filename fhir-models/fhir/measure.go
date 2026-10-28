@@ -260,6 +260,7 @@ type Measure struct {
 	// Comment: Note that supplemental data are reported as resources for each patient and referenced in the supplementalData element of the MeasureReport. If the supplementalData expression results in a value other than a resource, it is reported using an Observation resource, typically contained in the resulting MeasureReport. See the MeasureReport resource and the Quality Reporting topic for more information.
 	SupplementalData []MeasureSupplementalData `bson:"supplementalData,omitempty" json:"supplementalData,omitempty" xml:"supplementalData,omitempty"`
 }
+
 type MeasureTerm struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -284,6 +285,7 @@ type MeasureTerm struct {
 	// Provides a definition for the term as used within the measure.
 	Definition *string `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
 }
+
 type MeasureGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -359,6 +361,7 @@ type MeasureGroup struct {
 	// The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path.
 	Stratifier []MeasureGroupStratifier `bson:"stratifier,omitempty" json:"stratifier,omitempty" xml:"stratifier,omitempty"`
 }
+
 type MeasureGroupPopulation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -405,6 +408,7 @@ type MeasureGroupPopulation struct {
 	// For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation.
 	AggregateMethod *CodeableConcept `bson:"aggregateMethod,omitempty" json:"aggregateMethod,omitempty" xml:"aggregateMethod,omitempty"`
 }
+
 type MeasureGroupStratifier struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -449,6 +453,7 @@ type MeasureGroupStratifier struct {
 	// Comment: Stratifiers are defined either as a single criteria, or as a set of component criteria.
 	Component []MeasureGroupStratifierComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
 }
+
 type MeasureGroupStratifierComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -489,6 +494,7 @@ type MeasureGroupStratifierComponent struct {
 	// Comment: Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group.
 	GroupDefinition *Reference `bson:"groupDefinition,omitempty" json:"groupDefinition,omitempty" xml:"groupDefinition,omitempty"`
 }
+
 type MeasureSupplementalData struct {
 	// Unique id for the element within a resource (for internal references).
 	//

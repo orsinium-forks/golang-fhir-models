@@ -124,6 +124,7 @@ type Coverage struct {
 	// The insurance plan details, benefits and costs, which constitute this insurance coverage.
 	InsurancePlan *Reference `bson:"insurancePlan,omitempty" json:"insurancePlan,omitempty" xml:"insurancePlan,omitempty"`
 }
+
 type CoveragePaymentBy struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -148,6 +149,7 @@ type CoveragePaymentBy struct {
 	//  Description of the financial responsibility.
 	Responsibility *string `bson:"responsibility,omitempty" json:"responsibility,omitempty" xml:"responsibility,omitempty"`
 }
+
 type CoverageClass struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -178,6 +180,7 @@ type CoverageClass struct {
 	// A short description for the class.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 }
+
 type CoverageCostToBeneficiary struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -219,6 +222,7 @@ type CoverageCostToBeneficiary struct {
 	// A suite of codes indicating exceptions or reductions to patient costs and their effective periods.
 	Exception []CoverageCostToBeneficiaryException `bson:"exception,omitempty" json:"exception,omitempty" xml:"exception,omitempty"`
 }
+
 type CoverageCostToBeneficiaryException struct {
 	// Unique id for the element within a resource (for internal references).
 	//

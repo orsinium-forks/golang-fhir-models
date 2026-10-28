@@ -144,6 +144,7 @@ type ResearchStudy struct {
 	//  Could also link to a research registry holding the results such as ClinicalTrials.gov.
 	Result []Reference `bson:"result,omitempty" json:"result,omitempty" xml:"result,omitempty"`
 }
+
 type ResearchStudyLabel struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -168,6 +169,7 @@ type ResearchStudyLabel struct {
 	// The name.
 	Value *string `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
 }
+
 type ResearchStudyAssociatedParty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -202,6 +204,7 @@ type ResearchStudyAssociatedParty struct {
 	// Comment: Suggestions of a better attribute name are appreciated
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
 }
+
 type ResearchStudyProgressStatus struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -230,6 +233,7 @@ type ResearchStudyProgressStatus struct {
 	// Date range.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type ResearchStudyRecruitment struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -258,6 +262,7 @@ type ResearchStudyRecruitment struct {
 	// Group of participants who were enrolled in study.
 	ActualGroup *Reference `bson:"actualGroup,omitempty" json:"actualGroup,omitempty" xml:"actualGroup,omitempty"`
 }
+
 type ResearchStudyComparisonGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -292,6 +297,7 @@ type ResearchStudyComparisonGroup struct {
 	// Group of participants who were enrolled in study comparisonGroup.
 	ObservedGroup *Reference `bson:"observedGroup,omitempty" json:"observedGroup,omitempty" xml:"observedGroup,omitempty"`
 }
+
 type ResearchStudyObjective struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -320,6 +326,7 @@ type ResearchStudyObjective struct {
 	//  This is what the study is trying to achieve rather than how it is going to achieve it (see ResearchStudy.description).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 }
+
 type ResearchStudyOutcomeMeasure struct {
 	// Unique id for the element within a resource (for internal references).
 	//

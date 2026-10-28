@@ -97,6 +97,7 @@ type ArtifactAssessment struct {
 	// Indicates the disposition of the responsible party to the comment or change request.
 	Disposition *ArtifactAssessmentDisposition `bson:"disposition,omitempty" json:"disposition,omitempty" xml:"disposition,omitempty"`
 }
+
 type ArtifactAssessmentContent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

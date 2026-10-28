@@ -82,6 +82,7 @@ type NutritionProduct struct {
 	// Comments made about the product.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type NutritionProductNutrient struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -106,6 +107,7 @@ type NutritionProductNutrient struct {
 	// The amount of nutrient expressed in one or more units: X per pack / per serving / per dose.
 	Amount []Ratio `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
 }
+
 type NutritionProductIngredient struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -130,6 +132,7 @@ type NutritionProductIngredient struct {
 	// The amount of ingredient that is in the product.
 	Amount []Ratio `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
 }
+
 type NutritionProductCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -161,6 +164,7 @@ type NutritionProductCharacteristic struct {
 	ValueAttachment      Attachment      `bson:"valueAttachment" json:"valueAttachment" xml:"valueAttachment"`
 	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
 }
+
 type NutritionProductInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//

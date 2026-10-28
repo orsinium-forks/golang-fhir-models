@@ -142,6 +142,7 @@ type HealthcareService struct {
 	// Technical endpoints providing access to services operated for the specific healthcare services defined at this resource.
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 }
+
 type HealthcareServiceEligibility struct {
 	// Unique id for the element within a resource (for internal references).
 	//

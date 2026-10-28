@@ -180,6 +180,7 @@ type SpecimenDefinition struct {
 	// Specimen conditioned in a container as expected by the testing laboratory.
 	TypeTested []SpecimenDefinitionTypeTested `bson:"typeTested,omitempty" json:"typeTested,omitempty" xml:"typeTested,omitempty"`
 }
+
 type SpecimenDefinitionTypeTested struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -220,6 +221,7 @@ type SpecimenDefinitionTypeTested struct {
 	// Where the specimen will be tested: e.g., lab, sector, device or any combination of these.
 	TestingDestination []CodeableConcept `bson:"testingDestination,omitempty" json:"testingDestination,omitempty" xml:"testingDestination,omitempty"`
 }
+
 type SpecimenDefinitionTypeTestedContainer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -261,6 +263,7 @@ type SpecimenDefinitionTypeTestedContainer struct {
 	// Special processing that should be applied to the container for this kind of specimen.
 	Preparation *string `bson:"preparation,omitempty" json:"preparation,omitempty" xml:"preparation,omitempty"`
 }
+
 type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -286,6 +289,7 @@ type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	AdditiveCodeableConcept CodeableConcept `bson:"additiveCodeableConcept" json:"additiveCodeableConcept" xml:"additiveCodeableConcept"`
 	AdditiveReference       Reference       `bson:"additiveReference" json:"additiveReference" xml:"additiveReference"`
 }
+
 type SpecimenDefinitionTypeTestedHandling struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -159,6 +159,7 @@ type GraphDefinition struct {
 	// Links this graph makes rules about.
 	Link []GraphDefinitionLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
 }
+
 type GraphDefinitionNode struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -187,6 +188,7 @@ type GraphDefinitionNode struct {
 	// Profile for the target resource.
 	Profile *string `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
 }
+
 type GraphDefinitionLink struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -229,6 +231,7 @@ type GraphDefinitionLink struct {
 	// Compartment Consistency Rules.
 	Compartment []GraphDefinitionLinkCompartment `bson:"compartment,omitempty" json:"compartment,omitempty" xml:"compartment,omitempty"`
 }
+
 type GraphDefinitionLinkCompartment struct {
 	// Unique id for the element within a resource (for internal references).
 	//

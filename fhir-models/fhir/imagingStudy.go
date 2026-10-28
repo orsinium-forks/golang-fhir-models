@@ -126,6 +126,7 @@ type ImagingStudy struct {
 	// Each study has one or more series of images or other content.
 	Series []ImagingStudySeries `bson:"series,omitempty" json:"series,omitempty" xml:"series,omitempty"`
 }
+
 type ImagingStudySeries struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -186,6 +187,7 @@ type ImagingStudySeries struct {
 	// A single SOP instance within the series, e.g. an image, or presentation state.
 	Instance []ImagingStudySeriesInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
 }
+
 type ImagingStudySeriesPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -210,6 +212,7 @@ type ImagingStudySeriesPerformer struct {
 	// Indicates who or what performed the series.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type ImagingStudySeriesInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//

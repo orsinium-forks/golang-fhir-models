@@ -187,6 +187,7 @@ type ChargeItemDefinition struct {
 	// If no applicability rules are established for the group, then all properties always apply.
 	PropertyGroup []ChargeItemDefinitionPropertyGroup `bson:"propertyGroup,omitempty" json:"propertyGroup,omitempty" xml:"propertyGroup,omitempty"`
 }
+
 type ChargeItemDefinitionApplicability struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -221,6 +222,7 @@ type ChargeItemDefinitionApplicability struct {
 	// Reference to / quotation of the external source of the group of properties.
 	RelatedArtifact *RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
 }
+
 type ChargeItemDefinitionPropertyGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//

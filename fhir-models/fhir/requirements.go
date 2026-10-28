@@ -163,6 +163,7 @@ type Requirements struct {
 	// The actual statement of requirement, in markdown format.
 	Statement []RequirementsStatement `bson:"statement,omitempty" json:"statement,omitempty" xml:"statement,omitempty"`
 }
+
 type RequirementsStatement struct {
 	// Unique id for the element within a resource (for internal references).
 	//

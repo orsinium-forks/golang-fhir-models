@@ -124,6 +124,7 @@ type PaymentReconciliation struct {
 	// A note that describes or explains the processing in a human readable form.
 	ProcessNote []PaymentReconciliationProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty" xml:"processNote,omitempty"`
 }
+
 type PaymentReconciliationAllocation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -176,6 +177,7 @@ type PaymentReconciliationAllocation struct {
 	// The monetary amount allocated from the total payment to the payable.
 	Amount *Money `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
 }
+
 type PaymentReconciliationProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
 	//

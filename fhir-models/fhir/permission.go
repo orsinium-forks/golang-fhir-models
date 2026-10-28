@@ -72,6 +72,7 @@ type Permission struct {
 	// A set of rules.
 	Rule []PermissionRule `bson:"rule,omitempty" json:"rule,omitempty" xml:"rule,omitempty"`
 }
+
 type PermissionJustification struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -98,6 +99,7 @@ type PermissionJustification struct {
 	// Comment: While any resource may be used, DocumentReference, Consent, PlanDefinition, and Contract would be most frequent
 	Evidence []Reference `bson:"evidence,omitempty" json:"evidence,omitempty" xml:"evidence,omitempty"`
 }
+
 type PermissionRule struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -126,6 +128,7 @@ type PermissionRule struct {
 	// What limits apply to the use of the data.
 	Limit []CodeableConcept `bson:"limit,omitempty" json:"limit,omitempty" xml:"limit,omitempty"`
 }
+
 type PermissionRuleData struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -158,6 +161,7 @@ type PermissionRuleData struct {
 	// Used when other data selection elements are insufficient.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
 }
+
 type PermissionRuleDataResource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -182,6 +186,7 @@ type PermissionRuleDataResource struct {
 	// A reference to a specific resource that defines which resources are covered by this consent.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
 }
+
 type PermissionRuleActivity struct {
 	// Unique id for the element within a resource (for internal references).
 	//

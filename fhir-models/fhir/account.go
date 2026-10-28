@@ -114,6 +114,7 @@ type Account struct {
 	// Comment: The total(s) are not typically updated using the restful API but more often by back-end processes included in a typical finance system.
 	CalculatedAt *string `bson:"calculatedAt,omitempty" json:"calculatedAt,omitempty" xml:"calculatedAt,omitempty"`
 }
+
 type AccountCoverage struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -142,6 +143,7 @@ type AccountCoverage struct {
 	// Comment: It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming).
 	Priority *int `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
 }
+
 type AccountGuarantor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -168,6 +170,7 @@ type AccountGuarantor struct {
 	// The timeframe during which the guarantor accepts responsibility for the account.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type AccountDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -204,6 +207,7 @@ type AccountDiagnosis struct {
 	// Such as DRGs.
 	PackageCode []CodeableConcept `bson:"packageCode,omitempty" json:"packageCode,omitempty" xml:"packageCode,omitempty"`
 }
+
 type AccountProcedure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -240,6 +244,7 @@ type AccountProcedure struct {
 	// Any devices that were associated with the procedure relevant to the account.
 	Device []Reference `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
 }
+
 type AccountRelatedAccount struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -264,6 +269,7 @@ type AccountRelatedAccount struct {
 	// Reference to an associated Account.
 	Account Reference `bson:"account" json:"account" xml:"account"`
 }
+
 type AccountBalance struct {
 	// Unique id for the element within a resource (for internal references).
 	//

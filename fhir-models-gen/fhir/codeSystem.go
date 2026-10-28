@@ -249,6 +249,7 @@ type CodeSystem struct {
 	// Comment: If this is empty, it means that the code system resource does not represent the content of the code system.
 	Concept []CodeSystemConcept `bson:"concept,omitempty" json:"concept,omitempty" xml:"concept,omitempty"`
 }
+
 type CodeSystemFilter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -277,6 +278,7 @@ type CodeSystemFilter struct {
 	// A description of what the value for the filter should be.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type CodeSystemProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -311,6 +313,7 @@ type CodeSystemProperty struct {
 	// Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
 	Type PropertyType `bson:"type" json:"type" xml:"type"`
 }
+
 type CodeSystemConcept struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -349,6 +352,7 @@ type CodeSystemConcept struct {
 	// The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.
 	Concept []CodeSystemConcept `bson:"concept,omitempty" json:"concept,omitempty"`
 }
+
 type CodeSystemConceptDesignation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -383,6 +387,7 @@ type CodeSystemConceptDesignation struct {
 	// The text value for this designation.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type CodeSystemConceptProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//

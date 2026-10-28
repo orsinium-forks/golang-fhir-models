@@ -161,6 +161,7 @@ type TestPlan struct {
 	// The individual test cases that are part of this plan, when they they are made explicit.
 	TestCase []TestPlanTestCase `bson:"testCase,omitempty" json:"testCase,omitempty" xml:"testCase,omitempty"`
 }
+
 type TestPlanDependency struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -185,6 +186,7 @@ type TestPlanDependency struct {
 	// Predecessor test plans - those that are expected to be successfully performed as a dependency for the execution of this test plan.
 	Predecessor *Reference `bson:"predecessor,omitempty" json:"predecessor,omitempty" xml:"predecessor,omitempty"`
 }
+
 type TestPlanTestCase struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -217,6 +219,7 @@ type TestPlanTestCase struct {
 	// The test assertions - the expectations of test results from the execution of the test case.
 	Assertion []TestPlanTestCaseAssertion `bson:"assertion,omitempty" json:"assertion,omitempty" xml:"assertion,omitempty"`
 }
+
 type TestPlanTestCaseDependency struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -241,6 +244,7 @@ type TestPlanTestCaseDependency struct {
 	// Link to predecessor test plans.
 	Predecessor *Reference `bson:"predecessor,omitempty" json:"predecessor,omitempty" xml:"predecessor,omitempty"`
 }
+
 type TestPlanTestCaseTestRun struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -265,6 +269,7 @@ type TestPlanTestCaseTestRun struct {
 	// The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript.
 	Script *TestPlanTestCaseTestRunScript `bson:"script,omitempty" json:"script,omitempty" xml:"script,omitempty"`
 }
+
 type TestPlanTestCaseTestRunScript struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -290,6 +295,7 @@ type TestPlanTestCaseTestRunScript struct {
 	SourceString    *string    `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceReference *Reference `bson:"sourceReference,omitempty" json:"sourceReference,omitempty" xml:"sourceReference,omitempty"`
 }
+
 type TestPlanTestCaseTestData struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -319,6 +325,7 @@ type TestPlanTestCaseTestData struct {
 	SourceString    *string    `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceReference *Reference `bson:"sourceReference,omitempty" json:"sourceReference,omitempty" xml:"sourceReference,omitempty"`
 }
+
 type TestPlanTestCaseAssertion struct {
 	// Unique id for the element within a resource (for internal references).
 	//

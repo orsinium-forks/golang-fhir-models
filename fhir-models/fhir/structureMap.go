@@ -167,6 +167,7 @@ type StructureMap struct {
 	// Organizes the mapping into managable chunks for human review/ease of maintenance.
 	Group []StructureMapGroup `bson:"group" json:"group" xml:"group"`
 }
+
 type StructureMapStructure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -197,6 +198,7 @@ type StructureMapStructure struct {
 	// Documentation that describes how the structure is used in the mapping.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type StructureMapConst struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -221,6 +223,7 @@ type StructureMapConst struct {
 	// A FHIRPath expression that is the value of this variable.
 	Value *string `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
 }
+
 type StructureMapGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -259,6 +262,7 @@ type StructureMapGroup struct {
 	// Transform Rule from source to target.
 	Rule []StructureMapGroupRule `bson:"rule,omitempty" json:"rule,omitempty" xml:"rule,omitempty"`
 }
+
 type StructureMapGroupInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -287,6 +291,7 @@ type StructureMapGroupInput struct {
 	// Documentation for this instance of data.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type StructureMapGroupRule struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -319,6 +324,7 @@ type StructureMapGroupRule struct {
 	// Documentation for this instance of data.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type StructureMapGroupRuleSource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -371,6 +377,7 @@ type StructureMapGroupRuleSource struct {
 	// Comment: This is typically used for recording that something Is not transformed to the target for some reason.
 	LogMessage *string `bson:"logMessage,omitempty" json:"logMessage,omitempty" xml:"logMessage,omitempty"`
 }
+
 type StructureMapGroupRuleTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -405,6 +412,7 @@ type StructureMapGroupRuleTarget struct {
 	// Parameters to the transform.
 	Parameter []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty" xml:"parameter,omitempty"`
 }
+
 type StructureMapGroupRuleTargetParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -434,6 +442,7 @@ type StructureMapGroupRuleTargetParameter struct {
 	ValueTime     string          `bson:"valueTime" json:"valueTime" xml:"valueTime"`
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 }
+
 type StructureMapGroupRuleDependent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -145,6 +145,7 @@ type DiagnosticReport struct {
 	// Comment: "application/pdf" is recommended as the most reliable and interoperable in this context.
 	PresentedForm []Attachment `bson:"presentedForm,omitempty" json:"presentedForm,omitempty" xml:"presentedForm,omitempty"`
 }
+
 type DiagnosticReportSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -169,6 +170,7 @@ type DiagnosticReportSupportingInfo struct {
 	// The reference for the supporting information in the diagnostic report.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
 }
+
 type DiagnosticReportMedia struct {
 	// Unique id for the element within a resource (for internal references).
 	//

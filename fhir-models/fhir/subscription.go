@@ -118,6 +118,7 @@ type Subscription struct {
 	// Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included.
 	MaxCount *int `bson:"maxCount,omitempty" json:"maxCount,omitempty" xml:"maxCount,omitempty"`
 }
+
 type SubscriptionFilterBy struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -154,6 +155,7 @@ type SubscriptionFilterBy struct {
 	// The literal value or resource path as is legal in search - for example, `Patient/123` or `le1950`.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type SubscriptionParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//

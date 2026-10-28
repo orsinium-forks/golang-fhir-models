@@ -102,6 +102,7 @@ type List struct {
 	// Comment: The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.
 	EmptyReason *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty" xml:"emptyReason,omitempty"`
 }
+
 type ListEntry struct {
 	// Unique id for the element within a resource (for internal references).
 	//

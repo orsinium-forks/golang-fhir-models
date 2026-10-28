@@ -97,6 +97,7 @@ type Practitioner struct {
 	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.For animals, language is not a relevant field, and should be absent from the instance.
 	Communication []PractitionerCommunication `bson:"communication,omitempty" json:"communication,omitempty" xml:"communication,omitempty"`
 }
+
 type PractitionerQualification struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -125,6 +126,7 @@ type PractitionerQualification struct {
 	// Organization that regulates and issues the qualification.
 	Issuer *Reference `bson:"issuer,omitempty" json:"issuer,omitempty" xml:"issuer,omitempty"`
 }
+
 type PractitionerCommunication struct {
 	// Unique id for the element within a resource (for internal references).
 	//

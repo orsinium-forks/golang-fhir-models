@@ -90,6 +90,7 @@ type SupplyDelivery struct {
 	// Identifies the individual or organization that received the delivery.
 	Receiver []Reference `bson:"receiver,omitempty" json:"receiver,omitempty" xml:"receiver,omitempty"`
 }
+
 type SupplyDeliverySuppliedItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//

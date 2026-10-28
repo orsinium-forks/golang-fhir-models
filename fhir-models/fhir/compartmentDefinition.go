@@ -139,6 +139,7 @@ type CompartmentDefinition struct {
 	// Information about how a resource is related to the compartment.
 	Resource []CompartmentDefinitionResource `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
 }
+
 type CompartmentDefinitionResource struct {
 	// Unique id for the element within a resource (for internal references).
 	//

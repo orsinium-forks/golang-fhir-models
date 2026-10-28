@@ -74,6 +74,7 @@ type DeviceAssociation struct {
 	// The details about the device when it is in use to describe its operation.
 	Operation []DeviceAssociationOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
 }
+
 type DeviceAssociationOperation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

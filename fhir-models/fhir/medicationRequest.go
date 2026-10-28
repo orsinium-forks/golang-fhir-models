@@ -200,6 +200,7 @@ type MedicationRequest struct {
 	// Comment: This might not include provenances for all versions of the request – only those deemed "relevant" or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a "relevant" change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
 	EventHistory []Reference `bson:"eventHistory,omitempty" json:"eventHistory,omitempty" xml:"eventHistory,omitempty"`
 }
+
 type MedicationRequestDispenseRequest struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -248,6 +249,7 @@ type MedicationRequestDispenseRequest struct {
 	// Provides information about the type of adherence packaging to be supplied for the medication dispense.
 	DoseAdministrationAid *CodeableConcept `bson:"doseAdministrationAid,omitempty" json:"doseAdministrationAid,omitempty" xml:"doseAdministrationAid,omitempty"`
 }
+
 type MedicationRequestDispenseRequestInitialFill struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -272,6 +274,7 @@ type MedicationRequestDispenseRequestInitialFill struct {
 	// The length of time that the first dispense is expected to last.
 	Duration *Duration `bson:"duration,omitempty" json:"duration,omitempty" xml:"duration,omitempty"`
 }
+
 type MedicationRequestSubstitution struct {
 	// Unique id for the element within a resource (for internal references).
 	//

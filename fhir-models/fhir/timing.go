@@ -43,6 +43,7 @@ type Timing struct {
 	// Comment: BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times).
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 }
+
 type TimingRepeat struct {
 	// Unique id for the element within a resource (for internal references).
 	//

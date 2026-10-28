@@ -214,6 +214,7 @@ type ExplanationOfBenefit struct {
 	// Balance by Benefit Category.
 	BenefitBalance []ExplanationOfBenefitBenefitBalance `bson:"benefitBalance,omitempty" json:"benefitBalance,omitempty" xml:"benefitBalance,omitempty"`
 }
+
 type ExplanationOfBenefitRelated struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -244,6 +245,7 @@ type ExplanationOfBenefitRelated struct {
 	// Comment: For example, Property/Casualty insurer claim number or Workers Compensation case number.
 	Reference *Identifier `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
 }
+
 type ExplanationOfBenefitEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -269,6 +271,7 @@ type ExplanationOfBenefitEvent struct {
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
 }
+
 type ExplanationOfBenefitPayee struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -295,6 +298,7 @@ type ExplanationOfBenefitPayee struct {
 	// Comment: Not required if the payee is 'subscriber' or 'provider'.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
 }
+
 type ExplanationOfBenefitCareTeam struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +333,7 @@ type ExplanationOfBenefitCareTeam struct {
 	// The specialization of the practitioner or provider which is applicable for this service.
 	Specialty *CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty" xml:"specialty,omitempty"`
 }
+
 type ExplanationOfBenefitSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -377,6 +382,7 @@ type ExplanationOfBenefitSupportingInfo struct {
 	// Comment: For example: the reason for the additional stay, or why a tooth is  missing.
 	Reason *Coding `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 }
+
 type ExplanationOfBenefitDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -410,6 +416,7 @@ type ExplanationOfBenefitDiagnosis struct {
 	// Indication of whether the diagnosis was present on admission to a facility.
 	OnAdmission *CodeableConcept `bson:"onAdmission,omitempty" json:"onAdmission,omitempty" xml:"onAdmission,omitempty"`
 }
+
 type ExplanationOfBenefitProcedure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -441,6 +448,7 @@ type ExplanationOfBenefitProcedure struct {
 	// Unique Device Identifiers associated with this line item.
 	Udi []Reference `bson:"udi,omitempty" json:"udi,omitempty" xml:"udi,omitempty"`
 }
+
 type ExplanationOfBenefitInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -473,6 +481,7 @@ type ExplanationOfBenefitInsurance struct {
 	// Comment: This value is an alphanumeric string that may be provided over the phone, via text, via paper, or within a ClaimResponse resource and is not a FHIR Identifier.
 	PreAuthRef []string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
 }
+
 type ExplanationOfBenefitAccident struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -502,6 +511,7 @@ type ExplanationOfBenefitAccident struct {
 	LocationAddress   *Address   `bson:"locationAddress,omitempty" json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
 	LocationReference *Reference `bson:"locationReference,omitempty" json:"locationReference,omitempty" xml:"locationReference,omitempty"`
 }
+
 type ExplanationOfBenefitItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -605,6 +615,7 @@ type ExplanationOfBenefitItem struct {
 	// Second-tier of goods and services.
 	Detail []ExplanationOfBenefitItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type ExplanationOfBenefitItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -631,6 +642,7 @@ type ExplanationOfBenefitItemBodySite struct {
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
 }
+
 type ExplanationOfBenefitItemReviewOutcome struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -663,6 +675,7 @@ type ExplanationOfBenefitItemReviewOutcome struct {
 	// The time frame during which this authorization is effective.
 	PreAuthPeriod *Period `bson:"preAuthPeriod,omitempty" json:"preAuthPeriod,omitempty" xml:"preAuthPeriod,omitempty"`
 }
+
 type ExplanationOfBenefitItemAdjudication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -703,6 +716,7 @@ type ExplanationOfBenefitItemAdjudication struct {
 	// Comment: For example: eligible percentage or co-payment percentage.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 }
+
 type ExplanationOfBenefitItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -785,6 +799,7 @@ type ExplanationOfBenefitItemDetail struct {
 	// Third-tier of goods and services.
 	SubDetail []ExplanationOfBenefitItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
 }
+
 type ExplanationOfBenefitItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -865,6 +880,7 @@ type ExplanationOfBenefitItemDetailSubDetail struct {
 	// The adjudication results.
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
 type ExplanationOfBenefitAddItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -956,6 +972,7 @@ type ExplanationOfBenefitAddItem struct {
 	// The second-tier service adjudications for payor added services.
 	Detail []ExplanationOfBenefitAddItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type ExplanationOfBenefitAddItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -982,6 +999,7 @@ type ExplanationOfBenefitAddItemBodySite struct {
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
 }
+
 type ExplanationOfBenefitAddItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1050,6 +1068,7 @@ type ExplanationOfBenefitAddItemDetail struct {
 	// The third-tier service adjudications for payor added services.
 	SubDetail []ExplanationOfBenefitAddItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
 }
+
 type ExplanationOfBenefitAddItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1116,6 +1135,7 @@ type ExplanationOfBenefitAddItemDetailSubDetail struct {
 	// The adjudication results.
 	Adjudication []ExplanationOfBenefitItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
 type ExplanationOfBenefitTotal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1144,6 +1164,7 @@ type ExplanationOfBenefitTotal struct {
 	// Monetary total amount associated with the category.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
 }
+
 type ExplanationOfBenefitPayment struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1180,6 +1201,7 @@ type ExplanationOfBenefitPayment struct {
 	// Comment: For example: EFT number or check number.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 }
+
 type ExplanationOfBenefitProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1210,6 +1232,7 @@ type ExplanationOfBenefitProcessNote struct {
 	// Comment: Only required if the language is different from the resource language.
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
 }
+
 type ExplanationOfBenefitBenefitBalance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -1252,6 +1275,7 @@ type ExplanationOfBenefitBenefitBalance struct {
 	// Benefits Used to date.
 	Financial []ExplanationOfBenefitBenefitBalanceFinancial `bson:"financial,omitempty" json:"financial,omitempty" xml:"financial,omitempty"`
 }
+
 type ExplanationOfBenefitBenefitBalanceFinancial struct {
 	// Unique id for the element within a resource (for internal references).
 	//

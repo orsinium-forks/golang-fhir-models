@@ -128,6 +128,7 @@ type FamilyMemberHistory struct {
 	// This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure.
 	Procedure []FamilyMemberHistoryProcedure `bson:"procedure,omitempty" json:"procedure,omitempty" xml:"procedure,omitempty"`
 }
+
 type FamilyMemberHistoryParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -152,6 +153,7 @@ type FamilyMemberHistoryParticipant struct {
 	// Indicates who or what participated in the activities related to the family member history.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type FamilyMemberHistoryCondition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -193,6 +195,7 @@ type FamilyMemberHistoryCondition struct {
 	// An area where general notes can be placed about this specific condition.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type FamilyMemberHistoryProcedure struct {
 	// Unique id for the element within a resource (for internal references).
 	//

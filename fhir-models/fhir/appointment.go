@@ -176,6 +176,7 @@ type Appointment struct {
 	// The details of the recurrence pattern or template that is used to generate recurring appointments.
 	RecurrenceTemplate []AppointmentRecurrenceTemplate `bson:"recurrenceTemplate,omitempty" json:"recurrenceTemplate,omitempty" xml:"recurrenceTemplate,omitempty"`
 }
+
 type AppointmentParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -214,6 +215,7 @@ type AppointmentParticipant struct {
 	// Participation status of the actor.
 	Status ParticipationStatus `bson:"status" json:"status" xml:"status"`
 }
+
 type AppointmentRecurrenceTemplate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -258,6 +260,7 @@ type AppointmentRecurrenceTemplate struct {
 	// Comment: excludingRecurrenceId is an alternative to excludingDate.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property.
 	ExcludingRecurrenceId []int `bson:"excludingRecurrenceId,omitempty" json:"excludingRecurrenceId,omitempty" xml:"excludingRecurrenceId,omitempty"`
 }
+
 type AppointmentRecurrenceTemplateWeeklyTemplate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -296,6 +299,7 @@ type AppointmentRecurrenceTemplateWeeklyTemplate struct {
 	// The default is every week, so it is expected that this value will be 2 or more.e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3.
 	WeekInterval *int `bson:"weekInterval,omitempty" json:"weekInterval,omitempty" xml:"weekInterval,omitempty"`
 }
+
 type AppointmentRecurrenceTemplateMonthlyTemplate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -326,6 +330,7 @@ type AppointmentRecurrenceTemplateMonthlyTemplate struct {
 	// Indicates that recurring appointments should occur every nth month.
 	MonthInterval int `bson:"monthInterval" json:"monthInterval" xml:"monthInterval"`
 }
+
 type AppointmentRecurrenceTemplateYearlyTemplate struct {
 	// Unique id for the element within a resource (for internal references).
 	//

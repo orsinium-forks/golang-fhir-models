@@ -213,6 +213,7 @@ type SearchParameter struct {
 	// Used to define the parts of a composite search parameter.
 	Component []SearchParameterComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
 }
+
 type SearchParameterComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

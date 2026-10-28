@@ -94,6 +94,7 @@ type BiologicallyDerivedProductDispense struct {
 	// Specific instructions for use.
 	UsageInstruction *string `bson:"usageInstruction,omitempty" json:"usageInstruction,omitempty" xml:"usageInstruction,omitempty"`
 }
+
 type BiologicallyDerivedProductDispensePerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//

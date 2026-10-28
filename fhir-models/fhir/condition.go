@@ -130,6 +130,7 @@ type Condition struct {
 	// This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type ConditionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -154,6 +155,7 @@ type ConditionParticipant struct {
 	// Indicates who or what participated in the activities related to the condition.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type ConditionStage struct {
 	// Unique id for the element within a resource (for internal references).
 	//

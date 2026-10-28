@@ -211,6 +211,7 @@ type CapabilityStatement struct {
 	// A document definition.
 	Document []CapabilityStatementDocument `bson:"document,omitempty" json:"document,omitempty" xml:"document,omitempty"`
 }
+
 type CapabilityStatementSoftware struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -239,6 +240,7 @@ type CapabilityStatementSoftware struct {
 	// Date this version of the software was released.
 	ReleaseDate *string `bson:"releaseDate,omitempty" json:"releaseDate,omitempty" xml:"releaseDate,omitempty"`
 }
+
 type CapabilityStatementImplementation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -267,6 +269,7 @@ type CapabilityStatementImplementation struct {
 	// The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.
 	Custodian *Reference `bson:"custodian,omitempty" json:"custodian,omitempty" xml:"custodian,omitempty"`
 }
+
 type CapabilityStatementRest struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -315,6 +318,7 @@ type CapabilityStatementRest struct {
 	// Comment: At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html).
 	Compartment []string `bson:"compartment,omitempty" json:"compartment,omitempty" xml:"compartment,omitempty"`
 }
+
 type CapabilityStatementRestSecurity struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -343,6 +347,7 @@ type CapabilityStatementRestSecurity struct {
 	// General description of how security works.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 }
+
 type CapabilityStatementRestResource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -449,6 +454,7 @@ type CapabilityStatementRestResource struct {
 	// If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
 	Operation []CapabilityStatementRestResourceOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
 }
+
 type CapabilityStatementRestResourceInteraction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -473,6 +479,7 @@ type CapabilityStatementRestResourceInteraction struct {
 	// Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type CapabilityStatementRestResourceSearchParam struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -513,6 +520,7 @@ type CapabilityStatementRestResourceSearchParam struct {
 	//  For example, text matching algorithms.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type CapabilityStatementRestResourceOperation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -547,6 +555,7 @@ type CapabilityStatementRestResourceOperation struct {
 	// Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type CapabilityStatementRestInteraction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -571,6 +580,7 @@ type CapabilityStatementRestInteraction struct {
 	// Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 }
+
 type CapabilityStatementMessaging struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -605,6 +615,7 @@ type CapabilityStatementMessaging struct {
 	// Comment: This is a proposed alternative to the messaging.event structure.
 	SupportedMessage []CapabilityStatementMessagingSupportedMessage `bson:"supportedMessage,omitempty" json:"supportedMessage,omitempty" xml:"supportedMessage,omitempty"`
 }
+
 type CapabilityStatementMessagingEndpoint struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -631,6 +642,7 @@ type CapabilityStatementMessagingEndpoint struct {
 	// For solutions that do not use network addresses for routing, it can be just an identifier.
 	Address string `bson:"address" json:"address" xml:"address"`
 }
+
 type CapabilityStatementMessagingSupportedMessage struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -655,6 +667,7 @@ type CapabilityStatementMessagingSupportedMessage struct {
 	// Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
 	Definition string `bson:"definition" json:"definition" xml:"definition"`
 }
+
 type CapabilityStatementDocument struct {
 	// Unique id for the element within a resource (for internal references).
 	//

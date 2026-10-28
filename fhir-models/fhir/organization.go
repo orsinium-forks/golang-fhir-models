@@ -96,6 +96,7 @@ type Organization struct {
 	// The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
 	Qualification []OrganizationQualification `bson:"qualification,omitempty" json:"qualification,omitempty" xml:"qualification,omitempty"`
 }
+
 type OrganizationQualification struct {
 	// Unique id for the element within a resource (for internal references).
 	//

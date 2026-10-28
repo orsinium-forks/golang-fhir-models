@@ -128,6 +128,7 @@ type Location struct {
 	// Technical endpoints providing access to services operated for the location.
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 }
+
 type LocationPosition struct {
 	// Unique id for the element within a resource (for internal references).
 	//

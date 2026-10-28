@@ -197,6 +197,7 @@ type Questionnaire struct {
 	// Comment: The content of the questionnaire is constructed from an ordered, hierarchical collection of items.
 	Item []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 }
+
 type QuestionnaireItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -299,6 +300,7 @@ type QuestionnaireItem struct {
 	// Comment: There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting.
 	Item []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty"`
 }
+
 type QuestionnaireItemEnableWhen struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -338,6 +340,7 @@ type QuestionnaireItemEnableWhen struct {
 	AnswerQuantity  Quantity        `bson:"answerQuantity" json:"answerQuantity" xml:"answerQuantity"`
 	AnswerReference Reference       `bson:"answerReference" json:"answerReference" xml:"answerReference"`
 }
+
 type QuestionnaireItemAnswerOption struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -369,6 +372,7 @@ type QuestionnaireItemAnswerOption struct {
 	// Indicates whether the answer value is selected when the list of possible answers is initially shown.
 	InitialSelected *bool `bson:"initialSelected,omitempty" json:"initialSelected,omitempty" xml:"initialSelected,omitempty"`
 }
+
 type QuestionnaireItemInitial struct {
 	// Unique id for the element within a resource (for internal references).
 	//

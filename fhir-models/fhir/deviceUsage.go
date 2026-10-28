@@ -108,6 +108,7 @@ type DeviceUsage struct {
 	// These may include for example a comment, an instruction, or a note associated with the statement.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type DeviceUsageAdherence struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -122,6 +122,7 @@ type AllergyIntolerance struct {
 	// Details about each adverse reaction event linked to exposure to the identified substance.
 	Reaction []AllergyIntoleranceReaction `bson:"reaction,omitempty" json:"reaction,omitempty" xml:"reaction,omitempty"`
 }
+
 type AllergyIntoleranceParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -146,6 +147,7 @@ type AllergyIntoleranceParticipant struct {
 	// Indicates who or what participated in the activities related to the allergy or intolerance.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type AllergyIntoleranceReaction struct {
 	// Unique id for the element within a resource (for internal references).
 	//

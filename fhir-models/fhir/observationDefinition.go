@@ -225,6 +225,7 @@ type ObservationDefinition struct {
 	// Some observations have multiple component observations, expressed as separate code value pairs.
 	Component []ObservationDefinitionComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
 }
+
 type ObservationDefinitionQualifiedValue struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -273,6 +274,7 @@ type ObservationDefinitionQualifiedValue struct {
 	// The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values.
 	CriticalCodedValueSet *string `bson:"criticalCodedValueSet,omitempty" json:"criticalCodedValueSet,omitempty" xml:"criticalCodedValueSet,omitempty"`
 }
+
 type ObservationDefinitionComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

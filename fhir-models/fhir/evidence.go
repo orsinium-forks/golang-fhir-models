@@ -198,6 +198,7 @@ type Evidence struct {
 	// Assessment of certainty, confidence in the estimates, or quality of the evidence.
 	Certainty []EvidenceCertainty `bson:"certainty,omitempty" json:"certainty,omitempty" xml:"certainty,omitempty"`
 }
+
 type EvidenceVariableDefinition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -230,6 +231,7 @@ type EvidenceVariableDefinition struct {
 	// Indication of quality of match between intended variable to actual variable.
 	DirectnessMatch *CodeableConcept `bson:"directnessMatch,omitempty" json:"directnessMatch,omitempty" xml:"directnessMatch,omitempty"`
 }
+
 type EvidenceStatistic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -276,6 +278,7 @@ type EvidenceStatistic struct {
 	// A component of the method to generate the statistic.
 	ModelCharacteristic []EvidenceStatisticModelCharacteristic `bson:"modelCharacteristic,omitempty" json:"modelCharacteristic,omitempty" xml:"modelCharacteristic,omitempty"`
 }
+
 type EvidenceStatisticSampleSize struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -306,6 +309,7 @@ type EvidenceStatisticSampleSize struct {
 	// Number of participants with known results for measured variables.
 	KnownDataCount *int `bson:"knownDataCount,omitempty" json:"knownDataCount,omitempty" xml:"knownDataCount,omitempty"`
 }
+
 type EvidenceStatisticAttributeEstimate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -344,6 +348,7 @@ type EvidenceStatisticAttributeEstimate struct {
 	// Comment: A nested attribute estimate; which is the attribute estimate of an attribute estimate
 	AttributeEstimate []EvidenceStatisticAttributeEstimate `bson:"attributeEstimate,omitempty" json:"attributeEstimate,omitempty"`
 }
+
 type EvidenceStatisticModelCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -372,6 +377,7 @@ type EvidenceStatisticModelCharacteristic struct {
 	// An attribute of the statistic used as a model characteristic.
 	AttributeEstimate []EvidenceStatisticAttributeEstimate `bson:"attributeEstimate,omitempty" json:"attributeEstimate,omitempty"`
 }
+
 type EvidenceStatisticModelCharacteristicVariable struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -402,6 +408,7 @@ type EvidenceStatisticModelCharacteristicVariable struct {
 	// Range of values for grouping of ordinal or polychotomous variables.
 	ValueRange []Range `bson:"valueRange,omitempty" json:"valueRange,omitempty" xml:"valueRange,omitempty"`
 }
+
 type EvidenceCertainty struct {
 	// Unique id for the element within a resource (for internal references).
 	//

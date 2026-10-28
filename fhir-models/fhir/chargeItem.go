@@ -142,6 +142,7 @@ type ChargeItem struct {
 	// Further information supporting this charge.
 	SupportingInformation []Reference `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty" xml:"supportingInformation,omitempty"`
 }
+
 type ChargeItemPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//

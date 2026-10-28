@@ -178,6 +178,7 @@ type MessageDefinition struct {
 	// If a URL is provided, it is the canonical reference to a GraphDefinition that it controls what additional resources are to be added to the Bundle when building the message. The GraphDefinition can also specify profiles that apply to the various resources.
 	Graph *string `bson:"graph,omitempty" json:"graph,omitempty" xml:"graph,omitempty"`
 }
+
 type MessageDefinitionFocus struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -210,6 +211,7 @@ type MessageDefinitionFocus struct {
 	// Identifies the maximum number of resources of this type that must be pointed to by a message in order for it to be valid against this MessageDefinition.
 	Max *string `bson:"max,omitempty" json:"max,omitempty" xml:"max,omitempty"`
 }
+
 type MessageDefinitionAllowedResponse struct {
 	// Unique id for the element within a resource (for internal references).
 	//

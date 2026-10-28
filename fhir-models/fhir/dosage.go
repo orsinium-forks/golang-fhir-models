@@ -73,6 +73,7 @@ type Dosage struct {
 	// Upper limit on medication per lifetime of the patient.
 	MaxDosePerLifetime *Quantity `bson:"maxDosePerLifetime,omitempty" json:"maxDosePerLifetime,omitempty" xml:"maxDosePerLifetime,omitempty"`
 }
+
 type DosageDoseAndRate struct {
 	// Unique id for the element within a resource (for internal references).
 	//

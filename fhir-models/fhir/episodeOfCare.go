@@ -98,6 +98,7 @@ type EpisodeOfCare struct {
 	// Comment: The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.
 	Account []Reference `bson:"account,omitempty" json:"account,omitempty" xml:"account,omitempty"`
 }
+
 type EpisodeOfCareStatusHistory struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -122,6 +123,7 @@ type EpisodeOfCareStatusHistory struct {
 	// The period during this EpisodeOfCare that the specific status applied.
 	Period Period `bson:"period" json:"period" xml:"period"`
 }
+
 type EpisodeOfCareReason struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -148,6 +150,7 @@ type EpisodeOfCareReason struct {
 	// The medical reason that is expected to be addressed during the episode of care, expressed as a text, code or a reference to another resource.
 	Value []CodeableReference `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
 }
+
 type EpisodeOfCareDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//

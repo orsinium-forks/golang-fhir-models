@@ -86,6 +86,7 @@ type GenomicStudy struct {
 	// The details about a specific analysis that was performed in this GenomicStudy.
 	Analysis []GenomicStudyAnalysis `bson:"analysis,omitempty" json:"analysis,omitempty" xml:"analysis,omitempty"`
 }
+
 type GenomicStudyAnalysis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -146,6 +147,7 @@ type GenomicStudyAnalysis struct {
 	// Devices used for the analysis (e.g., instruments, software), with settings and parameters.
 	Device []GenomicStudyAnalysisDevice `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
 }
+
 type GenomicStudyAnalysisInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -173,6 +175,7 @@ type GenomicStudyAnalysisInput struct {
 	GeneratedByIdentifier *Identifier `bson:"generatedByIdentifier,omitempty" json:"generatedByIdentifier,omitempty" xml:"generatedByIdentifier,omitempty"`
 	GeneratedByReference  *Reference  `bson:"generatedByReference,omitempty" json:"generatedByReference,omitempty" xml:"generatedByReference,omitempty"`
 }
+
 type GenomicStudyAnalysisOutput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -197,6 +200,7 @@ type GenomicStudyAnalysisOutput struct {
 	// Type of output data, e.g., VCF, MAF, or BAM.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 }
+
 type GenomicStudyAnalysisPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -221,6 +225,7 @@ type GenomicStudyAnalysisPerformer struct {
 	// Role of the actor for this analysis.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
 }
+
 type GenomicStudyAnalysisDevice struct {
 	// Unique id for the element within a resource (for internal references).
 	//

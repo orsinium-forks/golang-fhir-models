@@ -140,6 +140,7 @@ type MedicinalProductDefinition struct {
 	// Allows the key product features to be recorded, such as "sugar free", "modified release", "parallel import".
 	Characteristic []MedicinalProductDefinitionCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty" xml:"characteristic,omitempty"`
 }
+
 type MedicinalProductDefinitionContact struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -164,6 +165,7 @@ type MedicinalProductDefinitionContact struct {
 	// A product specific contact, person (in a role), or an organization.
 	Contact Reference `bson:"contact" json:"contact" xml:"contact"`
 }
+
 type MedicinalProductDefinitionName struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -192,6 +194,7 @@ type MedicinalProductDefinitionName struct {
 	// Country and jurisdiction where the name applies, and associated language.
 	Usage []MedicinalProductDefinitionNameUsage `bson:"usage,omitempty" json:"usage,omitempty" xml:"usage,omitempty"`
 }
+
 type MedicinalProductDefinitionNamePart struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -216,6 +219,7 @@ type MedicinalProductDefinitionNamePart struct {
 	// Identifying type for this part of the name (e.g. strength part).
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
 }
+
 type MedicinalProductDefinitionNameUsage struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -244,6 +248,7 @@ type MedicinalProductDefinitionNameUsage struct {
 	// Language code for this name.
 	Language CodeableConcept `bson:"language" json:"language" xml:"language"`
 }
+
 type MedicinalProductDefinitionCrossReference struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -268,6 +273,7 @@ type MedicinalProductDefinitionCrossReference struct {
 	// The type of relationship, for instance branded to generic, virtual to actual product, product to development product (investigational), parallel import version.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 }
+
 type MedicinalProductDefinitionOperation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -298,6 +304,7 @@ type MedicinalProductDefinitionOperation struct {
 	// Specifies whether this particular business or manufacturing process is considered proprietary or confidential.
 	ConfidentialityIndicator *CodeableConcept `bson:"confidentialityIndicator,omitempty" json:"confidentialityIndicator,omitempty" xml:"confidentialityIndicator,omitempty"`
 }
+
 type MedicinalProductDefinitionCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//

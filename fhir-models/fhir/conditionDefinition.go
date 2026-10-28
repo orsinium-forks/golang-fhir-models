@@ -171,6 +171,7 @@ type ConditionDefinition struct {
 	// Plan that is appropriate.
 	Plan []ConditionDefinitionPlan `bson:"plan,omitempty" json:"plan,omitempty" xml:"plan,omitempty"`
 }
+
 type ConditionDefinitionObservation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -195,6 +196,7 @@ type ConditionDefinitionObservation struct {
 	// Code for relevant Observation.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 }
+
 type ConditionDefinitionMedication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -219,6 +221,7 @@ type ConditionDefinitionMedication struct {
 	// Code for relevant Medication.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 }
+
 type ConditionDefinitionPrecondition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -246,6 +249,7 @@ type ConditionDefinitionPrecondition struct {
 	ValueCodeableConcept *CodeableConcept `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty" xml:"valueCodeableConcept,omitempty"`
 	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
 }
+
 type ConditionDefinitionQuestionnaire struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -270,6 +274,7 @@ type ConditionDefinitionQuestionnaire struct {
 	// Specific Questionnaire.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
 }
+
 type ConditionDefinitionPlan struct {
 	// Unique id for the element within a resource (for internal references).
 	//

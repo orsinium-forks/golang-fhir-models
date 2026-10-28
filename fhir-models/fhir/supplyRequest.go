@@ -100,6 +100,7 @@ type SupplyRequest struct {
 	// Where the supply is destined to go.
 	DeliverTo *Reference `bson:"deliverTo,omitempty" json:"deliverTo,omitempty" xml:"deliverTo,omitempty"`
 }
+
 type SupplyRequestParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -40,6 +40,7 @@ type Parameters struct {
 	// A parameter passed to or received from the operation.
 	Parameter []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty" xml:"parameter,omitempty"`
 }
+
 type ParametersParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//

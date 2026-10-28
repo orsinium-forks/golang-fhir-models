@@ -223,6 +223,7 @@ type ValueSet struct {
 	// Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.
 	Scope *ValueSetScope `bson:"scope,omitempty" json:"scope,omitempty" xml:"scope,omitempty"`
 }
+
 type ValueSetCompose struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -269,6 +270,7 @@ type ValueSetCompose struct {
 	// Comment: Note that property names can clash, so using a URI is recommended.
 	Property []string `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
 }
+
 type ValueSetComposeInclude struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -315,6 +317,7 @@ type ValueSetComposeInclude struct {
 	// A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present).
 	Copyright *string `bson:"copyright,omitempty" json:"copyright,omitempty" xml:"copyright,omitempty"`
 }
+
 type ValueSetComposeIncludeConcept struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -349,6 +352,7 @@ type ValueSetComposeIncludeConcept struct {
 	// Comment: Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of "primary code" and a language equal to the [Resource Language](resource.html#language).
 	Designation []ValueSetComposeIncludeConceptDesignation `bson:"designation,omitempty" json:"designation,omitempty" xml:"designation,omitempty"`
 }
+
 type ValueSetComposeIncludeConceptDesignation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -383,6 +387,7 @@ type ValueSetComposeIncludeConceptDesignation struct {
 	// The text value for this designation.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type ValueSetComposeIncludeFilter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -413,6 +418,7 @@ type ValueSetComposeIncludeFilter struct {
 	// Comment: Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type ValueSetExpansion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -469,6 +475,7 @@ type ValueSetExpansion struct {
 	// The codes that are contained in the value set expansion.
 	Contains []ValueSetExpansionContains `bson:"contains,omitempty" json:"contains,omitempty" xml:"contains,omitempty"`
 }
+
 type ValueSetExpansionParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -501,6 +508,7 @@ type ValueSetExpansionParameter struct {
 	ValueCode     *string          `bson:"valueCode,omitempty" json:"valueCode,omitempty" xml:"valueCode,omitempty"`
 	ValueDateTime *string          `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty" xml:"valueDateTime,omitempty"`
 }
+
 type ValueSetExpansionProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -529,6 +537,7 @@ type ValueSetExpansionProperty struct {
 	// One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.
 	Uri *string `bson:"uri,omitempty" json:"uri,omitempty" xml:"uri,omitempty"`
 }
+
 type ValueSetExpansionContains struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -585,6 +594,7 @@ type ValueSetExpansionContains struct {
 	// Comment: If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 	Contains []ValueSetExpansionContains `bson:"contains,omitempty" json:"contains,omitempty"`
 }
+
 type ValueSetExpansionContainsProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -617,6 +627,7 @@ type ValueSetExpansionContainsProperty struct {
 	// A subproperty value for this concept.
 	SubProperty []ValueSetExpansionContainsPropertySubProperty `bson:"subProperty,omitempty" json:"subProperty,omitempty" xml:"subProperty,omitempty"`
 }
+
 type ValueSetExpansionContainsPropertySubProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -647,6 +658,7 @@ type ValueSetExpansionContainsPropertySubProperty struct {
 	ValueDateTime string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal  decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
 }
+
 type ValueSetScope struct {
 	// Unique id for the element within a resource (for internal references).
 	//

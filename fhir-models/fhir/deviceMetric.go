@@ -94,6 +94,7 @@ type DeviceMetric struct {
 	// Describes the calibrations that have been performed or that are required to be performed.
 	Calibration []DeviceMetricCalibration `bson:"calibration,omitempty" json:"calibration,omitempty" xml:"calibration,omitempty"`
 }
+
 type DeviceMetricCalibration struct {
 	// Unique id for the element within a resource (for internal references).
 	//

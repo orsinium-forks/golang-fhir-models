@@ -98,6 +98,7 @@ type AdministrableProductDefinition struct {
 	// In some regions this is referred to as the licenced or approved route. RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa).
 	RouteOfAdministration []AdministrableProductDefinitionRouteOfAdministration `bson:"routeOfAdministration" json:"routeOfAdministration" xml:"routeOfAdministration"`
 }
+
 type AdministrableProductDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -130,6 +131,7 @@ type AdministrableProductDefinitionProperty struct {
 	// The status of characteristic e.g. assigned or pending.
 	Status *CodeableConcept `bson:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
 }
+
 type AdministrableProductDefinitionRouteOfAdministration struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -164,6 +166,7 @@ type AdministrableProductDefinitionRouteOfAdministration struct {
 	// A species for which this route applies.
 	TargetSpecies []AdministrableProductDefinitionRouteOfAdministrationTargetSpecies `bson:"targetSpecies,omitempty" json:"targetSpecies,omitempty" xml:"targetSpecies,omitempty"`
 }
+
 type AdministrableProductDefinitionRouteOfAdministrationTargetSpecies struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -188,6 +191,7 @@ type AdministrableProductDefinitionRouteOfAdministrationTargetSpecies struct {
 	// A species specific time during which consumption of animal product is not appropriate.
 	WithdrawalPeriod []AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod `bson:"withdrawalPeriod,omitempty" json:"withdrawalPeriod,omitempty" xml:"withdrawalPeriod,omitempty"`
 }
+
 type AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod struct {
 	// Unique id for the element within a resource (for internal references).
 	//

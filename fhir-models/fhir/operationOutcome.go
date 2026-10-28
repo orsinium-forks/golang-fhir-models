@@ -58,6 +58,7 @@ type OperationOutcome struct {
 	// An error, warning, or information message that results from a system action.
 	Issue []OperationOutcomeIssue `bson:"issue" json:"issue" xml:"issue"`
 }
+
 type OperationOutcomeIssue struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -113,6 +113,7 @@ type Goal struct {
 	// Comment: Note that this should not duplicate the goal status; The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome could be calories consumed whereas goal outcome is an observation for the actual body weight measured.
 	Outcome []CodeableReference `bson:"outcome,omitempty" json:"outcome,omitempty" xml:"outcome,omitempty"`
 }
+
 type GoalTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//

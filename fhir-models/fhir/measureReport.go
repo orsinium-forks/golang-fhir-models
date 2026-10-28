@@ -120,6 +120,7 @@ type MeasureReport struct {
 	// Comment: Evaluated resources are only reported for individual reports.
 	EvaluatedResource []Reference `bson:"evaluatedResource,omitempty" json:"evaluatedResource,omitempty" xml:"evaluatedResource,omitempty"`
 }
+
 type MeasureReportGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -157,6 +158,7 @@ type MeasureReportGroup struct {
 	// When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
 	Stratifier []MeasureReportGroupStratifier `bson:"stratifier,omitempty" json:"stratifier,omitempty" xml:"stratifier,omitempty"`
 }
+
 type MeasureReportGroupPopulation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -193,6 +195,7 @@ type MeasureReportGroupPopulation struct {
 	// Comment: Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be an actual (as opposed to a definitional) group.
 	Subjects *Reference `bson:"subjects,omitempty" json:"subjects,omitempty" xml:"subjects,omitempty"`
 }
+
 type MeasureReportGroupStratifier struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -221,6 +224,7 @@ type MeasureReportGroupStratifier struct {
 	// For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value.
 	Stratum []MeasureReportGroupStratifierStratum `bson:"stratum,omitempty" json:"stratum,omitempty" xml:"stratum,omitempty"`
 }
+
 type MeasureReportGroupStratifierStratum struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -260,6 +264,7 @@ type MeasureReportGroupStratifierStratum struct {
 	MeasureScoreRange           *Range           `bson:"measureScoreRange,omitempty" json:"measureScoreRange,omitempty" xml:"measureScoreRange,omitempty"`
 	MeasureScoreDuration        *Duration        `bson:"measureScoreDuration,omitempty" json:"measureScoreDuration,omitempty" xml:"measureScoreDuration,omitempty"`
 }
+
 type MeasureReportGroupStratifierStratumComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -290,6 +295,7 @@ type MeasureReportGroupStratifierStratumComponent struct {
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueReference       Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
 }
+
 type MeasureReportGroupStratifierStratumPopulation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

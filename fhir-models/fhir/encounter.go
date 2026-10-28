@@ -158,6 +158,7 @@ type Encounter struct {
 	// Comment: Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type "kind" such as "client's home" and an encounter.class = "virtual".
 	Location []EncounterLocation `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
 }
+
 type EncounterParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -192,6 +193,7 @@ type EncounterParticipant struct {
 	// Comment: For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded.The role of the participant can be used to declare what the actor will be doing in the scope of this encounter participation.If the individual is not specified during planning, then it is expected that the individual will be filled in at a later stage prior to the encounter commencing.
 	Actor *Reference `bson:"actor,omitempty" json:"actor,omitempty" xml:"actor,omitempty"`
 }
+
 type EncounterReason struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -220,6 +222,7 @@ type EncounterReason struct {
 	// For admissions, this can be used for a coded admission diagnosis.
 	Value []CodeableReference `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
 }
+
 type EncounterDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -246,6 +249,7 @@ type EncounterDiagnosis struct {
 	// admission, billing, discharge …).
 	Use []CodeableConcept `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
 }
+
 type EncounterAdmission struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -278,6 +282,7 @@ type EncounterAdmission struct {
 	// Category or kind of location after discharge.
 	DischargeDisposition *CodeableConcept `bson:"dischargeDisposition,omitempty" json:"dischargeDisposition,omitempty" xml:"dischargeDisposition,omitempty"`
 }
+
 type EncounterLocation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

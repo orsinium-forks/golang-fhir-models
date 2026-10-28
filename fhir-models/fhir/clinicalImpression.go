@@ -117,6 +117,7 @@ type ClinicalImpression struct {
 	// Comment: Don't use this element for content that should more properly appear as one of the specific elements of the impression.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type ClinicalImpressionFinding struct {
 	// Unique id for the element within a resource (for internal references).
 	//

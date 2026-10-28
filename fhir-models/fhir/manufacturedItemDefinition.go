@@ -82,6 +82,7 @@ type ManufacturedItemDefinition struct {
 	// This is distinct from the ingredients that are part of its chemical makeup.
 	Component []ManufacturedItemDefinitionComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
 }
+
 type ManufacturedItemDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -112,6 +113,7 @@ type ManufacturedItemDefinitionProperty struct {
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
 	ValueReference       *Reference       `bson:"valueReference,omitempty" json:"valueReference,omitempty" xml:"valueReference,omitempty"`
 }
+
 type ManufacturedItemDefinitionComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -150,6 +152,7 @@ type ManufacturedItemDefinitionComponent struct {
 	// A component that this component contains or is made from.
 	Component []ManufacturedItemDefinitionComponent `bson:"component,omitempty" json:"component,omitempty"`
 }
+
 type ManufacturedItemDefinitionComponentConstituent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

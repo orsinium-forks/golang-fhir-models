@@ -100,6 +100,7 @@ type Group struct {
 	// Identifies the resource instances that are members of the group.
 	Member []GroupMember `bson:"member,omitempty" json:"member,omitempty" xml:"member,omitempty"`
 }
+
 type GroupCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -138,6 +139,7 @@ type GroupCharacteristic struct {
 	// the patient had an operation during the month of June.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type GroupMember struct {
 	// Unique id for the element within a resource (for internal references).
 	//

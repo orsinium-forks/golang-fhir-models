@@ -146,6 +146,7 @@ type CarePlan struct {
 	// General notes about the care plan not covered elsewhere.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type CarePlanActivity struct {
 	// Unique id for the element within a resource (for internal references).
 	//

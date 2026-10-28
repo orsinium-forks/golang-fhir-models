@@ -199,6 +199,7 @@ type EvidenceVariable struct {
 	// A grouping for ordinal or polychotomous variables.
 	Category []EvidenceVariableCategory `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
 }
+
 type EvidenceVariableCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -253,6 +254,7 @@ type EvidenceVariableCharacteristic struct {
 	// Timing in which the characteristic is determined.
 	TimeFromEvent []EvidenceVariableCharacteristicTimeFromEvent `bson:"timeFromEvent,omitempty" json:"timeFromEvent,omitempty" xml:"timeFromEvent,omitempty"`
 }
+
 type EvidenceVariableCharacteristicDefinitionByTypeAndValue struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -288,6 +290,7 @@ type EvidenceVariableCharacteristicDefinitionByTypeAndValue struct {
 	// Defines the reference point for comparison when valueQuantity or valueRange is not compared to zero.
 	Offset *CodeableConcept `bson:"offset,omitempty" json:"offset,omitempty" xml:"offset,omitempty"`
 }
+
 type EvidenceVariableCharacteristicDefinitionByCombination struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -314,6 +317,7 @@ type EvidenceVariableCharacteristicDefinitionByCombination struct {
 	// A defining factor of the characteristic.
 	Characteristic []EvidenceVariableCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty"`
 }
+
 type EvidenceVariableCharacteristicTimeFromEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -347,6 +351,7 @@ type EvidenceVariableCharacteristicTimeFromEvent struct {
 	// Used to express the observation within a period before and/or after the event.
 	Range *Range `bson:"range,omitempty" json:"range,omitempty" xml:"range,omitempty"`
 }
+
 type EvidenceVariableCategory struct {
 	// Unique id for the element within a resource (for internal references).
 	//

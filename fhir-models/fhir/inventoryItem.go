@@ -90,6 +90,7 @@ type InventoryItem struct {
 	// Link to a product resource used in clinical workflows.
 	ProductReference *Reference `bson:"productReference,omitempty" json:"productReference,omitempty" xml:"productReference,omitempty"`
 }
+
 type InventoryItemName struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -116,6 +117,7 @@ type InventoryItemName struct {
 	// The name or designation that the item is given.
 	Name string `bson:"name" json:"name" xml:"name"`
 }
+
 type InventoryItemResponsibleOrganization struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -142,6 +144,7 @@ type InventoryItemResponsibleOrganization struct {
 	// manufacturer, distributor, responsible, etc.
 	Organization Reference `bson:"organization" json:"organization" xml:"organization"`
 }
+
 type InventoryItemDescription struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -166,6 +169,7 @@ type InventoryItemDescription struct {
 	// Textual description of the item.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 }
+
 type InventoryItemAssociation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -196,6 +200,7 @@ type InventoryItemAssociation struct {
 	// Denominator is the quantity of the present product. For example a value of 20 means that this product contains 20 units of the related product; a value of 1:20 means the inverse - that the contained product contains 20 units of the present product.
 	Quantity Ratio `bson:"quantity" json:"quantity" xml:"quantity"`
 }
+
 type InventoryItemCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -234,6 +239,7 @@ type InventoryItemCharacteristic struct {
 	ValueDuration        Duration        `bson:"valueDuration" json:"valueDuration" xml:"valueDuration"`
 	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept" xml:"valueCodeableConcept"`
 }
+
 type InventoryItemInstance struct {
 	// Unique id for the element within a resource (for internal references).
 	//

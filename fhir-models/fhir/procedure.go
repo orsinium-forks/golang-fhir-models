@@ -176,6 +176,7 @@ type Procedure struct {
 	//  The information from these resources was either used to create the instance or is provided to help with its interpretation. This extension should not be used if more specific inline elements or extensions are available.
 	SupportingInfo []Reference `bson:"supportingInfo,omitempty" json:"supportingInfo,omitempty" xml:"supportingInfo,omitempty"`
 }
+
 type ProcedurePerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -208,6 +209,7 @@ type ProcedurePerformer struct {
 	// Time period during which the performer performed the procedure.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type ProcedureFocalDevice struct {
 	// Unique id for the element within a resource (for internal references).
 	//

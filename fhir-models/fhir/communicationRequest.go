@@ -135,6 +135,7 @@ type CommunicationRequest struct {
 	// Comments made about the request by the requester, sender, recipient, subject or other participants.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type CommunicationRequestPayload struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -146,6 +146,7 @@ type MedicationDispense struct {
 	// Comment: This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
 	EventHistory []Reference `bson:"eventHistory,omitempty" json:"eventHistory,omitempty" xml:"eventHistory,omitempty"`
 }
+
 type MedicationDispensePerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -174,6 +175,7 @@ type MedicationDispensePerformer struct {
 	// who performed the action.  It should be assumed that the actor is the dispenser of the medication.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type MedicationDispenseSubstitution struct {
 	// Unique id for the element within a resource (for internal references).
 	//

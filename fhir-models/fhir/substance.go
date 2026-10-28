@@ -84,6 +84,7 @@ type Substance struct {
 	// A substance can be composed of other substances.
 	Ingredient []SubstanceIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty" xml:"ingredient,omitempty"`
 }
+
 type SubstanceIngredient struct {
 	// Unique id for the element within a resource (for internal references).
 	//

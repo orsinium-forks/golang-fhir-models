@@ -126,6 +126,7 @@ type AdverseEvent struct {
 	// Comments made about the adverse event by the performer, subject or other participants.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type AdverseEventParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -152,6 +153,7 @@ type AdverseEventParticipant struct {
 	// Comment: For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type AdverseEventSuspectEntity struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -179,6 +181,7 @@ type AdverseEventSuspectEntity struct {
 	// Information on the possible cause of the event.
 	Causality *AdverseEventSuspectEntityCausality `bson:"causality,omitempty" json:"causality,omitempty" xml:"causality,omitempty"`
 }
+
 type AdverseEventSuspectEntityCausality struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -205,6 +208,7 @@ type AdverseEventSuspectEntityCausality struct {
 	// The author of the information on the possible cause of the event.
 	Author *Reference `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
 }
+
 type AdverseEventContributingFactor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -228,6 +232,7 @@ type AdverseEventContributingFactor struct {
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
 }
+
 type AdverseEventPreventiveAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -251,6 +256,7 @@ type AdverseEventPreventiveAction struct {
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
 }
+
 type AdverseEventMitigatingAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -274,6 +280,7 @@ type AdverseEventMitigatingAction struct {
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
 }
+
 type AdverseEventSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//

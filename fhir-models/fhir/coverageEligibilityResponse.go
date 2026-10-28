@@ -99,6 +99,7 @@ type CoverageEligibilityResponse struct {
 	// Errors encountered during the processing of the request.
 	Error []CoverageEligibilityResponseError `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
 }
+
 type CoverageEligibilityResponseEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -124,6 +125,7 @@ type CoverageEligibilityResponseEvent struct {
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
 }
+
 type CoverageEligibilityResponseInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -154,6 +156,7 @@ type CoverageEligibilityResponseInsurance struct {
 	// Benefits and optionally current balances, and authorization details by category or service.
 	Item []CoverageEligibilityResponseInsuranceItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
 }
+
 type CoverageEligibilityResponseInsuranceItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -212,6 +215,7 @@ type CoverageEligibilityResponseInsuranceItem struct {
 	// A web location for obtaining requirements or descriptive information regarding the preauthorization.
 	AuthorizationUrl *string `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty" xml:"authorizationUrl,omitempty"`
 }
+
 type CoverageEligibilityResponseInsuranceItemBenefit struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -244,6 +248,7 @@ type CoverageEligibilityResponseInsuranceItemBenefit struct {
 	UsedString      *string `bson:"usedString,omitempty" json:"usedString,omitempty" xml:"usedString,omitempty"`
 	UsedMoney       *Money  `bson:"usedMoney,omitempty" json:"usedMoney,omitempty" xml:"usedMoney,omitempty"`
 }
+
 type CoverageEligibilityResponseError struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -168,6 +168,7 @@ type Task struct {
 	// Outputs produced by the Task.
 	Output []TaskOutput `bson:"output,omitempty" json:"output,omitempty" xml:"output,omitempty"`
 }
+
 type TaskPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -192,6 +193,7 @@ type TaskPerformer struct {
 	// The actor or entity who performed the task.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type TaskRestriction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -224,6 +226,7 @@ type TaskRestriction struct {
 	// For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for.
 	Recipient []Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
 }
+
 type TaskInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -303,6 +306,7 @@ type TaskInput struct {
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
 }
+
 type TaskOutput struct {
 	// Unique id for the element within a resource (for internal references).
 	//

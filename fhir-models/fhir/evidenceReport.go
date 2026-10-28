@@ -133,6 +133,7 @@ type EvidenceReport struct {
 	// The root of the sections that make up the composition.
 	Section []EvidenceReportSection `bson:"section,omitempty" json:"section,omitempty" xml:"section,omitempty"`
 }
+
 type EvidenceReportSubject struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -157,6 +158,7 @@ type EvidenceReportSubject struct {
 	// Used for general notes and annotations not coded elsewhere.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type EvidenceReportSubjectCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -193,6 +195,7 @@ type EvidenceReportSubjectCharacteristic struct {
 	// Timeframe for the characteristic.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type EvidenceReportRelatesTo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -219,6 +222,7 @@ type EvidenceReportRelatesTo struct {
 	// The target composition/document of this relationship.
 	Target EvidenceReportRelatesToTarget `bson:"target" json:"target" xml:"target"`
 }
+
 type EvidenceReportRelatesToTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -247,6 +251,7 @@ type EvidenceReportRelatesToTarget struct {
 	// Target of the relationship Resource reference.
 	Resource *Reference `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
 }
+
 type EvidenceReportSection struct {
 	// Unique id for the element within a resource (for internal references).
 	//

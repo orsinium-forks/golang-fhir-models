@@ -141,6 +141,7 @@ type Immunization struct {
 	// The protocol (set of recommendations) being followed by the provider who administered the dose.
 	ProtocolApplied []ImmunizationProtocolApplied `bson:"protocolApplied,omitempty" json:"protocolApplied,omitempty" xml:"protocolApplied,omitempty"`
 }
+
 type ImmunizationPerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -167,6 +168,7 @@ type ImmunizationPerformer struct {
 	// Comment: When the individual practitioner who performed the action is known, it is best to send.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 }
+
 type ImmunizationProgramEligibility struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -191,6 +193,7 @@ type ImmunizationProgramEligibility struct {
 	// Indicates the patient's eligility status for for a specific payment program.
 	ProgramStatus CodeableConcept `bson:"programStatus" json:"programStatus" xml:"programStatus"`
 }
+
 type ImmunizationReaction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -217,6 +220,7 @@ type ImmunizationReaction struct {
 	// Self-reported indicator.
 	Reported *bool `bson:"reported,omitempty" json:"reported,omitempty" xml:"reported,omitempty"`
 }
+
 type ImmunizationProtocolApplied struct {
 	// Unique id for the element within a resource (for internal references).
 	//

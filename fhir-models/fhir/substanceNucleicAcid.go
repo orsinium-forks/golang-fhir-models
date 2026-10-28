@@ -72,6 +72,7 @@ type SubstanceNucleicAcid struct {
 	// Subunits are listed in order of decreasing length; sequences of the same length will be ordered by molecular weight; subunits that have identical sequences will be repeated multiple times.
 	Subunit []SubstanceNucleicAcidSubunit `bson:"subunit,omitempty" json:"subunit,omitempty" xml:"subunit,omitempty"`
 }
+
 type SubstanceNucleicAcidSubunit struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -116,6 +117,7 @@ type SubstanceNucleicAcidSubunit struct {
 	// 5.3.6.8.1 Sugar ID (Mandatory).
 	Sugar []SubstanceNucleicAcidSubunitSugar `bson:"sugar,omitempty" json:"sugar,omitempty" xml:"sugar,omitempty"`
 }
+
 type SubstanceNucleicAcidSubunitLinkage struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -148,6 +150,7 @@ type SubstanceNucleicAcidSubunitLinkage struct {
 	// Residues shall be captured as described in 5.3.6.8.3.
 	ResidueSite *string `bson:"residueSite,omitempty" json:"residueSite,omitempty" xml:"residueSite,omitempty"`
 }
+
 type SubstanceNucleicAcidSubunitSugar struct {
 	// Unique id for the element within a resource (for internal references).
 	//

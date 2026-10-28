@@ -136,6 +136,7 @@ type Communication struct {
 	// Additional notes or commentary about the communication by the sender, receiver or other interested parties.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type CommunicationPayload struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -103,6 +103,7 @@ type Person struct {
 	// Link to a resource that concerns the same actual person.
 	Link []PersonLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
 }
+
 type PersonCommunication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -133,6 +134,7 @@ type PersonCommunication struct {
 	// Comment: This language is specifically identified for communicating healthcare information.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
 }
+
 type PersonLink struct {
 	// Unique id for the element within a resource (for internal references).
 	//

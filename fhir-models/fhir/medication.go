@@ -90,6 +90,7 @@ type Medication struct {
 	// A reference to a knowledge resource that provides more information about this medication.
 	Definition *Reference `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
 }
+
 type MedicationIngredient struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -122,6 +123,7 @@ type MedicationIngredient struct {
 	StrengthCodeableConcept *CodeableConcept `bson:"strengthCodeableConcept,omitempty" json:"strengthCodeableConcept,omitempty" xml:"strengthCodeableConcept,omitempty"`
 	StrengthQuantity        *Quantity        `bson:"strengthQuantity,omitempty" json:"strengthQuantity,omitempty" xml:"strengthQuantity,omitempty"`
 }
+
 type MedicationBatch struct {
 	// Unique id for the element within a resource (for internal references).
 	//

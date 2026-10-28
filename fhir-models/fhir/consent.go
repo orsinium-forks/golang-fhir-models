@@ -114,6 +114,7 @@ type Consent struct {
 	// An exception can be an addition or removal of access permissions.
 	Provision []ConsentProvision `bson:"provision,omitempty" json:"provision,omitempty" xml:"provision,omitempty"`
 }
+
 type ConsentPolicyBasis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -140,6 +141,7 @@ type ConsentPolicyBasis struct {
 	// A URL that links to a computable version of the policy the organization will enforce for this Consent.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 }
+
 type ConsentVerification struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -174,6 +176,7 @@ type ConsentVerification struct {
 	// Comment: Allows for history of verification/validation.
 	VerificationDate []string `bson:"verificationDate,omitempty" json:"verificationDate,omitempty" xml:"verificationDate,omitempty"`
 }
+
 type ConsentProvision struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -240,6 +243,7 @@ type ConsentProvision struct {
 	// Provisions which provide exceptions to the base provision or subprovisions.
 	Provision []ConsentProvision `bson:"provision,omitempty" json:"provision,omitempty"`
 }
+
 type ConsentProvisionActor struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -266,6 +270,7 @@ type ConsentProvisionActor struct {
 	// To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
 	Reference *Reference `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
 }
+
 type ConsentProvisionData struct {
 	// Unique id for the element within a resource (for internal references).
 	//

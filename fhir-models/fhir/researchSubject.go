@@ -80,6 +80,7 @@ type ResearchSubject struct {
 	// A record of the patient's informed agreement to participate in the study.
 	Consent []Reference `bson:"consent,omitempty" json:"consent,omitempty" xml:"consent,omitempty"`
 }
+
 type ResearchSubjectProgress struct {
 	// Unique id for the element within a resource (for internal references).
 	//

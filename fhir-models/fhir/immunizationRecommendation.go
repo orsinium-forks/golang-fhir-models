@@ -70,6 +70,7 @@ type ImmunizationRecommendation struct {
 	// Comment: A given instance of the .recommendation backbone element should correspond to a single recommended administration.
 	Recommendation []ImmunizationRecommendationRecommendation `bson:"recommendation" json:"recommendation" xml:"recommendation"`
 }
+
 type ImmunizationRecommendationRecommendation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -126,6 +127,7 @@ type ImmunizationRecommendationRecommendation struct {
 	//  This includes patient observations, adverse reactions and allergy/intolerance information.
 	SupportingPatientInformation []Reference `bson:"supportingPatientInformation,omitempty" json:"supportingPatientInformation,omitempty" xml:"supportingPatientInformation,omitempty"`
 }
+
 type ImmunizationRecommendationRecommendationDateCriterion struct {
 	// Unique id for the element within a resource (for internal references).
 	//

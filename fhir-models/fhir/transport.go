@@ -154,6 +154,7 @@ type Transport struct {
 	// The transport event prior to this one.
 	History *Reference `bson:"history,omitempty" json:"history,omitempty" xml:"history,omitempty"`
 }
+
 type TransportRestriction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -182,6 +183,7 @@ type TransportRestriction struct {
 	// For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for.
 	Recipient []Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
 }
+
 type TransportInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -261,6 +263,7 @@ type TransportInput struct {
 	ValueDosage                Dosage                `bson:"valueDosage" json:"valueDosage" xml:"valueDosage"`
 	ValueMeta                  Meta                  `bson:"valueMeta" json:"valueMeta" xml:"valueMeta"`
 }
+
 type TransportOutput struct {
 	// Unique id for the element within a resource (for internal references).
 	//

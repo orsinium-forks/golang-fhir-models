@@ -102,6 +102,7 @@ type RequestOrchestration struct {
 	// The actions, if any, produced by the evaluation of the artifact.
 	Action []RequestOrchestrationAction `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
 }
+
 type RequestOrchestrationAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -210,6 +211,7 @@ type RequestOrchestrationAction struct {
 	// Sub actions.
 	Action []RequestOrchestrationAction `bson:"action,omitempty" json:"action,omitempty"`
 }
+
 type RequestOrchestrationActionCondition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -238,6 +240,7 @@ type RequestOrchestrationActionCondition struct {
 	// Comment: The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
 }
+
 type RequestOrchestrationActionInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -268,6 +271,7 @@ type RequestOrchestrationActionInput struct {
 	// Comment: The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
 }
+
 type RequestOrchestrationActionOutput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -298,6 +302,7 @@ type RequestOrchestrationActionOutput struct {
 	// Comment: The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
 }
+
 type RequestOrchestrationActionRelatedAction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +334,7 @@ type RequestOrchestrationActionRelatedAction struct {
 	OffsetDuration *Duration `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty" xml:"offsetDuration,omitempty"`
 	OffsetRange    *Range    `bson:"offsetRange,omitempty" json:"offsetRange,omitempty" xml:"offsetRange,omitempty"`
 }
+
 type RequestOrchestrationActionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -364,6 +370,7 @@ type RequestOrchestrationActionParticipant struct {
 	ActorCanonical *string    `bson:"actorCanonical,omitempty" json:"actorCanonical,omitempty" xml:"actorCanonical,omitempty"`
 	ActorReference *Reference `bson:"actorReference,omitempty" json:"actorReference,omitempty" xml:"actorReference,omitempty"`
 }
+
 type RequestOrchestrationActionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).
 	//

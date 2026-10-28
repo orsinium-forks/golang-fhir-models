@@ -78,6 +78,7 @@ type SubscriptionStatus struct {
 	// Comment: Recommended practice: clear errors when status is updated.
 	Error []CodeableConcept `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
 }
+
 type SubscriptionStatusNotificationEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -172,6 +172,7 @@ type Composition struct {
 	// The root of the sections that make up the composition.
 	Section []CompositionSection `bson:"section,omitempty" json:"section,omitempty" xml:"section,omitempty"`
 }
+
 type CompositionAttester struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -198,6 +199,7 @@ type CompositionAttester struct {
 	// Who attested the composition in the specified way.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
 }
+
 type CompositionEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -228,6 +230,7 @@ type CompositionEvent struct {
 	// Comment: An event can further specialize the act inherent in the typeCode, such as where it is simply "Procedure Report" and the procedure was a "colonoscopy". If one or more events are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries.
 	Detail []CodeableReference `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type CompositionSection struct {
 	// Unique id for the element within a resource (for internal references).
 	//

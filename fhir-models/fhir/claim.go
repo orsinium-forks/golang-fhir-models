@@ -168,6 +168,7 @@ type Claim struct {
 	// The total value of the all the items in the claim.
 	Total *Money `bson:"total,omitempty" json:"total,omitempty" xml:"total,omitempty"`
 }
+
 type ClaimRelated struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -198,6 +199,7 @@ type ClaimRelated struct {
 	// Comment: For example, Property/Casualty insurer claim # or Workers Compensation case # .
 	Reference *Identifier `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`
 }
+
 type ClaimPayee struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -224,6 +226,7 @@ type ClaimPayee struct {
 	// Comment: Not required if the payee is 'subscriber' or 'provider'.
 	Party *Reference `bson:"party,omitempty" json:"party,omitempty" xml:"party,omitempty"`
 }
+
 type ClaimEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -249,6 +252,7 @@ type ClaimEvent struct {
 	WhenDateTime string `bson:"whenDateTime" json:"whenDateTime" xml:"whenDateTime"`
 	WhenPeriod   Period `bson:"whenPeriod" json:"whenPeriod" xml:"whenPeriod"`
 }
+
 type ClaimCareTeam struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -283,6 +287,7 @@ type ClaimCareTeam struct {
 	// The specialization of the practitioner or provider which is applicable for this service.
 	Specialty *CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty" xml:"specialty,omitempty"`
 }
+
 type ClaimSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -329,6 +334,7 @@ type ClaimSupportingInfo struct {
 	// Comment: For example: the reason for the additional stay, or why a tooth is  missing.
 	Reason *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 }
+
 type ClaimDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -362,6 +368,7 @@ type ClaimDiagnosis struct {
 	// Indication of whether the diagnosis was present on admission to a facility.
 	OnAdmission *CodeableConcept `bson:"onAdmission,omitempty" json:"onAdmission,omitempty" xml:"onAdmission,omitempty"`
 }
+
 type ClaimProcedure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -395,6 +402,7 @@ type ClaimProcedure struct {
 	// Unique Device Identifiers associated with this line item.
 	Udi []Reference `bson:"udi,omitempty" json:"udi,omitempty" xml:"udi,omitempty"`
 }
+
 type ClaimInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -439,6 +447,7 @@ type ClaimInsurance struct {
 	// Comment: Must not be specified when 'focal=true' for this insurance.
 	ClaimResponse *Reference `bson:"claimResponse,omitempty" json:"claimResponse,omitempty" xml:"claimResponse,omitempty"`
 }
+
 type ClaimAccident struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -468,6 +477,7 @@ type ClaimAccident struct {
 	LocationAddress   *Address   `bson:"locationAddress,omitempty" json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
 	LocationReference *Reference `bson:"locationReference,omitempty" json:"locationReference,omitempty" xml:"locationReference,omitempty"`
 }
+
 type ClaimItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -567,6 +577,7 @@ type ClaimItem struct {
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	Detail []ClaimItemDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
 }
+
 type ClaimItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -593,6 +604,7 @@ type ClaimItemBodySite struct {
 	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
 }
+
 type ClaimItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -669,6 +681,7 @@ type ClaimItemDetail struct {
 	// Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	SubDetail []ClaimItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty" xml:"subDetail,omitempty"`
 }
+
 type ClaimItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//

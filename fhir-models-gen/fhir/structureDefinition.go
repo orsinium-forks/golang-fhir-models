@@ -211,6 +211,7 @@ type StructureDefinition struct {
 	// A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
 	Differential *StructureDefinitionDifferential `bson:"differential,omitempty" json:"differential,omitempty" xml:"differential,omitempty"`
 }
+
 type StructureDefinitionMapping struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -243,6 +244,7 @@ type StructureDefinitionMapping struct {
 	// Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
 }
+
 type StructureDefinitionContext struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -267,6 +269,7 @@ type StructureDefinitionContext struct {
 	// An expression that defines where an extension can be used in resources.
 	Expression string `bson:"expression" json:"expression" xml:"expression"`
 }
+
 type StructureDefinitionSnapshot struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -289,6 +292,7 @@ type StructureDefinitionSnapshot struct {
 	// Captures constraints on each element within the resource.
 	Element []ElementDefinition `bson:"element" json:"element" xml:"element"`
 }
+
 type StructureDefinitionDifferential struct {
 	// Unique id for the element within a resource (for internal references).
 	//

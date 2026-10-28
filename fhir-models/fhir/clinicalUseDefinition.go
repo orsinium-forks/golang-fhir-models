@@ -84,6 +84,7 @@ type ClinicalUseDefinition struct {
 	// For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'.
 	Warning *ClinicalUseDefinitionWarning `bson:"warning,omitempty" json:"warning,omitempty" xml:"warning,omitempty"`
 }
+
 type ClinicalUseDefinitionContraindication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -118,6 +119,7 @@ type ClinicalUseDefinitionContraindication struct {
 	// Information about the use of the medicinal product in relation to other therapies described as part of the contraindication.
 	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty" xml:"otherTherapy,omitempty"`
 }
+
 type ClinicalUseDefinitionContraindicationOtherTherapy struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -142,6 +144,7 @@ type ClinicalUseDefinitionContraindicationOtherTherapy struct {
 	// Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication.
 	Treatment CodeableReference `bson:"treatment" json:"treatment" xml:"treatment"`
 }
+
 type ClinicalUseDefinitionIndication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -183,6 +186,7 @@ type ClinicalUseDefinitionIndication struct {
 	// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
 	OtherTherapy []ClinicalUseDefinitionContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
 }
+
 type ClinicalUseDefinitionInteraction struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -215,6 +219,7 @@ type ClinicalUseDefinitionInteraction struct {
 	// Actions for managing the interaction.
 	Management []CodeableConcept `bson:"management,omitempty" json:"management,omitempty" xml:"management,omitempty"`
 }
+
 type ClinicalUseDefinitionInteractionInteractant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -238,6 +243,7 @@ type ClinicalUseDefinitionInteractionInteractant struct {
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference" xml:"itemReference"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept" xml:"itemCodeableConcept"`
 }
+
 type ClinicalUseDefinitionUndesirableEffect struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -264,6 +270,7 @@ type ClinicalUseDefinitionUndesirableEffect struct {
 	// How often the effect is seen.
 	FrequencyOfOccurrence *CodeableConcept `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty" xml:"frequencyOfOccurrence,omitempty"`
 }
+
 type ClinicalUseDefinitionWarning struct {
 	// Unique id for the element within a resource (for internal references).
 	//

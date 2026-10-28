@@ -216,6 +216,7 @@ type Observation struct {
 	// Comment: For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.
 	Component []ObservationComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
 }
+
 type ObservationTriggeredBy struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -244,6 +245,7 @@ type ObservationTriggeredBy struct {
 	// Provides the reason why this observation was performed as a result of the observation(s) referenced.
 	Reason *string `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 }
+
 type ObservationReferenceRange struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -294,6 +296,7 @@ type ObservationReferenceRange struct {
 	//  An example would be a reference value of "Negative" or a list or table of "normals".
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
 }
+
 type ObservationComponent struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -112,6 +112,7 @@ type SubstanceDefinition struct {
 	// Material or taxonomic/anatomical source for the substance.
 	SourceMaterial *SubstanceDefinitionSourceMaterial `bson:"sourceMaterial,omitempty" json:"sourceMaterial,omitempty" xml:"sourceMaterial,omitempty"`
 }
+
 type SubstanceDefinitionMoiety struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -151,6 +152,7 @@ type SubstanceDefinitionMoiety struct {
 	// In capturing the actual relative amounts of substances or molecular fragments it may be necessary to indicate whether the amount refers to, for example, a mole ratio or weight ratio.
 	MeasurementType *CodeableConcept `bson:"measurementType,omitempty" json:"measurementType,omitempty" xml:"measurementType,omitempty"`
 }
+
 type SubstanceDefinitionCharacterization struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -181,6 +183,7 @@ type SubstanceDefinitionCharacterization struct {
 	// Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis.
 	File []Attachment `bson:"file,omitempty" json:"file,omitempty" xml:"file,omitempty"`
 }
+
 type SubstanceDefinitionProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -209,6 +212,7 @@ type SubstanceDefinitionProperty struct {
 	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty" xml:"valueBoolean,omitempty"`
 	ValueAttachment      *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty" xml:"valueAttachment,omitempty"`
 }
+
 type SubstanceDefinitionMolecularWeight struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -239,6 +243,7 @@ type SubstanceDefinitionMolecularWeight struct {
 	// If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
 	Amount Quantity `bson:"amount" json:"amount" xml:"amount"`
 }
+
 type SubstanceDefinitionStructure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -279,6 +284,7 @@ type SubstanceDefinitionStructure struct {
 	// A depiction of the structure of the substance.
 	Representation []SubstanceDefinitionStructureRepresentation `bson:"representation,omitempty" json:"representation,omitempty" xml:"representation,omitempty"`
 }
+
 type SubstanceDefinitionStructureRepresentation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -311,6 +317,7 @@ type SubstanceDefinitionStructureRepresentation struct {
 	// a molecular structure graphic of the substance, a JCAMP or AnIML file.
 	Document *Reference `bson:"document,omitempty" json:"document,omitempty" xml:"document,omitempty"`
 }
+
 type SubstanceDefinitionCode struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -341,6 +348,7 @@ type SubstanceDefinitionCode struct {
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type SubstanceDefinitionName struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -383,6 +391,7 @@ type SubstanceDefinitionName struct {
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type SubstanceDefinitionNameOfficial struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -409,6 +418,7 @@ type SubstanceDefinitionNameOfficial struct {
 	// Date of the official name change.
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
 }
+
 type SubstanceDefinitionRelationship struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -446,6 +456,7 @@ type SubstanceDefinitionRelationship struct {
 	// Supporting literature.
 	Source []Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 }
+
 type SubstanceDefinitionSourceMaterial struct {
 	// Unique id for the element within a resource (for internal references).
 	//

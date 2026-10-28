@@ -215,6 +215,7 @@ type NamingSystem struct {
 	// Comment: Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
 	UniqueId []NamingSystemUniqueId `bson:"uniqueId" json:"uniqueId" xml:"uniqueId"`
 }
+
 type NamingSystemUniqueId struct {
 	// Unique id for the element within a resource (for internal references).
 	//

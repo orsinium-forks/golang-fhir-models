@@ -102,6 +102,7 @@ type EncounterHistory struct {
 	// Comment: Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type "kind" such as "client's home" and an encounter.class = "virtual".
 	Location []EncounterHistoryLocation `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
 }
+
 type EncounterHistoryLocation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

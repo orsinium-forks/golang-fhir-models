@@ -95,6 +95,7 @@ type RiskAssessment struct {
 	// Additional comments about the risk assessment.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type RiskAssessmentPrediction struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -120,6 +120,7 @@ type NutritionIntake struct {
 	// Provides extra information about the Nutrition Intake that is not conveyed by the other attributes.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type NutritionIntakeConsumedItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -160,6 +161,7 @@ type NutritionIntakeConsumedItem struct {
 	// Document the reason the food or fluid was not consumed, such as refused, held, etc.
 	NotConsumedReason *CodeableConcept `bson:"notConsumedReason,omitempty" json:"notConsumedReason,omitempty" xml:"notConsumedReason,omitempty"`
 }
+
 type NutritionIntakeIngredientLabel struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -186,6 +188,7 @@ type NutritionIntakeIngredientLabel struct {
 	// Total amount of nutrient consumed.
 	Amount Quantity `bson:"amount" json:"amount" xml:"amount"`
 }
+
 type NutritionIntakePerformer struct {
 	// Unique id for the element within a resource (for internal references).
 	//

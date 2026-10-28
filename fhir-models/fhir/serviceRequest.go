@@ -183,6 +183,7 @@ type ServiceRequest struct {
 	// Comment: This might not include provenances for all versions of the request – only those deemed “relevant” or important.This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revincludeAll Provenances should have some historical version of this Request as their subject.
 	RelevantHistory []Reference `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty" xml:"relevantHistory,omitempty"`
 }
+
 type ServiceRequestOrderDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -207,6 +208,7 @@ type ServiceRequestOrderDetail struct {
 	// The parameter details for the service being requested.
 	Parameter []ServiceRequestOrderDetailParameter `bson:"parameter" json:"parameter" xml:"parameter"`
 }
+
 type ServiceRequestOrderDetailParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -239,6 +241,7 @@ type ServiceRequestOrderDetailParameter struct {
 	ValueString          string          `bson:"valueString" json:"valueString" xml:"valueString"`
 	ValuePeriod          Period          `bson:"valuePeriod" json:"valuePeriod" xml:"valuePeriod"`
 }
+
 type ServiceRequestPatientInstruction struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -106,6 +106,7 @@ type Endpoint struct {
 	// Comment: Exactly what these mean depends on the channel type. The can convey additional information to the recipient and/or meet security requirements.
 	Header []string `bson:"header,omitempty" json:"header,omitempty" xml:"header,omitempty"`
 }
+
 type EndpointPayload struct {
 	// Unique id for the element within a resource (for internal references).
 	//

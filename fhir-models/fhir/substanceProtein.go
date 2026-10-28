@@ -72,6 +72,7 @@ type SubstanceProtein struct {
 	// A subunit is a linear sequence of amino acids linked through peptide bonds. The Subunit information shall be provided when the finished SubstanceProtein is a complex of multiple sequences; subunits are not used to delineate domains within a single sequence. Subunits are listed in order of decreasing length; sequences of the same length will be ordered by decreasing molecular weight; subunits that have identical sequences will be repeated multiple times.
 	Subunit []SubstanceProteinSubunit `bson:"subunit,omitempty" json:"subunit,omitempty" xml:"subunit,omitempty"`
 }
+
 type SubstanceProteinSubunit struct {
 	// Unique id for the element within a resource (for internal references).
 	//

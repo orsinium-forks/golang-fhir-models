@@ -108,6 +108,7 @@ type Specimen struct {
 	// (for example: broken vial, sent with patient, frozen).
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 }
+
 type SpecimenFeature struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -132,6 +133,7 @@ type SpecimenFeature struct {
 	// Description of the feature of the specimen.
 	Description string `bson:"description" json:"description" xml:"description"`
 }
+
 type SpecimenCollection struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -180,6 +182,7 @@ type SpecimenCollection struct {
 	FastingStatusCodeableConcept *CodeableConcept `bson:"fastingStatusCodeableConcept,omitempty" json:"fastingStatusCodeableConcept,omitempty" xml:"fastingStatusCodeableConcept,omitempty"`
 	FastingStatusDuration        *Duration        `bson:"fastingStatusDuration,omitempty" json:"fastingStatusDuration,omitempty" xml:"fastingStatusDuration,omitempty"`
 }
+
 type SpecimenProcessing struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -211,6 +214,7 @@ type SpecimenProcessing struct {
 	TimeDateTime *string `bson:"timeDateTime,omitempty" json:"timeDateTime,omitempty" xml:"timeDateTime,omitempty"`
 	TimePeriod   *Period `bson:"timePeriod,omitempty" json:"timePeriod,omitempty" xml:"timePeriod,omitempty"`
 }
+
 type SpecimenContainer struct {
 	// Unique id for the element within a resource (for internal references).
 	//

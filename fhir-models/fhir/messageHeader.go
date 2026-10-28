@@ -103,6 +103,7 @@ type MessageHeader struct {
 	// Permanent link to the MessageDefinition for this message.
 	Definition *string `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
 }
+
 type MessageHeaderDestination struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -134,6 +135,7 @@ type MessageHeaderDestination struct {
 	// Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
 	Receiver *Reference `bson:"receiver,omitempty" json:"receiver,omitempty" xml:"receiver,omitempty"`
 }
+
 type MessageHeaderSource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -167,6 +169,7 @@ type MessageHeaderSource struct {
 	// An e-mail, phone, website or other contact point to use to resolve issues with message communications.
 	Contact *ContactPoint `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
 }
+
 type MessageHeaderResponse struct {
 	// Unique id for the element within a resource (for internal references).
 	//

@@ -88,6 +88,7 @@ type Bundle struct {
 	// Comment: Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle.
 	Issues jsontext.Value `bson:"issues,omitempty" json:"issues,omitempty" xml:"issues,omitempty"`
 }
+
 type BundleLink struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -112,6 +113,7 @@ type BundleLink struct {
 	// The reference details for the link.
 	Url string `bson:"url" json:"url" xml:"url"`
 }
+
 type BundleEntry struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -160,6 +162,7 @@ type BundleEntry struct {
 	// Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.
 	Response *BundleEntryResponse `bson:"response,omitempty" json:"response,omitempty" xml:"response,omitempty"`
 }
+
 type BundleEntrySearch struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -190,6 +193,7 @@ type BundleEntrySearch struct {
 	// See [Patient Match](patient-operation-match.html) for the EMPI search which relates to this element.
 	Score *decimal.Decimal `bson:"score,omitempty" json:"score,omitempty" xml:"score,omitempty"`
 }
+
 type BundleEntryRequest struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -234,6 +238,7 @@ type BundleEntryRequest struct {
 	// For further information, see the API documentation for ["Conditional Create"](http.html#ccreate). This is just the query portion of the URL - what follows the "?" (not including the "?").
 	IfNoneExist *string `bson:"ifNoneExist,omitempty" json:"ifNoneExist,omitempty" xml:"ifNoneExist,omitempty"`
 }
+
 type BundleEntryResponse struct {
 	// Unique id for the element within a resource (for internal references).
 	//

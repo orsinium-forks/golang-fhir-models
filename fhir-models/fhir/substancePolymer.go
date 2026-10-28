@@ -72,6 +72,7 @@ type SubstancePolymer struct {
 	// Specifies and quantifies the repeated units and their configuration.
 	Repeat []SubstancePolymerRepeat `bson:"repeat,omitempty" json:"repeat,omitempty" xml:"repeat,omitempty"`
 }
+
 type SubstancePolymerMonomerSet struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -98,6 +99,7 @@ type SubstancePolymerMonomerSet struct {
 	// The starting materials - monomer(s) used in the synthesis of the polymer.
 	StartingMaterial []SubstancePolymerMonomerSetStartingMaterial `bson:"startingMaterial,omitempty" json:"startingMaterial,omitempty" xml:"startingMaterial,omitempty"`
 }
+
 type SubstancePolymerMonomerSetStartingMaterial struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -126,6 +128,7 @@ type SubstancePolymerMonomerSetStartingMaterial struct {
 	// A percentage.
 	Amount *Quantity `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
 }
+
 type SubstancePolymerRepeat struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -154,6 +157,7 @@ type SubstancePolymerRepeat struct {
 	// An SRU - Structural Repeat Unit.
 	RepeatUnit []SubstancePolymerRepeatRepeatUnit `bson:"repeatUnit,omitempty" json:"repeatUnit,omitempty" xml:"repeatUnit,omitempty"`
 }
+
 type SubstancePolymerRepeatRepeatUnit struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -184,6 +188,7 @@ type SubstancePolymerRepeatRepeatUnit struct {
 	// A graphical structure for this SRU.
 	StructuralRepresentation []SubstancePolymerRepeatRepeatUnitStructuralRepresentation `bson:"structuralRepresentation,omitempty" json:"structuralRepresentation,omitempty" xml:"structuralRepresentation,omitempty"`
 }
+
 type SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -212,6 +217,7 @@ type SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation struct {
 	// A high expected limit of the amount.
 	High *int `bson:"high,omitempty" json:"high,omitempty" xml:"high,omitempty"`
 }
+
 type SubstancePolymerRepeatRepeatUnitStructuralRepresentation struct {
 	// Unique id for the element within a resource (for internal references).
 	//

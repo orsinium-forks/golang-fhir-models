@@ -140,6 +140,7 @@ type Patient struct {
 	// Comment: There is no assumption that linked patient records have mutual links.
 	Link []PatientLink `bson:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
 }
+
 type PatientContact struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -176,6 +177,7 @@ type PatientContact struct {
 	// The period during which this contact person or organization is valid to be contacted relating to this patient.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 }
+
 type PatientCommunication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -206,6 +208,7 @@ type PatientCommunication struct {
 	// Comment: This language is specifically identified for communicating healthcare information.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
 }
+
 type PatientLink struct {
 	// Unique id for the element within a resource (for internal references).
 	//

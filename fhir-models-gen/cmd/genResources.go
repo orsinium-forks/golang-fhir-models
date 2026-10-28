@@ -450,6 +450,7 @@ func addFieldStatement(
 		case "Element", "BackboneElement":
 			backboneElementName := parentName + fieldName
 			statement.Id(backboneElementName)
+			file.Id("\n")
 			var err error
 			file.Type().Id(backboneElementName).StructFunc(func(childFields *jen.Group) {
 				// var err error

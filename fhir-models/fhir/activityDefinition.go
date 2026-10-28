@@ -284,6 +284,7 @@ type ActivityDefinition struct {
 	// Comment: Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform.
 	DynamicValue []ActivityDefinitionDynamicValue `bson:"dynamicValue,omitempty" json:"dynamicValue,omitempty" xml:"dynamicValue,omitempty"`
 }
+
 type ActivityDefinitionParticipant struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -316,6 +317,7 @@ type ActivityDefinitionParticipant struct {
 	// Indicates how the actor will be involved in the action - author, reviewer, witness, etc.
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 }
+
 type ActivityDefinitionDynamicValue struct {
 	// Unique id for the element within a resource (for internal references).
 	//

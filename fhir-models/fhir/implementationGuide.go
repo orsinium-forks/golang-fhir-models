@@ -181,6 +181,7 @@ type ImplementationGuide struct {
 	// Information about an assembled implementation guide, created by the publication tooling.
 	Manifest *ImplementationGuideManifest `bson:"manifest,omitempty" json:"manifest,omitempty" xml:"manifest,omitempty"`
 }
+
 type ImplementationGuideDependsOn struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -215,6 +216,7 @@ type ImplementationGuideDependsOn struct {
 	// Comment: This doesn't need to enumerate every resource used, but should give some sense of why the dependency exists.  It will be used in the rendered list of dependencies
 	Reason *string `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 }
+
 type ImplementationGuideGlobal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -241,6 +243,7 @@ type ImplementationGuideGlobal struct {
 	// A reference to the profile that all instances must conform to.
 	Profile string `bson:"profile" json:"profile" xml:"profile"`
 }
+
 type ImplementationGuideDefinition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -283,6 +286,7 @@ type ImplementationGuideDefinition struct {
 	// A template for building resources.
 	Template []ImplementationGuideDefinitionTemplate `bson:"template,omitempty" json:"template,omitempty" xml:"template,omitempty"`
 }
+
 type ImplementationGuideDefinitionGrouping struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -307,6 +311,7 @@ type ImplementationGuideDefinitionGrouping struct {
 	// Human readable text describing the package.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 }
+
 type ImplementationGuideDefinitionResource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -363,6 +368,7 @@ type ImplementationGuideDefinitionResource struct {
 	// Comment: This must correspond to a group.id element within this implementation guide.
 	GroupingId *string `bson:"groupingId,omitempty" json:"groupingId,omitempty" xml:"groupingId,omitempty"`
 }
+
 type ImplementationGuideDefinitionPage struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -401,6 +407,7 @@ type ImplementationGuideDefinitionPage struct {
 	// Comment: The implementation guide breadcrumbs may be generated from this structure.
 	Page []ImplementationGuideDefinitionPage `bson:"page,omitempty" json:"page,omitempty"`
 }
+
 type ImplementationGuideDefinitionParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -425,6 +432,7 @@ type ImplementationGuideDefinitionParameter struct {
 	// Value for named type.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type ImplementationGuideDefinitionTemplate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -451,6 +459,7 @@ type ImplementationGuideDefinitionTemplate struct {
 	// The scope in which the template applies.
 	Scope *string `bson:"scope,omitempty" json:"scope,omitempty" xml:"scope,omitempty"`
 }
+
 type ImplementationGuideManifest struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -485,6 +494,7 @@ type ImplementationGuideManifest struct {
 	// zip, jar and similar files that could be the target of a hyperlink in a derived IG.
 	Other []string `bson:"other,omitempty" json:"other,omitempty" xml:"other,omitempty"`
 }
+
 type ImplementationGuideManifestResource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -527,6 +537,7 @@ type ImplementationGuideManifestResource struct {
 	// Comment: Appending 'rendering' + "/" + this should resolve to the resource page.
 	RelativePath *string `bson:"relativePath,omitempty" json:"relativePath,omitempty" xml:"relativePath,omitempty"`
 }
+
 type ImplementationGuideManifestPage struct {
 	// Unique id for the element within a resource (for internal references).
 	//

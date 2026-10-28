@@ -158,6 +158,7 @@ type Device struct {
 	// Comment: For example a vital signs monitor (parent) where three separate modules can be plugged into such as interchangeable blood pressure, oximeter, temperature modules.  These modules are represented as devices with the .parent valued to the vital signs monitor when plugged in.
 	Parent *Reference `bson:"parent,omitempty" json:"parent,omitempty" xml:"parent,omitempty"`
 }
+
 type DeviceUdiCarrier struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -208,6 +209,7 @@ type DeviceUdiCarrier struct {
 	// A coded entry to indicate how the data was entered.
 	EntryType *UDIEntryType `bson:"entryType,omitempty" json:"entryType,omitempty" xml:"entryType,omitempty"`
 }
+
 type DeviceName struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -234,6 +236,7 @@ type DeviceName struct {
 	// Indicates the default or preferred name to be displayed.
 	Display *bool `bson:"display,omitempty" json:"display,omitempty" xml:"display,omitempty"`
 }
+
 type DeviceVersion struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -264,6 +267,7 @@ type DeviceVersion struct {
 	// The version text.
 	Value string `bson:"value" json:"value" xml:"value"`
 }
+
 type DeviceConformsTo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
@@ -292,6 +296,7 @@ type DeviceConformsTo struct {
 	// This may be a 'version number', release, document edition, publication year, or other label.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
 }
+
 type DeviceProperty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
