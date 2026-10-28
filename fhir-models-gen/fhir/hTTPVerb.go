@@ -38,6 +38,7 @@ const (
 func (code HTTPVerb) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *HTTPVerb) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *HTTPVerb) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code HTTPVerb) String() string {
 	return code.Code()
 }
+
 func (code HTTPVerb) Code() string {
 	switch code {
 	case HTTPVerbGET:
@@ -78,6 +81,7 @@ func (code HTTPVerb) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code HTTPVerb) Display() string {
 	switch code {
 	case HTTPVerbGET:
@@ -95,6 +99,7 @@ func (code HTTPVerb) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code HTTPVerb) Definition() string {
 	switch code {
 	case HTTPVerbGET:

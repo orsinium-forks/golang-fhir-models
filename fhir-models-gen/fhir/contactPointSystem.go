@@ -39,6 +39,7 @@ const (
 func (code ContactPointSystem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ContactPointSystem) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *ContactPointSystem) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ContactPointSystem) String() string {
 	return code.Code()
 }
+
 func (code ContactPointSystem) Code() string {
 	switch code {
 	case ContactPointSystemPhone:
@@ -83,6 +86,7 @@ func (code ContactPointSystem) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContactPointSystem) Display() string {
 	switch code {
 	case ContactPointSystemPhone:
@@ -102,6 +106,7 @@ func (code ContactPointSystem) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContactPointSystem) Definition() string {
 	switch code {
 	case ContactPointSystemPhone:

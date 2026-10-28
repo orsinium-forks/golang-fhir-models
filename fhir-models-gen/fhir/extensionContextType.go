@@ -35,6 +35,7 @@ const (
 func (code ExtensionContextType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ExtensionContextType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ExtensionContextType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ExtensionContextType) String() string {
 	return code.Code()
 }
+
 func (code ExtensionContextType) Code() string {
 	switch code {
 	case ExtensionContextTypeFhirpath:
@@ -63,6 +66,7 @@ func (code ExtensionContextType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExtensionContextType) Display() string {
 	switch code {
 	case ExtensionContextTypeFhirpath:
@@ -74,6 +78,7 @@ func (code ExtensionContextType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExtensionContextType) Definition() string {
 	switch code {
 	case ExtensionContextTypeFhirpath:

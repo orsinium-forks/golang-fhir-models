@@ -42,6 +42,7 @@ const (
 func (code BundleType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *BundleType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -70,9 +71,11 @@ func (code *BundleType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code BundleType) String() string {
 	return code.Code()
 }
+
 func (code BundleType) Code() string {
 	switch code {
 	case BundleTypeDocument:
@@ -98,6 +101,7 @@ func (code BundleType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code BundleType) Display() string {
 	switch code {
 	case BundleTypeDocument:
@@ -123,6 +127,7 @@ func (code BundleType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code BundleType) Definition() string {
 	switch code {
 	case BundleTypeDocument:

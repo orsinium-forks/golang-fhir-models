@@ -43,6 +43,7 @@ const (
 func (code FilterOperator) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FilterOperator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -73,9 +74,11 @@ func (code *FilterOperator) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FilterOperator) String() string {
 	return code.Code()
 }
+
 func (code FilterOperator) Code() string {
 	switch code {
 	case FilterOperatorEquals:
@@ -103,6 +106,7 @@ func (code FilterOperator) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FilterOperator) Display() string {
 	switch code {
 	case FilterOperatorEquals:
@@ -130,6 +134,7 @@ func (code FilterOperator) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FilterOperator) Definition() string {
 	switch code {
 	case FilterOperatorEquals:

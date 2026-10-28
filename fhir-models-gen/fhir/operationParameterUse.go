@@ -34,6 +34,7 @@ const (
 func (code OperationParameterUse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *OperationParameterUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *OperationParameterUse) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code OperationParameterUse) String() string {
 	return code.Code()
 }
+
 func (code OperationParameterUse) Code() string {
 	switch code {
 	case OperationParameterUseIn:
@@ -58,6 +61,7 @@ func (code OperationParameterUse) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationParameterUse) Display() string {
 	switch code {
 	case OperationParameterUseIn:
@@ -67,6 +71,7 @@ func (code OperationParameterUse) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationParameterUse) Definition() string {
 	switch code {
 	case OperationParameterUseIn:

@@ -35,6 +35,7 @@ const (
 func (code SlicingRules) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SlicingRules) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *SlicingRules) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SlicingRules) String() string {
 	return code.Code()
 }
+
 func (code SlicingRules) Code() string {
 	switch code {
 	case SlicingRulesClosed:
@@ -63,6 +66,7 @@ func (code SlicingRules) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SlicingRules) Display() string {
 	switch code {
 	case SlicingRulesClosed:
@@ -74,6 +78,7 @@ func (code SlicingRules) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SlicingRules) Definition() string {
 	switch code {
 	case SlicingRulesClosed:

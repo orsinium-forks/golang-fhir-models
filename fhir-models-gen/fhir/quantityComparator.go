@@ -37,6 +37,7 @@ const (
 func (code QuantityComparator) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *QuantityComparator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *QuantityComparator) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code QuantityComparator) String() string {
 	return code.Code()
 }
+
 func (code QuantityComparator) Code() string {
 	switch code {
 	case QuantityComparatorLessThan:
@@ -73,6 +76,7 @@ func (code QuantityComparator) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuantityComparator) Display() string {
 	switch code {
 	case QuantityComparatorLessThan:
@@ -88,6 +92,7 @@ func (code QuantityComparator) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuantityComparator) Definition() string {
 	switch code {
 	case QuantityComparatorLessThan:

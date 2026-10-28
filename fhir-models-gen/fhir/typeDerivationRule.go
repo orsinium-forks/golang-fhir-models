@@ -34,6 +34,7 @@ const (
 func (code TypeDerivationRule) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TypeDerivationRule) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *TypeDerivationRule) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TypeDerivationRule) String() string {
 	return code.Code()
 }
+
 func (code TypeDerivationRule) Code() string {
 	switch code {
 	case TypeDerivationRuleSpecialization:
@@ -58,6 +61,7 @@ func (code TypeDerivationRule) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TypeDerivationRule) Display() string {
 	switch code {
 	case TypeDerivationRuleSpecialization:
@@ -67,6 +71,7 @@ func (code TypeDerivationRule) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TypeDerivationRule) Definition() string {
 	switch code {
 	case TypeDerivationRuleSpecialization:

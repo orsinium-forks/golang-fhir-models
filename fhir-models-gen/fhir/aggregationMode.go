@@ -35,6 +35,7 @@ const (
 func (code AggregationMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AggregationMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *AggregationMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AggregationMode) String() string {
 	return code.Code()
 }
+
 func (code AggregationMode) Code() string {
 	switch code {
 	case AggregationModeContained:
@@ -63,6 +66,7 @@ func (code AggregationMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AggregationMode) Display() string {
 	switch code {
 	case AggregationModeContained:
@@ -74,6 +78,7 @@ func (code AggregationMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AggregationMode) Definition() string {
 	switch code {
 	case AggregationModeContained:

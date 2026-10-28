@@ -36,6 +36,7 @@ const (
 func (code ContributorType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ContributorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *ContributorType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ContributorType) String() string {
 	return code.Code()
 }
+
 func (code ContributorType) Code() string {
 	switch code {
 	case ContributorTypeAuthor:
@@ -68,6 +71,7 @@ func (code ContributorType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContributorType) Display() string {
 	switch code {
 	case ContributorTypeAuthor:
@@ -81,6 +85,7 @@ func (code ContributorType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContributorType) Definition() string {
 	switch code {
 	case ContributorTypeAuthor:

@@ -40,6 +40,7 @@ const (
 func (code TriggerType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TriggerType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -64,9 +65,11 @@ func (code *TriggerType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TriggerType) String() string {
 	return code.Code()
 }
+
 func (code TriggerType) Code() string {
 	switch code {
 	case TriggerTypeNamedEvent:
@@ -88,6 +91,7 @@ func (code TriggerType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TriggerType) Display() string {
 	switch code {
 	case TriggerTypeNamedEvent:
@@ -109,6 +113,7 @@ func (code TriggerType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TriggerType) Definition() string {
 	switch code {
 	case TriggerTypeNamedEvent:

@@ -37,6 +37,7 @@ const (
 func (code CodeSystemContentMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CodeSystemContentMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *CodeSystemContentMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CodeSystemContentMode) String() string {
 	return code.Code()
 }
+
 func (code CodeSystemContentMode) Code() string {
 	switch code {
 	case CodeSystemContentModeNotPresent:
@@ -73,6 +76,7 @@ func (code CodeSystemContentMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSystemContentMode) Display() string {
 	switch code {
 	case CodeSystemContentModeNotPresent:
@@ -88,6 +92,7 @@ func (code CodeSystemContentMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSystemContentMode) Definition() string {
 	switch code {
 	case CodeSystemContentModeNotPresent:
