@@ -30,7 +30,7 @@ type Transport struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,11 +55,11 @@ type Transport struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Identifier for the transport event that is used to identify it across multiple disparate systems.
+	// Identifier for the transport event that is used to identify it across multiple disparate systems.
 	//
 	// Comment: This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -75,13 +75,13 @@ type Transport struct {
 	//
 	//  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time.
 	GroupIdentifier *Identifier `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty" xml:"groupIdentifier,omitempty"`
-	//A larger event of which this particular event is a component or step.
+	// A larger event of which this particular event is a component or step.
 	//
 	// Comment: Not to be used to link an event to an Encounter - use Event.context for that.[The allowed reference resources may be adjusted as appropriate for the event resource].
 	PartOf []Reference `bson:"partOf,omitempty" json:"partOf,omitempty" xml:"partOf,omitempty"`
 	// A code specifying the state of the transport event.
 	Status *TransportStatus `bson:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
-	//An explanation as to why this transport is held, failed, was refused, etc.
+	// An explanation as to why this transport is held, failed, was refused, etc.
 	//
 	// Comment: This applies to the current status.  Look at the history of the transport to see reasons for past statuses.
 	StatusReason *CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
@@ -91,17 +91,17 @@ type Transport struct {
 	//
 	// Comment: This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.
 	//
-	//In most cases, Transports will have an intent of "order".
+	// In most cases, Transports will have an intent of "order".
 	Intent string `bson:"intent" json:"intent" xml:"intent"`
 	// Indicates how quickly the Transport should be addressed with respect to other requests.
 	Priority *RequestPriority `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
-	//A name or code (or both) briefly describing what the transport involves.
+	// A name or code (or both) briefly describing what the transport involves.
 	//
 	// Comment: The title (eg "My Transports", "Outstanding Transports for Patient X") should go into the code.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// A free-text description of what is to be performed.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//The request being actioned or the resource being manipulated by this transport.
+	// The request being actioned or the resource being manipulated by this transport.
 	//
 	// Comment: If multiple resources need to be manipulated, use sub-transports.  (This ensures that status can be tracked independently for each referenced resource.).
 	Focus *Reference `bson:"focus,omitempty" json:"focus,omitempty" xml:"focus,omitempty"`
@@ -121,7 +121,7 @@ type Transport struct {
 	Requester *Reference `bson:"requester,omitempty" json:"requester,omitempty" xml:"requester,omitempty"`
 	// The kind of participant that should perform the transport.
 	PerformerType []CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty" xml:"performerType,omitempty"`
-	//Individual organization or Device currently responsible for transport execution.
+	// Individual organization or Device currently responsible for transport execution.
 	//
 	// Comment: Transports may be created with an owner not yet identified.
 	Owner *Reference `bson:"owner,omitempty" json:"owner,omitempty" xml:"owner,omitempty"`
@@ -131,7 +131,7 @@ type Transport struct {
 	Insurance []Reference `bson:"insurance,omitempty" json:"insurance,omitempty" xml:"insurance,omitempty"`
 	// Free-text information captured about the transport as it progresses.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
-	//Links to Provenance records for past versions of this Transport that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the transport.
+	// Links to Provenance records for past versions of this Transport that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the transport.
 	//
 	// Comment: This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
 	RelevantHistory []Reference `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty" xml:"relevantHistory,omitempty"`
@@ -147,7 +147,7 @@ type Transport struct {
 	RequestedLocation Reference `bson:"requestedLocation" json:"requestedLocation" xml:"requestedLocation"`
 	// The current location for the entity to be transported.
 	CurrentLocation Reference `bson:"currentLocation" json:"currentLocation" xml:"currentLocation"`
-	//A resource reference indicating why this transport needs to be performed.
+	// A resource reference indicating why this transport needs to be performed.
 	//
 	// Comment: Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc. This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text.
 	Reason *CodeableReference `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
@@ -169,13 +169,13 @@ type TransportRestriction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Indicates the number of times the requested action should occur.
 	Repetitions *int `bson:"repetitions,omitempty" json:"repetitions,omitempty" xml:"repetitions,omitempty"`
-	//Over what time-period is fulfillment sought.
+	// Over what time-period is fulfillment sought.
 	//
 	// Comment: Note that period.high is the due date representing the time by which the transport should be completed.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
@@ -198,11 +198,11 @@ type TransportInput struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//A code or description indicating how the input is intended to be used as part of the transport execution.
+	// A code or description indicating how the input is intended to be used as part of the transport execution.
 	//
 	// Comment: If referencing a BPMN workflow or Protocol, the "system" is the URL for the workflow definition and the code is the "name" of the required input.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
@@ -278,7 +278,7 @@ type TransportOutput struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

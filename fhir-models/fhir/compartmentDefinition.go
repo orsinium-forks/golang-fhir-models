@@ -26,7 +26,7 @@ type CompartmentDefinition struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type CompartmentDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,9 +61,9 @@ type CompartmentDefinition struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url string `bson:"url" json:"url" xml:"url"`
 	// The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance.
 	//
@@ -71,7 +71,7 @@ type CompartmentDefinition struct {
 	//
 	// Comment: There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -82,19 +82,17 @@ type CompartmentDefinition struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.This is often the same as the code for the parameter, but does not need to be.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//A short, descriptive, user-friendly title for the capability statement.
+	// A short, descriptive, user-friendly title for the capability statement.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this compartment definition.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this compartment definition. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of compartment definitions that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of compartment definitions that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -104,19 +102,19 @@ type CompartmentDefinition struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the compartment definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the compartment definition.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the compartment definition.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the compartment definition is the organization or individual primarily responsible for the maintenance and upkeep of the compartment definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the compartment definition. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the compartment definition from a consumer's perspective.
+	// A free text natural language description of the compartment definition from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -126,15 +124,15 @@ type CompartmentDefinition struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//Explanation of why this compartment definition is needed and why it has been designed as it has.
+	// Explanation of why this compartment definition is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the compartment definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this compartment definition.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
-	//Which compartment this definition describes.
+	// Which compartment this definition describes.
 	//
 	// Comment: Only the specification can define the compartments that can exist. Servers can choose to support them.
 	Code CompartmentType `bson:"code" json:"code" xml:"code"`
-	//Whether the search syntax is supported,.
+	// Whether the search syntax is supported,.
 	//
 	// Comment: Servers may define and use compartments to manage logical access without implementing the compartment related syntax.
 	Search bool `bson:"search" json:"search" xml:"search"`
@@ -159,7 +157,7 @@ type CompartmentDefinitionResource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

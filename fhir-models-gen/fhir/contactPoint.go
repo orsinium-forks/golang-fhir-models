@@ -28,7 +28,7 @@ type ContactPoint struct {
 	//
 	// Comment: Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value.
 	Value *string `bson:"value,omitempty" json:"value,omitempty" xml:"value,omitempty"`
-	//Identifies the purpose for the contact point.
+	// Identifies the purpose for the contact point.
 	//
 	// Comment: Applications can assume that a contact is current unless it explicitly says that it is temporary or old.
 	Use *ContactPointUse `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
@@ -38,9 +38,9 @@ type ContactPoint struct {
 	//
 	// Comment: Note that rank does not necessarily follow the order in which the contacts are represented in the instance.
 	//
-	//Ranks need not be unique.  E.g. it's possible to have multiple contacts with rank=1.  If the ranks have different systems or uses, this would be interpreted to mean "X is my most preferred phone number, Y is my most preferred email address" or "X is my preferred home email and Y is my preferred work email".  If the system and use for equally-ranked contacts are the same, then the level of preference is equivalent for both repetitions.
+	// Ranks need not be unique.  E.g. it's possible to have multiple contacts with rank=1.  If the ranks have different systems or uses, this would be interpreted to mean "X is my most preferred phone number, Y is my most preferred email address" or "X is my preferred home email and Y is my preferred work email".  If the system and use for equally-ranked contacts are the same, then the level of preference is equivalent for both repetitions.
 	//
-	//Ranks need not be sequential and not all repetitions must have a rank.  For example, it's possible to have 4 contacts with ranks of 2, 5 and two with no rank specified.  That would be interpreted to mean the first is preferred over the second and no preference stated for the remaining contacts.
+	// Ranks need not be sequential and not all repetitions must have a rank.  For example, it's possible to have 4 contacts with ranks of 2, 5 and two with no rank specified.  That would be interpreted to mean the first is preferred over the second and no preference stated for the remaining contacts.
 	Rank *int `bson:"rank,omitempty" json:"rank,omitempty" xml:"rank,omitempty"`
 	// Time period when the contact point was/is in use.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`

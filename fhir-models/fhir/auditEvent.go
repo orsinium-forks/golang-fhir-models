@@ -26,7 +26,7 @@ type AuditEvent struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,28 +51,26 @@ type AuditEvent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Classification of the type of event.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	// Describes what happened.
-	//
-	// The most specific code for the event.
+	// Describes what happened. The most specific code for the event.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// Indicator for type of action performed during the event that generated the audit.
 	Action *AuditEventAction `bson:"action,omitempty" json:"action,omitempty" xml:"action,omitempty"`
-	//Indicates and enables segmentation of various severity including debugging from critical.
+	// Indicates and enables segmentation of various severity including debugging from critical.
 	//
 	// Comment: ATNA will map this to the SYSLOG PRI element.
 	Severity *AuditEventSeverity `bson:"severity,omitempty" json:"severity,omitempty" xml:"severity,omitempty"`
-	//The time or period during which the activity occurred.
+	// The time or period during which the activity occurred.
 	//
 	// Comment: The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time.
 	OccurredPeriod   *Period `bson:"occurredPeriod,omitempty" json:"occurredPeriod,omitempty" xml:"occurredPeriod,omitempty"`
 	OccurredDateTime *string `bson:"occurredDateTime,omitempty" json:"occurredDateTime,omitempty" xml:"occurredDateTime,omitempty"`
-	//The time when the event was recorded.
+	// The time when the event was recorded.
 	//
 	// Comment: In a distributed system, some sort of common time base (e.g. an NTP [RFC1305] server) is a good implementation tactic.
 	Recorded string `bson:"recorded" json:"recorded" xml:"recorded"`
@@ -82,7 +80,7 @@ type AuditEvent struct {
 	//
 	// Comment: In some cases a "success" may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant.
 	Outcome *AuditEventOutcome `bson:"outcome,omitempty" json:"outcome,omitempty" xml:"outcome,omitempty"`
-	//The authorization (e.g., PurposeOfUse) that was used during the event being recorded.
+	// The authorization (e.g., PurposeOfUse) that was used during the event being recorded.
 	//
 	// Comment: Use AuditEvent.agent.authorization when you know that it is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
 	Authorization []CodeableConcept `bson:"authorization,omitempty" json:"authorization,omitempty" xml:"authorization,omitempty"`
@@ -94,19 +92,19 @@ type AuditEvent struct {
 	//
 	// pre-admission lab tests).
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//An actor taking an active role in the event or activity that is logged.
+	// An actor taking an active role in the event or activity that is logged.
 	//
 	// Comment: Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.
 	//
-	//For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity.
+	// For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity.
 	//
-	//When a network are used in an event being recorded, there should be distinct agent elements for the known actors using the network. The agent with a network detail would be the responsible agent for use of that network.
+	// When a network are used in an event being recorded, there should be distinct agent elements for the known actors using the network. The agent with a network detail would be the responsible agent for use of that network.
 	Agent []AuditEventAgent `bson:"agent" json:"agent" xml:"agent"`
-	//The actor that is reporting the event.
+	// The actor that is reporting the event.
 	//
 	// Comment: Events are reported by the actor that detected them. This may be one of the participating actors, but may also be different. The actor may be a human such as a medical-records clerk disclosing data manually, that clerk would be the source for the record of disclosure.
 	Source AuditEventSource `bson:"source" json:"source" xml:"source"`
-	//Specific instances of data or objects that have been accessed.
+	// Specific instances of data or objects that have been accessed.
 	//
 	// Comment: Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
 	Entity []AuditEventEntity `bson:"entity,omitempty" json:"entity,omitempty" xml:"entity,omitempty"`
@@ -129,11 +127,11 @@ type AuditEventOutcome struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Indicates whether the event succeeded or failed.
+	// Indicates whether the event succeeded or failed.
 	//
 	// Comment: In some cases a "success" may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant.
 	Code Coding `bson:"code" json:"code" xml:"code"`
@@ -162,11 +160,11 @@ type AuditEventAgent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The Functional Role of the user when performing the event.
+	// The Functional Role of the user when performing the event.
 	//
 	// Comment: For example: assembler, author, prescriber, signer, investigator, etc.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
@@ -176,11 +174,11 @@ type AuditEventAgent struct {
 	//
 	// Comment: For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc.
 	Role []CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
-	//Reference to who this agent is that was involved in the event.
+	// Reference to who this agent is that was involved in the event.
 	//
 	// Comment: Where a User ID is available it will go into who.identifier. Where a name of the user (human readable) it will go into who.display.
 	Who Reference `bson:"who" json:"who" xml:"who"`
-	//Indicator that the user is or is not the requestor, or initiator, for the event being audited.
+	// Indicator that the user is or is not the requestor, or initiator, for the event being audited.
 	//
 	// Comment: There can only be one initiator. If the initiator is not clear, then do not choose any one agent as the initiator.
 	Requestor *bool `bson:"requestor,omitempty" json:"requestor,omitempty" xml:"requestor,omitempty"`
@@ -192,13 +190,13 @@ type AuditEventAgent struct {
 	//
 	// Comment: For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element.
 	Policy []string `bson:"policy,omitempty" json:"policy,omitempty" xml:"policy,omitempty"`
-	//When the event utilizes a network there should be an agent describing the local system, and an agent describing remote system, with the network interface details.
+	// When the event utilizes a network there should be an agent describing the local system, and an agent describing remote system, with the network interface details.
 	//
 	// Comment: When remote network endpoint is known, another agent representing the remote agent would indicate the remote network endpoint used. Convention is to indicate data flowing from Source to Destination. The convention for Search, given data flows both ways (query parameters vs results), is to have the Source as the initiator of the Search Transaction, and the Destination the responder to the Search transaction.
 	NetworkReference *Reference `bson:"networkReference,omitempty" json:"networkReference,omitempty" xml:"networkReference,omitempty"`
 	NetworkUri       *string    `bson:"networkUri,omitempty" json:"networkUri,omitempty" xml:"networkUri,omitempty"`
 	NetworkString    *string    `bson:"networkString,omitempty" json:"networkString,omitempty" xml:"networkString,omitempty"`
-	//The authorization (e.g., PurposeOfUse) that was used during the event being recorded.
+	// The authorization (e.g., PurposeOfUse) that was used during the event being recorded.
 	//
 	// Comment: Use AuditEvent.agent.authorization when you know that is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
 	Authorization []CodeableConcept `bson:"authorization,omitempty" json:"authorization,omitempty" xml:"authorization,omitempty"`
@@ -221,7 +219,7 @@ type AuditEventSource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -252,7 +250,7 @@ type AuditEventEntity struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -264,15 +262,15 @@ type AuditEventEntity struct {
 	What *Reference `bson:"what,omitempty" json:"what,omitempty" xml:"what,omitempty"`
 	// Code representing the role the entity played in the event being audited.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
-	//Security labels for the identified entity.
+	// Security labels for the identified entity.
 	//
 	// Comment: Copied from entity meta security tags.
 	SecurityLabel []CodeableConcept `bson:"securityLabel,omitempty" json:"securityLabel,omitempty" xml:"securityLabel,omitempty"`
-	//The query parameters for a query-type entities.
+	// The query parameters for a query-type entities.
 	//
 	// Comment: The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.
 	//
-	//The DICOM AuditMessage schema does not support both .name and .query being populated.
+	// The DICOM AuditMessage schema does not support both .name and .query being populated.
 	Query *string `bson:"query,omitempty" json:"query,omitempty" xml:"query,omitempty"`
 	// Tagged value pairs for conveying additional information about the entity.
 	Detail []AuditEventEntityDetail `bson:"detail,omitempty" json:"detail,omitempty" xml:"detail,omitempty"`
@@ -298,7 +296,7 @@ type AuditEventEntityDetail struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

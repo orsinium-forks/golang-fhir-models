@@ -26,7 +26,7 @@ type Invoice struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type Invoice struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -59,7 +59,7 @@ type Invoice struct {
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// The current state of the Invoice.
 	Status InvoiceStatus `bson:"status" json:"status" xml:"status"`
-	//In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.).
+	// In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.).
 	//
 	// Comment: Derived Profiles may choose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled.
 	CancelledReason *string `bson:"cancelledReason,omitempty" json:"cancelledReason,omitempty" xml:"cancelledReason,omitempty"`
@@ -73,7 +73,7 @@ type Invoice struct {
 	Recipient *Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
 	// Depricared by the element below.
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//Date/time(s) of when this Invoice was posted.
+	// Date/time(s) of when this Invoice was posted.
 	//
 	// Comment: The list of types may be constrained as appropriate for the type of charge item.
 	Creation *string `bson:"creation,omitempty" json:"creation,omitempty" xml:"creation,omitempty"`
@@ -82,11 +82,11 @@ type Invoice struct {
 	PeriodPeriod *Period `bson:"periodPeriod,omitempty" json:"periodPeriod,omitempty" xml:"periodPeriod,omitempty"`
 	// Indicates who or what performed or participated in the charged service.
 	Participant []InvoiceParticipant `bson:"participant,omitempty" json:"participant,omitempty" xml:"participant,omitempty"`
-	//The organizationissuing the Invoice.
+	// The organizationissuing the Invoice.
 	//
 	// Comment: Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered.
 	Issuer *Reference `bson:"issuer,omitempty" json:"issuer,omitempty" xml:"issuer,omitempty"`
-	//Account which is supposed to be balanced with this Invoice.
+	// Account which is supposed to be balanced with this Invoice.
 	//
 	// Comment: Systems posting the ChargeItems might not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate.
 	Account *Reference `bson:"account,omitempty" json:"account,omitempty" xml:"account,omitempty"`
@@ -98,15 +98,15 @@ type Invoice struct {
 	//
 	//  The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the total price was calculated.
 	TotalPriceComponent []MonetaryComponent `bson:"totalPriceComponent,omitempty" json:"totalPriceComponent,omitempty" xml:"totalPriceComponent,omitempty"`
-	//Invoice total , taxes excluded.
+	// Invoice total , taxes excluded.
 	//
 	// Comment: There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden.
 	TotalNet *Money `bson:"totalNet,omitempty" json:"totalNet,omitempty" xml:"totalNet,omitempty"`
-	//Invoice total, tax included.
+	// Invoice total, tax included.
 	//
 	// Comment: There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden.
 	TotalGross *Money `bson:"totalGross,omitempty" json:"totalGross,omitempty" xml:"totalGross,omitempty"`
-	//Payment details such as banking details, period of payment, deductibles, methods of payment.
+	// Payment details such as banking details, period of payment, deductibles, methods of payment.
 	//
 	// Comment: Derived Profiles may chose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled.
 	PaymentTerms *string `bson:"paymentTerms,omitempty" json:"paymentTerms,omitempty" xml:"paymentTerms,omitempty"`
@@ -128,7 +128,7 @@ type InvoiceParticipant struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -136,9 +136,7 @@ type InvoiceParticipant struct {
 	//
 	// transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device.
 	Role *CodeableConcept `bson:"role,omitempty" json:"role,omitempty" xml:"role,omitempty"`
-	// The device, practitioner, etc.
-	//
-	// who performed or participated in the service.
+	// The device, practitioner, etc. who performed or participated in the service.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
 	// The organizationissuing the Invoice.
 	//
@@ -159,7 +157,7 @@ type InvoiceLineItem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -26,7 +26,7 @@ type SubscriptionTopic struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type SubscriptionTopic struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,15 +61,15 @@ type SubscriptionTopic struct {
 	//
 	// Comment: Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	//
-	//When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.
+	// When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.
 	//
-	//When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.
+	// When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.
 	//
-	//When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.
+	// When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.
 	Url string `bson:"url" json:"url" xml:"url"`
 	// Business identifiers assigned to this subscription topic by the performer and/or other systems.
 	//
@@ -83,12 +83,12 @@ type SubscriptionTopic struct {
 	//
 	// Comment: There may be multiple different instances of a subscription topic that have the same identifier but different versions.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
 	VersionAlgorithmCoding *Coding `bson:"versionAlgorithmCoding,omitempty" json:"versionAlgorithmCoding,omitempty" xml:"versionAlgorithmCoding,omitempty"`
-	//A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation.
+	// A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation.
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
@@ -100,15 +100,15 @@ type SubscriptionTopic struct {
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
 	// The canonical URL pointing to another FHIR-defined SubscriptionTopic that is adhered to in whole or in part by this SubscriptionTopic.
 	DerivedFrom []string `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty" xml:"derivedFrom,omitempty"`
-	//The current state of the SubscriptionTopic.
+	// The current state of the SubscriptionTopic.
 	//
 	// Comment: A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation
 	//
-	//Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+	// Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	// A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of SubscriptionTopic that are appropriate for use vs. not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -122,13 +122,13 @@ type SubscriptionTopic struct {
 	//
 	//  May also allow for contact.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the Topic from the consumer's perspective.
+	// A free text natural language description of the Topic from the consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -138,11 +138,11 @@ type SubscriptionTopic struct {
 	//
 	// Comment: When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A jurisdiction in which the Topic is intended to be used.
+	// A jurisdiction in which the Topic is intended to be used.
 	//
 	// Comment: DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explains why this Topic is needed and why it has been designed as it has.
+	// Explains why this Topic is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the Topic.  Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Topic.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -170,7 +170,7 @@ type SubscriptionTopic struct {
 	//
 	// Comment: If specified, this is usually after the approval date.
 	LastReviewDate *string `bson:"lastReviewDate,omitempty" json:"lastReviewDate,omitempty" xml:"lastReviewDate,omitempty"`
-	//The period during which the SubscriptionTopic content was or is planned to be effective.
+	// The period during which the SubscriptionTopic content was or is planned to be effective.
 	//
 	// Comment: The effective period for a SubscriptionTopic  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015.
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
@@ -203,11 +203,11 @@ type SubscriptionTopicResourceTrigger struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The human readable description of this resource trigger for the SubscriptionTopic -  for example, "An Encounter enters the 'in-progress' state".
+	// The human readable description of this resource trigger for the SubscriptionTopic -  for example, "An Encounter enters the 'in-progress' state".
 	//
 	// Comment: Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -221,7 +221,7 @@ type SubscriptionTopicResourceTrigger struct {
 	SupportedInteraction []InteractionTrigger `bson:"supportedInteraction,omitempty" json:"supportedInteraction,omitempty" xml:"supportedInteraction,omitempty"`
 	// The FHIR query based rules that the server should use to determine when to trigger a notification for this subscription topic.
 	QueryCriteria *SubscriptionTopicResourceTriggerQueryCriteria `bson:"queryCriteria,omitempty" json:"queryCriteria,omitempty" xml:"queryCriteria,omitempty"`
-	//The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic.
+	// The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic.
 	//
 	// Comment: FHIRPath expression with %previous and %current vars.
 	FhirPathCriteria *string `bson:"fhirPathCriteria,omitempty" json:"fhirPathCriteria,omitempty" xml:"fhirPathCriteria,omitempty"`
@@ -242,11 +242,11 @@ type SubscriptionTopicResourceTriggerQueryCriteria struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The FHIR query based rules are applied to the previous resource state (e.g., state before an update).
+	// The FHIR query based rules are applied to the previous resource state (e.g., state before an update).
 	//
 	// Comment: The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`).
 	Previous *string `bson:"previous,omitempty" json:"previous,omitempty" xml:"previous,omitempty"`
@@ -254,7 +254,7 @@ type SubscriptionTopicResourceTriggerQueryCriteria struct {
 	//
 	// If not present, the testing behavior during `create` interactions is unspecified (server discretion).
 	ResultForCreate *CriteriaNotExistsBehavior `bson:"resultForCreate,omitempty" json:"resultForCreate,omitempty" xml:"resultForCreate,omitempty"`
-	//The FHIR query based rules are applied to the current resource state (e.g., state after an update).
+	// The FHIR query based rules are applied to the current resource state (e.g., state after an update).
 	//
 	// Comment: The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`).
 	Current *string `bson:"current,omitempty" json:"current,omitempty" xml:"current,omitempty"`
@@ -287,7 +287,7 @@ type SubscriptionTopicEventTrigger struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -322,7 +322,7 @@ type SubscriptionTopicCanFilterBy struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -334,19 +334,19 @@ type SubscriptionTopicCanFilterBy struct {
 	//
 	// Comment: URL of the Resource that is the type used in this filter. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, "Patient" maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see <a href="elementdefinition-definitions.html#ElementDefinition.type.code">ElementDefinition.type.code</a>.
 	Resource *string `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	//Either the canonical URL to a search parameter (like "http://hl7.org/fhir/SearchParameter/encounter-patient") or topic-defined parameter (like "hub.event") which is a label for the filter.
+	// Either the canonical URL to a search parameter (like "http://hl7.org/fhir/SearchParameter/encounter-patient") or topic-defined parameter (like "hub.event") which is a label for the filter.
 	//
 	// Comment: Chained parameters are allowed (like "patient.gender") - but can not use colons or modifiers.
 	FilterParameter string `bson:"filterParameter" json:"filterParameter" xml:"filterParameter"`
-	//Either the canonical URL to a search parameter (like "http://hl7.org/fhir/SearchParameter/encounter-patient") or the officially-defined URI for a shared filter concept (like "http://example.org/concepts/shared-common-event").
+	// Either the canonical URL to a search parameter (like "http://hl7.org/fhir/SearchParameter/encounter-patient") or the officially-defined URI for a shared filter concept (like "http://example.org/concepts/shared-common-event").
 	//
 	// Comment: Chained parameters are allowed (like "patient.gender") - but can not use colons or modifiers.
 	FilterDefinition *string `bson:"filterDefinition,omitempty" json:"filterDefinition,omitempty" xml:"filterDefinition,omitempty"`
-	//Comparators allowed for the filter parameter.
+	// Comparators allowed for the filter parameter.
 	//
 	// Comment: If no comparators are listed, clients should not expect servers to support any comparators.
 	Comparator []SearchComparator `bson:"comparator,omitempty" json:"comparator,omitempty" xml:"comparator,omitempty"`
-	//Modifiers allowed for the filter parameter.
+	// Modifiers allowed for the filter parameter.
 	//
 	// Comment: If no modifiers are listed, clients should not expect servers to support any modifiers.
 	Modifier []SearchModifierCode `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
@@ -367,7 +367,7 @@ type SubscriptionTopicNotificationShape struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -30,7 +30,7 @@ type Coverage struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,15 +55,15 @@ type Coverage struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The identifier of the coverage as issued by the insurer.
+	// The identifier of the coverage as issued by the insurer.
 	//
 	// Comment: The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//The status of the resource instance.
+	// The status of the resource instance.
 	//
 	// Comment: This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid.
 	Status FinancialResourceStatusCodes `bson:"status" json:"status" xml:"status"`
@@ -73,11 +73,11 @@ type Coverage struct {
 	PaymentBy []CoveragePaymentBy `bson:"paymentBy,omitempty" json:"paymentBy,omitempty" xml:"paymentBy,omitempty"`
 	// The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	//The party who 'owns' the insurance policy.
+	// The party who 'owns' the insurance policy.
 	//
 	// Comment: For example: may be an individual, corporation or the subscriber's employer.
 	PolicyHolder *Reference `bson:"policyHolder,omitempty" json:"policyHolder,omitempty" xml:"policyHolder,omitempty"`
-	//The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
+	// The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
 	//
 	// Comment: May be self or a parent in the case of dependants. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance.
 	Subscriber *Reference `bson:"subscriber,omitempty" json:"subscriber,omitempty" xml:"subscriber,omitempty"`
@@ -85,11 +85,11 @@ type Coverage struct {
 	SubscriberId []Identifier `bson:"subscriberId,omitempty" json:"subscriberId,omitempty" xml:"subscriberId,omitempty"`
 	// The party who benefits from the insurance coverage; the patient when products and/or services are provided.
 	Beneficiary Reference `bson:"beneficiary" json:"beneficiary" xml:"beneficiary"`
-	//A designator for a dependent under the coverage.
+	// A designator for a dependent under the coverage.
 	//
 	// Comment: Sometimes the member number is constructed from the subscriberId and the dependant number.
 	Dependent *string `bson:"dependent,omitempty" json:"dependent,omitempty" xml:"dependent,omitempty"`
-	//The relationship of beneficiary (patient) to the subscriber.
+	// The relationship of beneficiary (patient) to the subscriber.
 	//
 	// Comment: Typically, an individual uses policies which are theirs (relationship='self') before policies owned by others.
 	Relationship *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty" xml:"relationship,omitempty"`
@@ -97,11 +97,11 @@ type Coverage struct {
 	//
 	// A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	//The program or plan underwriter, payor, insurance company.
+	// The program or plan underwriter, payor, insurance company.
 	//
 	// Comment: May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).
 	Insurer *Reference `bson:"insurer,omitempty" json:"insurer,omitempty" xml:"insurer,omitempty"`
-	//A suite of underwriter specific classifiers.
+	// A suite of underwriter specific classifiers.
 	//
 	// Comment: For example, class may be used to identify a class of coverage or employer group, policy, or plan.
 	Class []CoverageClass `bson:"class,omitempty" json:"class,omitempty" xml:"class,omitempty"`
@@ -111,11 +111,11 @@ type Coverage struct {
 	Order *int `bson:"order,omitempty" json:"order,omitempty" xml:"order,omitempty"`
 	// The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply.
 	Network *string `bson:"network,omitempty" json:"network,omitempty" xml:"network,omitempty"`
-	//A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card.
+	// A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card.
 	//
 	// Comment: For example by knowing the patient visit co-pay, the provider can collect the amount prior to undertaking treatment.
 	CostToBeneficiary []CoverageCostToBeneficiary `bson:"costToBeneficiary,omitempty" json:"costToBeneficiary,omitempty" xml:"costToBeneficiary,omitempty"`
-	//When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs.
+	// When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs.
 	//
 	// Comment: Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims.
 	Subrogation *bool `bson:"subrogation,omitempty" json:"subrogation,omitempty" xml:"subrogation,omitempty"`
@@ -139,13 +139,13 @@ type CoveragePaymentBy struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The list of parties providing non-insurance payment for the treatment costs.
 	Party Reference `bson:"party" json:"party" xml:"party"`
-	// Description of the financial responsibility.
+	//  Description of the financial responsibility.
 	Responsibility *string `bson:"responsibility,omitempty" json:"responsibility,omitempty" xml:"responsibility,omitempty"`
 	// The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
 }
@@ -164,7 +164,7 @@ type CoverageClass struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -172,7 +172,7 @@ type CoverageClass struct {
 	//
 	//  For example, type may be used to identify a class of coverage or employer group, policy, or plan.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//The alphanumeric identifier associated with the insurer issued label.
+	// The alphanumeric identifier associated with the insurer issued label.
 	//
 	// Comment: For example, the Group or Plan number.
 	Value Identifier `bson:"value" json:"value" xml:"value"`
@@ -197,15 +197,15 @@ type CoverageCostToBeneficiary struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The category of patient centric costs associated with treatment.
+	// The category of patient centric costs associated with treatment.
 	//
 	// Comment: For example visit, specialist visits, emergency, inpatient care, etc.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	//Code to identify the general type of benefits under which products and services are provided.
+	// Code to identify the general type of benefits under which products and services are provided.
 	//
 	// Comment: Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage.
 	Category *CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
@@ -215,7 +215,7 @@ type CoverageCostToBeneficiary struct {
 	Unit *CodeableConcept `bson:"unit,omitempty" json:"unit,omitempty" xml:"unit,omitempty"`
 	// The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.
 	Term *CodeableConcept `bson:"term,omitempty" json:"term,omitempty" xml:"term,omitempty"`
-	//The amount due from the patient for the cost category.
+	// The amount due from the patient for the cost category.
 	//
 	// Comment: Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency.
 	ValueQuantity *Quantity `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty" xml:"valueQuantity,omitempty"`
@@ -241,7 +241,7 @@ type CoverageCostToBeneficiaryException struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

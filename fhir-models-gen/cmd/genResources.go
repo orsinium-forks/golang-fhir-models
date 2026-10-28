@@ -278,7 +278,7 @@ func formatDocstring(def fhir.StructureDefinition) string {
 		res += "// " + first + "."
 		res += "\n//\n// " + safeComment(rest)
 	} else {
-		res += "//" + *def.Description
+		res += "// " + *def.Description
 	}
 	if def.Purpose != nil {
 		res += "\n//\n// Purpose: " + safeComment(*def.Purpose)
@@ -359,11 +359,11 @@ func formatFieldDoc(def fhir.ElementDefinition) string {
 	res := ""
 	if def.Definition != nil {
 		first, rest, hasDot := strings.Cut(*def.Definition, ". ")
-		if hasDot {
+		if hasDot && len(*def.Definition) > 90 {
 			res += "// " + safeComment(first+".")
 			res += "\n//\n// " + safeComment(rest)
 		} else {
-			res += "//" + safeComment(*def.Definition)
+			res += "// " + safeComment(*def.Definition)
 		}
 	}
 	if def.Comment != nil {
@@ -373,7 +373,8 @@ func formatFieldDoc(def fhir.ElementDefinition) string {
 }
 
 func safeComment(s string) string {
-	return strings.ReplaceAll(s, "\n", "\n//")
+	s = strings.ReplaceAll(s, "\n\n", "\n")
+	return strings.ReplaceAll(s, "\n", "\n//\n// ")
 }
 
 func addFieldStatement(

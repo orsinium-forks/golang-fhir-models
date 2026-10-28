@@ -28,7 +28,7 @@ type Person struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type Person struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,44 +61,42 @@ type Person struct {
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// Whether this person's record is in active use.
 	Active *bool `bson:"active,omitempty" json:"active,omitempty" xml:"active,omitempty"`
-	//A name associated with the person.
+	// A name associated with the person.
 	//
 	// Comment: Person may have multiple names with different uses or applicable periods.
 	Name []HumanName `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	// A contact detail for the person, e.g.
-	//
-	// a telephone number or an email address.
+	// A contact detail for the person, e.g. a telephone number or an email address.
 	//
 	// Comment: Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.
 	Telecom []ContactPoint `bson:"telecom,omitempty" json:"telecom,omitempty" xml:"telecom,omitempty"`
-	//Administrative Gender.
+	// Administrative Gender.
 	//
 	// Comment: The gender might not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though a clear majority of systems and contexts only support M and F.
 	Gender *AdministrativeGender `bson:"gender,omitempty" json:"gender,omitempty" xml:"gender,omitempty"`
-	//The birth date for the person.
+	// The birth date for the person.
 	//
 	// Comment: At least an estimated year should be provided as a guess if the real DOB is unknown.
 	BirthDate *string `bson:"birthDate,omitempty" json:"birthDate,omitempty" xml:"birthDate,omitempty"`
-	//Indicates if the individual is deceased or not.
+	// Indicates if the individual is deceased or not.
 	//
 	// Comment: If there's no value in the instance, it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.
 	DeceasedBoolean  *bool   `bson:"deceasedBoolean,omitempty" json:"deceasedBoolean,omitempty" xml:"deceasedBoolean,omitempty"`
 	DeceasedDateTime *string `bson:"deceasedDateTime,omitempty" json:"deceasedDateTime,omitempty" xml:"deceasedDateTime,omitempty"`
-	//One or more addresses for the person.
+	// One or more addresses for the person.
 	//
 	// Comment: Person may have multiple addresses with different uses or applicable periods.
 	Address []Address `bson:"address,omitempty" json:"address,omitempty" xml:"address,omitempty"`
-	//This field contains a person's most recent marital (civil) status.
+	// This field contains a person's most recent marital (civil) status.
 	//
 	// Comment: Many countries maintain a register of births, deaths and marriages, and this would simplify that interaction
 	MaritalStatus *CodeableConcept `bson:"maritalStatus,omitempty" json:"maritalStatus,omitempty" xml:"maritalStatus,omitempty"`
 	// An image that can be displayed as a thumbnail of the person to enhance the identification of the individual.
 	Photo []Attachment `bson:"photo,omitempty" json:"photo,omitempty" xml:"photo,omitempty"`
-	//A language which may be used to communicate with the person about his or her health.
+	// A language which may be used to communicate with the person about his or her health.
 	//
 	// Comment: If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Person.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
 	//
-	//Note that this property should not be used to update any linked/logically linked practitioner resources as it serves as a language that can be used to communicate with patients - however it may be used to inform the value on practitioner, along with their role at the organization (with the practitioner's permission)
+	// Note that this property should not be used to update any linked/logically linked practitioner resources as it serves as a language that can be used to communicate with patients - however it may be used to inform the value on practitioner, along with their role at the organization (with the practitioner's permission)
 	Communication []PersonCommunication `bson:"communication,omitempty" json:"communication,omitempty" xml:"communication,omitempty"`
 	// The organization that is the custodian of the person record.
 	ManagingOrganization *Reference `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty" xml:"managingOrganization,omitempty"`
@@ -123,7 +121,7 @@ type PersonCommunication struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -133,7 +131,7 @@ type PersonCommunication struct {
 	//
 	// Comment: The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.
 	Language CodeableConcept `bson:"language" json:"language" xml:"language"`
-	//Indicates whether or not the person prefers this language (over other languages he masters up a certain level).
+	// Indicates whether or not the person prefers this language (over other languages he masters up a certain level).
 	//
 	// Comment: This language is specifically identified for communicating healthcare information.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
@@ -154,7 +152,7 @@ type PersonLink struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -20,11 +20,11 @@ type CodeableConcept struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//A reference to a code defined by a terminology system.
+	// A reference to a code defined by a terminology system.
 	//
 	// Comment: Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true.
 	Coding []Coding `bson:"coding,omitempty" json:"coding,omitempty" xml:"coding,omitempty"`
-	//A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
+	// A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
 	//
 	// Comment: Very often the text is the same as a displayName of one of the codings.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`

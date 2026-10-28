@@ -22,7 +22,7 @@ type Extension struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//Source of the definition for the extension code - a logical name or a URL.
+	// Source of the definition for the extension code - a logical name or a URL.
 	//
 	// Comment: The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.
 	Url string `bson:"url" json:"url" xml:"url"`

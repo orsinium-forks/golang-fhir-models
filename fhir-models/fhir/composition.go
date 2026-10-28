@@ -30,7 +30,7 @@ type Composition struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type Composition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -71,7 +71,7 @@ type Composition struct {
 	//
 	// Comment: Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//An explicitly assigned identifer of a variation of the content in the Composition.
+	// An explicitly assigned identifer of a variation of the content in the Composition.
 	//
 	// Comment: While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
@@ -81,7 +81,7 @@ type Composition struct {
 	//
 	// Comment: If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.
 	//
-	//Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
+	// Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
 	Status CompositionStatus `bson:"status" json:"status" xml:"status"`
 	// Specifies the particular kind of composition (e.g.
 	//
@@ -101,7 +101,7 @@ type Composition struct {
 	Subject []Reference `bson:"subject,omitempty" json:"subject,omitempty" xml:"subject,omitempty"`
 	// Describes the clinical encounter or type of care this documentation is associated with.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//The composition editing time, when the composition was last logically changed by the author.
+	// The composition editing time, when the composition was last logically changed by the author.
 	//
 	// Comment: The Last Modified Date on the composition may be after the date of the document was attested without being changed. This means that the date on an amended document is the date of the amendment, not the date of original authorship.
 	Date string `bson:"date" json:"date" xml:"date"`
@@ -119,40 +119,53 @@ type Composition struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//Official human-readable label for the composition.
+	// Official human-readable label for the composition.
 	//
 	// Comment: For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a "consultation" or "progress note"). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period.
 	Title string `bson:"title" json:"title" xml:"title"`
-	//For any additional notes.
+	// For any additional notes.
 	//
 	// Comment: A comment, general note or annotation not coded elsewhere.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
-	//A participant who has attested to the accuracy of the composition/document.
+	// A participant who has attested to the accuracy of the composition/document.
 	//
 	// Comment: Only list each attester once.
 	Attester []CompositionAttester `bson:"attester,omitempty" json:"attester,omitempty" xml:"attester,omitempty"`
-	//Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.
+	// Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.
 	//
 	// Comment: This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However, it is important that this information be known when working with a derived document, so providing a custodian is encouraged.
 	Custodian *Reference `bson:"custodian,omitempty" json:"custodian,omitempty" xml:"custodian,omitempty"`
-	//Relationships that this composition has with other compositions or documents that already exist.
+	// Relationships that this composition has with other compositions or documents that already exist.
 	//
 	// Comment: To reference (using relatesTo) a Bundle of type "document" or another Composition where you only have the identifier, use a resourceReference with an identifier.\
-	//When a Composition is an alternate representation of another type of document e.g. CDA, the other document could be referenced in a DocumentReference resource.
-	//Here is an example of using relatesTo to reference another Bundle of type "document" or Composition where you only have the identifier:
-	//```
-	//"relatesTo": [{
-	//  "type": "replaces",
-	//  "resourceReference": {
-	//    "identifier": {
-	//      "system": "...",
-	//      "value": "..."
-	//    }
-	//  }
-	//}]
-	//```
+	//
+	// When a Composition is an alternate representation of another type of document e.g. CDA, the other document could be referenced in a DocumentReference resource.
+	//
+	// Here is an example of using relatesTo to reference another Bundle of type "document" or Composition where you only have the identifier:
+	//
+	// ```
+	//
+	// "relatesTo": [{
+	//
+	//   "type": "replaces",
+	//
+	//   "resourceReference": {
+	//
+	//     "identifier": {
+	//
+	//       "system": "...",
+	//
+	//       "value": "..."
+	//
+	//     }
+	//
+	//   }
+	//
+	// }]
+	//
+	// ```
 	RelatesTo []RelatedArtifact `bson:"relatesTo,omitempty" json:"relatesTo,omitempty" xml:"relatesTo,omitempty"`
-	//The clinical service, such as a colonoscopy or an appendectomy, being documented.
+	// The clinical service, such as a colonoscopy or an appendectomy, being documented.
 	//
 	// Comment: The event needs to be consistent with the type element, though can provide further information if desired.
 	Event []CompositionEvent `bson:"event,omitempty" json:"event,omitempty" xml:"event,omitempty"`
@@ -179,7 +192,7 @@ type CompositionAttester struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -208,7 +221,7 @@ type CompositionEvent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -239,7 +252,7 @@ type CompositionSection struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -255,7 +268,7 @@ type CompositionSection struct {
 	//
 	// Comment: The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.
 	//
-	//If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.
+	// If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// Identifies who is responsible for the information in this section, not necessarily who typed it in.
 	Author []Reference `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
@@ -271,11 +284,11 @@ type CompositionSection struct {
 	//
 	// Comment: Document profiles may define what content should be represented in the narrative to ensure clinical safety.
 	Text *Narrative `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
-	//Specifies the order applied to the items in the section entries.
+	// Specifies the order applied to the items in the section entries.
 	//
 	// Comment: Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order.
 	OrderedBy *CodeableConcept `bson:"orderedBy,omitempty" json:"orderedBy,omitempty" xml:"orderedBy,omitempty"`
-	//A reference to the actual resource from which the narrative in the section is derived.
+	// A reference to the actual resource from which the narrative in the section is derived.
 	//
 	// Comment: If there are no entries in the list, an emptyReason SHOULD be provided.
 	Entry []Reference `bson:"entry,omitempty" json:"entry,omitempty" xml:"entry,omitempty"`
@@ -285,7 +298,7 @@ type CompositionSection struct {
 	//
 	// Comment: The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.
 	EmptyReason *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty" xml:"emptyReason,omitempty"`
-	//A nested sub-section within this section.
+	// A nested sub-section within this section.
 	//
 	// Comment: Nested sections are primarily used to help human readers navigate to particular portions of the document.
 	Section []CompositionSection `bson:"section,omitempty" json:"section,omitempty"`

@@ -30,7 +30,7 @@ type MessageHeader struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type MessageHeader struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -66,11 +66,11 @@ type MessageHeader struct {
 	// Comment: The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp).
 	EventCoding    Coding `bson:"eventCoding" json:"eventCoding" xml:"eventCoding"`
 	EventCanonical string `bson:"eventCanonical" json:"eventCanonical" xml:"eventCanonical"`
-	//The destination application which the message is intended for.
+	// The destination application which the message is intended for.
 	//
 	// Comment: There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system.
 	Destination []MessageHeaderDestination `bson:"destination,omitempty" json:"destination,omitempty" xml:"destination,omitempty"`
-	//Identifies the sending system to allow the use of a trust relationship.
+	// Identifies the sending system to allow the use of a trust relationship.
 	//
 	// Comment: Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information.
 	Sender *Reference `bson:"sender,omitempty" json:"sender,omitempty" xml:"sender,omitempty"`
@@ -118,11 +118,11 @@ type MessageHeaderDestination struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Indicates where the message should be routed.
+	// Indicates where the message should be routed.
 	//
 	// Comment: The url may be a non-resolvable URI for systems that do not use standard network-based addresses.
 	EndpointUrl       *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
@@ -152,11 +152,11 @@ type MessageHeaderSource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Identifies the routing target to send acknowledgements to.
+	// Identifies the routing target to send acknowledgements to.
 	//
 	// Comment: The url may be a non-resolvable URI for systems that do not use standard network-based addresses.
 	EndpointUrl       *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
@@ -190,17 +190,17 @@ type MessageHeaderResponse struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The Bundle.identifier of the message to which this message is a response.
 	Identifier Identifier `bson:"identifier" json:"identifier" xml:"identifier"`
-	//Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
+	// Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
 	//
 	// Comment: This is a generic response to the request message. Specific data for the response will be found in MessageHeader.focus.
 	Code ResponseType `bson:"code" json:"code" xml:"code"`
-	//Full details of any issues found in the message.
+	// Full details of any issues found in the message.
 	//
 	// Comment: This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error.
 	Details *Reference `bson:"details,omitempty" json:"details,omitempty" xml:"details,omitempty"`

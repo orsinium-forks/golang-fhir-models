@@ -26,7 +26,7 @@ type FamilyMemberHistory struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,31 +51,31 @@ type FamilyMemberHistory struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.
 	InstantiatesCanonical []string `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty" xml:"instantiatesCanonical,omitempty"`
-	//The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.
+	// The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.
 	//
 	// Comment: This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier.
 	InstantiatesUri []string `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty" xml:"instantiatesUri,omitempty"`
-	//A code specifying the status of the record of the family history of a specific family member.
+	// A code specifying the status of the record of the family history of a specific family member.
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status FamilyHistoryStatus `bson:"status" json:"status" xml:"status"`
 	// Describes why the family member's history is not available.
 	DataAbsentReason *CodeableConcept `bson:"dataAbsentReason,omitempty" json:"dataAbsentReason,omitempty" xml:"dataAbsentReason,omitempty"`
-	//The person who this history concerns.
+	// The person who this history concerns.
 	//
 	// Comment: This is not the family member.
 	Patient Reference `bson:"patient" json:"patient" xml:"patient"`
-	//The date (and possibly time) when the family member history was recorded or last updated.
+	// The date (and possibly time) when the family member history was recorded or last updated.
 	//
 	// Comment: This should be captured even if the same as the date on the List aggregating the full family history.
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
@@ -87,7 +87,7 @@ type FamilyMemberHistory struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// The type of relationship this person has to the patient (father, mother, brother etc.).
 	Relationship CodeableConcept `bson:"relationship" json:"relationship" xml:"relationship"`
-	//The birth sex of the family member.
+	// The birth sex of the family member.
 	//
 	// Comment: This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  E.g. 'Aunt Sue' might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element.
 	Sex *CodeableConcept `bson:"sex,omitempty" json:"sex,omitempty" xml:"sex,omitempty"`
@@ -95,13 +95,13 @@ type FamilyMemberHistory struct {
 	BornPeriod *Period `bson:"bornPeriod,omitempty" json:"bornPeriod,omitempty" xml:"bornPeriod,omitempty"`
 	BornDate   *string `bson:"bornDate,omitempty" json:"bornDate,omitempty" xml:"bornDate,omitempty"`
 	BornString *string `bson:"bornString,omitempty" json:"bornString,omitempty" xml:"bornString,omitempty"`
-	//The age of the relative at the time the family member history is recorded.
+	// The age of the relative at the time the family member history is recorded.
 	//
 	// Comment: use estimatedAge to indicate whether the age is actual or not.
 	AgeAge    *Age    `bson:"ageAge,omitempty" json:"ageAge,omitempty" xml:"ageAge,omitempty"`
 	AgeRange  *Range  `bson:"ageRange,omitempty" json:"ageRange,omitempty" xml:"ageRange,omitempty"`
 	AgeString *string `bson:"ageString,omitempty" json:"ageString,omitempty" xml:"ageString,omitempty"`
-	//If true, indicates that the age value specified is an estimated value.
+	// If true, indicates that the age value specified is an estimated value.
 	//
 	// Comment: This element is labeled as a modifier because the fact that age is estimated can/should change the results of any algorithm that calculates based on the specified age.
 	EstimatedAge *bool `bson:"estimatedAge,omitempty" json:"estimatedAge,omitempty" xml:"estimatedAge,omitempty"`
@@ -111,7 +111,7 @@ type FamilyMemberHistory struct {
 	DeceasedRange   *Range  `bson:"deceasedRange,omitempty" json:"deceasedRange,omitempty" xml:"deceasedRange,omitempty"`
 	DeceasedDate    *string `bson:"deceasedDate,omitempty" json:"deceasedDate,omitempty" xml:"deceasedDate,omitempty"`
 	DeceasedString  *string `bson:"deceasedString,omitempty" json:"deceasedString,omitempty" xml:"deceasedString,omitempty"`
-	//Describes why the family member history occurred in coded or textual form, or Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.
+	// Describes why the family member history occurred in coded or textual form, or Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.
 	//
 	// Comment: Textual reasons can be captured using reasonCode.text.
 	Reason []CodeableReference `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
@@ -144,7 +144,7 @@ type FamilyMemberHistoryParticipant struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -171,7 +171,7 @@ type FamilyMemberHistoryCondition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -215,7 +215,7 @@ type FamilyMemberHistoryProcedure struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -28,7 +28,7 @@ type Signature struct {
 	//
 	// Comment: Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;.
 	Type []Coding `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	//When the digital signature was signed.
+	// When the digital signature was signed.
 	//
 	// Comment: This should agree with the information in the signature.
 	When *string `bson:"when,omitempty" json:"when,omitempty" xml:"when,omitempty"`
@@ -38,11 +38,11 @@ type Signature struct {
 	//
 	// Comment: This should agree with the information in the signature.
 	Who *Reference `bson:"who,omitempty" json:"who,omitempty" xml:"who,omitempty"`
-	//A reference to an application-usable description of the identity that is represented by the signature.
+	// A reference to an application-usable description of the identity that is represented by the signature.
 	//
 	// Comment: The party that can't sign. For example a child.
 	OnBehalfOf *Reference `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty" xml:"onBehalfOf,omitempty"`
-	//A mime type that indicates the technical format of the target resources signed by the signature.
+	// A mime type that indicates the technical format of the target resources signed by the signature.
 	//
 	// Comment: "xml", "json" and "ttl" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
 	TargetFormat *string `bson:"targetFormat,omitempty" json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`

@@ -30,7 +30,7 @@ type DiagnosticReport struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,15 +55,15 @@ type DiagnosticReport struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Identifiers assigned to this report by the performer or other systems.
+	// Identifiers assigned to this report by the performer or other systems.
 	//
 	// Comment: Usually assigned by the Information System of the diagnostic service provider (filler id).
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//Details concerning a service requested.
+	// Details concerning a service requested.
 	//
 	// Comment: Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
@@ -94,27 +94,27 @@ type DiagnosticReport struct {
 	// Comment: If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
 	EffectiveDateTime *string `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty" xml:"effectiveDateTime,omitempty"`
 	EffectivePeriod   *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
-	//The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
+	// The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
 	//
 	// Comment: May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report.
 	Issued *string `bson:"issued,omitempty" json:"issued,omitempty" xml:"issued,omitempty"`
-	//The diagnostic service that is responsible for issuing the report.
+	// The diagnostic service that is responsible for issuing the report.
 	//
 	// Comment: This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.
 	Performer []Reference `bson:"performer,omitempty" json:"performer,omitempty" xml:"performer,omitempty"`
-	//The practitioner or organization that is responsible for the report's conclusions and interpretations.
+	// The practitioner or organization that is responsible for the report's conclusions and interpretations.
 	//
 	// Comment: Might not be the same entity that takes responsibility for the clinical report.
 	ResultsInterpreter []Reference `bson:"resultsInterpreter,omitempty" json:"resultsInterpreter,omitempty" xml:"resultsInterpreter,omitempty"`
-	//Details about the specimens on which this diagnostic report is based.
+	// Details about the specimens on which this diagnostic report is based.
 	//
 	// Comment: If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per observation or group.
 	Specimen []Reference `bson:"specimen,omitempty" json:"specimen,omitempty" xml:"specimen,omitempty"`
-	//[Observations](observation.html)  that are part of this diagnostic report.
+	// [Observations](observation.html)  that are part of this diagnostic report.
 	//
 	// Comment: Observations can contain observations.
 	Result []Reference `bson:"result,omitempty" json:"result,omitempty" xml:"result,omitempty"`
-	//Comments about the diagnostic report.
+	// Comments about the diagnostic report.
 	//
 	// Comment: May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
@@ -130,7 +130,7 @@ type DiagnosticReport struct {
 	//
 	// The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
 	Media []DiagnosticReportMedia `bson:"media,omitempty" json:"media,omitempty" xml:"media,omitempty"`
-	//Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport.
+	// Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport.
 	//
 	// Comment: The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of an anatomic pathology structured report.
 	Composition *Reference `bson:"composition,omitempty" json:"composition,omitempty" xml:"composition,omitempty"`
@@ -160,7 +160,7 @@ type DiagnosticReportSupportingInfo struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -187,7 +187,7 @@ type DiagnosticReportMedia struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -26,9 +26,7 @@ type Meta struct {
 	//
 	// Comment: The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes.
 	VersionId *string `bson:"versionId,omitempty" json:"versionId,omitempty" xml:"versionId,omitempty"`
-	// When the resource last changed - e.g.
-	//
-	// when the version changed.
+	// When the resource last changed - e.g. when the version changed.
 	//
 	// Comment: This element is generally omitted in instances submitted in a PUT or POST. Instead, it is populated in the response instance and when retrieving information using a GET. The server / resource manager sets this value; what a client provides is irrelevant. This is equivalent to the HTTP Last-Modified and SHOULD have the same value on a [read](http.html#read) interaction.
 	LastUpdated *string `bson:"lastUpdated,omitempty" json:"lastUpdated,omitempty" xml:"lastUpdated,omitempty"`
@@ -38,7 +36,7 @@ type Meta struct {
 	//
 	// Comment: The exact use of the source (and the possible implied Provenance.entity.role and agent.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used. The source may correspond to Provenance.entity.what[x] or Provenance.agent.who[x], though it may be a more general or abstract reference.
 	//
-	//This element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL.
+	// This element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL.
 	Source *string `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 	// A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to.
 	//

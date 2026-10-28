@@ -26,7 +26,7 @@ type DeviceDefinition struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type DeviceDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -71,7 +71,7 @@ type DeviceDefinition struct {
 	//
 	// Comment: This should not be used for regulatory authorization numbers which are to be captured elsewhere.
 	RegulatoryIdentifier []DeviceDefinitionRegulatoryIdentifier `bson:"regulatoryIdentifier,omitempty" json:"regulatoryIdentifier,omitempty" xml:"regulatoryIdentifier,omitempty"`
-	//The part number or catalog number of the device.
+	// The part number or catalog number of the device.
 	//
 	// Comment: Alphanumeric Maximum 20.
 	PartNumber *string `bson:"partNumber,omitempty" json:"partNumber,omitempty" xml:"partNumber,omitempty"`
@@ -83,7 +83,7 @@ type DeviceDefinition struct {
 	DeviceName []DeviceDefinitionDeviceName `bson:"deviceName,omitempty" json:"deviceName,omitempty" xml:"deviceName,omitempty"`
 	// The model number for the device for example as defined by the manufacturer or labeler, or other agency.
 	ModelNumber *string `bson:"modelNumber,omitempty" json:"modelNumber,omitempty" xml:"modelNumber,omitempty"`
-	//What kind of device or device system this is.
+	// What kind of device or device system this is.
 	//
 	// Comment: In this element various classifications can be used, such as GMDN, EMDN, SNOMED CT, risk classes, national product codes.
 	Classification []DeviceDefinitionClassification `bson:"classification,omitempty" json:"classification,omitempty" xml:"classification,omitempty"`
@@ -93,9 +93,7 @@ type DeviceDefinition struct {
 	ConformsTo []DeviceDefinitionConformsTo `bson:"conformsTo,omitempty" json:"conformsTo,omitempty" xml:"conformsTo,omitempty"`
 	// A device that is part (for example a component) of the present device.
 	HasPart []DeviceDefinitionHasPart `bson:"hasPart,omitempty" json:"hasPart,omitempty" xml:"hasPart,omitempty"`
-	// Information about the packaging of the device, i.e.
-	//
-	// how the device is packaged.
+	// Information about the packaging of the device, i.e. how the device is packaged.
 	Packaging []DeviceDefinitionPackaging `bson:"packaging,omitempty" json:"packaging,omitempty" xml:"packaging,omitempty"`
 	// The version of the device or software.
 	Version []DeviceDefinitionVersion `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
@@ -105,13 +103,13 @@ type DeviceDefinition struct {
 	ShelfLifeStorage []ProductShelfLife `bson:"shelfLifeStorage,omitempty" json:"shelfLifeStorage,omitempty" xml:"shelfLifeStorage,omitempty"`
 	// Language code for the human-readable text strings produced by the device (all supported).
 	LanguageCode []CodeableConcept `bson:"languageCode,omitempty" json:"languageCode,omitempty" xml:"languageCode,omitempty"`
-	//Static or essentially fixed characteristics or features of this kind of device that are otherwise not captured in more specific attributes, e.g., time or timing attributes, resolution, accuracy, and physical attributes.
+	// Static or essentially fixed characteristics or features of this kind of device that are otherwise not captured in more specific attributes, e.g., time or timing attributes, resolution, accuracy, and physical attributes.
 	//
 	// Comment: Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific DeviceMetric and recorded using Observation.  Static characteristics of an individual device could also be documented in a [Device] instance. The Device instance's properties, and their values, could be, but need not be, the same as in the associated DeviceDefinition.
 	Property []DeviceDefinitionProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
 	// An organization that is responsible for the provision and ongoing maintenance of the device.
 	Owner *Reference `bson:"owner,omitempty" json:"owner,omitempty" xml:"owner,omitempty"`
-	//Contact details for an organization or a particular human that is responsible for the device.
+	// Contact details for an organization or a particular human that is responsible for the device.
 	//
 	// Comment: used for troubleshooting etc.
 	Contact []ContactPoint `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
@@ -123,7 +121,7 @@ type DeviceDefinition struct {
 	Material []DeviceDefinitionMaterial `bson:"material,omitempty" json:"material,omitempty" xml:"material,omitempty"`
 	// Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label.
 	ProductionIdentifierInUDI []DeviceProductionIdentifierInUDI `bson:"productionIdentifierInUDI,omitempty" json:"productionIdentifierInUDI,omitempty" xml:"productionIdentifierInUDI,omitempty"`
-	//Information aimed at providing directions for the usage of this model of device.
+	// Information aimed at providing directions for the usage of this model of device.
 	//
 	// Comment: For more structured data, a ClinicalUseDefinition that points to the DeviceDefinition can be used.
 	Guideline *DeviceDefinitionGuideline `bson:"guideline,omitempty" json:"guideline,omitempty" xml:"guideline,omitempty"`
@@ -150,7 +148,7 @@ type DeviceDefinitionUdiDeviceIdentifier struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -183,7 +181,7 @@ type DeviceDefinitionUdiDeviceIdentifierMarketDistribution struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -212,7 +210,7 @@ type DeviceDefinitionRegulatoryIdentifier struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -243,13 +241,14 @@ type DeviceDefinitionDeviceName struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A human-friendly name that is used to refer to the device - depending on the type, it can be the brand name, the common name or alias, or other.
 	Name string `bson:"name" json:"name" xml:"name"`
 	// The type of deviceName.
+	//
 	// RegisteredName | UserFriendlyName | PatientReportedName.
 	Type DeviceNameType `bson:"type" json:"type" xml:"type"`
 	// The model number for the device for example as defined by the manufacturer or labeler, or other agency.
@@ -269,7 +268,7 @@ type DeviceDefinitionClassification struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -296,7 +295,7 @@ type DeviceDefinitionConformsTo struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -327,7 +326,7 @@ type DeviceDefinitionHasPart struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -335,9 +334,7 @@ type DeviceDefinitionHasPart struct {
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
 	// Number of instances of the component device in the current device.
 	Count *int `bson:"count,omitempty" json:"count,omitempty" xml:"count,omitempty"`
-	// Information about the packaging of the device, i.e.
-	//
-	// how the device is packaged.
+	// Information about the packaging of the device, i.e. how the device is packaged.
 }
 type DeviceDefinitionPackaging struct {
 	// Unique id for the element within a resource (for internal references).
@@ -354,7 +351,7 @@ type DeviceDefinitionPackaging struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -387,7 +384,7 @@ type DeviceDefinitionPackagingDistributor struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -412,15 +409,13 @@ type DeviceDefinitionVersion struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// The type of the device version, e.g.
-	//
-	// manufacturer, approved, internal.
+	// The type of the device version, e.g. manufacturer, approved, internal.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	//The hardware or software module of the device to which the version applies.
+	// The hardware or software module of the device to which the version applies.
 	//
 	// Comment: Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version.
 	Component *Identifier `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
@@ -443,13 +438,13 @@ type DeviceDefinitionProperty struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Code that specifies the property such as a resolution or color being represented.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//The value of the property specified by the associated property.type code.
+	// The value of the property specified by the associated property.type code.
 	//
 	// Comment: This use of string or CodeableConcept is supported to address different purposes The text element of the valueCodeableConcept choice type is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g., a custom implant size, or a security classification which depends on configuration. Otherwise the valueString choice type is used for textual descriptive device properties that cannot be expressed in other elements.
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
@@ -476,7 +471,7 @@ type DeviceDefinitionLink struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -501,7 +496,7 @@ type DeviceDefinitionMaterial struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -530,7 +525,7 @@ type DeviceDefinitionGuideline struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -540,15 +535,15 @@ type DeviceDefinitionGuideline struct {
 	UsageInstruction *string `bson:"usageInstruction,omitempty" json:"usageInstruction,omitempty" xml:"usageInstruction,omitempty"`
 	// A source of information or reference for this guideline.
 	RelatedArtifact []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
-	//A clinical condition for which the device was designed to be used.
+	// A clinical condition for which the device was designed to be used.
 	//
 	// Comment: A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed.
 	Indication []CodeableConcept `bson:"indication,omitempty" json:"indication,omitempty" xml:"indication,omitempty"`
-	//A specific situation when a device should not be used because it may cause harm.
+	// A specific situation when a device should not be used because it may cause harm.
 	//
 	// Comment: A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed.
 	Contraindication []CodeableConcept `bson:"contraindication,omitempty" json:"contraindication,omitempty" xml:"contraindication,omitempty"`
-	//Specific hazard alert information that a user needs to know before using the device.
+	// Specific hazard alert information that a user needs to know before using the device.
 	//
 	// Comment: A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed.
 	Warning []CodeableConcept `bson:"warning,omitempty" json:"warning,omitempty" xml:"warning,omitempty"`
@@ -571,11 +566,11 @@ type DeviceDefinitionCorrectiveAction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Whether the last corrective action known for this device was a recall.
+	// Whether the last corrective action known for this device was a recall.
 	//
 	// Comment: When a field safety action has been initiated but not yet resulted in a recall, this element will be set to 'false'.
 	Recall bool `bson:"recall" json:"recall" xml:"recall"`
@@ -600,7 +595,7 @@ type DeviceDefinitionChargeItem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

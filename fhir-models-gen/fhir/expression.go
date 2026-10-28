@@ -26,11 +26,11 @@ type Expression struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// The media type of the language for the expression.
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	//An expression in the specified language that returns a value.
+	// An expression in the specified language that returns a value.
 	//
 	// Comment: If Expression.expression and Expression.reference are both present, the Expression.expression might just be a name pointing something within the referenced content.
 	Expression *string `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	//A URI that defines where the expression is found.
+	// A URI that defines where the expression is found.
 	//
 	// Comment: If both a reference and an expression is found, the reference SHALL point to the same expression.
 	Reference *string `bson:"reference,omitempty" json:"reference,omitempty" xml:"reference,omitempty"`

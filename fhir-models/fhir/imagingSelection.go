@@ -32,7 +32,7 @@ type ImagingSelection struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -57,11 +57,11 @@ type ImagingSelection struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//A unique identifier assigned to this imaging selection.
+	// A unique identifier assigned to this imaging selection.
 	//
 	// Comment: This is a business identifier, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers).
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -81,11 +81,11 @@ type ImagingSelection struct {
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
 	// Classifies the imaging selection.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	//Reason for referencing the selected content.
+	// Reason for referencing the selected content.
 	//
 	// Comment: *All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
-	//The Study Instance UID for the DICOM Study from which the images were selected.
+	// The Study Instance UID for the DICOM Study from which the images were selected.
 	//
 	// Comment: See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).
 	StudyUid *string `bson:"studyUid,omitempty" json:"studyUid,omitempty" xml:"studyUid,omitempty"`
@@ -97,15 +97,15 @@ type ImagingSelection struct {
 	//
 	// Comment: Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach.
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	//The Series Instance UID for the DICOM Series from which the images were selected.
+	// The Series Instance UID for the DICOM Series from which the images were selected.
 	//
 	// Comment: See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html).
 	SeriesUid *string `bson:"seriesUid,omitempty" json:"seriesUid,omitempty" xml:"seriesUid,omitempty"`
-	//The Series Number for the DICOM Series from which the images were selected.
+	// The Series Number for the DICOM Series from which the images were selected.
 	//
 	// Comment: See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html).
 	SeriesNumber *int `bson:"seriesNumber,omitempty" json:"seriesNumber,omitempty" xml:"seriesNumber,omitempty"`
-	//The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames.
+	// The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames.
 	//
 	// Comment: See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html).
 	FrameOfReferenceUid *string `bson:"frameOfReferenceUid,omitempty" json:"frameOfReferenceUid,omitempty" xml:"frameOfReferenceUid,omitempty"`
@@ -118,7 +118,8 @@ type ImagingSelection struct {
 	// For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.
 	//
 	// Comment: An imaging selection may reference a DICOM resource that itself references other DICOM resources.
-	//       e.g. a presentation state references a set of source images or frames.
+	//
+	//        e.g. a presentation state references a set of source images or frames.
 	Focus []Reference `bson:"focus,omitempty" json:"focus,omitempty" xml:"focus,omitempty"`
 	// Each imaging selection includes one or more selected DICOM SOP instances.
 	Instance []ImagingSelectionInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
@@ -141,7 +142,7 @@ type ImagingSelectionPerformer struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -166,34 +167,41 @@ type ImagingSelectionInstance struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The SOP Instance UID for the selected DICOM instance.
+	// The SOP Instance UID for the selected DICOM instance.
 	//
 	// Comment: See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html).
 	Uid string `bson:"uid" json:"uid" xml:"uid"`
-	//The Instance Number for the selected DICOM instance.
+	// The Instance Number for the selected DICOM instance.
 	//
 	// Comment: See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).
-	//       Note: A multiframe instance has a single instance number with each frame identified by a frame number.
+	//
+	//        Note: A multiframe instance has a single instance number with each frame identified by a frame number.
 	Number *int `bson:"number,omitempty" json:"number,omitempty" xml:"number,omitempty"`
-	//The SOP Class UID for the selected DICOM instance.
+	// The SOP Class UID for the selected DICOM instance.
 	//
 	// Comment: See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html).
 	SopClass *Coding `bson:"sopClass,omitempty" json:"sopClass,omitempty" xml:"sopClass,omitempty"`
 	// Selected subset of the SOP Instance.
 	//
 	// The content and format of the subset item is determined by the SOP Class of the selected instance.
-	//       May be one of:
-	//       - A list of frame numbers selected from a multiframe SOP Instance.
-	//       - A list of Content Item Observation UID values selected from a DICOM SR or other structured document SOP Instance.
-	//       - A list of segment numbers selected from a segmentation SOP Instance.
-	//       - A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance.
+	//
+	//        May be one of:
+	//
+	//        - A list of frame numbers selected from a multiframe SOP Instance.
+	//
+	//        - A list of Content Item Observation UID values selected from a DICOM SR or other structured document SOP Instance.
+	//
+	//        - A list of segment numbers selected from a segmentation SOP Instance.
+	//
+	//        - A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance.
 	Subset []string `bson:"subset,omitempty" json:"subset,omitempty" xml:"subset,omitempty"`
 	// Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.
-	//       If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list.
+	//
+	//        If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list.
 	ImageRegion2D []ImagingSelectionInstanceImageRegion2D `bson:"imageRegion2D,omitempty" json:"imageRegion2D,omitempty" xml:"imageRegion2D,omitempty"`
 	// Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates.
 	ImageRegion3D []ImagingSelectionInstanceImageRegion3D `bson:"imageRegion3D,omitempty" json:"imageRegion3D,omitempty" xml:"imageRegion3D,omitempty"`
@@ -216,18 +224,19 @@ type ImagingSelectionInstanceImageRegion2D struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Specifies the type of image region.
+	// Specifies the type of image region.
 	//
 	// Comment: See [DICOM PS3.3 C.10.5.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.10.5.html#sect_C.10.5.1.2).
 	RegionType ImagingSelection2DGraphicType `bson:"regionType" json:"regionType" xml:"regionType"`
 	// The coordinates describing the image region.
 	//
 	// Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.
-	//       The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames.
+	//
+	//        The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames.
 	//
 	// Comment: For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html).
 	Coordinate []decimal.Decimal `bson:"coordinate" json:"coordinate" xml:"coordinate"`
@@ -248,11 +257,11 @@ type ImagingSelectionInstanceImageRegion3D struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Specifies the type of image region.
+	// Specifies the type of image region.
 	//
 	// Comment: See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2).
 	RegionType ImagingSelection3DGraphicType `bson:"regionType" json:"regionType" xml:"regionType"`

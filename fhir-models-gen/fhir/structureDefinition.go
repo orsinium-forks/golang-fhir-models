@@ -28,7 +28,7 @@ type StructureDefinition struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type StructureDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -63,11 +63,11 @@ type StructureDefinition struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url string `bson:"url" json:"url" xml:"url"`
-	//A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this structure definition outside of FHIR, where it is not possible to use the logical URI.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -77,7 +77,7 @@ type StructureDefinition struct {
 	//
 	// Comment: There may be different structure definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -88,24 +88,25 @@ type StructureDefinition struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.Some Examples:
 	//
-	//* O2SatObservation
-	//* PresentationReport
-	//* Immunization2
-	//* AcmeAdmissionRecordOld.
+	// * O2SatObservation
+	//
+	// * PresentationReport
+	//
+	// * Immunization2
+	//
+	// * AcmeAdmissionRecordOld.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//A short, descriptive, user-friendly title for the structure definition.
+	// A short, descriptive, user-friendly title for the structure definition.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.Applications don't have to use this name but can always fall back to it. The title also corresponds to the label for the root element.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this structure definition.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this structure definition. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of structure definitions that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of structure definitions that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -115,19 +116,19 @@ type StructureDefinition struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the structure definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the structure definition is the organization or individual primarily responsible for the maintenance and upkeep of the structure definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the structure definition. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the structure definition from a consumer's perspective.
+	// A free text natural language description of the structure definition from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -137,13 +138,13 @@ type StructureDefinition struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the structure definition is intended to be used.
+	// A legal or geographic region in which the structure definition is intended to be used.
 	//
 	// Comment: It may be possible for the structure definition to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this structure definition is needed and why it has been designed as it has.
+	// Explanation of why this structure definition is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the structure definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this structure definition.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -159,7 +160,7 @@ type StructureDefinition struct {
 	//
 	// Comment: The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element.
 	CopyrightLabel *string `bson:"copyrightLabel,omitempty" json:"copyrightLabel,omitempty" xml:"copyrightLabel,omitempty"`
-	//(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.
+	// (DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.
 	//
 	// Comment: Note that this element is deprecated. Use the [http://hl7.org/fhir/StructureDefinition/artifact-topic](http://hl7.org/fhir/extensions/StructureDefinition-artifact-topic.html) extension instead.
 	Keyword []Coding `bson:"keyword,omitempty" json:"keyword,omitempty" xml:"keyword,omitempty"`
@@ -195,13 +196,13 @@ type StructureDefinition struct {
 	//
 	// Comment: Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a type defining structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing.
 	//
-	//The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type SHALL be a fully specified URL, the type name SHOULD start with the final path segment of the type URL where required. E.g. If the type was "http://example.org/fhir/MyLogicalModelType", the type name should start with 'MyLogicalModelType'.
+	// The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type SHALL be a fully specified URL, the type name SHOULD start with the final path segment of the type URL where required. E.g. If the type was "http://example.org/fhir/MyLogicalModelType", the type name should start with 'MyLogicalModelType'.
 	Type string `bson:"type" json:"type" xml:"type"`
-	//An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
+	// An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
 	//
 	// Comment: If differential constraints are specified in this structure, they are applied to the base in a "differential" fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of "Base", "Element" or another logical model.
 	BaseDefinition *string `bson:"baseDefinition,omitempty" json:"baseDefinition,omitempty" xml:"baseDefinition,omitempty"`
-	//How the type relates to the baseDefinition.
+	// How the type relates to the baseDefinition.
 	//
 	// Comment: If the definition is a specialization, then it adds to the differential new elements and optionally additional rules to an existing concrete type, and the snapshot includes the inherited elements and rules.  If the definition is a constraint, then it cannot define new elements, it can only make new rules about existing content (see [Profiling Resources](profiling.html#resources)).
 	Derivation *TypeDerivationRule `bson:"derivation,omitempty" json:"derivation,omitempty" xml:"derivation,omitempty"`
@@ -228,15 +229,15 @@ type StructureDefinitionMapping struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//An Internal id that is used to identify this mapping set when specific mappings are made.
+	// An Internal id that is used to identify this mapping set when specific mappings are made.
 	//
 	// Comment: The specification is described once, with general comments, and then specific mappings are made that reference this declaration.
 	Identity string `bson:"identity" json:"identity" xml:"identity"`
-	//An absolute URI that identifies the specification that this mapping is expressed to.
+	// An absolute URI that identifies the specification that this mapping is expressed to.
 	//
 	// Comment: A formal identity for the specification being mapped to helps with identifying maps consistently.
 	Uri *string `bson:"uri,omitempty" json:"uri,omitempty" xml:"uri,omitempty"`
@@ -261,7 +262,7 @@ type StructureDefinitionContext struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -290,7 +291,7 @@ type StructureDefinitionSnapshot struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -313,7 +314,7 @@ type StructureDefinitionDifferential struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

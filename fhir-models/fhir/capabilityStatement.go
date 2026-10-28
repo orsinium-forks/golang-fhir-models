@@ -26,7 +26,7 @@ type CapabilityStatement struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type CapabilityStatement struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,9 +61,9 @@ type CapabilityStatement struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 	// A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -73,7 +73,7 @@ type CapabilityStatement struct {
 	//
 	// Comment: There may be different capability statement instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the capability statement with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -84,19 +84,17 @@ type CapabilityStatement struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A short, descriptive, user-friendly title for the capability statement.
+	// A short, descriptive, user-friendly title for the capability statement.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this capability statement.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this capability statement. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of capability statements that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of capability statements that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -106,17 +104,17 @@ type CapabilityStatement struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the capability statement. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date string `bson:"date" json:"date" xml:"date"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the capability statement.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the capability statement.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the capability statement is the organization or individual primarily responsible for the maintenance and upkeep of the capability statement. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the capability statement. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
 	// A free text natural language description of the capability statement from a consumer's perspective.
 	//
@@ -130,13 +128,13 @@ type CapabilityStatement struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the capability statement is intended to be used.
+	// A legal or geographic region in which the capability statement is intended to be used.
 	//
 	// Comment: It may be possible for the capability statement to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this capability statement is needed and why it has been designed as it has.
+	// Explanation of why this capability statement is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the capability statement. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this capability statement.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -162,7 +160,7 @@ type CapabilityStatement struct {
 	//
 	// Comment: HL7 defines the following Services: [Terminology Service](terminology-service.html).
 	//
-	//Many [Implementation Guides](http://fhir.org/guides/registry) define additional services.
+	// Many [Implementation Guides](http://fhir.org/guides/registry) define additional services.
 	Instantiates []string `bson:"instantiates,omitempty" json:"instantiates,omitempty" xml:"instantiates,omitempty"`
 	// Reference to a canonical URL of another CapabilityStatement that this software adds to.
 	//
@@ -170,7 +168,7 @@ type CapabilityStatement struct {
 	//
 	// Comment: the contents of any directly or indirectly imported CapabilityStatements SHALL NOT overlap, i.e. they cannot refer to the same rest/resource, operations/name, searchparam/name, interaction/code, messaging/endpoint, document/mode pair.
 	//
-	//A capability statement that imports another CapabilityStatement automatically instantiates it too (though this is often not a very useful statement for the kinds of CapabilityStatements that are suitable for importing).
+	// A capability statement that imports another CapabilityStatement automatically instantiates it too (though this is often not a very useful statement for the kinds of CapabilityStatements that are suitable for importing).
 	Imports []string `bson:"imports,omitempty" json:"imports,omitempty" xml:"imports,omitempty"`
 	// Software that is covered by this capability statement.
 	//
@@ -186,27 +184,27 @@ type CapabilityStatement struct {
 	//
 	// Comment: Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version.
 	FhirVersion FHIRVersion `bson:"fhirVersion" json:"fhirVersion" xml:"fhirVersion"`
-	//A list of the formats supported by this implementation using their content types.
+	// A list of the formats supported by this implementation using their content types.
 	//
 	// Comment: "xml", "json" and "ttl" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
 	Format []string `bson:"format" json:"format" xml:"format"`
-	//A list of the patch formats supported by this implementation using their content types.
+	// A list of the patch formats supported by this implementation using their content types.
 	//
 	// Comment: At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary.
 	PatchFormat []string `bson:"patchFormat,omitempty" json:"patchFormat,omitempty" xml:"patchFormat,omitempty"`
-	//A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header.
+	// A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header.
 	//
 	// Comment: In general, if a server gets a request with an Accept-Language that it doesn't support, it should still reutrn the resource, just in its default language for the resource.
 	AcceptLanguage []string `bson:"acceptLanguage,omitempty" json:"acceptLanguage,omitempty" xml:"acceptLanguage,omitempty"`
-	//A list of implementation guides that the server does (or should) support in their entirety.
+	// A list of implementation guides that the server does (or should) support in their entirety.
 	//
 	// Comment: Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  In situations where an ImplementationGuide does define CapabilityStatements, asserting CapabilityStatement.implementationGuide means that the implementation adheres to any Implementation.global definitions present in that IG as well as any textual requirements around security or other general interoperability behaviors. However, it does not make any assertions as to conformance with any of the CapabilityStatements defined in the IG. To assert conformance with CapabilityStatements in a referenced IG, it is necessary to use the CapabilityStatement.instantiates element.
 	ImplementationGuide []string `bson:"implementationGuide,omitempty" json:"implementationGuide,omitempty" xml:"implementationGuide,omitempty"`
-	//A definition of the restful capabilities of the solution, if any.
+	// A definition of the restful capabilities of the solution, if any.
 	//
 	// Comment: Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements).
 	Rest []CapabilityStatementRest `bson:"rest,omitempty" json:"rest,omitempty" xml:"rest,omitempty"`
-	//A description of the messaging capabilities of the solution.
+	// A description of the messaging capabilities of the solution.
 	//
 	// Comment: Multiple repetitions allow the documentation of multiple endpoints per solution.
 	Messaging []CapabilityStatementMessaging `bson:"messaging,omitempty" json:"messaging,omitempty" xml:"messaging,omitempty"`
@@ -231,13 +229,13 @@ type CapabilityStatementSoftware struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Name the software is known by.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//The version identifier for the software covered by this statement.
+	// The version identifier for the software covered by this statement.
 	//
 	// Comment: If possible, a version should be specified, as statements are likely to be different for different versions of software.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
@@ -262,7 +260,7 @@ type CapabilityStatementImplementation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -295,7 +293,7 @@ type CapabilityStatementRest struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -305,7 +303,7 @@ type CapabilityStatementRest struct {
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 	// Information about security implementation from an interface perspective - what a client needs to know.
 	Security *CapabilityStatementRestSecurity `bson:"security,omitempty" json:"security,omitempty" xml:"security,omitempty"`
-	//A specification of the restful capabilities of the solution for a specific resource type.
+	// A specification of the restful capabilities of the solution for a specific resource type.
 	//
 	// Comment: Max of one repetition per resource type.
 	Resource []CapabilityStatementRestResource `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
@@ -317,7 +315,7 @@ type CapabilityStatementRest struct {
 	//
 	// Comment: Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions.
 	SearchParam []CapabilityStatementRestResourceSearchParam `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
-	//Definition of an operation or a named query together with its parameters and their meaning and type.
+	// Definition of an operation or a named query together with its parameters and their meaning and type.
 	//
 	// Comment: CapabilityStatement.rest.operation is for operations invoked at the system level, or for operations that are supported across multiple resource types. Operations linked from CapabilityStatement.rest.operation must have OperationDefinition.system = true, or more than one Operation.resource.
 	Operation []CapabilityStatementRestResourceOperation `bson:"operation,omitempty" json:"operation,omitempty"`
@@ -346,11 +344,11 @@ type CapabilityStatementRestSecurity struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.
+	// Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.
 	//
 	// Comment: The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS.
 	Cors *bool `bson:"cors,omitempty" json:"cors,omitempty" xml:"cors,omitempty"`
@@ -377,7 +375,7 @@ type CapabilityStatementRestResource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -397,7 +395,7 @@ type CapabilityStatementRestResource struct {
 	SupportedProfile []string `bson:"supportedProfile,omitempty" json:"supportedProfile,omitempty" xml:"supportedProfile,omitempty"`
 	// Additional information about the resource type used by the system.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	//Identifies a restful operation supported by the solution.
+	// Identifies a restful operation supported by the solution.
 	//
 	// Comment: In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true).
 	Interaction []CapabilityStatementRestResourceInteraction `bson:"interaction,omitempty" json:"interaction,omitempty" xml:"interaction,omitempty"`
@@ -407,7 +405,7 @@ type CapabilityStatementRestResource struct {
 	//
 	// Comment: If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so.
 	Versioning *ResourceVersionPolicy `bson:"versioning,omitempty" json:"versioning,omitempty" xml:"versioning,omitempty"`
-	//A flag for whether the server is able to return past versions as part of the vRead operation.
+	// A flag for whether the server is able to return past versions as part of the vRead operation.
 	//
 	// Comment: It is useful to support the vRead operation for current operations, even if past versions aren't available.
 	ReadHistory *bool `bson:"readHistory,omitempty" json:"readHistory,omitempty" xml:"readHistory,omitempty"`
@@ -417,44 +415,45 @@ type CapabilityStatementRestResource struct {
 	//
 	// Comment: Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won't happen. While creating identities on the client means that the clients need to be managed, it's much more convenient for many scenarios if such management can be put in place.
 	UpdateCreate *bool `bson:"updateCreate,omitempty" json:"updateCreate,omitempty" xml:"updateCreate,omitempty"`
-	//A flag that indicates that the server supports conditional create.
+	// A flag that indicates that the server supports conditional create.
 	//
 	// Comment: Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 	ConditionalCreate *bool `bson:"conditionalCreate,omitempty" json:"conditionalCreate,omitempty" xml:"conditionalCreate,omitempty"`
-	//A code that indicates how the server supports conditional read.
+	// A code that indicates how the server supports conditional read.
 	//
 	// Comment: Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 	ConditionalRead *ConditionalReadStatus `bson:"conditionalRead,omitempty" json:"conditionalRead,omitempty" xml:"conditionalRead,omitempty"`
-	//A flag that indicates that the server supports conditional update.
+	// A flag that indicates that the server supports conditional update.
 	//
 	// Comment: Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 	ConditionalUpdate *bool `bson:"conditionalUpdate,omitempty" json:"conditionalUpdate,omitempty" xml:"conditionalUpdate,omitempty"`
-	//A flag that indicates that the server supports conditional patch.
+	// A flag that indicates that the server supports conditional patch.
 	//
 	// Comment: Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 	ConditionalPatch *bool `bson:"conditionalPatch,omitempty" json:"conditionalPatch,omitempty" xml:"conditionalPatch,omitempty"`
-	//A code that indicates how the server supports conditional delete.
+	// A code that indicates how the server supports conditional delete.
 	//
 	// Comment: Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 	ConditionalDelete *ConditionalDeleteStatus `bson:"conditionalDelete,omitempty" json:"conditionalDelete,omitempty" xml:"conditionalDelete,omitempty"`
 	// A set of flags that defines how references are supported.
 	ReferencePolicy []ReferenceHandlingPolicy `bson:"referencePolicy,omitempty" json:"referencePolicy,omitempty" xml:"referencePolicy,omitempty"`
-	//A list of _include values supported by the server.
+	// A list of _include values supported by the server.
 	//
 	// Comment: Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the "root" resource type. For example, to support the following search:
 	//
-	//`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&_include:iterate=DeviceRequest:device`
+	// `GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&_include:iterate=DeviceRequest:device`
 	//
-	//These values would be listed as part of capabilities for "CarePlan":
+	// These values would be listed as part of capabilities for "CarePlan":
 	//
-	//"searchInclude" : ["CarePlan:activity-reference:DeviceRequest","DeviceRequest:device"],
+	// "searchInclude" : ["CarePlan:activity-reference:DeviceRequest","DeviceRequest:device"],
+	//
 	//
 	SearchInclude []string `bson:"searchInclude,omitempty" json:"searchInclude,omitempty" xml:"searchInclude,omitempty"`
-	//A list of _revinclude (reverse include) values supported by the server.
+	// A list of _revinclude (reverse include) values supported by the server.
 	//
 	// Comment: See `CapabilityStatement.rest.resource.searchInclude` comments.
 	SearchRevInclude []string `bson:"searchRevInclude,omitempty" json:"searchRevInclude,omitempty" xml:"searchRevInclude,omitempty"`
-	//Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
+	// Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
 	//
 	// Comment: The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions.
 	SearchParam []CapabilityStatementRestResourceSearchParam `bson:"searchParam,omitempty" json:"searchParam,omitempty" xml:"searchParam,omitempty"`
@@ -464,7 +463,7 @@ type CapabilityStatementRestResource struct {
 	//
 	// Comment: Operations linked from CapabilityStatement.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.
 	//
-	//If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
+	// If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
 	Operation []CapabilityStatementRestResourceOperation `bson:"operation,omitempty" json:"operation,omitempty" xml:"operation,omitempty"`
 	// A specification of restful operations supported by the system.
 }
@@ -483,7 +482,7 @@ type CapabilityStatementRestResourceInteraction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -512,7 +511,7 @@ type CapabilityStatementRestResourceSearchParam struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -528,7 +527,7 @@ type CapabilityStatementRestResourceSearchParam struct {
 	//
 	// Comment: This SHOULD be present, and matches refers to a SearchParameter by its canonical URL. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource. This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.
 	Definition *string `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
-	//The type of value a search parameter refers to, and how the content is interpreted.
+	// The type of value a search parameter refers to, and how the content is interpreted.
 	//
 	// Comment: While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition.
 	Type SearchParamType `bson:"type" json:"type" xml:"type"`
@@ -559,7 +558,7 @@ type CapabilityStatementRestResourceOperation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -594,7 +593,7 @@ type CapabilityStatementRestInteraction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -623,13 +622,13 @@ type CapabilityStatementMessaging struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// An endpoint (network accessible address) to which messages and/or replies are to be sent.
 	Endpoint []CapabilityStatementMessagingEndpoint `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	//Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
+	// Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
 	//
 	// Comment: If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging.
 	ReliableCache *int `bson:"reliableCache,omitempty" json:"reliableCache,omitempty" xml:"reliableCache,omitempty"`
@@ -637,7 +636,7 @@ type CapabilityStatementMessaging struct {
 	//
 	//  For example, the process for becoming an authorized messaging exchange partner.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	//References to message definitions for messages this system can send or receive.
+	// References to message definitions for messages this system can send or receive.
 	//
 	// Comment: This is a proposed alternative to the messaging.event structure.
 	SupportedMessage []CapabilityStatementMessagingSupportedMessage `bson:"supportedMessage,omitempty" json:"supportedMessage,omitempty" xml:"supportedMessage,omitempty"`
@@ -658,7 +657,7 @@ type CapabilityStatementMessagingEndpoint struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -687,7 +686,7 @@ type CapabilityStatementMessagingSupportedMessage struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -712,7 +711,7 @@ type CapabilityStatementDocument struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -722,7 +721,7 @@ type CapabilityStatementDocument struct {
 	//
 	//  For example, when documents are created, what action is taken with consumed documents, etc.
 	Documentation *string `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
-	//A profile on the document Bundle that constrains which resources are present, and their contents.
+	// A profile on the document Bundle that constrains which resources are present, and their contents.
 	//
 	// Comment: The profile is actually on the Bundle.
 	Profile string `bson:"profile" json:"profile" xml:"profile"`

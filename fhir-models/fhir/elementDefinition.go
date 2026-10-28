@@ -24,7 +24,7 @@ type ElementDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -48,11 +48,11 @@ type ElementDefinition struct {
 	//
 	// Comment: If set to true, an ancestor profile SHALL have a slicing definition with this name.  If set to false, no ancestor profile is permitted to have a slicing definition with this name.
 	SliceIsConstraining *bool `bson:"sliceIsConstraining,omitempty" json:"sliceIsConstraining,omitempty" xml:"sliceIsConstraining,omitempty"`
-	//A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
+	// A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
 	//
 	// Comment: See also the extension [http://hl7.org/fhir/StructureDefinition/elementdefinition-question](http://hl7.org/fhir/extensions/StructureDefinition-elementdefinition-question.html).
 	Label *string `bson:"label,omitempty" json:"label,omitempty" xml:"label,omitempty"`
-	//A code that has the same meaning as the element in a particular terminology.
+	// A code that has the same meaning as the element in a particular terminology.
 	//
 	// Comment: The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system.
 	Code []Coding `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
@@ -104,7 +104,7 @@ type ElementDefinition struct {
 	//
 	// Comment: ContentReferences can only be defined in specializations, not constrained types, and they cannot be changed and always reference the non-constrained definition.
 	ContentReference *string `bson:"contentReference,omitempty" json:"contentReference,omitempty" xml:"contentReference,omitempty"`
-	//The data type or resource that the value of this element is permitted to be.
+	// The data type or resource that the value of this element is permitted to be.
 	//
 	// Comment: The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice).
 	Type []ElementDefinitionType `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
@@ -114,7 +114,7 @@ type ElementDefinition struct {
 	//
 	// Comment: Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed, or changed in constraints on content models. Defining default values creates many difficulties in implementation (e.g. when is a value missing?). For these reasons, default values are (and should be) used extremely sparingly.
 	//
-	//No default values are ever defined in the FHIR specification, nor can they be defined in constraints ("profiles") on data types or resources. This element only exists so that default values may be defined in logical models.
+	// No default values are ever defined in the FHIR specification, nor can they be defined in constraints ("profiles") on data types or resources. This element only exists so that default values may be defined in logical models.
 	DefaultValueBase64Binary          *string                `bson:"defaultValueBase64Binary,omitempty" json:"defaultValueBase64Binary,omitempty" xml:"defaultValueBase64Binary,omitempty"`
 	DefaultValueBoolean               *bool                  `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty" xml:"defaultValueBoolean,omitempty"`
 	DefaultValueCanonical             *string                `bson:"defaultValueCanonical,omitempty" json:"defaultValueCanonical,omitempty" xml:"defaultValueCanonical,omitempty"`
@@ -244,17 +244,19 @@ type ElementDefinition struct {
 	//
 	// Other additional values may be found too. This is effectively constraint by example.
 	//
-	//When pattern[x] is used to constrain a primitive, it means that the value provided in the pattern[x] must match the instance value exactly.
+	// When pattern[x] is used to constrain a primitive, it means that the value provided in the pattern[x] must match the instance value exactly.
 	//
-	//When an element within a pattern[x] is used to constrain an array, it means that each element provided in the pattern[x] must (recursively) match at least one element from the instance array.
+	// When an element within a pattern[x] is used to constrain an array, it means that each element provided in the pattern[x] must (recursively) match at least one element from the instance array.
 	//
-	//When pattern[x] is used to constrain a complex object, it means that each property in the pattern must be present in the complex object, and its value must recursively match -- i.e.,
+	// When pattern[x] is used to constrain a complex object, it means that each property in the pattern must be present in the complex object, and its value must recursively match -- i.e.,
 	//
-	//1. If primitive: it must match exactly the pattern value
-	//2. If a complex object: it must match (recursively) the pattern value
-	//3. If an array: it must match (recursively) the pattern value
+	// 1. If primitive: it must match exactly the pattern value
 	//
-	//If a pattern[x] is declared on a repeating element, the pattern applies to all repetitions.  If the desire is for a pattern to apply to only one element or a subset of elements, slicing must be used. See [Examples of Patterns](elementdefinition-examples.html#pattern-examples) for examples of pattern usage and the effect it will have.
+	// 2. If a complex object: it must match (recursively) the pattern value
+	//
+	// 3. If an array: it must match (recursively) the pattern value
+	//
+	// If a pattern[x] is declared on a repeating element, the pattern applies to all repetitions.  If the desire is for a pattern to apply to only one element or a subset of elements, slicing must be used. See [Examples of Patterns](elementdefinition-examples.html#pattern-examples) for examples of pattern usage and the effect it will have.
 	//
 	// Comment: Mostly used for fixing values of CodeableConcept. In general, pattern[x] is not intended for use with primitive types, where is has the same meaning as fixed[x].
 	PatternBase64Binary          *string                `bson:"patternBase64Binary,omitempty" json:"patternBase64Binary,omitempty" xml:"patternBase64Binary,omitempty"`
@@ -311,7 +313,7 @@ type ElementDefinition struct {
 	PatternExtendedContactDetail *ExtendedContactDetail `bson:"patternExtendedContactDetail,omitempty" json:"patternExtendedContactDetail,omitempty" xml:"patternExtendedContactDetail,omitempty"`
 	PatternDosage                *Dosage                `bson:"patternDosage,omitempty" json:"patternDosage,omitempty" xml:"patternDosage,omitempty"`
 	PatternMeta                  *Meta                  `bson:"patternMeta,omitempty" json:"patternMeta,omitempty" xml:"patternMeta,omitempty"`
-	//A sample value for this element demonstrating the type of information that would typically be found in the element.
+	// A sample value for this element demonstrating the type of information that would typically be found in the element.
 	//
 	// Comment: Examples will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
 	Example []ElementDefinitionExample `bson:"example,omitempty" json:"example,omitempty" xml:"example,omitempty"`
@@ -353,15 +355,15 @@ type ElementDefinition struct {
 	MaxLength *int `bson:"maxLength,omitempty" json:"maxLength,omitempty" xml:"maxLength,omitempty"`
 	// A reference to an invariant that may make additional statements about the cardinality or value in the instance.
 	Condition []string `bson:"condition,omitempty" json:"condition,omitempty" xml:"condition,omitempty"`
-	//Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
+	// Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
 	//
 	// Comment: Constraints should be declared on the "context" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint.
 	Constraint []ElementDefinitionConstraint `bson:"constraint,omitempty" json:"constraint,omitempty" xml:"constraint,omitempty"`
-	//Specifies for a primitive data type that the value of the data type cannot be replaced by an extension.
+	// Specifies for a primitive data type that the value of the data type cannot be replaced by an extension.
 	//
 	// Comment: Typical extensions that can be provided in place of a the value are [http://hl7.org/fhir/StructureDefinition/data-absent-reason](http://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html),  [http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor](http://hl7.org/fhir/extensions/StructureDefinition-iso21090-nullFlavor.html),  [http://hl7.org/fhir/StructureDefinition/originalText](http://hl7.org/fhir/extensions/StructureDefinition-originalText.html), and [http://hl7.org/fhir/StructureDefinition/cqf-expression](http://hl7.org/fhir/extensions/StructureDefinition-cqf-expression.html). Note that this element has no meaning when a value is provided, and extensions can be provided in addition to a value.
 	MustHaveValue *bool `bson:"mustHaveValue,omitempty" json:"mustHaveValue,omitempty" xml:"mustHaveValue,omitempty"`
-	//Specifies a list of extensions that can appear in place of a primitive value.
+	// Specifies a list of extensions that can appear in place of a primitive value.
 	//
 	// Comment: if mustHaveValue is true, then this element should not be present, since no extensions are allowed in place of the value. Note that this element has no impact if the value is present.
 	ValueAlternatives []string `bson:"valueAlternatives,omitempty" json:"valueAlternatives,omitempty" xml:"valueAlternatives,omitempty"`
@@ -379,23 +381,29 @@ type ElementDefinition struct {
 	IsModifier *bool `bson:"isModifier,omitempty" json:"isModifier,omitempty" xml:"isModifier,omitempty"`
 	// Explains how that element affects the interpretation of the resource or element that contains it.
 	IsModifierReason *string `bson:"isModifierReason,omitempty" json:"isModifierReason,omitempty" xml:"isModifierReason,omitempty"`
-	//Whether the element should be included if a client requests a search with the parameter _summary=true.
+	// Whether the element should be included if a client requests a search with the parameter _summary=true.
 	//
 	// Comment: Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance. When a request is made with _summary=true, serializers only include elements marked as 'isSummary = true'. With a few exceptions (listed below), all datatype properties are included in the summary form. In resource and datatype definitions, if an element has a descendant marked as isSummary=true or if it satisfies both of the following conditions, it must be marked as isSummary=true:
-	//* is at the root or has a parent that is 'mustSupport'
-	//* has a minimum cardinality of 1 or is a modifier element
 	//
-	//The following datatype properties are exceptions, and are not marked as isSummary:
-	//* Attachment.data
-	//* Signature.data, Signature.targetFormat, Signature.sigFormat
-	//* Narrative.status, Narrative.div
-	//* SampledData.data.
+	// * is at the root or has a parent that is 'mustSupport'
+	//
+	// * has a minimum cardinality of 1 or is a modifier element
+	//
+	// The following datatype properties are exceptions, and are not marked as isSummary:
+	//
+	// * Attachment.data
+	//
+	// * Signature.data, Signature.targetFormat, Signature.sigFormat
+	//
+	// * Narrative.status, Narrative.div
+	//
+	// * SampledData.data.
 	IsSummary *bool `bson:"isSummary,omitempty" json:"isSummary,omitempty" xml:"isSummary,omitempty"`
-	//Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).
+	// Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).
 	//
 	// Comment: For a CodeableConcept, when no codes are allowed - only text, use a binding of strength "required" with a description explaining that no coded values are allowed and what sort of information to put in the "text" element.
 	Binding *ElementDefinitionBinding `bson:"binding,omitempty" json:"binding,omitempty" xml:"binding,omitempty"`
-	//Identifies a concept from an external specification that roughly corresponds to this element.
+	// Identifies a concept from an external specification that roughly corresponds to this element.
 	//
 	// Comment: Mappings are not necessarily specific enough for safe translation.
 	Mapping []ElementDefinitionMapping `bson:"mapping,omitempty" json:"mapping,omitempty" xml:"mapping,omitempty"`
@@ -424,7 +432,7 @@ type ElementDefinitionSlicing struct {
 	//
 	// Comment: If it's really not possible to differentiate them, the design should be re-evaluated to make the content usable.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//If the matching elements have to occur in the same order as defined in the profile.
+	// If the matching elements have to occur in the same order as defined in the profile.
 	//
 	// Comment: Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable.
 	Ordered *bool `bson:"ordered,omitempty" json:"ordered,omitempty" xml:"ordered,omitempty"`
@@ -451,7 +459,7 @@ type ElementDefinitionSlicingDiscriminator struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//How the element value is interpreted when discrimination is evaluated.
+	// How the element value is interpreted when discrimination is evaluated.
 	//
 	// Comment: 'pattern' is deprecated - it works exactly the same as 'value'.
 	Type DiscriminatorType `bson:"type" json:"type" xml:"type"`
@@ -478,11 +486,11 @@ type ElementDefinitionBase struct {
 	//
 	// Across FHIR, there is only one base definition of any element - that is, an element definition on a [StructureDefinition](structuredefinition.html#) without a StructureDefinition.base.
 	Path string `bson:"path" json:"path" xml:"path"`
-	//Minimum cardinality of the base element identified by the path.
+	// Minimum cardinality of the base element identified by the path.
 	//
 	// Comment: This is provided for consistency with max, and may affect code generation of mandatory elements of the base resource are generated differently (some reference implementations have done this).
 	Min int `bson:"min" json:"min" xml:"min"`
-	//Maximum cardinality of the base element identified by the path.
+	// Maximum cardinality of the base element identified by the path.
 	//
 	// Comment: This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ.
 	Max string `bson:"max" json:"max" xml:"max"`
@@ -519,11 +527,11 @@ type ElementDefinitionType struct {
 	//
 	// If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
 	TargetProfile []string `bson:"targetProfile,omitempty" json:"targetProfile,omitempty" xml:"targetProfile,omitempty"`
-	//If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
+	// If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
 	//
 	// Comment: See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification.
 	Aggregation []AggregationMode `bson:"aggregation,omitempty" json:"aggregation,omitempty" xml:"aggregation,omitempty"`
-	//Whether this reference needs to be version specific or version independent, or whether either can be used.
+	// Whether this reference needs to be version specific or version independent, or whether either can be used.
 	//
 	// Comment: The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification.
 	Versioning *ReferenceVersionRules `bson:"versioning,omitempty" json:"versioning,omitempty" xml:"versioning,omitempty"`
@@ -624,27 +632,27 @@ type ElementDefinitionConstraint struct {
 	//
 	//  Will not be referenced for constraints that do not affect cardinality.
 	Key string `bson:"key" json:"key" xml:"key"`
-	//Description of why this constraint is necessary or appropriate.
+	// Description of why this constraint is necessary or appropriate.
 	//
 	// Comment: To be used if the reason for the constraint might not be intuitive to all implementers.
 	Requirements *string `bson:"requirements,omitempty" json:"requirements,omitempty" xml:"requirements,omitempty"`
-	//Identifies the impact constraint violation has on the conformance of the instance.
+	// Identifies the impact constraint violation has on the conformance of the instance.
 	//
 	// Comment: This allows constraints to be asserted as "shall" (error) and "should" (warning).
 	Severity ConstraintSeverity `bson:"severity" json:"severity" xml:"severity"`
-	//If true, indicates that the warning or best practice guideline should be suppressed.
+	// If true, indicates that the warning or best practice guideline should be suppressed.
 	//
 	// Comment: This element should only be present in a derived profile where a warning or hint has been determined to be spurious/incorrect. E.g. a warning encouraging the inclusion of an element that the profile explicitly prohibits.
 	Suppress *bool `bson:"suppress,omitempty" json:"suppress,omitempty" xml:"suppress,omitempty"`
-	//Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
+	// Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
 	//
 	// Comment: Should be expressed in business terms as much as possible.
 	Human string `bson:"human" json:"human" xml:"human"`
-	//A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
+	// A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
 	//
 	// Comment: In the absense of an expression, the expression is likely not enforceable by validators, and might be missed by many systems.
 	Expression *string `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
-	//A reference to the original source of the constraint, for traceability purposes.
+	// A reference to the original source of the constraint, for traceability purposes.
 	//
 	// Comment: This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot.
 	Source *string `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
@@ -663,13 +671,13 @@ type ElementDefinitionBinding struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+	// Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
 	//
 	// Comment: For further discussion, see [Using Terminologies](terminologies.html).
 	Strength BindingStrength `bson:"strength" json:"strength" xml:"strength"`
 	// Describes the intended use of this particular set of codes.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//Refers to the value set that identifies the set of codes the binding refers to.
+	// Refers to the value set that identifies the set of codes the binding refers to.
 	//
 	// Comment: The reference may be version-specific or not (e.g. have a |[version] at the end of the canonical URL).
 	ValueSet *string `bson:"valueSet,omitempty" json:"valueSet,omitempty" xml:"valueSet,omitempty"`
@@ -692,7 +700,7 @@ type ElementDefinitionBindingAdditional struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//The use of this additional binding.
+	// The use of this additional binding.
 	//
 	// Comment: Conformance bindings are in addition to the base binding, not instead of it.
 	Purpose AdditionalBindingPurposeVS `bson:"purpose" json:"purpose" xml:"purpose"`
@@ -731,11 +739,11 @@ type ElementDefinitionMapping struct {
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
 	// An internal reference to the definition of a mapping.
 	Identity string `bson:"identity" json:"identity" xml:"identity"`
-	//Identifies the computable language in which mapping.map is expressed.
+	// Identifies the computable language in which mapping.map is expressed.
 	//
 	// Comment: If omitted, then there can be no expectation of computational interpretation of the mapping.
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	//Expresses what part of the target specification corresponds to this element.
+	// Expresses what part of the target specification corresponds to this element.
 	//
 	// Comment: For most mappings, the syntax is undefined.  Syntax will be provided for mappings to the RIM.  Multiple mappings may be possible and may include constraints on other resource elements that identify when a particular mapping applies.
 	Map string `bson:"map" json:"map" xml:"map"`

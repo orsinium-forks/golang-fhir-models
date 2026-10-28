@@ -18,7 +18,7 @@ type Annotation struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//The individual responsible for making the annotation.
+	// The individual responsible for making the annotation.
 	//
 	// Comment: Organization is used when there's no need for specific attribution as to who made the comment.
 	AuthorReference *Reference `bson:"authorReference,omitempty" json:"authorReference,omitempty" xml:"authorReference,omitempty"`

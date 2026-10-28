@@ -26,7 +26,7 @@ type EvidenceReport struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type EvidenceReport struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,13 +61,11 @@ type EvidenceReport struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	// The status of this summary.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this summary. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of summaries that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
 	// The content was developed with a focus and intent of supporting the contexts that are listed.
 	//
@@ -75,15 +73,15 @@ type EvidenceReport struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A formal identifier that is used to identify this EvidenceReport when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this EvidenceReport when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: This element will contain unique identifiers that support de-duplication of EvidenceReports. This identifier can be valid for only one EvidenceReport resource.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//A formal identifier that is used to identify things closely related to this EvidenceReport.
+	// A formal identifier that is used to identify things closely related to this EvidenceReport.
 	//
 	// Comment: May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This identifier can be valid for multiple EvidenceReport resources.
 	RelatedIdentifier []Identifier `bson:"relatedIdentifier,omitempty" json:"relatedIdentifier,omitempty" xml:"relatedIdentifier,omitempty"`
-	//Citation Resource or display of suggested citation for this report.
+	// Citation Resource or display of suggested citation for this report.
 	//
 	// Comment: used for reports for which external citation is expected, such as use in support of scholarly publications.
 	CiteAsReference *Reference `bson:"citeAsReference,omitempty" json:"citeAsReference,omitempty" xml:"citeAsReference,omitempty"`
@@ -94,43 +92,41 @@ type EvidenceReport struct {
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// Link, description or reference to artifact associated with the report.
 	RelatedArtifact []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
-	// Specifies the subject or focus of the report.
-	//
-	// Answers "What is this report about?".
+	// Specifies the subject or focus of the report. Answers "What is this report about?".
 	//
 	// Comment: May be used as an expression for search queries and search results
 	Subject EvidenceReportSubject `bson:"subject" json:"subject" xml:"subject"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the evidence report is the organization or individual primarily responsible for the maintenance and upkeep of the evidence report. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence report. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//An individiual, organization, or device primarily involved in the creation and maintenance of the content.
+	// An individiual, organization, or device primarily involved in the creation and maintenance of the content.
 	//
 	// Comment: Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).
 	Author []ContactDetail `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
-	//An individiual, organization, or device primarily responsible for internal coherence of the content.
+	// An individiual, organization, or device primarily responsible for internal coherence of the content.
 	//
 	// Comment: Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).
 	Editor []ContactDetail `bson:"editor,omitempty" json:"editor,omitempty" xml:"editor,omitempty"`
-	//An individiual, organization, or device primarily responsible for review of some aspect of the content.
+	// An individiual, organization, or device primarily responsible for review of some aspect of the content.
 	//
 	// Comment: Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Reviewer []ContactDetail `bson:"reviewer,omitempty" json:"reviewer,omitempty" xml:"reviewer,omitempty"`
-	//An individiual, organization, or device responsible for officially endorsing the content for use in some setting.
+	// An individiual, organization, or device responsible for officially endorsing the content for use in some setting.
 	//
 	// Comment: Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Endorser []ContactDetail `bson:"endorser,omitempty" json:"endorser,omitempty" xml:"endorser,omitempty"`
-	//Relationships that this composition has with other compositions or documents that already exist.
+	// Relationships that this composition has with other compositions or documents that already exist.
 	//
 	// Comment: A document is a version specific composition.
 	RelatesTo []EvidenceReportRelatesTo `bson:"relatesTo,omitempty" json:"relatesTo,omitempty" xml:"relatesTo,omitempty"`
@@ -153,7 +149,7 @@ type EvidenceReportSubject struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -180,15 +176,15 @@ type EvidenceReportSubjectCharacteristic struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Characteristic code.
+	// Characteristic code.
 	//
 	// Comment: Example 1 is a Citation. Example 2 is a type of outcome. Example 3 is a specific outcome.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
-	//Characteristic value.
+	// Characteristic value.
 	//
 	// Comment: Example 1 is Citation #37. Example 2 is selecting clinical outcomes. Example 3 is 1-year mortality.
 	ValueReference       Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
@@ -217,11 +213,11 @@ type EvidenceReportRelatesTo struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The type of relationship that this composition has with anther composition or document.
+	// The type of relationship that this composition has with anther composition or document.
 	//
 	// Comment: If this document appends another document, then the document cannot be fully understood without also accessing the referenced document.
 	Code ReportRelationshipType `bson:"code" json:"code" xml:"code"`
@@ -244,7 +240,7 @@ type EvidenceReportRelatesToTarget struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -273,7 +269,7 @@ type EvidenceReportSection struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -289,7 +285,7 @@ type EvidenceReportSection struct {
 	//
 	// Comment: The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.
 	//
-	//If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.
+	// If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.
 	Focus *CodeableConcept `bson:"focus,omitempty" json:"focus,omitempty" xml:"focus,omitempty"`
 	// A definitional Resource identifying the kind of content contained within the section.
 	//
@@ -303,17 +299,17 @@ type EvidenceReportSection struct {
 	//
 	// Comment: Document profiles may define what content should be represented in the narrative.
 	Text *Narrative `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
-	//How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+	// How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
 	//
 	// Comment: This element is labeled as a modifier because a change list must not be misunderstood as a complete list.
 	Mode *ListMode `bson:"mode,omitempty" json:"mode,omitempty" xml:"mode,omitempty"`
-	//Specifies the order applied to the items in the section entries.
+	// Specifies the order applied to the items in the section entries.
 	//
 	// Comment: Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order.
 	OrderedBy *CodeableConcept `bson:"orderedBy,omitempty" json:"orderedBy,omitempty" xml:"orderedBy,omitempty"`
 	// Specifies any type of classification of the evidence report.
 	EntryClassifier []CodeableConcept `bson:"entryClassifier,omitempty" json:"entryClassifier,omitempty" xml:"entryClassifier,omitempty"`
-	//A reference to the actual resource from which the narrative in the section is derived.
+	// A reference to the actual resource from which the narrative in the section is derived.
 	//
 	// Comment: If there are no entries in the list, an emptyReason SHOULD be provided.
 	EntryReference []Reference `bson:"entryReference,omitempty" json:"entryReference,omitempty" xml:"entryReference,omitempty"`
@@ -325,7 +321,7 @@ type EvidenceReportSection struct {
 	//
 	// Comment: The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.
 	EmptyReason *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty" xml:"emptyReason,omitempty"`
-	//A nested sub-section within this section.
+	// A nested sub-section within this section.
 	//
 	// Comment: Nested sections are primarily used to help human readers navigate to particular portions of the document.
 	Section []EvidenceReportSection `bson:"section,omitempty" json:"section,omitempty"`

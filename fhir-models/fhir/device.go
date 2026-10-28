@@ -30,7 +30,7 @@ type Device struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,11 +55,11 @@ type Device struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
+	// Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
 	//
 	// Comment: Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used. The identifier is typically valued if the serialNumber or lotNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -75,13 +75,11 @@ type Device struct {
 	//
 	// Comment: UDI may identify an unique instance of a device, or it may only identify the type of the device.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
 	UdiCarrier []DeviceUdiCarrier `bson:"udiCarrier,omitempty" json:"udiCarrier,omitempty" xml:"udiCarrier,omitempty"`
-	// The Device record status.
-	//
-	// This is not the status of the device like availability.
+	// The Device record status. This is not the status of the device like availability.
 	Status *FHIRDeviceStatus `bson:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
 	// The availability of the device.
 	AvailabilityStatus *CodeableConcept `bson:"availabilityStatus,omitempty" json:"availabilityStatus,omitempty" xml:"availabilityStatus,omitempty"`
-	//An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled.
+	// An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled.
 	//
 	// Comment: Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier.
 	BiologicalSourceEvent *Identifier `bson:"biologicalSourceEvent,omitempty" json:"biologicalSourceEvent,omitempty" xml:"biologicalSourceEvent,omitempty"`
@@ -93,7 +91,7 @@ type Device struct {
 	ExpirationDate *string `bson:"expirationDate,omitempty" json:"expirationDate,omitempty" xml:"expirationDate,omitempty"`
 	// Lot number assigned by the manufacturer.
 	LotNumber *string `bson:"lotNumber,omitempty" json:"lotNumber,omitempty" xml:"lotNumber,omitempty"`
-	//The serial number assigned by the organization when the device was manufactured.
+	// The serial number assigned by the organization when the device was manufactured.
 	//
 	// Comment: Alphanumeric Maximum 20. While a serial number is a type of identifier, in the context of devices for which a UDI is required, thus a serial number may be part of the production identifier, it is more informative to have the serial number as a dedicated attribute together with the other UDI production identifier.  When the device is not subject to including the UDI (e.g., its presence and exchange is not mandated by local regulatory requirements or specific use case at hand), thus the concept of production identifiers is not relevant as a set, it remains helpful for consistency to still use Device.serialNumber rather than using Device.identifier with an appropriate type.  Systems that do not realize an identifier is a serial number may place it in Device.identifier or if the identifier.system is known for the serial number, it may also be populated in the Device.identifier as a globally unique id_.
 	SerialNumber *string `bson:"serialNumber,omitempty" json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
@@ -103,7 +101,7 @@ type Device struct {
 	Name []DeviceName `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// The manufacturer's model number for the device.
 	ModelNumber *string `bson:"modelNumber,omitempty" json:"modelNumber,omitempty" xml:"modelNumber,omitempty"`
-	//The part number or catalog number of the device.
+	// The part number or catalog number of the device.
 	//
 	// Comment: Alphanumeric Maximum 20.
 	PartNumber *string `bson:"partNumber,omitempty" json:"partNumber,omitempty" xml:"partNumber,omitempty"`
@@ -121,7 +119,7 @@ type Device struct {
 	//
 	// The device may be certified as conformant to these specifications e.g., communication, performance, process, measurement, or specialization standards.
 	ConformsTo []DeviceConformsTo `bson:"conformsTo,omitempty" json:"conformsTo,omitempty" xml:"conformsTo,omitempty"`
-	//Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes.
+	// Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes.
 	//
 	// Comment: Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific [DeviceMetric] and recorded using [Observation].  Static characteristics of a device could also be documented in an associated [DeviceDefinition] instance. The Device instance's properties, and their values, could be, but need not be, the same as those described in an associated DeviceDefinition.
 	Property []DeviceProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
@@ -133,19 +131,19 @@ type Device struct {
 	Duration *Duration `bson:"duration,omitempty" json:"duration,omitempty" xml:"duration,omitempty"`
 	// An organization that is responsible for the provision and ongoing maintenance of the device.
 	Owner *Reference `bson:"owner,omitempty" json:"owner,omitempty" xml:"owner,omitempty"`
-	//Contact details for an organization or a particular human that is responsible for the device.
+	// Contact details for an organization or a particular human that is responsible for the device.
 	//
 	// Comment: used for troubleshooting etc.
 	Contact []ContactPoint `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
 	// The place where the device can be found.
 	Location *Reference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
-	//A network address on which the device may be contacted directly.
+	// A network address on which the device may be contacted directly.
 	//
 	// Comment: If the device is running a FHIR server, the network address should  be the Base URL from which a conformance statement may be retrieved.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 	// Technical endpoints providing access to services provided by the device defined at this resource.
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	//The linked device acting as a communication controller, data collector, translator, or concentrator for the current device (e.g., mobile phone application that relays a blood pressure device's data).
+	// The linked device acting as a communication controller, data collector, translator, or concentrator for the current device (e.g., mobile phone application that relays a blood pressure device's data).
 	//
 	// Comment: The Device.gateway may be used when the Device being referenced has a gateway and/or to capture one or more gateways associated with the device. If the Gateway is included in the Observation resource, the Observation.gatewayDevice should be used instead.
 	Gateway []CodeableReference `bson:"gateway,omitempty" json:"gateway,omitempty" xml:"gateway,omitempty"`
@@ -155,7 +153,7 @@ type Device struct {
 	//
 	//  For example devices containing latex.
 	Safety []CodeableConcept `bson:"safety,omitempty" json:"safety,omitempty" xml:"safety,omitempty"`
-	//The higher level or encompassing device that this device is a logical part of.
+	// The higher level or encompassing device that this device is a logical part of.
 	//
 	// Comment: For example a vital signs monitor (parent) where three separate modules can be plugged into such as interchangeable blood pressure, oximeter, temperature modules.  These modules are represented as devices with the .parent valued to the vital signs monitor when plugged in.
 	Parent *Reference `bson:"parent,omitempty" json:"parent,omitempty" xml:"parent,omitempty"`
@@ -175,7 +173,7 @@ type DeviceUdiCarrier struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -184,10 +182,14 @@ type DeviceUdiCarrier struct {
 	// Organization that is charged with issuing UDIs for devices.
 	//
 	// For example, the US FDA issuers include:
-	//1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di,
-	//2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI,
-	//3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di,
-	//4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di.
+	//
+	// 1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di,
+	//
+	// 2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI,
+	//
+	// 3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di,
+	//
+	// 4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di.
 	Issuer string `bson:"issuer" json:"issuer" xml:"issuer"`
 	// The identity of the authoritative source for UDI generation within a jurisdiction.
 	//
@@ -199,15 +201,13 @@ type DeviceUdiCarrier struct {
 	//
 	// Comment: The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions. If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label.
 	CarrierAIDC *string `bson:"carrierAIDC,omitempty" json:"carrierAIDC,omitempty" xml:"carrierAIDC,omitempty"`
-	//The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.
+	// The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.
 	//
 	// Comment: If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label.
 	CarrierHRF *string `bson:"carrierHRF,omitempty" json:"carrierHRF,omitempty" xml:"carrierHRF,omitempty"`
 	// A coded entry to indicate how the data was entered.
 	EntryType *UDIEntryType `bson:"entryType,omitempty" json:"entryType,omitempty" xml:"entryType,omitempty"`
-	// The Device record status.
-	//
-	// This is not the status of the device like availability.
+	// The Device record status. This is not the status of the device like availability.
 }
 type DeviceName struct {
 	// Unique id for the element within a resource (for internal references).
@@ -224,15 +224,13 @@ type DeviceName struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The actual name that identifies the device.
 	Value string `bson:"value" json:"value" xml:"value"`
-	// Indicates the kind of name.
-	//
-	// RegisteredName | UserFriendlyName | PatientReportedName.
+	// Indicates the kind of name. RegisteredName | UserFriendlyName | PatientReportedName.
 	Type DeviceNameType `bson:"type" json:"type" xml:"type"`
 	// Indicates the default or preferred name to be displayed.
 	Display *bool `bson:"display,omitempty" json:"display,omitempty" xml:"display,omitempty"`
@@ -253,15 +251,13 @@ type DeviceVersion struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// The type of the device version, e.g.
-	//
-	// manufacturer, approved, internal.
+	// The type of the device version, e.g. manufacturer, approved, internal.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
-	//The hardware or software module of the device to which the version applies.
+	// The hardware or software module of the device to which the version applies.
 	//
 	// Comment: Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version.
 	Component *Identifier `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
@@ -288,7 +284,7 @@ type DeviceConformsTo struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -319,13 +315,13 @@ type DeviceProperty struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Code that specifies the property, such as resolution, color, size, being represented.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//The value of the property specified by the associated property.type code.
+	// The value of the property specified by the associated property.type code.
 	//
 	// Comment: The text element in CodeableConcept.text is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g. a custom implant size, or a security classification which depends on configuration). Otherwise the string choice type is used for descriptive properties, or instructions.
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`

@@ -24,7 +24,7 @@ type VirtualServiceDetail struct {
 	//
 	// Comment: As this type defines what the virtual service is, it then defines what address and additional information might be relevant.
 	//
-	//Some profiles could be used for specific types to define what the other values could/should be.
+	// Some profiles could be used for specific types to define what the other values could/should be.
 	ChannelType *Coding `bson:"channelType,omitempty" json:"channelType,omitempty" xml:"channelType,omitempty"`
 	// What address or number needs to be used for a user to connect to the virtual service to join.
 	//
@@ -33,20 +33,20 @@ type VirtualServiceDetail struct {
 	AddressString                *string                `bson:"addressString,omitempty" json:"addressString,omitempty" xml:"addressString,omitempty"`
 	AddressContactPoint          *ContactPoint          `bson:"addressContactPoint,omitempty" json:"addressContactPoint,omitempty" xml:"addressContactPoint,omitempty"`
 	AddressExtendedContactDetail *ExtendedContactDetail `bson:"addressExtendedContactDetail,omitempty" json:"addressExtendedContactDetail,omitempty" xml:"addressExtendedContactDetail,omitempty"`
-	//Address to see alternative connection details.
+	// Address to see alternative connection details.
 	//
 	// Comment: This web address can be used to provide additional details on the call, such as alternative/regional call in numbers, or other associated services.
 	AdditionalInfo []string `bson:"additionalInfo,omitempty" json:"additionalInfo,omitempty" xml:"additionalInfo,omitempty"`
-	//Maximum number of participants supported by the virtual service.
+	// Maximum number of participants supported by the virtual service.
 	//
 	// Comment: Some services have only a limitted number of participants permitted to connect at a time, this is typically used in "shared" virtual services that you might find on location resources.
 	//
-	//Typically on-demand services might not have these restrictions.
+	// Typically on-demand services might not have these restrictions.
 	MaxParticipants *int `bson:"maxParticipants,omitempty" json:"maxParticipants,omitempty" xml:"maxParticipants,omitempty"`
-	//Session Key required by the virtual service.
+	// Session Key required by the virtual service.
 	//
 	// Comment: Some services require a session key to be able to access the service once connected.
 	//
-	//This could be in cases where a shared number is used, and a session key is added to put into a private line, or to identify the participant in a call.
+	// This could be in cases where a shared number is used, and a session key is added to put into a private line, or to identify the participant in a call.
 	SessionKey *string `bson:"sessionKey,omitempty" json:"sessionKey,omitempty" xml:"sessionKey,omitempty"`
 }

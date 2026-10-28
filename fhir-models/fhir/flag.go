@@ -26,7 +26,7 @@ type Flag struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,15 +51,15 @@ type Flag struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//Supports basic workflow.
+	// Supports basic workflow.
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status FlagStatus `bson:"status" json:"status" xml:"status"`
@@ -69,7 +69,7 @@ type Flag struct {
 	//
 	// Comment: The value set will often need to be adjusted based on local business rules and usage context.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	//The coded value or textual component of the flag to display to the user.
+	// The coded value or textual component of the flag to display to the user.
 	//
 	// Comment: If non-coded, use CodeableConcept.text.  This element should always be included in the narrative.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
@@ -81,7 +81,7 @@ type Flag struct {
 	//
 	// If the flag is active, the end of the period should be unspecified.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	//This alert is only relevant during the encounter.
+	// This alert is only relevant during the encounter.
 	//
 	// Comment: If both Flag.encounter and Flag.period are valued, then Flag.period.start shall not be before Encounter.period.start and Flag.period.end shall not be after Encounter.period.end.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`

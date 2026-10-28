@@ -26,29 +26,25 @@ type Attachment struct {
 	//
 	// Includes mime type parameters such as charset where appropriate.
 	ContentType *string `bson:"contentType,omitempty" json:"contentType,omitempty" xml:"contentType,omitempty"`
-	// The human language of the content.
-	//
-	// The value can be any valid value according to BCP 47.
+	// The human language of the content. The value can be any valid value according to BCP 47.
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	//The actual data of the attachment - a sequence of bytes, base64 encoded.
+	// The actual data of the attachment - a sequence of bytes, base64 encoded.
 	//
 	// Comment: The base64-encoded data SHALL be expressed in the same character set as the base resource XML or JSON.
 	Data *string `bson:"data,omitempty" json:"data,omitempty" xml:"data,omitempty"`
-	//A location where the data can be accessed.
+	// A location where the data can be accessed.
 	//
 	// Comment: If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	//The number of bytes of data that make up this attachment (before base64 encoding, if that is done).
+	// The number of bytes of data that make up this attachment (before base64 encoding, if that is done).
 	//
 	// Comment: The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference.
 	Size *int64 `bson:"size,omitempty" json:"size,omitempty,string" xml:"size,omitempty"`
-	// The calculated hash of the data using SHA-1.
-	//
-	// Represented using base64.
+	// The calculated hash of the data using SHA-1. Represented using base64.
 	//
 	// Comment: The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature.
 	Hash *string `bson:"hash,omitempty" json:"hash,omitempty" xml:"hash,omitempty"`
-	//A label or set of text to display in place of the data.
+	// A label or set of text to display in place of the data.
 	//
 	// Comment: May sometimes be derived from the source filename.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
@@ -64,7 +60,7 @@ type Attachment struct {
 	//
 	// Comment: if the number of frames is not supplied, the value may be unknown. Applications should not assume that there is only one frame unless it is explicitly stated.
 	Frames *int `bson:"frames,omitempty" json:"frames,omitempty" xml:"frames,omitempty"`
-	//The duration of the recording in seconds - for audio and video.
+	// The duration of the recording in seconds - for audio and video.
 	//
 	// Comment: The duration might differ from occurrencePeriod if recording was paused.
 	Duration *decimal.Decimal `bson:"duration,omitempty" json:"duration,omitempty" xml:"duration,omitempty"`

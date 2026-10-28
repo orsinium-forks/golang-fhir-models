@@ -30,7 +30,7 @@ type ClaimResponse struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type ClaimResponse struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -65,15 +65,15 @@ type ClaimResponse struct {
 	//
 	// May be defined at the jurisdiction level or between trading partners.
 	TraceNumber []Identifier `bson:"traceNumber,omitempty" json:"traceNumber,omitempty" xml:"traceNumber,omitempty"`
-	//The status of the resource instance.
+	// The status of the resource instance.
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status FinancialResourceStatusCodes `bson:"status" json:"status" xml:"status"`
-	//A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
+	// A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
 	//
 	// Comment: This may contain the local bill type codes, for example the US UB-04 bill type code or the CMS bill type.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
+	// A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
 	//
 	// Comment: This may contain the local bill type codes, for example the US UB-04 bill type code or the CMS bill type.
 	SubType *CodeableConcept `bson:"subType,omitempty" json:"subType,omitempty" xml:"subType,omitempty"`
@@ -85,23 +85,23 @@ type ClaimResponse struct {
 	Created string `bson:"created" json:"created" xml:"created"`
 	// The party responsible for authorization, adjudication and reimbursement.
 	Insurer *Reference `bson:"insurer,omitempty" json:"insurer,omitempty" xml:"insurer,omitempty"`
-	//The provider which is responsible for the claim, predetermination or preauthorization.
+	// The provider which is responsible for the claim, predetermination or preauthorization.
 	//
 	// Comment: Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner..
 	Requestor *Reference `bson:"requestor,omitempty" json:"requestor,omitempty" xml:"requestor,omitempty"`
 	// Original request resource reference.
 	Request *Reference `bson:"request,omitempty" json:"request,omitempty" xml:"request,omitempty"`
-	//The outcome of the claim, predetermination, or preauthorization processing.
+	// The outcome of the claim, predetermination, or preauthorization processing.
 	//
 	// Comment: The resource may be used to indicate that the Claim/Preauthorization/Pre-determination has been received but processing has not begun (queued); that it has been processed and one or more errors have been detected (error); no errors were detected and some of the adjudication processing has been performed (partial); or all of the adjudication processing has completed without errors (complete).
 	Outcome ClaimProcessingCodes `bson:"outcome" json:"outcome" xml:"outcome"`
-	//The result of the claim, predetermination, or preauthorization adjudication.
+	// The result of the claim, predetermination, or preauthorization adjudication.
 	//
 	// Comment: The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amount will be paid (partial).
 	Decision *CodeableConcept `bson:"decision,omitempty" json:"decision,omitempty" xml:"decision,omitempty"`
 	// A human readable description of the status of the adjudication.
 	Disposition *string `bson:"disposition,omitempty" json:"disposition,omitempty" xml:"disposition,omitempty"`
-	//Reference from the Insurer which is used in later communications which refers to this adjudication.
+	// Reference from the Insurer which is used in later communications which refers to this adjudication.
 	//
 	// Comment: This value is only present on preauthorization adjudications.
 	PreAuthRef *string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
@@ -111,11 +111,11 @@ type ClaimResponse struct {
 	Event []ClaimResponseEvent `bson:"event,omitempty" json:"event,omitempty" xml:"event,omitempty"`
 	// Type of Party to be reimbursed: subscriber, provider, other.
 	PayeeType *CodeableConcept `bson:"payeeType,omitempty" json:"payeeType,omitempty" xml:"payeeType,omitempty"`
-	//Healthcare encounters related to this claim.
+	// Healthcare encounters related to this claim.
 	//
 	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter.
 	Encounter []Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system.
+	// A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system.
 	//
 	// Comment: For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardial Infarction and a DRG for HeartAttack would be assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event.
 	DiagnosisRelatedGroup *CodeableConcept `bson:"diagnosisRelatedGroup,omitempty" json:"diagnosisRelatedGroup,omitempty" xml:"diagnosisRelatedGroup,omitempty"`
@@ -127,35 +127,35 @@ type ClaimResponse struct {
 	AddItem []ClaimResponseAddItem `bson:"addItem,omitempty" json:"addItem,omitempty" xml:"addItem,omitempty"`
 	// The adjudication results which are presented at the header level rather than at the line-item or add-item levels.
 	Adjudication []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	//Categorized monetary totals for the adjudication.
+	// Categorized monetary totals for the adjudication.
 	//
 	// Comment: Totals for amounts submitted, co-pays, benefits payable etc.
 	Total []ClaimResponseTotal `bson:"total,omitempty" json:"total,omitempty" xml:"total,omitempty"`
 	// Payment details for the adjudication of the claim.
 	Payment *ClaimResponsePayment `bson:"payment,omitempty" json:"payment,omitempty" xml:"payment,omitempty"`
-	//A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom.
+	// A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom.
 	//
 	// Comment: Fund would be release by a future claim quoting the preAuthRef of this response. Examples of values include: provider, patient, none.
 	FundsReserve *CodeableConcept `bson:"fundsReserve,omitempty" json:"fundsReserve,omitempty" xml:"fundsReserve,omitempty"`
-	//A code for the form to be used for printing the content.
+	// A code for the form to be used for printing the content.
 	//
 	// Comment: May be needed to identify specific jurisdictional forms.
 	FormCode *CodeableConcept `bson:"formCode,omitempty" json:"formCode,omitempty" xml:"formCode,omitempty"`
-	//The actual form, by reference or inclusion, for printing the content or an EOB.
+	// The actual form, by reference or inclusion, for printing the content or an EOB.
 	//
 	// Comment: Needed to permit insurers to include the actual form.
 	Form *Attachment `bson:"form,omitempty" json:"form,omitempty" xml:"form,omitempty"`
 	// A note that describes or explains adjudication results in a human readable form.
 	ProcessNote []ClaimResponseProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty" xml:"processNote,omitempty"`
-	//Request for additional supporting or authorizing information.
+	// Request for additional supporting or authorizing information.
 	//
 	// Comment: For example: professional reports, documents, images, clinical resources, or accident reports.
 	CommunicationRequest []Reference `bson:"communicationRequest,omitempty" json:"communicationRequest,omitempty" xml:"communicationRequest,omitempty"`
-	//Financial instruments for reimbursement for the health care products and services specified on the claim.
+	// Financial instruments for reimbursement for the health care products and services specified on the claim.
 	//
 	// Comment: All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 	Insurance []ClaimResponseInsurance `bson:"insurance,omitempty" json:"insurance,omitempty" xml:"insurance,omitempty"`
-	//Errors encountered during the processing of the adjudication.
+	// Errors encountered during the processing of the adjudication.
 	//
 	// Comment: If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
 	Error []ClaimResponseError `bson:"error,omitempty" json:"error,omitempty" xml:"error,omitempty"`
@@ -176,7 +176,7 @@ type ClaimResponseEvent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -202,7 +202,7 @@ type ClaimResponseItem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -241,17 +241,17 @@ type ClaimResponseItemReviewOutcome struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The result of the claim, predetermination, or preauthorization adjudication.
+	// The result of the claim, predetermination, or preauthorization adjudication.
 	//
 	// Comment: The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amount will be paid (partial).
 	Decision *CodeableConcept `bson:"decision,omitempty" json:"decision,omitempty" xml:"decision,omitempty"`
 	// The reasons for the result of the claim, predetermination, or preauthorization adjudication.
 	Reason []CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	//Reference from the Insurer which is used in later communications which refers to this adjudication.
+	// Reference from the Insurer which is used in later communications which refers to this adjudication.
 	//
 	// Comment: This value is only present on preauthorization adjudications.
 	PreAuthRef *string `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty" xml:"preAuthRef,omitempty"`
@@ -276,7 +276,7 @@ type ClaimResponseItemAdjudication struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -286,11 +286,11 @@ type ClaimResponseItemAdjudication struct {
 	//
 	// Comment: For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 	Category CodeableConcept `bson:"category" json:"category" xml:"category"`
-	//A code supporting the understanding of the adjudication result and explaining variance from expected amount.
+	// A code supporting the understanding of the adjudication result and explaining variance from expected amount.
 	//
 	// Comment: For example may indicate that the funds for this benefit type have been exhausted.
 	Reason *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	//Monetary amount associated with the category.
+	// Monetary amount associated with the category.
 	//
 	// Comment: For example: amount submitted, eligible amount, co-payment, and benefit payable.
 	Amount *Money `bson:"amount,omitempty" json:"amount,omitempty" xml:"amount,omitempty"`
@@ -319,7 +319,7 @@ type ClaimResponseItemDetail struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -354,7 +354,7 @@ type ClaimResponseItemDetailSubDetail struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -387,7 +387,7 @@ type ClaimResponseAddItem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -417,11 +417,11 @@ type ClaimResponseAddItem struct {
 	ProductOrServiceEnd *CodeableConcept `bson:"productOrServiceEnd,omitempty" json:"productOrServiceEnd,omitempty" xml:"productOrServiceEnd,omitempty"`
 	// Request or Referral for Goods or Service to be rendered.
 	Request []Reference `bson:"request,omitempty" json:"request,omitempty" xml:"request,omitempty"`
-	//Item typification or modifiers codes to convey additional context for the product or service.
+	// Item typification or modifiers codes to convey additional context for the product or service.
 	//
 	// Comment: For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or outside of office hours.
 	Modifier []CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
-	//Identifies the program under which this may be recovered.
+	// Identifies the program under which this may be recovered.
 	//
 	// Comment: For example: Neonatal program, child dental program or drug users recovery program.
 	ProgramCode []CodeableConcept `bson:"programCode,omitempty" json:"programCode,omitempty" xml:"programCode,omitempty"`
@@ -477,17 +477,15 @@ type ClaimResponseAddItemBodySite struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Physical service site on the patient (limb, tooth, etc.).
+	// Physical service site on the patient (limb, tooth, etc.).
 	//
 	// Comment: For example: Providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed.
 	Site []CodeableReference `bson:"site" json:"site" xml:"site"`
-	// A region or surface of the bodySite, e.g.
-	//
-	// limb region or tooth surface(s).
+	// A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	SubSite []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty" xml:"subSite,omitempty"`
 	// The numbers associated with notes below which apply to the adjudication of this item.
 }
@@ -506,7 +504,7 @@ type ClaimResponseAddItemDetail struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -526,7 +524,7 @@ type ClaimResponseAddItemDetail struct {
 	//
 	// This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims.
 	ProductOrServiceEnd *CodeableConcept `bson:"productOrServiceEnd,omitempty" json:"productOrServiceEnd,omitempty" xml:"productOrServiceEnd,omitempty"`
-	//Item typification or modifiers codes to convey additional context for the product or service.
+	// Item typification or modifiers codes to convey additional context for the product or service.
 	//
 	// Comment: For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or outside of office hours.
 	Modifier []CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
@@ -573,7 +571,7 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -593,7 +591,7 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	//
 	// This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims.
 	ProductOrServiceEnd *CodeableConcept `bson:"productOrServiceEnd,omitempty" json:"productOrServiceEnd,omitempty" xml:"productOrServiceEnd,omitempty"`
-	//Item typification or modifiers codes to convey additional context for the product or service.
+	// Item typification or modifiers codes to convey additional context for the product or service.
 	//
 	// Comment: For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or outside of office hours.
 	Modifier []CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty" xml:"modifier,omitempty"`
@@ -638,7 +636,7 @@ type ClaimResponseTotal struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -667,13 +665,13 @@ type ClaimResponsePayment struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Whether this represents partial or complete payment of the benefits payable.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication.
+	// Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication.
 	//
 	// Comment: Insurers will deduct amounts owing from the provider (adjustment), such as a prior overpayment, from the amount owing to the provider (benefits payable) when payment is made to the provider.
 	Adjustment *Money `bson:"adjustment,omitempty" json:"adjustment,omitempty" xml:"adjustment,omitempty"`
@@ -683,7 +681,7 @@ type ClaimResponsePayment struct {
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
 	// Benefits payable less any payment adjustment.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
-	//Issuer's unique identifier for the payment instrument.
+	// Issuer's unique identifier for the payment instrument.
 	//
 	// Comment: For example: EFT number or check number.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -706,7 +704,7 @@ type ClaimResponseProcessNote struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -716,7 +714,7 @@ type ClaimResponseProcessNote struct {
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// The explanation or description associated with the processing.
 	Text string `bson:"text" json:"text" xml:"text"`
-	//A code to define the language used in the text of the note.
+	// A code to define the language used in the text of the note.
 	//
 	// Comment: Only required if the language is different from the resource language.
 	Language *CodeableConcept `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -739,13 +737,13 @@ type ClaimResponseInsurance struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order.
 	Sequence int `bson:"sequence" json:"sequence" xml:"sequence"`
-	//A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
+	// A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
 	//
 	// Comment: A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example a person may also be covered by their spouse's policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies.
 	Focal bool `bson:"focal" json:"focal" xml:"focal"`
@@ -755,7 +753,7 @@ type ClaimResponseInsurance struct {
 	Coverage Reference `bson:"coverage" json:"coverage" xml:"coverage"`
 	// A business agreement number established between the provider and the insurer for special business processing purposes.
 	BusinessArrangement *string `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty" xml:"businessArrangement,omitempty"`
-	//The result of the adjudication of the line items for the Coverage specified in this insurance.
+	// The result of the adjudication of the line items for the Coverage specified in this insurance.
 	//
 	// Comment: Must not be specified when 'focal=true' for this insurance.
 	ClaimResponse *Reference `bson:"claimResponse,omitempty" json:"claimResponse,omitempty" xml:"claimResponse,omitempty"`
@@ -778,7 +776,7 @@ type ClaimResponseError struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -796,7 +794,7 @@ type ClaimResponseError struct {
 	SubDetailSequence *int `bson:"subDetailSequence,omitempty" json:"subDetailSequence,omitempty" xml:"subDetailSequence,omitempty"`
 	// An error code, from a specified code system, which details why the claim could not be adjudicated.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
-	//A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.
+	// A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.
 	//
 	// Comment: The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node.
 	Expression []string `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`

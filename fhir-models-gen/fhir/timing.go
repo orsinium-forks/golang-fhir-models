@@ -28,7 +28,7 @@ type Timing struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -72,11 +72,12 @@ type TimingRepeat struct {
 	//
 	// Comment: For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise).
 	Duration *decimal.Decimal `bson:"duration,omitempty" json:"duration,omitempty" xml:"duration,omitempty"`
-	//If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length.
+	// If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length.
 	//
 	// Comment: For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise).
 	DurationMax *decimal.Decimal `bson:"durationMax,omitempty" json:"durationMax,omitempty" xml:"durationMax,omitempty"`
 	// The units of time for the duration, in UCUM units
+	//
 	// Normal practice is to use the 'mo' code as a calendar month when calculating the next occurrence.
 	DurationUnit *string `bson:"durationUnit,omitempty" json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
 	// The number of times to repeat the action within the specified period.
@@ -92,17 +93,18 @@ type TimingRepeat struct {
 	// If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
 	PeriodMax *decimal.Decimal `bson:"periodMax,omitempty" json:"periodMax,omitempty" xml:"periodMax,omitempty"`
 	// The units of time for the period in UCUM units
+	//
 	// Normal practice is to use the 'mo' code as a calendar month when calculating the next occurrence.
 	PeriodUnit *string `bson:"periodUnit,omitempty" json:"periodUnit,omitempty" xml:"periodUnit,omitempty"`
-	//If one or more days of week is provided, then the action happens only on the specified day(s).
+	// If one or more days of week is provided, then the action happens only on the specified day(s).
 	//
 	// Comment: If no days are specified, the action is assumed to happen every day as otherwise specified.
 	DayOfWeek []DaysOfWeek `bson:"dayOfWeek,omitempty" json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
-	//Specified time of day for action to take place.
+	// Specified time of day for action to take place.
 	//
 	// Comment: When time of day is specified, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. If there's a timeOfDay, there cannot be a when, or vice versa.
 	TimeOfDay []string `bson:"timeOfDay,omitempty" json:"timeOfDay,omitempty" xml:"timeOfDay,omitempty"`
-	//An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.
+	// An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.
 	//
 	// Comment: When more than one event is listed, the event is tied to the union of the specified events.
 	When []string `bson:"when,omitempty" json:"when,omitempty" xml:"when,omitempty"`

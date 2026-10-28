@@ -22,7 +22,7 @@ type HumanName struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//Identifies the purpose for this name.
+	// Identifies the purpose for this name.
 	//
 	// Comment: Applications can assume that a name is current unless it explicitly says that it is temporary or old.
 	Use *NameUse `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
@@ -38,7 +38,7 @@ type HumanName struct {
 	//
 	// Comment: Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures).
 	Family *string `bson:"family,omitempty" json:"family,omitempty" xml:"family,omitempty"`
-	//Given name.
+	// Given name.
 	//
 	// Comment: If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called "first name" since given names do not always come first.
 	Given []string `bson:"given,omitempty" json:"given,omitempty" xml:"given,omitempty"`

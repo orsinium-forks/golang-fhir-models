@@ -35,7 +35,7 @@ type DataRequirement struct {
 	//
 	// This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.
 	//
-	//The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details).
+	// The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details).
 	MustSupport []string `bson:"mustSupport,omitempty" json:"mustSupport,omitempty" xml:"mustSupport,omitempty"`
 	// Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data.
 	//
@@ -49,11 +49,11 @@ type DataRequirement struct {
 	//
 	// Each value filter specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not OR'ed).
 	ValueFilter []DataRequirementValueFilter `bson:"valueFilter,omitempty" json:"valueFilter,omitempty" xml:"valueFilter,omitempty"`
-	//Specifies a maximum number of results that are required (uses the _count search parameter).
+	// Specifies a maximum number of results that are required (uses the _count search parameter).
 	//
 	// Comment: This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5".
 	Limit *int `bson:"limit,omitempty" json:"limit,omitempty" xml:"limit,omitempty"`
-	//Specifies the order of the results to be returned.
+	// Specifies the order of the results to be returned.
 	//
 	// Comment: This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5". When multiple sorts are specified, they are applied in the order they appear in the resource.
 	Sort []DataRequirementSort `bson:"sort,omitempty" json:"sort,omitempty" xml:"sort,omitempty"`

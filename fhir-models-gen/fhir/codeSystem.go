@@ -30,7 +30,7 @@ type CodeSystem struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type CodeSystem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -65,11 +65,11 @@ type CodeSystem struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	//A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this code system outside of FHIR, where it is not possible to use the logical URI.  Note that HL7 defines at least three identifiers for many of its code systems - the FHIR canonical URL, the OID and the V2 Table 0396 mnemonic code.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -79,7 +79,7 @@ type CodeSystem struct {
 	//
 	// Comment: There may be different code system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the code system with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which CodeSystem is more current.
+	// Indicates the mechanism used to compare versions to determine which CodeSystem is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -90,19 +90,17 @@ type CodeSystem struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A short, descriptive, user-friendly title for the code system.
+	// A short, descriptive, user-friendly title for the code system.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this code system.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this code system. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of code systems that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of code systems that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -112,19 +110,19 @@ type CodeSystem struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the code system. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the code system.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the code system.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the code system is the organization or individual primarily responsible for the maintenance and upkeep of the code system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the code system. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the code system from a consumer's perspective.
+	// A free text natural language description of the code system from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the code system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the code system is presumed to be the predominant language in the place the code system was created).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -134,13 +132,13 @@ type CodeSystem struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the code system is intended to be used.
+	// A legal or geographic region in which the code system is intended to be used.
 	//
 	// Comment: It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this code system is needed and why it has been designed as it has.
+	// Explanation of why this code system is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the code system. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -162,7 +160,7 @@ type CodeSystem struct {
 	//
 	// Comment: The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	ApprovalDate *string `bson:"approvalDate,omitempty" json:"approvalDate,omitempty" xml:"approvalDate,omitempty"`
 	// The date on which the resource content was last reviewed.
 	//
@@ -170,13 +168,13 @@ type CodeSystem struct {
 	//
 	// Comment: If specified, this date follows the original approval date.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	LastReviewDate *string `bson:"lastReviewDate,omitempty" json:"lastReviewDate,omitempty" xml:"lastReviewDate,omitempty"`
-	//The period during which the CodeSystem content was or is planned to be in active use.
+	// The period during which the CodeSystem content was or is planned to be in active use.
 	//
 	// Comment: The effective period for a CodeSystem  determines when the content is applicable for usage and is independent of publication and review dates. For example, a system intended to be used for the year 2016 might be published in 2015.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
 	// Descriptions related to the content of the CodeSystem.
 	//
@@ -188,31 +186,31 @@ type CodeSystem struct {
 	Author []ContactDetail `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
 	// An individual or organization primarily responsible for internal coherence of the CodeSystem.
 	Editor []ContactDetail `bson:"editor,omitempty" json:"editor,omitempty" xml:"editor,omitempty"`
-	//An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the CodeSystem.
+	// An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the CodeSystem.
 	//
 	// Comment: See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Reviewer []ContactDetail `bson:"reviewer,omitempty" json:"reviewer,omitempty" xml:"reviewer,omitempty"`
-	//An individual or organization asserted by the publisher to be responsible for officially endorsing the CodeSystem for use in some setting.
+	// An individual or organization asserted by the publisher to be responsible for officially endorsing the CodeSystem for use in some setting.
 	//
 	// Comment: See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Endorser []ContactDetail `bson:"endorser,omitempty" json:"endorser,omitempty" xml:"endorser,omitempty"`
-	//Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.
+	// Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.
 	//
 	// Comment: Each related artifact is either an attachment, or a reference to another resource, but not both.
 	RelatedArtifact []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
-	//If code comparison is case sensitive when codes within this system are compared to each other.
+	// If code comparison is case sensitive when codes within this system are compared to each other.
 	//
 	// Comment: If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software.
 	CaseSensitive *bool `bson:"caseSensitive,omitempty" json:"caseSensitive,omitempty" xml:"caseSensitive,omitempty"`
-	//Canonical reference to the value set that contains all codes in the code system independent of code status.
+	// Canonical reference to the value set that contains all codes in the code system independent of code status.
 	//
 	// Comment: The definition of the value set SHALL include all codes from this code system, independent of concept status, and only codes from this code system. It SHALL be immutable, and operations SHOULD support validation of any allowed code compositions.
 	ValueSet *string `bson:"valueSet,omitempty" json:"valueSet,omitempty" xml:"valueSet,omitempty"`
-	//The meaning of the hierarchy of concepts as represented in this resource.
+	// The meaning of the hierarchy of concepts as represented in this resource.
 	//
 	// Comment: Note that other representations might have a different hierarchy or none at all, and represent the information using properties.
 	HierarchyMeaning *CodeSystemHierarchyMeaning `bson:"hierarchyMeaning,omitempty" json:"hierarchyMeaning,omitempty" xml:"hierarchyMeaning,omitempty"`
-	//The code system defines a compositional (post-coordination) grammar.
+	// The code system defines a compositional (post-coordination) grammar.
 	//
 	// Comment: Note that the code system resource does not define what the compositional grammar is, only whether or not there is one.
 	Compositional *bool `bson:"compositional,omitempty" json:"compositional,omitempty" xml:"compositional,omitempty"`
@@ -222,11 +220,11 @@ type CodeSystem struct {
 	//
 	// Comment: Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as 'versionNeeded'.
 	//
-	//Most code systems occasionally refine the displays defined for concepts between versions. Contexts in which the concept display values are validated may require that the version be specified for some code systems irrespective of the value of this property.
+	// Most code systems occasionally refine the displays defined for concepts between versions. Contexts in which the concept display values are validated may require that the version be specified for some code systems irrespective of the value of this property.
 	VersionNeeded *bool `bson:"versionNeeded,omitempty" json:"versionNeeded,omitempty" xml:"versionNeeded,omitempty"`
 	// The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
 	Content CodeSystemContentMode `bson:"content" json:"content" xml:"content"`
-	//The canonical URL of the code system that this code system supplement is adding designations and properties to.
+	// The canonical URL of the code system that this code system supplement is adding designations and properties to.
 	//
 	// Comment: The most common use of a code system supplement is to add additional language support.
 	Supplements *string `bson:"supplements,omitempty" json:"supplements,omitempty" xml:"supplements,omitempty"`
@@ -236,11 +234,11 @@ type CodeSystem struct {
 	//
 	// Comment: The count of concepts defined in this resource cannot be more than this value but may be less for several reasons - see the content element.
 	Count *int `bson:"count,omitempty" json:"count,omitempty" xml:"count,omitempty"`
-	//A filter that can be used in a value set compose statement when selecting concepts using a filter.
+	// A filter that can be used in a value set compose statement when selecting concepts using a filter.
 	//
 	// Comment: Note that filters defined in code systems usually require custom code on the part of any terminology engine that will make them available for use in value set filters. For this reason, they are generally only seen in high value published terminologies.
 	Filter []CodeSystemFilter `bson:"filter,omitempty" json:"filter,omitempty" xml:"filter,omitempty"`
-	//A property defines an additional slot through which additional information can be provided about a concept.
+	// A property defines an additional slot through which additional information can be provided about a concept.
 	//
 	// Comment: Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where     CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept.
 	Property []CodeSystemProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
@@ -267,7 +265,7 @@ type CodeSystemFilter struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -298,7 +296,7 @@ type CodeSystemProperty struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -337,7 +335,7 @@ type CodeSystemConcept struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -349,7 +347,7 @@ type CodeSystemConcept struct {
 	//
 	// The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.
 	Definition *string `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
-	//Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
+	// Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
 	//
 	// Comment: Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of "primary code" and a language equal to the [Resource Language](resource.html#language).
 	Designation []CodeSystemConceptDesignation `bson:"designation,omitempty" json:"designation,omitempty" xml:"designation,omitempty"`
@@ -375,19 +373,19 @@ type CodeSystemConceptDesignation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The language this designation is defined for.
+	// The language this designation is defined for.
 	//
 	// Comment: In the absence of a language, the resource language applies.
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
-	//A code that details how this designation would be used.
+	// A code that details how this designation would be used.
 	//
 	// Comment: If no use is provided, the designation can be assumed to be suitable for general display to a human user.
 	Use *Coding `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
-	//Additional codes that detail how this designation would be used, if there is more than one use.
+	// Additional codes that detail how this designation would be used, if there is more than one use.
 	//
 	// Comment: This was added rather than increasing the cardinality of .use to 0..* in order to maintain backward compatibility.
 	AdditionalUse []Coding `bson:"additionalUse,omitempty" json:"additionalUse,omitempty" xml:"additionalUse,omitempty"`
@@ -410,7 +408,7 @@ type CodeSystemConceptProperty struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

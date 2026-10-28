@@ -28,7 +28,7 @@ type MedicationRequest struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type MedicationRequest struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -77,15 +77,15 @@ type MedicationRequest struct {
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	//
-	//Clinical decision support systems should take the status into account when determining which medications to include in their algorithms.
+	// Clinical decision support systems should take the status into account when determining which medications to include in their algorithms.
 	Status MedicationrequestStatus `bson:"status" json:"status" xml:"status"`
-	//Captures the reason for the current state of the MedicationRequest.
+	// Captures the reason for the current state of the MedicationRequest.
 	//
 	// Comment: This is generally only used for "exception" statuses such as "suspended" or "cancelled". The reason why the MedicationRequest was created at all is captured in reasonCode, not here.
 	StatusReason *CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
 	// The date (and perhaps time) when the status was changed.
 	StatusChanged *string `bson:"statusChanged,omitempty" json:"statusChanged,omitempty" xml:"statusChanged,omitempty"`
-	//Whether the request is a proposal, plan, or an original order.
+	// Whether the request is a proposal, plan, or an original order.
 	//
 	// Comment: It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
 	Intent MedicationRequestIntent `bson:"intent" json:"intent" xml:"intent"`
@@ -109,7 +109,7 @@ type MedicationRequest struct {
 	//
 	// Comment: If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource.
 	Medication CodeableReference `bson:"medication" json:"medication" xml:"medication"`
-	//The individual or group for whom the medication has been requested.
+	// The individual or group for whom the medication has been requested.
 	//
 	// Comment: The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified.
 	Subject Reference `bson:"subject" json:"subject" xml:"subject"`
@@ -117,7 +117,7 @@ type MedicationRequest struct {
 	//
 	//  This is often used when the MedicationRequest is reported by another person.
 	InformationSource []Reference `bson:"informationSource,omitempty" json:"informationSource,omitempty" xml:"informationSource,omitempty"`
-	//The Encounter during which this [x] was created or to which the creation of this record is tightly associated.
+	// The Encounter during which this [x] was created or to which the creation of this record is tightly associated.
 	//
 	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."    If there is a need to link to episodes of care they will be handled with an extension.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
@@ -137,7 +137,7 @@ type MedicationRequest struct {
 	//
 	// Comment: If not populated, then assume that this is the original record and not reported
 	Reported *bool `bson:"reported,omitempty" json:"reported,omitempty" xml:"reported,omitempty"`
-	//Indicates the type of performer of the administration of the medication.
+	// Indicates the type of performer of the administration of the medication.
 	//
 	// Comment: If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
 	PerformerType *CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty" xml:"performerType,omitempty"`
@@ -149,11 +149,11 @@ type MedicationRequest struct {
 	Device []CodeableReference `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
 	// The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.
 	Recorder *Reference `bson:"recorder,omitempty" json:"recorder,omitempty" xml:"recorder,omitempty"`
-	//The reason or the indication for ordering or not ordering the medication.
+	// The reason or the indication for ordering or not ordering the medication.
 	//
 	// Comment: This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.
 	Reason []CodeableReference `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
-	//The description of the overall pattern of the administration of the medication to the patient.
+	// The description of the overall pattern of the administration of the medication to the patient.
 	//
 	// Comment: This attribute should not be confused with the protocol of the medication.
 	CourseOfTherapyType *CodeableConcept `bson:"courseOfTherapyType,omitempty" json:"courseOfTherapyType,omitempty" xml:"courseOfTherapyType,omitempty"`
@@ -169,18 +169,23 @@ type MedicationRequest struct {
 	//
 	//  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions.
 	EffectiveDosePeriod *Period `bson:"effectiveDosePeriod,omitempty" json:"effectiveDosePeriod,omitempty" xml:"effectiveDosePeriod,omitempty"`
-	//Specific instructions for how the medication is to be used by the patient.
+	// Specific instructions for how the medication is to be used by the patient.
 	//
 	// Comment: There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, "Ondansetron 8mg orally or IV twice a day as needed for nausea" or "Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting".  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request.
 	//
-	//When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to "completed" or "cancelled", changing another order status to "on-hold", the method to "group" all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.
+	// When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to "completed" or "cancelled", changing another order status to "on-hold", the method to "group" all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.
 	//
-	//There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestOrchestration should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug "xyz" with dose 123, then taper the same drug to a different dose after some interval of time
-	//precedence:
-	//e.g. give drug "abc" followed by drug "def"
-	//e.g. give drug 30 minutes before some procedure was performed
-	//more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.
-	//Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders.
+	// There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestOrchestration should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug "xyz" with dose 123, then taper the same drug to a different dose after some interval of time
+	//
+	// precedence:
+	//
+	// e.g. give drug "abc" followed by drug "def"
+	//
+	// e.g. give drug 30 minutes before some procedure was performed
+	//
+	// more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.
+	//
+	// Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders.
 	DosageInstruction []Dosage `bson:"dosageInstruction,omitempty" json:"dosageInstruction,omitempty" xml:"dosageInstruction,omitempty"`
 	// Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).
 	//
@@ -190,7 +195,7 @@ type MedicationRequest struct {
 	//
 	// In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.
 	Substitution *MedicationRequestSubstitution `bson:"substitution,omitempty" json:"substitution,omitempty" xml:"substitution,omitempty"`
-	//Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
+	// Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
 	//
 	// Comment: This might not include provenances for all versions of the request – only those deemed "relevant" or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a "relevant" change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
 	EventHistory []Reference `bson:"eventHistory,omitempty" json:"eventHistory,omitempty" xml:"eventHistory,omitempty"`
@@ -210,17 +215,17 @@ type MedicationRequestDispenseRequest struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Indicates the quantity or duration for the first dispense of the medication.
+	// Indicates the quantity or duration for the first dispense of the medication.
 	//
 	// Comment: If populating this element, either the quantity or the duration must be included.
 	InitialFill *MedicationRequestDispenseRequestInitialFill `bson:"initialFill,omitempty" json:"initialFill,omitempty" xml:"initialFill,omitempty"`
 	// The minimum period of time that must occur between dispenses of the medication.
 	DispenseInterval *Duration `bson:"dispenseInterval,omitempty" json:"dispenseInterval,omitempty" xml:"dispenseInterval,omitempty"`
-	//This indicates the validity period of a prescription (stale dating the Prescription).
+	// This indicates the validity period of a prescription (stale dating the Prescription).
 	//
 	// Comment: It reflects the prescribers' perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
 	ValidityPeriod *Period `bson:"validityPeriod,omitempty" json:"validityPeriod,omitempty" xml:"validityPeriod,omitempty"`
@@ -232,7 +237,7 @@ type MedicationRequestDispenseRequest struct {
 	NumberOfRepeatsAllowed *int `bson:"numberOfRepeatsAllowed,omitempty" json:"numberOfRepeatsAllowed,omitempty" xml:"numberOfRepeatsAllowed,omitempty"`
 	// The amount that is to be dispensed for one fill.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
-	//Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
+	// Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
 	//
 	// Comment: In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage). When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
 	ExpectedSupplyDuration *Duration `bson:"expectedSupplyDuration,omitempty" json:"expectedSupplyDuration,omitempty" xml:"expectedSupplyDuration,omitempty"`
@@ -261,7 +266,7 @@ type MedicationRequestDispenseRequestInitialFill struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -286,11 +291,11 @@ type MedicationRequestSubstitution struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//True if the prescriber allows a different drug to be dispensed from what was prescribed.
+	// True if the prescriber allows a different drug to be dispensed from what was prescribed.
 	//
 	// Comment: This element is labeled as a modifier because whether substitution is allow or not, it cannot be ignored.
 	AllowedBoolean         bool            `bson:"allowedBoolean" json:"allowedBoolean" xml:"allowedBoolean"`

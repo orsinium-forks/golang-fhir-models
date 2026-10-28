@@ -18,9 +18,7 @@ type Period struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	// The start of the period.
-	//
-	// The boundary is inclusive.
+	// The start of the period. The boundary is inclusive.
 	//
 	// Comment: If the low element is missing, the meaning is that the low boundary is not known.
 	Start *string `bson:"start,omitempty" json:"start,omitempty" xml:"start,omitempty"`

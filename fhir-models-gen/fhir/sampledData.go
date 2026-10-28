@@ -28,9 +28,7 @@ type SampledData struct {
 	//
 	// In addition, this provides the units of the entire measurement series.
 	Origin Quantity `bson:"origin" json:"origin" xml:"origin"`
-	// Amount of intervalUnits between samples, e.g.
-	//
-	// milliseconds for time-based sampling.
+	// Amount of intervalUnits between samples, e.g. milliseconds for time-based sampling.
 	//
 	// Comment: This is usually a whole number.
 	Interval *decimal.Decimal `bson:"interval,omitempty" json:"interval,omitempty" xml:"interval,omitempty"`
@@ -52,7 +50,7 @@ type SampledData struct {
 	//
 	// Comment: If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data).
 	Dimensions int `bson:"dimensions" json:"dimensions" xml:"dimensions"`
-	//Reference to ConceptMap that defines the codes used in the data.
+	// Reference to ConceptMap that defines the codes used in the data.
 	//
 	// Comment: The ConceptMap cannot define meanings for the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l').
 	CodeMap *string `bson:"codeMap,omitempty" json:"codeMap,omitempty" xml:"codeMap,omitempty"`

@@ -26,7 +26,7 @@ type Immunization struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,25 +51,25 @@ type Immunization struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A unique identifier assigned to this immunization record.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//A plan, order or recommendation fulfilled in whole or in part by this immunization.
+	// A plan, order or recommendation fulfilled in whole or in part by this immunization.
 	//
 	// Comment: Allows tracing of an authorization for the Immunization.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
-	//Indicates the current status of the immunization event.
+	// Indicates the current status of the immunization event.
 	//
 	// Comment: Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status ImmunizationStatusCodes `bson:"status" json:"status" xml:"status"`
-	//Indicates the reason the immunization event was not performed.
+	// Indicates the reason the immunization event was not performed.
 	//
 	// Comment: This is generally only used for the status of "not-done". The reason for performing the immunization event is captured in reasonCode, not here.
 	StatusReason *CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
-	//Vaccine that was administered or was to be administered.
+	// Vaccine that was administered or was to be administered.
 	//
 	// Comment: The code for the administered vaccine may be reported at various levels of granularity from a very generic code for a general type of vaccine (e.g. the SNOMED or CVX code for the flu vaccine) to a very discrete code for a specific product including the form and packaging (e.g. an NDC code). Because vaccineCode uses the CodeableConcept data type, multiple codes at different levels of granularity may be reported for a single immunization event provided that all codes are appropriate for the same vaccine. For example, both NDC and CVX codes may be provided for a given immunization event by repeating the coding element within vaccineCode.
 	VaccineCode CodeableConcept `bson:"vaccineCode" json:"vaccineCode" xml:"vaccineCode"`
@@ -91,7 +91,7 @@ type Immunization struct {
 	//
 	// for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information.
 	SupportingInformation []Reference `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty" xml:"supportingInformation,omitempty"`
-	//Date vaccine administered or was to be administered.
+	// Date vaccine administered or was to be administered.
 	//
 	// Comment: When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose.
 	OccurrenceDateTime string `bson:"occurrenceDateTime" json:"occurrenceDateTime" xml:"occurrenceDateTime"`
@@ -102,7 +102,7 @@ type Immunization struct {
 	//
 	// Comment: Reflects the “reliability” of the content.
 	PrimarySource *bool `bson:"primarySource,omitempty" json:"primarySource,omitempty" xml:"primarySource,omitempty"`
-	//Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
+	// Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
 	//
 	// Comment: Typically will not be populated if primarySource = True, not required even if primarySource = False.
 	InformationSource *CodeableReference `bson:"informationSource,omitempty" json:"informationSource,omitempty" xml:"informationSource,omitempty"`
@@ -134,7 +134,7 @@ type Immunization struct {
 	//
 	// This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
 	FundingSource *CodeableConcept `bson:"fundingSource,omitempty" json:"fundingSource,omitempty" xml:"fundingSource,omitempty"`
-	//Categorical data indicating that an adverse event is associated in time to an immunization.
+	// Categorical data indicating that an adverse event is associated in time to an immunization.
 	//
 	// Comment: A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case, it should be recorded as a new AllergyIntolerance resource instance as most systems will not query against past Immunization.reaction elements.
 	Reaction []ImmunizationReaction `bson:"reaction,omitempty" json:"reaction,omitempty" xml:"reaction,omitempty"`
@@ -157,15 +157,13 @@ type ImmunizationPerformer struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// Describes the type of performance (e.g.
-	//
-	// ordering provider, administering provider, etc.).
+	// Describes the type of performance (e.g. ordering provider, administering provider, etc.).
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
-	//The practitioner or organization who performed the action.
+	// The practitioner or organization who performed the action.
 	//
 	// Comment: When the individual practitioner who performed the action is known, it is best to send.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
@@ -186,7 +184,7 @@ type ImmunizationProgramEligibility struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -213,7 +211,7 @@ type ImmunizationReaction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -240,23 +238,21 @@ type ImmunizationProtocolApplied struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// One possible path to achieve presumed immunity against a disease - within the context of an authority.
 	Series *string `bson:"series,omitempty" json:"series,omitempty" xml:"series,omitempty"`
-	// Indicates the authority who published the protocol (e.g.
-	//
-	// ACIP) that is being followed.
+	// Indicates the authority who published the protocol (e.g. ACIP) that is being followed.
 	Authority *Reference `bson:"authority,omitempty" json:"authority,omitempty" xml:"authority,omitempty"`
 	// The vaccine preventable disease the dose is being administered against.
 	TargetDisease []CodeableConcept `bson:"targetDisease,omitempty" json:"targetDisease,omitempty" xml:"targetDisease,omitempty"`
-	//Nominal position in a series as intended by the practitioner administering the dose.
+	// Nominal position in a series as intended by the practitioner administering the dose.
 	//
 	// Comment: The use of an integer is preferred if known. Text should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
 	DoseNumber string `bson:"doseNumber" json:"doseNumber" xml:"doseNumber"`
-	//The recommended number of doses to achieve immunity as intended by the practitioner administering the dose.
+	// The recommended number of doses to achieve immunity as intended by the practitioner administering the dose.
 	//
 	// Comment: The use of an integer is preferred if known.
 	SeriesDoses *string `bson:"seriesDoses,omitempty" json:"seriesDoses,omitempty" xml:"seriesDoses,omitempty"`

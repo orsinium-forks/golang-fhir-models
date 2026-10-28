@@ -26,7 +26,7 @@ type CarePlan struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,17 +51,17 @@ type CarePlan struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan.
 	InstantiatesCanonical []string `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty" xml:"instantiatesCanonical,omitempty"`
-	//The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan.
+	// The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan.
 	//
 	// Comment: This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier.
 	InstantiatesUri []string `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty" xml:"instantiatesUri,omitempty"`
@@ -69,24 +69,25 @@ type CarePlan struct {
 	//
 	// a plan, proposal or order) that is fulfilled in whole or in part by this care plan.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
-	//Completed or terminated care plan whose function is taken by this new care plan.
+	// Completed or terminated care plan whose function is taken by this new care plan.
 	//
 	// Comment: The replacement could be because the initial care plan was immediately rejected (due to an issue) or because the previous care plan was completed, but the need for the action described by the care plan remains ongoing.
 	Replaces []Reference `bson:"replaces,omitempty" json:"replaces,omitempty" xml:"replaces,omitempty"`
-	//A larger care plan of which this particular care plan is a component or step.
+	// A larger care plan of which this particular care plan is a component or step.
 	//
 	// Comment: Each care plan is an independent request, such that having a care plan be part of another care plan can cause issues with cascading statuses.  As such, this element is still being discussed.
 	PartOf []Reference `bson:"partOf,omitempty" json:"partOf,omitempty" xml:"partOf,omitempty"`
-	//Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+	// Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
 	//
 	// Comment: The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.
 	//
-	//This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
+	// This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
 	Status RequestStatus `bson:"status" json:"status" xml:"status"`
-	//Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
+	// Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
 	//
 	// Comment: This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-	//This element is expected to be immutable. E.g. A "proposal" instance should never change to be a "plan" instance or "order" instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.
+	//
+	// This element is expected to be immutable. E.g. A "proposal" instance should never change to be a "plan" instance or "order" instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.
 	Intent CarePlanIntent `bson:"intent" json:"intent" xml:"intent"`
 	// Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g.
 	//
@@ -100,11 +101,11 @@ type CarePlan struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Identifies the patient or group whose intended care is described by the plan.
 	Subject Reference `bson:"subject" json:"subject" xml:"subject"`
-	//The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated.
+	// The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated.
 	//
 	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. CarePlan activities conducted as a result of the care plan may well occur as part of other encounters.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//Indicates when the plan did (or is intended to) come into effect and end.
+	// Indicates when the plan did (or is intended to) come into effect and end.
 	//
 	// Comment: Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g. the longitudinal management of a chronic condition).
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
@@ -116,7 +117,7 @@ type CarePlan struct {
 	//
 	// Comment: The custodian might or might not be a contributor.
 	Custodian *Reference `bson:"custodian,omitempty" json:"custodian,omitempty" xml:"custodian,omitempty"`
-	//Identifies the individual(s), organization or device who provided the contents of the care plan.
+	// Identifies the individual(s), organization or device who provided the contents of the care plan.
 	//
 	// Comment: Collaborative care plans may have multiple contributors.
 	Contributor []Reference `bson:"contributor,omitempty" json:"contributor,omitempty" xml:"contributor,omitempty"`
@@ -134,7 +135,7 @@ type CarePlan struct {
 	//
 	// Comment: Use "concern" to identify specific conditions addressed by the care plan.  supportingInfo can be used to convey one or more Advance Directives or Medical Treatment Consent Directives by referencing Consent or any other request resource with intent = directive.
 	SupportingInfo []Reference `bson:"supportingInfo,omitempty" json:"supportingInfo,omitempty" xml:"supportingInfo,omitempty"`
-	//Describes the intended objective(s) of carrying out the care plan.
+	// Describes the intended objective(s) of carrying out the care plan.
 	//
 	// Comment: Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
 	Goal []Reference `bson:"goal,omitempty" json:"goal,omitempty" xml:"goal,omitempty"`
@@ -160,7 +161,7 @@ type CarePlanActivity struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -170,14 +171,15 @@ type CarePlanActivity struct {
 	//
 	// Comment: Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured.
 	PerformedActivity []CodeableReference `bson:"performedActivity,omitempty" json:"performedActivity,omitempty" xml:"performedActivity,omitempty"`
-	//Notes about the adherence/status/progress of the activity.
+	// Notes about the adherence/status/progress of the activity.
 	//
 	// Comment: This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description.
 	Progress []Annotation `bson:"progress,omitempty" json:"progress,omitempty" xml:"progress,omitempty"`
-	//The details of the proposed activity represented in a specific resource.
+	// The details of the proposed activity represented in a specific resource.
 	//
 	// Comment: Standard extension exists ([http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal](http://hl7.org/fhir/extensions/StructureDefinition-resource-pertainsToGoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.
-	//The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the "basedOn" element.  i.e. Requests that are part of a CarePlan are not "based on" the CarePlan.
+	//
+	// The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the "basedOn" element.  i.e. Requests that are part of a CarePlan are not "based on" the CarePlan.
 	PlannedActivityReference *Reference `bson:"plannedActivityReference,omitempty" json:"plannedActivityReference,omitempty" xml:"plannedActivityReference,omitempty"`
 	// General notes about the care plan not covered elsewhere.
 }

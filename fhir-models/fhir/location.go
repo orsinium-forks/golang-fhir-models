@@ -30,7 +30,7 @@ type Location struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type Location struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -67,19 +67,17 @@ type Location struct {
 	//
 	// such as an isolation unit/dialysis chair). This typically covers concepts such as contamination, housekeeping, and other activities like maintenance.
 	OperationalStatus *Coding `bson:"operationalStatus,omitempty" json:"operationalStatus,omitempty" xml:"operationalStatus,omitempty"`
-	// Name of the location as used by humans.
-	//
-	// Does not need to be unique.
+	// Name of the location as used by humans. Does not need to be unique.
 	//
 	// Comment: If the name of a location changes, consider putting the old name in the alias column so that it can still be located through searches.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A list of alternate names that the location is known as, or was known as, in the past.
+	// A list of alternate names that the location is known as, or was known as, in the past.
 	//
 	// Comment: There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the location.
 	Alias []string `bson:"alias,omitempty" json:"alias,omitempty" xml:"alias,omitempty"`
 	// Description of the Location, which helps in finding or referencing the place.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//Indicates whether a resource instance represents a specific location or a class of locations.
+	// Indicates whether a resource instance represents a specific location or a class of locations.
 	//
 	// Comment: This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood.
 	Mode *LocationMode `bson:"mode,omitempty" json:"mode,omitempty" xml:"mode,omitempty"`
@@ -91,37 +89,35 @@ type Location struct {
 	//
 	// Comment: The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.
 	//
-	//If this is empty (or the type of interest is empty), refer to the organization's contacts.
+	// If this is empty (or the type of interest is empty), refer to the organization's contacts.
 	Contact []ExtendedContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//Physical location.
+	// Physical location.
 	//
 	// Comment: Additional addresses should be recorded using another instance of the Location resource, or via the Organization.
 	Address *Address `bson:"address,omitempty" json:"address,omitempty" xml:"address,omitempty"`
-	// Physical form of the location, e.g.
-	//
-	// building, room, vehicle, road, virtual.
+	// Physical form of the location, e.g. building, room, vehicle, road, virtual.
 	Form *CodeableConcept `bson:"form,omitempty" json:"form,omitempty" xml:"form,omitempty"`
-	//The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).
+	// The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).
 	//
 	// Comment: To define a boundary shape for this location use the standard extension `[http://hl7.org/fhir/StructureDefinition/location-boundary-geojson](http://hl7.org/fhir/extensions/StructureDefinition-location-boundary-geojson.html)`, and search using the `contains` special search parameter.
 	Position *LocationPosition `bson:"position,omitempty" json:"position,omitempty" xml:"position,omitempty"`
-	//The organization responsible for the provisioning and upkeep of the location.
+	// The organization responsible for the provisioning and upkeep of the location.
 	//
 	// Comment: This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
 	ManagingOrganization *Reference `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty" xml:"managingOrganization,omitempty"`
 	// Another Location of which this Location is physically a part of.
 	PartOf *Reference `bson:"partOf,omitempty" json:"partOf,omitempty" xml:"partOf,omitempty"`
-	//Collection of characteristics (attributes).
+	// Collection of characteristics (attributes).
 	//
 	// Comment: These could be such things as is wheelchair accessible.
 	Characteristic []CodeableConcept `bson:"characteristic,omitempty" json:"characteristic,omitempty" xml:"characteristic,omitempty"`
-	//What days/times during a week is this location usually open, and any exceptions where the location is not available.
+	// What days/times during a week is this location usually open, and any exceptions where the location is not available.
 	//
 	// Comment: This type of information is commonly found published in directories and on websites informing customers when the facility is available.
 	//
-	//Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.
+	// Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.
 	//
-	//Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The availableStartTime is the opening time, and the availableEndTime is the closing time.
+	// Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The availableStartTime is the opening time, and the availableEndTime is the closing time.
 	HoursOfOperation []Availability `bson:"hoursOfOperation,omitempty" json:"hoursOfOperation,omitempty" xml:"hoursOfOperation,omitempty"`
 	// Connection details of a virtual service (e.g.
 	//
@@ -147,7 +143,7 @@ type LocationPosition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

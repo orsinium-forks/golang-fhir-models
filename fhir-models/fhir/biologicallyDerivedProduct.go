@@ -26,7 +26,7 @@ type BiologicallyDerivedProduct struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type BiologicallyDerivedProduct struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -59,7 +59,7 @@ type BiologicallyDerivedProduct struct {
 	ProductCategory *Coding `bson:"productCategory,omitempty" json:"productCategory,omitempty" xml:"productCategory,omitempty"`
 	// A codified value that systematically supports characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.
 	ProductCode *CodeableConcept `bson:"productCode,omitempty" json:"productCode,omitempty" xml:"productCode,omitempty"`
-	//Parent product (if any) for this biologically-derived product.
+	// Parent product (if any) for this biologically-derived product.
 	//
 	// Comment: For products that have multiple collections. For example Peripheral Blood Stem Cells may be collected over several days from a single donor and the donation split into in multiple containers which must be linked to the parent donation.
 	Parent []Reference `bson:"parent,omitempty" json:"parent,omitempty" xml:"parent,omitempty"`
@@ -71,7 +71,7 @@ type BiologicallyDerivedProduct struct {
 	//
 	// Comment: This identifier should uniquely identify the product instance in the business domain.  Ideally it should be a globally unique identifier under the control of an ISO/IEC 15459 Issuing Agency.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled.
+	// An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled.
 	//
 	// Comment: Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier.
 	BiologicalSourceEvent *Identifier `bson:"biologicalSourceEvent,omitempty" json:"biologicalSourceEvent,omitempty" xml:"biologicalSourceEvent,omitempty"`
@@ -87,17 +87,18 @@ type BiologicallyDerivedProduct struct {
 	ExpirationDate *string `bson:"expirationDate,omitempty" json:"expirationDate,omitempty" xml:"expirationDate,omitempty"`
 	// How this product was collected.
 	Collection *BiologicallyDerivedProductCollection `bson:"collection,omitempty" json:"collection,omitempty" xml:"collection,omitempty"`
-	//The temperature requirements for storage of the biologically-derived product.
+	// The temperature requirements for storage of the biologically-derived product.
 	//
 	// Comment: May be extracted from information held in the Product Description Code.
 	StorageTempRequirements *Range `bson:"storageTempRequirements,omitempty" json:"storageTempRequirements,omitempty" xml:"storageTempRequirements,omitempty"`
-	//A property that is specific to this BiologicallyDerviedProduct instance.
+	// A property that is specific to this BiologicallyDerviedProduct instance.
 	//
 	// Comment: Property can be used to provide information on a wide range of additional information specific to a particular biologicallyDerivedProduct.
 	Property []BiologicallyDerivedProductProperty `bson:"property,omitempty" json:"property,omitempty" xml:"property,omitempty"`
 	// This resource reflects an instance of a biologically derived product.
 	//
-	// A material substance originating from a biological entity intended to be transplanted or infused
+	// # A material substance originating from a biological entity intended to be transplanted or infused
+	//
 	// into another (possibly the same) biological entity.
 	//
 	// Comment: Substances include, but are not limited to: whole blood, bone marrow, organs, and manipulated blood cells.
@@ -117,7 +118,7 @@ type BiologicallyDerivedProductCollection struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -147,17 +148,15 @@ type BiologicallyDerivedProductProperty struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// Code that specifies the property.
-	//
-	// It should reference an established coding system.
+	// Code that specifies the property. It should reference an established coding system.
 	//
 	// Comment: The element is identified by name and system URI in the type. Some types may have multiple occurrences.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//Property values.
+	// Property values.
 	//
 	// Comment: The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027.
 	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`

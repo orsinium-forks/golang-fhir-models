@@ -26,7 +26,7 @@ type ExampleScenario struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type ExampleScenario struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,11 +61,11 @@ type ExampleScenario struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	//A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this example scenario outside of FHIR, where it is not possible to use the logical URI.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -75,28 +75,26 @@ type ExampleScenario struct {
 	//
 	// Comment: There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
 	VersionAlgorithmCoding *Coding `bson:"versionAlgorithmCoding,omitempty" json:"versionAlgorithmCoding,omitempty" xml:"versionAlgorithmCoding,omitempty"`
-	//Temporarily retained for tooling purposes.
+	// Temporarily retained for tooling purposes.
 	//
 	// Comment: Not needed as code will never be generated from one of these
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A short, descriptive, user-friendly title for the ExampleScenario.
+	// A short, descriptive, user-friendly title for the ExampleScenario.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this example scenario.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this example scenario. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of example scenarios that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of example scenarios that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -106,19 +104,19 @@ type ExampleScenario struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the ExampleScenario from a consumer's perspective.
+	// A free text natural language description of the ExampleScenario from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -128,11 +126,11 @@ type ExampleScenario struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the example scenario is intended to be used.
+	// A legal or geographic region in which the example scenario is intended to be used.
 	//
 	// Comment: It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
 	// What the example scenario resource is created for.
 	//
@@ -156,7 +154,7 @@ type ExampleScenario struct {
 	Actor []ExampleScenarioActor `bson:"actor,omitempty" json:"actor,omitempty" xml:"actor,omitempty"`
 	// A single data collection that is shared as part of the scenario.
 	Instance []ExampleScenarioInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
-	//A group of operations that represents a significant step within a scenario.
+	// A group of operations that represents a significant step within a scenario.
 	//
 	// Comment: Some scenarios might describe only one process.
 	Process []ExampleScenarioProcess `bson:"process,omitempty" json:"process,omitempty" xml:"process,omitempty"`
@@ -177,7 +175,7 @@ type ExampleScenarioActor struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -206,7 +204,7 @@ type ExampleScenarioInstance struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -225,11 +223,11 @@ type ExampleScenarioInstance struct {
 	Title string `bson:"title" json:"title" xml:"title"`
 	// An explanation of what the instance contains and what it's for.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//Points to an instance (typically an example) that shows the data that would corespond to this instance.
+	// Points to an instance (typically an example) that shows the data that would corespond to this instance.
 	//
 	// Comment: If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary.
 	Content *Reference `bson:"content,omitempty" json:"content,omitempty" xml:"content,omitempty"`
-	//Represents the instance as it was at a specific time-point.
+	// Represents the instance as it was at a specific time-point.
 	//
 	// Comment: Not used if an instance doesn't change
 	Version []ExampleScenarioInstanceVersion `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
@@ -256,7 +254,7 @@ type ExampleScenarioInstanceVersion struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -266,7 +264,7 @@ type ExampleScenarioInstanceVersion struct {
 	Title string `bson:"title" json:"title" xml:"title"`
 	// An explanation of what this specific version of the instance contains and represents.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//Points to an instance (typically an example) that shows the data that would flow at this point in the scenario.
+	// Points to an instance (typically an example) that shows the data that would flow at this point in the scenario.
 	//
 	// Comment: If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary.
 	Content *Reference `bson:"content,omitempty" json:"content,omitempty" xml:"content,omitempty"`
@@ -289,13 +287,13 @@ type ExampleScenarioInstanceContainedInstance struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A reference to the key of an instance found within this one.
 	InstanceReference string `bson:"instanceReference" json:"instanceReference" xml:"instanceReference"`
-	//A reference to the key of a specific version of an instance in this instance.
+	// A reference to the key of a specific version of an instance in this instance.
 	//
 	// Comment: Required if the referenced instance has versions
 	VersionReference *string `bson:"versionReference,omitempty" json:"versionReference,omitempty" xml:"versionReference,omitempty"`
@@ -318,7 +316,7 @@ type ExampleScenarioProcess struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -328,7 +326,7 @@ type ExampleScenarioProcess struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Description of the initial state of the actors, environment and data before the process starts.
 	PreConditions *string `bson:"preConditions,omitempty" json:"preConditions,omitempty" xml:"preConditions,omitempty"`
-	//Description of the final state of the actors, environment and data after the process has been successfully completed.
+	// Description of the final state of the actors, environment and data after the process has been successfully completed.
 	//
 	// Comment: Alternate steps might not result in all post conditions holding
 	PostConditions *string `bson:"postConditions,omitempty" json:"postConditions,omitempty" xml:"postConditions,omitempty"`
@@ -351,13 +349,11 @@ type ExampleScenarioProcessStep struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// The sequential number of the step, e.g.
-	//
-	// 1.2.5.
+	// The sequential number of the step, e.g. 1.2.5.
 	//
 	// Comment: If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number
 	Number *string `bson:"number,omitempty" json:"number,omitempty" xml:"number,omitempty"`
@@ -389,7 +385,7 @@ type ExampleScenarioProcessStepOperation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -397,23 +393,23 @@ type ExampleScenarioProcessStepOperation struct {
 	Type *Coding `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// A short descriptive label the step to be used in tables or diagrams.
 	Title string `bson:"title" json:"title" xml:"title"`
-	//The system that invokes the action/transmits the data.
+	// The system that invokes the action/transmits the data.
 	//
 	// Comment: This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the initiator is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)
 	Initiator *string `bson:"initiator,omitempty" json:"initiator,omitempty" xml:"initiator,omitempty"`
-	//The system on which the action is invoked/receives the data.
+	// The system on which the action is invoked/receives the data.
 	//
 	// Comment: This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the receiver is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)  In some cases, receiver could be same as sender if representing a local operation
 	Receiver *string `bson:"receiver,omitempty" json:"receiver,omitempty" xml:"receiver,omitempty"`
-	//An explanation of what the operation represents and what it does.
+	// An explanation of what the operation represents and what it does.
 	//
 	// Comment: This should contain information not already present in the process step.  It's more of a description of what the operation in general does - if not already evident from the operation.type
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
-	//If false, the initiator is deactivated right after the operation.
+	// If false, the initiator is deactivated right after the operation.
 	//
 	// Comment: De-activation of an actor means they have no further role until such time as they are the recipient of an operation.
 	InitiatorActive *bool `bson:"initiatorActive,omitempty" json:"initiatorActive,omitempty" xml:"initiatorActive,omitempty"`
-	//If false, the receiver is deactivated right after the operation.
+	// If false, the receiver is deactivated right after the operation.
 	//
 	// Comment: De-activation of an actor means they have no further role until such time as they are the recipient of an operation.
 	ReceiverActive *bool `bson:"receiverActive,omitempty" json:"receiverActive,omitempty" xml:"receiverActive,omitempty"`
@@ -440,7 +436,7 @@ type ExampleScenarioProcessStepAlternative struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -28,7 +28,7 @@ type ObservationDefinition struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type ObservationDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -75,7 +75,7 @@ type ObservationDefinition struct {
 	//
 	// Comment: There may be multiple different instances of an observationDefinition that have the same identifier but different versions.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -88,14 +88,15 @@ type ObservationDefinition struct {
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// A short, descriptive, user-friendly title for the ObservationDefinition.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	//The current state of the ObservationDefinition.
+	// The current state of the ObservationDefinition.
 	//
 	// Comment: A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation
-	//Unknown does not represent "other" - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// Unknown does not represent "other" - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.
+	//
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	// A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of ObservationDefinition that are appropriate for use vs. not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -105,19 +106,19 @@ type ObservationDefinition struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the ObservationDefinition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
 	// Helps establish the "authority/credibility" of the ObservationDefinition.
 	//
 	// May also allow for contact.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the ObservationDefinition from the consumer's perspective.
+	// A free text natural language description of the ObservationDefinition from the consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -127,13 +128,13 @@ type ObservationDefinition struct {
 	//
 	// Comment: When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A jurisdiction in which the ObservationDefinition is intended to be used.
+	// A jurisdiction in which the ObservationDefinition is intended to be used.
 	//
 	// Comment: It may be possible for the ObservationDefinition to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explains why this ObservationDefinition is needed and why it has been designed as it has.
+	// Explains why this ObservationDefinition is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the ObservationDefinition. Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this ObservationDefinition.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -153,7 +154,7 @@ type ObservationDefinition struct {
 	//
 	// Comment: The date may be more recent than the approval date because of minor changes / editorial corrections.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	ApprovalDate *string `bson:"approvalDate,omitempty" json:"approvalDate,omitempty" xml:"approvalDate,omitempty"`
 	// The date on which the asset content was last reviewed.
 	//
@@ -161,53 +162,53 @@ type ObservationDefinition struct {
 	//
 	// Comment: If specified, this is usually after the approval date.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	LastReviewDate *string `bson:"lastReviewDate,omitempty" json:"lastReviewDate,omitempty" xml:"lastReviewDate,omitempty"`
-	//The period during which the ObservationDefinition content was or is planned to be effective.
+	// The period during which the ObservationDefinition content was or is planned to be effective.
 	//
 	// Comment: The effective period for an ObservationDefinition determines when the content is applicable for usage and is independent of publication and review dates. For example, an observation definition intended to be used for the year 2021 might be published in 2020.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
 	// The canonical URL pointing to another FHIR-defined ObservationDefinition that is adhered to in whole or in part by this definition.
 	DerivedFromCanonical []string `bson:"derivedFromCanonical,omitempty" json:"derivedFromCanonical,omitempty" xml:"derivedFromCanonical,omitempty"`
 	// The URL pointing to an externally-defined observation definition, guideline or other definition that is adhered to in whole or in part by this definition.
 	DerivedFromUri []string `bson:"derivedFromUri,omitempty" json:"derivedFromUri,omitempty" xml:"derivedFromUri,omitempty"`
-	//A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition.
+	// A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition.
 	//
 	// Comment: Examples: person, animal, device, air, surface ….
 	Subject []CodeableConcept `bson:"subject,omitempty" json:"subject,omitempty" xml:"subject,omitempty"`
 	// The type of individual/organization/device that is expected to act upon instances of this definition.
 	PerformerType *CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty" xml:"performerType,omitempty"`
-	//A code that classifies the general type of observation.
+	// A code that classifies the general type of observation.
 	//
 	// Comment: This element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used for one instance of ObservationDefinition. The level of granularity is defined by the category concepts in the value set.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	// Describes what will be observed.
-	//
-	// Sometimes this is called the observation "name".
+	// Describes what will be observed. Sometimes this is called the observation "name".
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
 	PermittedDataType []ObservationDataType `bson:"permittedDataType,omitempty" json:"permittedDataType,omitempty" xml:"permittedDataType,omitempty"`
-	//Multiple results allowed for observations conforming to this ObservationDefinition.
+	// Multiple results allowed for observations conforming to this ObservationDefinition.
 	//
 	// Comment: An example of observation allowing multiple results is "bacteria identified by culture". Conversely, the measurement of a potassium level allows a single result.
 	MultipleResultsAllowed *bool `bson:"multipleResultsAllowed,omitempty" json:"multipleResultsAllowed,omitempty" xml:"multipleResultsAllowed,omitempty"`
-	//The site on the subject's body where the  observation is to be made.
+	// The site on the subject's body where the  observation is to be made.
 	//
 	// Comment: Only used if the defined observation is to be made directly on a body part and if this body part is not implied by code found in ObservationDefinition.code. Not used for in vitro diagnostic observations.
-	//Example: 14975008 |Forearm structure|.
+	//
+	// Example: 14975008 |Forearm structure|.
 	BodySite *CodeableConcept `bson:"bodySite,omitempty" json:"bodySite,omitempty" xml:"bodySite,omitempty"`
-	//The method or technique used to perform the observation.
+	// The method or technique used to perform the observation.
 	//
 	// Comment: Only used if not implicit in observation code
-	//Example: 702659008 |Automated count technique|.
+	//
+	// Example: 702659008 |Automated count technique|.
 	Method *CodeableConcept `bson:"method,omitempty" json:"method,omitempty" xml:"method,omitempty"`
-	//The kind of specimen that this type of observation is produced on.
+	// The kind of specimen that this type of observation is produced on.
 	//
 	// Comment: Only used for in vitro observations. When multiple occurrences of specimen are present, they are to be combined with a logical AND: all specified specimens  are needed for the observation.
 	Specimen []Reference `bson:"specimen,omitempty" json:"specimen,omitempty" xml:"specimen,omitempty"`
-	//The measurement model of device or actual device used to produce observations of this type.
+	// The measurement model of device or actual device used to produce observations of this type.
 	//
 	// Comment: When multiple occurrences of device are present, they are to be combined with a logical OR: at least one of the specified devices is used to produce the observation.
 	Device []Reference `bson:"device,omitempty" json:"device,omitempty" xml:"device,omitempty"`
@@ -242,19 +243,19 @@ type ObservationDefinitionQualifiedValue struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A concept defining the context for this set of qualified values.
 	Context *CodeableConcept `bson:"context,omitempty" json:"context,omitempty" xml:"context,omitempty"`
-	//The target population this  set of qualified values applies to.
+	// The target population this  set of qualified values applies to.
 	//
 	// Comment: If this element is not present then the global population is assumed.
 	AppliesTo []CodeableConcept `bson:"appliesTo,omitempty" json:"appliesTo,omitempty" xml:"appliesTo,omitempty"`
 	// The gender this  set of qualified values applies to.
 	Gender *AdministrativeGender `bson:"gender,omitempty" json:"gender,omitempty" xml:"gender,omitempty"`
-	//The age range this  set of qualified values applies to.
+	// The age range this  set of qualified values applies to.
 	//
 	// Comment: Some analytes vary greatly over age.
 	Age *Range `bson:"age,omitempty" json:"age,omitempty" xml:"age,omitempty"`
@@ -293,7 +294,7 @@ type ObservationDefinitionComponent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

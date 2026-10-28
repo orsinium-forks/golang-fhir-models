@@ -28,7 +28,7 @@ type NamingSystem struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type NamingSystem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -63,11 +63,11 @@ type NamingSystem struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	//A formal identifier that is used to identify this naming system when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this naming system when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this naming system outside of FHIR, where it is not possible to use the logical URI.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -77,7 +77,7 @@ type NamingSystem struct {
 	//
 	// Comment: There may be different naming system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the naming system with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which NamingSystem is more current.
+	// Indicates the mechanism used to compare versions to determine which NamingSystem is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -88,21 +88,19 @@ type NamingSystem struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.The"symbolic name" for an OID would be captured as an extension.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//A short, descriptive, user-friendly title for the naming system.
+	// A short, descriptive, user-friendly title for the naming system.
 	//
 	// Comment: This title does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this naming system.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this naming system. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of naming systems that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
 	// Indicates the purpose for the naming system - what kinds of things does it make unique?
 	Kind NamingSystemType `bson:"kind" json:"kind" xml:"kind"`
-	//A Boolean value to indicate that this naming system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this naming system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of naming systems that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -112,23 +110,23 @@ type NamingSystem struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the naming system. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date string `bson:"date" json:"date" xml:"date"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the naming system.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the naming system.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the naming system is the organization or individual primarily responsible for the maintenance and upkeep of the naming system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the naming system. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
+	// The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
 	//
 	// Comment: This is the primary organization.  Responsibility for some aspects of a namespace may be delegated.
 	Responsible *string `bson:"responsible,omitempty" json:"responsible,omitempty" xml:"responsible,omitempty"`
-	//Categorizes a naming system for easier search by grouping related naming systems.
+	// Categorizes a naming system for easier search by grouping related naming systems.
 	//
 	// Comment: This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
@@ -144,13 +142,13 @@ type NamingSystem struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the naming system is intended to be used.
+	// A legal or geographic region in which the naming system is intended to be used.
 	//
 	// Comment: It may be possible for the naming system to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this naming system is needed and why it has been designed as it has.
+	// Explanation of why this naming system is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the code system. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -170,7 +168,7 @@ type NamingSystem struct {
 	//
 	// Comment: The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	ApprovalDate *string `bson:"approvalDate,omitempty" json:"approvalDate,omitempty" xml:"approvalDate,omitempty"`
 	// The date on which the resource content was last reviewed.
 	//
@@ -178,13 +176,13 @@ type NamingSystem struct {
 	//
 	// Comment: If specified, this date follows the original approval date.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	LastReviewDate *string `bson:"lastReviewDate,omitempty" json:"lastReviewDate,omitempty" xml:"lastReviewDate,omitempty"`
-	//The period during which the NamingSystem content was or is planned to be in active use.
+	// The period during which the NamingSystem content was or is planned to be in active use.
 	//
 	// Comment: The effective period for a NamingSystem determines when the content is applicable for usage and is independent of publication and review dates. For example, a NamingSystem intended to be used for the year 2016 might be published in 2015.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
 	// Descriptions related to the content of the NamingSystem.
 	//
@@ -196,15 +194,15 @@ type NamingSystem struct {
 	Author []ContactDetail `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
 	// An individual or organization primarily responsible for internal coherence of the NamingSystem.
 	Editor []ContactDetail `bson:"editor,omitempty" json:"editor,omitempty" xml:"editor,omitempty"`
-	//An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the NamingSystem.
+	// An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the NamingSystem.
 	//
 	// Comment: See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Reviewer []ContactDetail `bson:"reviewer,omitempty" json:"reviewer,omitempty" xml:"reviewer,omitempty"`
-	//An individual or organization asserted by the publisher to be responsible for officially endorsing the NamingSystem for use in some setting.
+	// An individual or organization asserted by the publisher to be responsible for officially endorsing the NamingSystem for use in some setting.
 	//
 	// Comment: See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Endorser []ContactDetail `bson:"endorser,omitempty" json:"endorser,omitempty" xml:"endorser,omitempty"`
-	//Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.
+	// Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.
 	//
 	// Comment: Each related artifact is either an attachment, or a reference to another resource, but not both.
 	RelatedArtifact []RelatedArtifact `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty" xml:"relatedArtifact,omitempty"`
@@ -212,7 +210,7 @@ type NamingSystem struct {
 	//
 	// lower case, etc.
 	Usage *string `bson:"usage,omitempty" json:"usage,omitempty" xml:"usage,omitempty"`
-	//Indicates how the system may be identified when referenced in electronic exchange.
+	// Indicates how the system may be identified when referenced in electronic exchange.
 	//
 	// Comment: Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
 	UniqueId []NamingSystemUniqueId `bson:"uniqueId" json:"uniqueId" xml:"uniqueId"`
@@ -235,21 +233,21 @@ type NamingSystemUniqueId struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Identifies the unique identifier scheme used for this particular identifier.
+	// Identifies the unique identifier scheme used for this particular identifier.
 	//
 	// Comment: Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc. Preferred identifiers for the same identifier type SHOULD NOT overlap by period.
 	Type NamingSystemIdentifierType `bson:"type" json:"type" xml:"type"`
-	//The string that should be sent over the wire to identify the code system or identifier system.
+	// The string that should be sent over the wire to identify the code system or identifier system.
 	//
 	// Comment: If the value is a URI intended for use as FHIR system identifier, the URI should not contain "\" or "?" or "," since this makes escaping very difficult.
 	Value string `bson:"value" json:"value" xml:"value"`
 	// Indicates whether this identifier is the "preferred" identifier of this type.
 	Preferred *bool `bson:"preferred,omitempty" json:"preferred,omitempty" xml:"preferred,omitempty"`
-	//Notes about the past or intended usage of this identifier.
+	// Notes about the past or intended usage of this identifier.
 	//
 	// Comment: e.g. "must be used in Germany" or "was initially published in error with this value".
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
@@ -259,7 +257,7 @@ type NamingSystemUniqueId struct {
 	//
 	// Comment: Within a registry, a given identifier should only be "active" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).
 	//
-	//The nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached.
+	// The nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
 	// Indicates whether this identifier ie endorsed by the official owner of the associated naming system.
 	Authoritative *bool `bson:"authoritative,omitempty" json:"authoritative,omitempty" xml:"authoritative,omitempty"`

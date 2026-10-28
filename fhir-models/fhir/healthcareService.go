@@ -28,7 +28,7 @@ type HealthcareService struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,7 +53,7 @@ type HealthcareService struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -65,15 +65,15 @@ type HealthcareService struct {
 	//
 	// Comment: This element is labeled as a modifier because it may be used to mark that the resource was created in error.
 	Active *bool `bson:"active,omitempty" json:"active,omitempty" xml:"active,omitempty"`
-	//The organization that provides this healthcare service.
+	// The organization that provides this healthcare service.
 	//
 	// Comment: This property is recommended to be the same as the Location's managingOrganization, and if not provided should be interpreted as such. If the Location does not have a managing Organization, then this property should be populated.
 	ProvidedBy *Reference `bson:"providedBy,omitempty" json:"providedBy,omitempty" xml:"providedBy,omitempty"`
-	//When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service.
+	// When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service.
 	//
 	// Comment: For example, if there is a generic Radiology service that offers CT Scans, MRIs, etc.  You could have HealthcareService resources for the CT Scans and MRIs, which have an offeredIn reference to the Radiology HealthcareService.
 	OfferedIn []Reference `bson:"offeredIn,omitempty" json:"offeredIn,omitempty" xml:"offeredIn,omitempty"`
-	//Identifies the broad category of service being performed or delivered.
+	// Identifies the broad category of service being performed or delivered.
 	//
 	// Comment: Selecting a Service Category then determines the list of relevant service types that can be selected in the primary service type.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
@@ -87,7 +87,7 @@ type HealthcareService struct {
 	Location []Reference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
 	// Further description of the service as it would be presented to a consumer while searching.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
+	// Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
 	//
 	// Comment: Would expect that a user would not see this information on a search results, and it would only be available when viewing the complete details of the service.
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
@@ -101,23 +101,23 @@ type HealthcareService struct {
 	//
 	// Comment: The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.
 	//
-	//If this is empty (or the type of interest is empty), refer to the location's contacts.
+	// If this is empty (or the type of interest is empty), refer to the location's contacts.
 	Contact []ExtendedContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//The location(s) that this service is available to (not where the service is provided).
+	// The location(s) that this service is available to (not where the service is provided).
 	//
 	// Comment: The locations referenced by the coverage area can include both specific locations, including areas, and also conceptual domains too (mode = kind), such as a physical area (tri-state area) and some other attribute (covered by Example Care Organization). These types of Locations are often not managed by any specific organization. This could also include generic locations such as "in-home".
 	CoverageArea []Reference `bson:"coverageArea,omitempty" json:"coverageArea,omitempty" xml:"coverageArea,omitempty"`
-	//The code(s) that detail the conditions under which the healthcare service is available/offered.
+	// The code(s) that detail the conditions under which the healthcare service is available/offered.
 	//
 	// Comment: The provision means being commissioned by, contractually obliged or financially sourced. Types of costings that may apply to this healthcare service, such if the service may be available for free, some discounts available, or fees apply.
 	ServiceProvisionCode []CodeableConcept `bson:"serviceProvisionCode,omitempty" json:"serviceProvisionCode,omitempty" xml:"serviceProvisionCode,omitempty"`
 	// Does this service have specific eligibility requirements that need to be met in order to use the service?
 	Eligibility []HealthcareServiceEligibility `bson:"eligibility,omitempty" json:"eligibility,omitempty" xml:"eligibility,omitempty"`
-	//Programs that this service is applicable to.
+	// Programs that this service is applicable to.
 	//
 	// Comment: Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, ….
 	Program []CodeableConcept `bson:"program,omitempty" json:"program,omitempty" xml:"program,omitempty"`
-	//Collection of characteristics (attributes).
+	// Collection of characteristics (attributes).
 	//
 	// Comment: These could be such things as is wheelchair accessible.
 	Characteristic []CodeableConcept `bson:"characteristic,omitempty" json:"characteristic,omitempty" xml:"characteristic,omitempty"`
@@ -133,11 +133,11 @@ type HealthcareService struct {
 	//
 	// Indicates if an appointment is required for access to this service.
 	AppointmentRequired *bool `bson:"appointmentRequired,omitempty" json:"appointmentRequired,omitempty" xml:"appointmentRequired,omitempty"`
-	//A collection of times that the healthcare service is available.
+	// A collection of times that the healthcare service is available.
 	//
 	// Comment: More detailed availability information may be provided in associated Schedule/Slot resources.
 	//
-	//Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays).
+	// Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays).
 	Availability []Availability `bson:"availability,omitempty" json:"availability,omitempty" xml:"availability,omitempty"`
 	// Technical endpoints providing access to services operated for the specific healthcare services defined at this resource.
 	Endpoint []Reference `bson:"endpoint,omitempty" json:"endpoint,omitempty" xml:"endpoint,omitempty"`
@@ -157,13 +157,13 @@ type HealthcareServiceEligibility struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Coded value for the eligibility.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	//Describes the eligibility conditions for the service.
+	// Describes the eligibility conditions for the service.
 	//
 	// Comment: The description of service eligibility should, in general, not exceed one or two paragraphs. It should be sufficient for a prospective consumer to determine if they are likely to be eligible or not. Where eligibility requirements and conditions are complex, it may simply be noted that an eligibility assessment is required. Where eligibility is determined by an outside source, such as an Act of Parliament, this should be noted, preferably with a reference to a commonly available copy of the source document such as a web page.
 	Comment *string `bson:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`

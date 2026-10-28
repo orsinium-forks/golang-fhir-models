@@ -20,7 +20,7 @@ type Coding struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//The identification of the code system that defines the meaning of the symbol in the code.
+	// The identification of the code system that defines the meaning of the symbol in the code.
 	//
 	// Comment: The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should be an absolute reference to some definition that establishes the system clearly and unambiguously.
 	System *string `bson:"system,omitempty" json:"system,omitempty" xml:"system,omitempty"`

@@ -26,7 +26,7 @@ type SearchParameter struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type SearchParameter struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -61,9 +61,9 @@ type SearchParameter struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url string `bson:"url" json:"url" xml:"url"`
 	// A formal identifier that is used to identify this search parameter when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -73,7 +73,7 @@ type SearchParameter struct {
 	//
 	// Comment: There may be different search parameter instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the search parameter with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -84,7 +84,7 @@ type SearchParameter struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//A short, descriptive, user-friendly title for the search parameter.
+	// A short, descriptive, user-friendly title for the search parameter.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
@@ -94,15 +94,13 @@ type SearchParameter struct {
 	//
 	// Comment: The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server.
 	DerivedFrom *string `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty" xml:"derivedFrom,omitempty"`
-	// The status of this search parameter.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this search parameter. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of search parameters that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of search parameters that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -112,19 +110,19 @@ type SearchParameter struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the search parameter. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter.
+	// The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the search parameter is the organization or individual primarily responsible for the maintenance and upkeep of the search parameter. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the search parameter. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//And how it used.
+	// And how it used.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the search parameter as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the search parameter is presumed to be the predominant language in the place the search parameter was created).
 	Description string `bson:"description" json:"description" xml:"description"`
@@ -134,13 +132,13 @@ type SearchParameter struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the search parameter is intended to be used.
+	// A legal or geographic region in which the search parameter is intended to be used.
 	//
 	// Comment: It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this search parameter is needed and why it has been designed as it has.
+	// Explanation of why this search parameter is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the search parameter. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this search parameter.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -162,13 +160,13 @@ type SearchParameter struct {
 	//
 	// Comment: For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code.
 	Code string `bson:"code" json:"code" xml:"code"`
-	//The base resource type(s) that this search parameter can be used against.
+	// The base resource type(s) that this search parameter can be used against.
 	//
 	// Comment: A search parameter must always apply to at least one resource type. When search parameters apply to more than one resource type, they can be used against any of the listed resource types, or in a cross-type search (see [Cross Resource Search](http.html#xres-search)).
 	Base []string `bson:"base" json:"base" xml:"base"`
 	// The type of value that a search parameter may contain, and how the content is interpreted.
 	Type SearchParamType `bson:"type" json:"type" xml:"type"`
-	//A FHIRPath expression that returns a set of elements for the search parameter.
+	// A FHIRPath expression that returns a set of elements for the search parameter.
 	//
 	// Comment: Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system. For composite search parameters, the outcome of the expression must a collection of base elements from which the composites are derived.
 	Expression *string `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
@@ -176,11 +174,11 @@ type SearchParameter struct {
 	ProcessingMode *SearchProcessingModeType `bson:"processingMode,omitempty" json:"processingMode,omitempty" xml:"processingMode,omitempty"`
 	// FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable.
 	Constraint *string `bson:"constraint,omitempty" json:"constraint,omitempty" xml:"constraint,omitempty"`
-	//Types of resource (if a resource is referenced).
+	// Types of resource (if a resource is referenced).
 	//
 	// Comment: In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.
 	//
-	//However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath.
+	// However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath.
 	Target []string `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
 	// Whether multiple values are allowed for each time the parameter exists.
 	//
@@ -190,7 +188,7 @@ type SearchParameter struct {
 	//
 	// more than one parameter with the same name. The search matches if all the parameters match.
 	MultipleAnd *bool `bson:"multipleAnd,omitempty" json:"multipleAnd,omitempty" xml:"multipleAnd,omitempty"`
-	//Comparators supported for the search parameter.
+	// Comparators supported for the search parameter.
 	//
 	// Comment: If no comparators are listed, clients should not expect servers to support any comparators.
 	Comparator []SearchComparator `bson:"comparator,omitempty" json:"comparator,omitempty" xml:"comparator,omitempty"`
@@ -202,11 +200,15 @@ type SearchParameter struct {
 	//
 	// Comment: Notes:
 	//
-	//* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available
-	//* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values
-	//*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```
-	//* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```
-	//* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```
+	// * Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available
+	//
+	// * A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values
+	//
+	// *  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```
+	//
+	// * If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```
+	//
+	// * If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```
 	Chain []string `bson:"chain,omitempty" json:"chain,omitempty" xml:"chain,omitempty"`
 	// Used to define the parts of a composite search parameter.
 	Component []SearchParameterComponent `bson:"component,omitempty" json:"component,omitempty" xml:"component,omitempty"`
@@ -229,13 +231,13 @@ type SearchParameterComponent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The definition of the search parameter that describes this part.
 	Definition string `bson:"definition" json:"definition" xml:"definition"`
-	//A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
+	// A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
 	//
 	// Comment: This expression overrides the expression in the definition and extracts the index values from the outcome of the composite expression.
 	Expression string `bson:"expression" json:"expression" xml:"expression"`

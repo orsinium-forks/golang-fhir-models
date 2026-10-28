@@ -28,7 +28,7 @@ type DocumentReference struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,33 +53,31 @@ type DocumentReference struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Other business identifiers associated with the document, including version independent identifiers.
+	// Other business identifiers associated with the document, including version independent identifiers.
 	//
 	// Comment: The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension).
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//An explicitly assigned identifer of a variation of the content in the DocumentReference.
+	// An explicitly assigned identifer of a variation of the content in the DocumentReference.
 	//
 	// Comment: While each resource, including the DocumentReference itself, has its own version identifier, this is a formal identifier for the logical version of the DocumentReference as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example.
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
 	// A procedure that is fulfilled in whole or in part by the creation of this media.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
-	//The status of this document reference.
+	// The status of this document reference.
 	//
 	// Comment: This is the status of the DocumentReference object, which might be independent from the docStatus element.
 	//
-	//This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
+	// This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
 	Status DocumentReferenceStatus `bson:"status" json:"status" xml:"status"`
-	//The status of the underlying document.
+	// The status of the underlying document.
 	//
 	// Comment: The document that is pointed to might be in various lifecycle states.
 	DocStatus *CompositionStatus `bson:"docStatus,omitempty" json:"docStatus,omitempty" xml:"docStatus,omitempty"`
-	// Imaging modality used.
-	//
-	// This may include both acquisition and non-acquisition modalities.
+	// Imaging modality used. This may include both acquisition and non-acquisition modalities.
 	Modality []CodeableConcept `bson:"modality,omitempty" json:"modality,omitempty" xml:"modality,omitempty"`
 	// Specifies the particular kind of document referenced  (e.g.
 	//
@@ -109,33 +107,33 @@ type DocumentReference struct {
 	BodySite []CodeableReference `bson:"bodySite,omitempty" json:"bodySite,omitempty" xml:"bodySite,omitempty"`
 	// The kind of facility where the patient was seen.
 	FacilityType *CodeableConcept `bson:"facilityType,omitempty" json:"facilityType,omitempty" xml:"facilityType,omitempty"`
-	//This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.
+	// This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.
 	//
 	// Comment: This element should be based on a coarse classification system for the class of specialty practice. Recommend the use of the classification system for Practice Setting, such as that described by the Subject Matter Domain in LOINC.
 	PracticeSetting *CodeableConcept `bson:"practiceSetting,omitempty" json:"practiceSetting,omitempty" xml:"practiceSetting,omitempty"`
 	// The time period over which the service that is described by the document was provided.
 	Period *Period `bson:"period,omitempty" json:"period,omitempty" xml:"period,omitempty"`
-	//When the document reference was created.
+	// When the document reference was created.
 	//
 	// Comment: Referencing/indexing time is used for tracking, organizing versions and searching.
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//Identifies who is responsible for adding the information to the document.
+	// Identifies who is responsible for adding the information to the document.
 	//
 	// Comment: Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant).
 	Author []Reference `bson:"author,omitempty" json:"author,omitempty" xml:"author,omitempty"`
-	//A participant who has authenticated the accuracy of the document.
+	// A participant who has authenticated the accuracy of the document.
 	//
 	// Comment: Only list each attester once.
 	Attester []DocumentReferenceAttester `bson:"attester,omitempty" json:"attester,omitempty" xml:"attester,omitempty"`
-	//Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
+	// Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
 	//
 	// Comment: Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization.
 	Custodian *Reference `bson:"custodian,omitempty" json:"custodian,omitempty" xml:"custodian,omitempty"`
-	//Relationships that this document has with other document references that already exist.
+	// Relationships that this document has with other document references that already exist.
 	//
 	// Comment: This element is labeled as a modifier because documents that append to other documents are incomplete on their own.
 	RelatesTo []DocumentReferenceRelatesTo `bson:"relatesTo,omitempty" json:"relatesTo,omitempty" xml:"relatesTo,omitempty"`
-	//Human-readable description of the source document.
+	// Human-readable description of the source document.
 	//
 	// Comment: What the document is about,  a terse summary of the document.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -145,7 +143,7 @@ type DocumentReference struct {
 	//
 	// Comment: The confidentiality codes can carry multiple vocabulary items. HL7 has developed an understanding of security and privacy tags that might be desirable in a Document Sharing environment, called HL7 Healthcare Privacy and Security Classification System (HCS). The following specification is recommended but not mandated, as the vocabulary bindings are an administrative domain responsibility. The use of this method is up to the policy domain such as the XDS Affinity Domain or other Trust Domain where all parties including sender and recipients are trusted to appropriately tag and enforce.
 	//
-	//In the HL7 Healthcare Privacy and Security Classification (HCS) there are code systems specific to Confidentiality, Sensitivity, Integrity, and Handling Caveats. Some values would come from a local vocabulary as they are related to workflow roles and special projects.
+	// In the HL7 Healthcare Privacy and Security Classification (HCS) there are code systems specific to Confidentiality, Sensitivity, Integrity, and Handling Caveats. Some values would come from a local vocabulary as they are related to workflow roles and special projects.
 	SecurityLabel []CodeableConcept `bson:"securityLabel,omitempty" json:"securityLabel,omitempty" xml:"securityLabel,omitempty"`
 	// The document and format referenced.
 	//
@@ -174,7 +172,7 @@ type DocumentReferenceAttester struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -203,11 +201,11 @@ type DocumentReferenceRelatesTo struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The type of relationship that this document has with anther document.
+	// The type of relationship that this document has with anther document.
 	//
 	// Comment: If this document appends another document, then the document cannot be fully understood without also accessing the referenced document.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
@@ -232,17 +230,17 @@ type DocumentReferenceContent struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The document or URL of the document along with critical metadata to prove content has integrity.
 	Attachment Attachment `bson:"attachment" json:"attachment" xml:"attachment"`
-	//An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
+	// An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
 	//
 	// Comment: Note that IHE often issues URNs for formatCode codes, not all documents can be identified by a URI.
 	//
-	//For FHIR content, .profile should indicate the structureDefinition profile canonical URI(s) that the content complies with.
+	// For FHIR content, .profile should indicate the structureDefinition profile canonical URI(s) that the content complies with.
 	Profile []DocumentReferenceContentProfile `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
 	// A reference to a document of any kind for any purpose.
 	//
@@ -265,7 +263,7 @@ type DocumentReferenceContentProfile struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -20,15 +20,11 @@ type Range struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	// The low limit.
-	//
-	// The boundary is inclusive.
+	// The low limit. The boundary is inclusive.
 	//
 	// Comment: If the low element is missing, the low boundary is not known.
 	Low *Quantity `bson:"low,omitempty" json:"low,omitempty" xml:"low,omitempty"`
-	// The high limit.
-	//
-	// The boundary is inclusive.
+	// The high limit. The boundary is inclusive.
 	//
 	// Comment: If the high element is missing, the high boundary is not known.
 	High *Quantity `bson:"high,omitempty" json:"high,omitempty" xml:"high,omitempty"`

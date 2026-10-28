@@ -30,7 +30,7 @@ type ImplementationGuide struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,7 +55,7 @@ type ImplementationGuide struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -65,9 +65,9 @@ type ImplementationGuide struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	Url string `bson:"url" json:"url" xml:"url"`
 	// A formal identifier that is used to identify this implementation guide when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -77,7 +77,7 @@ type ImplementationGuide struct {
 	//
 	// Comment: There may be different implementation guide instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the implementation guide with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -88,19 +88,17 @@ type ImplementationGuide struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.
 	Name string `bson:"name" json:"name" xml:"name"`
-	//A short, descriptive, user-friendly title for the implementation guide.
+	// A short, descriptive, user-friendly title for the implementation guide.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	// The status of this implementation guide.
-	//
-	// Enables tracking the life-cycle of the content.
+	// The status of this implementation guide. Enables tracking the life-cycle of the content.
 	//
 	// Comment: Allows filtering of implementation guides that are appropriate for use versus not.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+	// A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	//
 	// Comment: Allows filtering of implementation guides that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
@@ -110,19 +108,19 @@ type ImplementationGuide struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the implementation guide. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the implementation guide is the organization or individual primarily responsible for the maintenance and upkeep of the implementation guide. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the implementation guide. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the implementation guide from a consumer's perspective.
+	// A free text natural language description of the implementation guide from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -132,13 +130,13 @@ type ImplementationGuide struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the implementation guide is intended to be used.
+	// A legal or geographic region in which the implementation guide is intended to be used.
 	//
 	// Comment: It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this implementation guide is needed and why it has been designed as it has.
+	// Explanation of why this implementation guide is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the implementation guide. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this implementation guide.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -172,11 +170,11 @@ type ImplementationGuide struct {
 	//
 	// Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.
 	DependsOn []ImplementationGuideDependsOn `bson:"dependsOn,omitempty" json:"dependsOn,omitempty" xml:"dependsOn,omitempty"`
-	//A set of profiles that all resources covered by this implementation guide must conform to.
+	// A set of profiles that all resources covered by this implementation guide must conform to.
 	//
 	// Comment: See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide.
 	Global []ImplementationGuideGlobal `bson:"global,omitempty" json:"global,omitempty" xml:"global,omitempty"`
-	//The information needed by an IG publisher tool to publish the whole implementation guide.
+	// The information needed by an IG publisher tool to publish the whole implementation guide.
 	//
 	// Comment: Principally, this consists of information abuot source resource and file locations, and build parameters and templates.
 	Definition *ImplementationGuideDefinition `bson:"definition,omitempty" json:"definition,omitempty" xml:"definition,omitempty"`
@@ -201,21 +199,21 @@ type ImplementationGuideDependsOn struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//A canonical reference to the Implementation guide for the dependency.
+	// A canonical reference to the Implementation guide for the dependency.
 	//
 	// Comment: Usually, A canonical reference to the implementation guide is the same as the master location at which the implementation guide is published.
 	Uri string `bson:"uri" json:"uri" xml:"uri"`
 	// The NPM package name for the Implementation Guide that this IG depends on.
 	PackageId *string `bson:"packageId,omitempty" json:"packageId,omitempty" xml:"packageId,omitempty"`
-	//The version of the IG that is depended on, when the correct version is required to understand the IG correctly.
+	// The version of the IG that is depended on, when the correct version is required to understand the IG correctly.
 	//
 	// Comment: This follows the syntax of the NPM packaging version field - see [[reference]].
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//A description explaining the nature of the dependency on the listed IG.
+	// A description explaining the nature of the dependency on the listed IG.
 	//
 	// Comment: This doesn't need to enumerate every resource used, but should give some sense of why the dependency exists.  It will be used in the rendered list of dependencies
 	Reason *string `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
@@ -238,11 +236,11 @@ type ImplementationGuideGlobal struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The type of resource that all instances must conform to.
+	// The type of resource that all instances must conform to.
 	//
 	// Comment: The type must match that of the profile that is referred to but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available.
 	Type ResourceType `bson:"type" json:"type" xml:"type"`
@@ -267,13 +265,11 @@ type ImplementationGuideDefinition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	// A logical group of resources.
-	//
-	// Logical groups can be used when building pages.
+	// A logical group of resources. Logical groups can be used when building pages.
 	//
 	// Comment: Groupings are arbitrary sub-divisions of content. Typically, they are used to help build Table of Contents automatically.
 	Grouping []ImplementationGuideDefinitionGrouping `bson:"grouping,omitempty" json:"grouping,omitempty" xml:"grouping,omitempty"`
@@ -312,7 +308,7 @@ type ImplementationGuideDefinitionGrouping struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -339,11 +335,11 @@ type ImplementationGuideDefinitionResource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Where this resource is found.
+	// Where this resource is found.
 	//
 	// Comment: Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
@@ -357,22 +353,25 @@ type ImplementationGuideDefinitionResource struct {
 	//
 	// All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A description of the reason that a resource has been included in the implementation guide.
+	// A description of the reason that a resource has been included in the implementation guide.
 	//
 	// Comment: This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// If true, indicates the resource is an example instance.
 	IsExample *bool `bson:"isExample,omitempty" json:"isExample,omitempty" xml:"isExample,omitempty"`
-	//If present, indicates profile(s) the instance is valid against.
+	// If present, indicates profile(s) the instance is valid against.
 	//
 	// Comment: Examples:
 	//
-	//* StructureDefinition -> Any
-	//* ValueSet -> expansion
-	//* OperationDefinition -> Parameters
-	//* Questionnaire -> QuestionnaireResponse.
+	// * StructureDefinition -> Any
+	//
+	// * ValueSet -> expansion
+	//
+	// * OperationDefinition -> Parameters
+	//
+	// * Questionnaire -> QuestionnaireResponse.
 	Profile []string `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
-	//Reference to the id of the grouping this resource appears in.
+	// Reference to the id of the grouping this resource appears in.
 	//
 	// Comment: This must correspond to a group.id element within this implementation guide.
 	GroupingId *string `bson:"groupingId,omitempty" json:"groupingId,omitempty" xml:"groupingId,omitempty"`
@@ -397,17 +396,17 @@ type ImplementationGuideDefinitionPage struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Indicates the URL or the actual content to provide for the page.
+	// Indicates the URL or the actual content to provide for the page.
 	//
 	// Comment: If absent and the page isn't a generated page, this may be inferred from the page name by checking input locations.  String is used for XHTML content - sent as an escaped string.  FHIR tooling can't support 'direct' XHTML anywhere other than in narrative.
 	SourceUrl      *string `bson:"sourceUrl,omitempty" json:"sourceUrl,omitempty" xml:"sourceUrl,omitempty"`
 	SourceString   *string `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceMarkdown *string `bson:"sourceMarkdown,omitempty" json:"sourceMarkdown,omitempty" xml:"sourceMarkdown,omitempty"`
-	//The url by which the page should be known when published.
+	// The url by which the page should be known when published.
 	//
 	// Comment: This SHALL be a local reference, expressed with respect to the root of the IG output folder.  No suffix is required.  If no suffix is specified, .html will be appended.
 	Name string `bson:"name" json:"name" xml:"name"`
@@ -415,7 +414,7 @@ type ImplementationGuideDefinitionPage struct {
 	Title string `bson:"title" json:"title" xml:"title"`
 	// A code that indicates how the page is generated.
 	Generation GuidePageGeneration `bson:"generation" json:"generation" xml:"generation"`
-	//Nested Pages/Sections under this page.
+	// Nested Pages/Sections under this page.
 	//
 	// Comment: The implementation guide breadcrumbs may be generated from this structure.
 	Page []ImplementationGuideDefinitionPage `bson:"page,omitempty" json:"page,omitempty"`
@@ -440,7 +439,7 @@ type ImplementationGuideDefinitionParameter struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -465,7 +464,7 @@ type ImplementationGuideDefinitionTemplate struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -492,7 +491,7 @@ type ImplementationGuideManifest struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -526,26 +525,29 @@ type ImplementationGuideManifestResource struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Where this resource is found.
+	// Where this resource is found.
 	//
 	// Comment: Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it.
 	Reference Reference `bson:"reference" json:"reference" xml:"reference"`
 	// If true, indicates the resource is an example instance.
 	IsExample *bool `bson:"isExample,omitempty" json:"isExample,omitempty" xml:"isExample,omitempty"`
-	//If present, indicates profile(s) the instance is valid against.
+	// If present, indicates profile(s) the instance is valid against.
 	//
 	// Comment: Examples:
 	//
-	//* StructureDefinition -> Any
-	//* ValueSet -> expansion
-	//* OperationDefinition -> Parameters
-	//* Questionnaire -> QuestionnaireResponse.
+	// * StructureDefinition -> Any
+	//
+	// * ValueSet -> expansion
+	//
+	// * OperationDefinition -> Parameters
+	//
+	// * Questionnaire -> QuestionnaireResponse.
 	Profile []string `bson:"profile,omitempty" json:"profile,omitempty" xml:"profile,omitempty"`
-	//The relative path for primary page for this resource within the IG.
+	// The relative path for primary page for this resource within the IG.
 	//
 	// Comment: Appending 'rendering' + "/" + this should resolve to the resource page.
 	RelativePath *string `bson:"relativePath,omitempty" json:"relativePath,omitempty" xml:"relativePath,omitempty"`
@@ -566,17 +568,17 @@ type ImplementationGuideManifestPage struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Relative path to the page.
+	// Relative path to the page.
 	//
 	// Comment: Appending 'rendering' + "/" + this should resolve to the page.
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Label for the page intended for human display.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	//The name of an anchor available on the page.
+	// The name of an anchor available on the page.
 	//
 	// Comment: Appending 'rendering' + "/" + page.name + "#" + page.anchor should resolve to the anchor.
 	Anchor []string `bson:"anchor,omitempty" json:"anchor,omitempty" xml:"anchor,omitempty"`

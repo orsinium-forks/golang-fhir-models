@@ -20,7 +20,7 @@ type RelatedArtifact struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//The type of relationship to the related artifact.
+	// The type of relationship to the related artifact.
 	//
 	// Comment: The presence of both sides of a relationship type (e.g. successor and predecessor) is required to support use cases where one side of a relationship is not represented in FHIR. However, this feature SHALL NOT be used to create bi-directional resource links in FHIR instances. Specifically, following the methodology of "new points to old" and "many points to one", when using related artifact elements to describe and reference FHIR resources, the type element SHALL be drawn from the fhir-related-artifact-type ValueSet.
 	Type RelatedArtifactType `bson:"type" json:"type" xml:"type"`
@@ -40,11 +40,11 @@ type RelatedArtifact struct {
 	//
 	// This is exclusive with the resource element.
 	Document *Attachment `bson:"document,omitempty" json:"document,omitempty" xml:"document,omitempty"`
-	//The related artifact, such as a library, value set, profile, or other knowledge resource.
+	// The related artifact, such as a library, value set, profile, or other knowledge resource.
 	//
 	// Comment: If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource.
 	Resource *string `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	//The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource.
+	// The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource.
 	//
 	// Comment: If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases.
 	ResourceReference *Reference `bson:"resourceReference,omitempty" json:"resourceReference,omitempty" xml:"resourceReference,omitempty"`

@@ -26,7 +26,7 @@ type Goal struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,15 +51,15 @@ type Goal struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//The state of the goal throughout its lifecycle.
+	// The state of the goal throughout its lifecycle.
 	//
 	// Comment: This element is labeled as a modifier because the lifecycleStatus contains codes that mark the resource as not currently valid.
 	LifecycleStatus GoalLifecycleStatus `bson:"lifecycleStatus" json:"lifecycleStatus" xml:"lifecycleStatus"`
@@ -67,15 +67,15 @@ type Goal struct {
 	AchievementStatus *CodeableConcept `bson:"achievementStatus,omitempty" json:"achievementStatus,omitempty" xml:"achievementStatus,omitempty"`
 	// Indicates a category the goal falls within.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
-	//After meeting the goal, ongoing activity is needed to sustain the goal objective.
+	// After meeting the goal, ongoing activity is needed to sustain the goal objective.
 	//
 	// Comment: For example, getting a yellow fever vaccination for a planned trip is a goal that is designed to be completed (continuous = false).  A goal to sustain HbA1c levels would not be a one-time goal (continuous = true).
 	Continuous *bool `bson:"continuous,omitempty" json:"continuous,omitempty" xml:"continuous,omitempty"`
-	//Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.
+	// Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.
 	//
 	// Comment: Extensions are available to track priorities as established by each participant (i.e. Priority from the patient's perspective, different practitioners' perspectives, family member's perspectives)The ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a "low value=important".
 	Priority *CodeableConcept `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
-	//Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".
+	// Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".
 	//
 	// Comment: If no code is available, use CodeableConcept.text.
 	Description CodeableConcept `bson:"description" json:"description" xml:"description"`
@@ -84,7 +84,7 @@ type Goal struct {
 	// The date or event after which the goal should begin being pursued.
 	StartDate            *string          `bson:"startDate,omitempty" json:"startDate,omitempty" xml:"startDate,omitempty"`
 	StartCodeableConcept *CodeableConcept `bson:"startCodeableConcept,omitempty" json:"startCodeableConcept,omitempty" xml:"startCodeableConcept,omitempty"`
-	//Indicates what should be done by when.
+	// Indicates what should be done by when.
 	//
 	// Comment: When multiple targets are present for a single goal instance, all targets must be met for the overall goal to be met.
 	Target []GoalTarget `bson:"target,omitempty" json:"target,omitempty" xml:"target,omitempty"`
@@ -94,21 +94,21 @@ type Goal struct {
 	//
 	// Comment: To see the date for past statuses, query history.
 	StatusDate *string `bson:"statusDate,omitempty" json:"statusDate,omitempty" xml:"statusDate,omitempty"`
-	//Captures the reason for the current status.
+	// Captures the reason for the current status.
 	//
 	// Comment: This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
 	StatusReason *string `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
-	//Indicates whose goal this is - patient goal, practitioner goal, etc.
+	// Indicates whose goal this is - patient goal, practitioner goal, etc.
 	//
 	// Comment: This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.).
 	Source *Reference `bson:"source,omitempty" json:"source,omitempty" xml:"source,omitempty"`
 	// The identified conditions and other health record elements that are intended to be addressed by the goal.
 	Addresses []Reference `bson:"addresses,omitempty" json:"addresses,omitempty" xml:"addresses,omitempty"`
-	//Any comments related to the goal.
+	// Any comments related to the goal.
 	//
 	// Comment: May be used for progress notes, concerns or other related information that doesn't actually describe the goal itself.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
-	//Identifies the change (or lack of change) at the point when the status of the goal is assessed.
+	// Identifies the change (or lack of change) at the point when the status of the goal is assessed.
 	//
 	// Comment: Note that this should not duplicate the goal status; The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome could be calories consumed whereas goal outcome is an observation for the actual body weight measured.
 	Outcome []CodeableReference `bson:"outcome,omitempty" json:"outcome,omitempty" xml:"outcome,omitempty"`
@@ -128,7 +128,7 @@ type GoalTarget struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

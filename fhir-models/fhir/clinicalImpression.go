@@ -28,7 +28,7 @@ type ClinicalImpression struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,19 +53,19 @@ type ClinicalImpression struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//Identifies the workflow status of the assessment.
+	// Identifies the workflow status of the assessment.
 	//
 	// Comment: This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid.
 	Status EventStatus `bson:"status" json:"status" xml:"status"`
-	//Captures the reason for the current state of the ClinicalImpression.
+	// Captures the reason for the current state of the ClinicalImpression.
 	//
 	// Comment: This is generally only used for "exception" statuses such as "not-done", "on-hold" or "stopped".
 	StatusReason *CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
@@ -73,11 +73,11 @@ type ClinicalImpression struct {
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// The patient or group of individuals assessed as part of this record.
 	Subject Reference `bson:"subject" json:"subject" xml:"subject"`
-	//The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
+	// The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
 	//
 	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//The point in time or period over which the subject was assessed.
+	// The point in time or period over which the subject was assessed.
 	//
 	// Comment: This SHOULD be accurate to at least the minute, though some assessments only have a known date.
 	EffectiveDateTime *string `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty" xml:"effectiveDateTime,omitempty"`
@@ -92,7 +92,7 @@ type ClinicalImpression struct {
 	//
 	// Comment: It is always likely that multiple previous assessments exist for a patient. The point of quoting a previous assessment is that this assessment is relative to it (see resolved).
 	Previous *Reference `bson:"previous,omitempty" json:"previous,omitempty" xml:"previous,omitempty"`
-	//A list of the relevant problems/conditions for a patient.
+	// A list of the relevant problems/conditions for a patient.
 	//
 	// Comment: e.g. The patient is a pregnant, has congestive heart failure, has an ‎Adenocarcinoma, and is allergic to penicillin.
 	Problem []Reference `bson:"problem,omitempty" json:"problem,omitempty" xml:"problem,omitempty"`
@@ -112,7 +112,7 @@ type ClinicalImpression struct {
 	PrognosisReference []Reference `bson:"prognosisReference,omitempty" json:"prognosisReference,omitempty" xml:"prognosisReference,omitempty"`
 	// Information supporting the clinical impression, which can contain investigation results.
 	SupportingInfo []Reference `bson:"supportingInfo,omitempty" json:"supportingInfo,omitempty" xml:"supportingInfo,omitempty"`
-	//Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.
+	// Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.
 	//
 	// Comment: Don't use this element for content that should more properly appear as one of the specific elements of the impression.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
@@ -132,7 +132,7 @@ type ClinicalImpressionFinding struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

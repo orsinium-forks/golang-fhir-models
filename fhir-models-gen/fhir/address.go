@@ -24,7 +24,7 @@ type Address struct {
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty" xml:"extension,omitempty"`
-	//The purpose of this address.
+	// The purpose of this address.
 	//
 	// Comment: Applications can assume that an address is current unless it explicitly says that it is temporary or old.
 	Use *AddressUse `bson:"use,omitempty" json:"use,omitempty" xml:"use,omitempty"`
@@ -46,7 +46,7 @@ type Address struct {
 	Line []string `bson:"line,omitempty" json:"line,omitempty" xml:"line,omitempty"`
 	// The name of the city, town, suburb, village or other community or delivery center.
 	City *string `bson:"city,omitempty" json:"city,omitempty" xml:"city,omitempty"`
-	//The name of the administrative area (county).
+	// The name of the administrative area (county).
 	//
 	// Comment: District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead.
 	District *string `bson:"district,omitempty" json:"district,omitempty" xml:"district,omitempty"`
@@ -56,7 +56,7 @@ type Address struct {
 	State *string `bson:"state,omitempty" json:"state,omitempty" xml:"state,omitempty"`
 	// A postal code designating a region defined by the postal service.
 	PostalCode *string `bson:"postalCode,omitempty" json:"postalCode,omitempty" xml:"postalCode,omitempty"`
-	//Country - a nation as commonly understood or generally accepted.
+	// Country - a nation as commonly understood or generally accepted.
 	//
 	// Comment: ISO 3166 2- or 3- letter codes MAY be used in place of a human readable country name.
 	Country *string `bson:"country,omitempty" json:"country,omitempty" xml:"country,omitempty"`

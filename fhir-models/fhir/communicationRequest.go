@@ -28,7 +28,7 @@ type CommunicationRequest struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,17 +53,17 @@ type CommunicationRequest struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
+	// Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	//
 	// Comment: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// A plan or proposal that is fulfilled in whole or in part by this request.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
-	//Completed or terminated request(s) whose function is taken by this new request.
+	// Completed or terminated request(s) whose function is taken by this new request.
 	//
 	// Comment: The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
 	Replaces []Reference `bson:"replaces,omitempty" json:"replaces,omitempty" xml:"replaces,omitempty"`
@@ -75,17 +75,17 @@ type CommunicationRequest struct {
 	GroupIdentifier *Identifier `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty" xml:"groupIdentifier,omitempty"`
 	// The status of the proposal or order.
 	Status RequestStatus `bson:"status" json:"status" xml:"status"`
-	//Captures the reason for the current state of the CommunicationRequest.
+	// Captures the reason for the current state of the CommunicationRequest.
 	//
 	// Comment: This is generally only used for "exception" statuses such as "on-hold" or "revoked".  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here.
 	StatusReason *CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty" xml:"statusReason,omitempty"`
-	//Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain.
+	// Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain.
 	//
 	// Comment: This element is expected to be immutable.  E.g. A "proposal" instance should never change to be a "plan" instance or "order" instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.
 	//
-	//One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an "order" might later be clarified to be a "filler-order".  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.
+	// One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an "order" might later be clarified to be a "filler-order".  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.
 	Intent RequestIntent `bson:"intent" json:"intent" xml:"intent"`
-	//The type of message to be sent such as alert, notification, reminder, instruction, etc.
+	// The type of message to be sent such as alert, notification, reminder, instruction, etc.
 	//
 	// Comment: There may be multiple axes of categorization and one communication request may serve multiple purposes.
 	Category []CodeableConcept `bson:"category,omitempty" json:"category,omitempty" xml:"category,omitempty"`
@@ -93,21 +93,19 @@ type CommunicationRequest struct {
 	//
 	// Includes concepts such as stat, urgent, routine.
 	Priority *RequestPriority `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
-	//If true indicates that the CommunicationRequest is asking for the specified action to *not* occur.
+	// If true indicates that the CommunicationRequest is asking for the specified action to *not* occur.
 	//
 	// Comment: The attributes provided with the request qualify what is not to be done.
 	DoNotPerform *bool `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty" xml:"doNotPerform,omitempty"`
-	// A channel that was used for this communication (e.g.
-	//
-	// email, fax).
+	// A channel that was used for this communication (e.g. email, fax).
 	Medium []CodeableConcept `bson:"medium,omitempty" json:"medium,omitempty" xml:"medium,omitempty"`
 	// The patient or group that is the focus of this communication request.
 	Subject *Reference `bson:"subject,omitempty" json:"subject,omitempty" xml:"subject,omitempty"`
-	//Other resources that pertain to this communication request and to which this communication request should be associated.
+	// Other resources that pertain to this communication request and to which this communication request should be associated.
 	//
 	// Comment: Don't use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces.
 	About []Reference `bson:"about,omitempty" json:"about,omitempty" xml:"about,omitempty"`
-	//The Encounter during which this CommunicationRequest was created or to which the creation of this record is tightly associated.
+	// The Encounter during which this CommunicationRequest was created or to which the creation of this record is tightly associated.
 	//
 	// Comment: This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
@@ -130,7 +128,7 @@ type CommunicationRequest struct {
 	//
 	// person, organization, clinical information system, or device) which is to be the source of the communication.
 	InformationProvider []Reference `bson:"informationProvider,omitempty" json:"informationProvider,omitempty" xml:"informationProvider,omitempty"`
-	//Describes why the request is being made in coded or textual form.
+	// Describes why the request is being made in coded or textual form.
 	//
 	// Comment: Textual reasons can be captured using reasonCode.text.
 	Reason []CodeableReference `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
@@ -152,17 +150,17 @@ type CommunicationRequestPayload struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The communicated content (or for multi-part communications, one portion of the communication).
+	// The communicated content (or for multi-part communications, one portion of the communication).
 	//
 	// Comment: The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.
 	//
-	//If the content isn't codified, contentCodeableConcept.text can be used.
+	// If the content isn't codified, contentCodeableConcept.text can be used.
 	//
-	//When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content.
+	// When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content.
 	ContentAttachment      Attachment      `bson:"contentAttachment" json:"contentAttachment" xml:"contentAttachment"`
 	ContentReference       Reference       `bson:"contentReference" json:"contentReference" xml:"contentReference"`
 	ContentCodeableConcept CodeableConcept `bson:"contentCodeableConcept" json:"contentCodeableConcept" xml:"contentCodeableConcept"`

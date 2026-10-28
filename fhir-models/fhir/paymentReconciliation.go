@@ -26,7 +26,7 @@ type PaymentReconciliation struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type PaymentReconciliation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -59,7 +59,7 @@ type PaymentReconciliation struct {
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// Code to indicate the nature of the payment such as payment, adjustment.
 	Type CodeableConcept `bson:"type" json:"type" xml:"type"`
-	//The status of the resource instance.
+	// The status of the resource instance.
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status FinancialResourceStatusCodes `bson:"status" json:"status" xml:"status"`
@@ -73,7 +73,7 @@ type PaymentReconciliation struct {
 	Enterer *Reference `bson:"enterer,omitempty" json:"enterer,omitempty" xml:"enterer,omitempty"`
 	// The type of the source such as patient or insurance.
 	IssuerType *CodeableConcept `bson:"issuerType,omitempty" json:"issuerType,omitempty" xml:"issuerType,omitempty"`
-	//The party who generated the payment.
+	// The party who generated the payment.
 	//
 	// Comment: This party is also responsible for the reconciliation.
 	PaymentIssuer *Reference `bson:"paymentIssuer,omitempty" json:"paymentIssuer,omitempty" xml:"paymentIssuer,omitempty"`
@@ -81,7 +81,7 @@ type PaymentReconciliation struct {
 	Request *Reference `bson:"request,omitempty" json:"request,omitempty" xml:"request,omitempty"`
 	// The practitioner who is responsible for the services rendered to the patient.
 	Requestor *Reference `bson:"requestor,omitempty" json:"requestor,omitempty" xml:"requestor,omitempty"`
-	//The outcome of a request for a reconciliation.
+	// The outcome of a request for a reconciliation.
 	//
 	// Comment: The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
 	Outcome *PaymentOutcome `bson:"outcome,omitempty" json:"outcome,omitempty" xml:"outcome,omitempty"`
@@ -93,9 +93,7 @@ type PaymentReconciliation struct {
 	Location *Reference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
 	// The means of payment such as check, card cash, or electronic funds transfer.
 	Method *CodeableConcept `bson:"method,omitempty" json:"method,omitempty" xml:"method,omitempty"`
-	// The card brand such as debit, Visa, Amex etc.
-	//
-	// used if a card is the method of payment.
+	// The card brand such as debit, Visa, Amex etc. used if a card is the method of payment.
 	CardBrand *string `bson:"cardBrand,omitempty" json:"cardBrand,omitempty" xml:"cardBrand,omitempty"`
 	// A portion of the account number, often the last 4 digits, used for verification not charging purposes.
 	AccountNumber *string `bson:"accountNumber,omitempty" json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
@@ -113,13 +111,13 @@ type PaymentReconciliation struct {
 	ReturnedAmount *Money `bson:"returnedAmount,omitempty" json:"returnedAmount,omitempty" xml:"returnedAmount,omitempty"`
 	// Total payment amount as indicated on the financial instrument.
 	Amount Money `bson:"amount" json:"amount" xml:"amount"`
-	//Issuer's unique identifier for the payment instrument.
+	// Issuer's unique identifier for the payment instrument.
 	//
 	// Comment: For example: EFT number or check number.
 	PaymentIdentifier *Identifier `bson:"paymentIdentifier,omitempty" json:"paymentIdentifier,omitempty" xml:"paymentIdentifier,omitempty"`
 	// Distribution of the payment amount for a previously acknowledged payable.
 	Allocation []PaymentReconciliationAllocation `bson:"allocation,omitempty" json:"allocation,omitempty" xml:"allocation,omitempty"`
-	//A code for the form to be used for printing the content.
+	// A code for the form to be used for printing the content.
 	//
 	// Comment: May be needed to identify specific jurisdictional forms.
 	FormCode *CodeableConcept `bson:"formCode,omitempty" json:"formCode,omitempty" xml:"formCode,omitempty"`
@@ -142,7 +140,7 @@ type PaymentReconciliationAllocation struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -162,7 +160,7 @@ type PaymentReconciliationAllocation struct {
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
 	// The Account to which this payment applies, may be completed by the receiver, used for search.
 	Account *Reference `bson:"account,omitempty" json:"account,omitempty" xml:"account,omitempty"`
-	//Code to indicate the nature of the payment.
+	// Code to indicate the nature of the payment.
 	//
 	// Comment: For example: payment, adjustment, funds advance, etc.
 	Type *CodeableConcept `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
@@ -197,7 +195,7 @@ type PaymentReconciliationProcessNote struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

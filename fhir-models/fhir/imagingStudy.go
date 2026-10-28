@@ -28,7 +28,7 @@ type ImagingStudy struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -53,11 +53,11 @@ type ImagingStudy struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//Identifiers for the ImagingStudy such as DICOM Study Instance UID.
+	// Identifiers for the ImagingStudy such as DICOM Study Instance UID.
 	//
 	// Comment: See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -71,7 +71,7 @@ type ImagingStudy struct {
 	//
 	// This may include both acquisition and non-acquisition modalities.
 	Modality []CodeableConcept `bson:"modality,omitempty" json:"modality,omitempty" xml:"modality,omitempty"`
-	//The subject, typically a patient, of the imaging study.
+	// The subject, typically a patient, of the imaging study.
 	//
 	// Comment: QA phantoms can be recorded with a Device; multiple subjects (such as mice) can be recorded with a Group.
 	Subject Reference `bson:"subject" json:"subject" xml:"subject"`
@@ -144,11 +144,11 @@ type ImagingStudySeries struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The DICOM Series Instance UID for the series.
+	// The DICOM Series Instance UID for the series.
 	//
 	// Comment: See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html).
 	Uid string `bson:"uid" json:"uid" xml:"uid"`
@@ -182,13 +182,11 @@ type ImagingStudySeries struct {
 	Specimen []Reference `bson:"specimen,omitempty" json:"specimen,omitempty" xml:"specimen,omitempty"`
 	// The date and time the series was started.
 	Started *string `bson:"started,omitempty" json:"started,omitempty" xml:"started,omitempty"`
-	//Indicates who or what performed the series and how they were involved.
+	// Indicates who or what performed the series and how they were involved.
 	//
 	// Comment: If the person who performed the series is not known, their Organization may be recorded. A patient, or related person, may be the performer, e.g. for patient-captured images.
 	Performer []ImagingStudySeriesPerformer `bson:"performer,omitempty" json:"performer,omitempty" xml:"performer,omitempty"`
-	// A single SOP instance within the series, e.g.
-	//
-	// an image, or presentation state.
+	// A single SOP instance within the series, e.g. an image, or presentation state.
 	Instance []ImagingStudySeriesInstance `bson:"instance,omitempty" json:"instance,omitempty" xml:"instance,omitempty"`
 	// Representation of the content produced in a DICOM imaging study.
 	//
@@ -209,7 +207,7 @@ type ImagingStudySeriesPerformer struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -217,9 +215,7 @@ type ImagingStudySeriesPerformer struct {
 	Function *CodeableConcept `bson:"function,omitempty" json:"function,omitempty" xml:"function,omitempty"`
 	// Indicates who or what performed the series.
 	Actor Reference `bson:"actor" json:"actor" xml:"actor"`
-	// A single SOP instance within the series, e.g.
-	//
-	// an image, or presentation state.
+	// A single SOP instance within the series, e.g. an image, or presentation state.
 }
 type ImagingStudySeriesInstance struct {
 	// Unique id for the element within a resource (for internal references).
@@ -236,11 +232,11 @@ type ImagingStudySeriesInstance struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The DICOM SOP Instance UID for this image or other DICOM content.
+	// The DICOM SOP Instance UID for this image or other DICOM content.
 	//
 	// Comment: See  [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html#sect_C.12.1).
 	Uid string `bson:"uid" json:"uid" xml:"uid"`
@@ -248,7 +244,7 @@ type ImagingStudySeriesInstance struct {
 	SopClass Coding `bson:"sopClass" json:"sopClass" xml:"sopClass"`
 	// The number of instance in the series.
 	Number *int `bson:"number,omitempty" json:"number,omitempty" xml:"number,omitempty"`
-	//The description of the instance.
+	// The description of the instance.
 	//
 	// Comment: Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`

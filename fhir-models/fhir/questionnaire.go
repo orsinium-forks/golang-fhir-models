@@ -34,7 +34,7 @@ type Questionnaire struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -59,7 +59,7 @@ type Questionnaire struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -69,13 +69,13 @@ type Questionnaire struct {
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
 	//
-	//The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
+	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
-	//In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
+	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
 	//
-	//The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.
+	// The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.
 	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
-	//A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	// A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
@@ -85,7 +85,7 @@ type Questionnaire struct {
 	//
 	// Comment: There may be different questionnaires that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	Version *string `bson:"version,omitempty" json:"version,omitempty" xml:"version,omitempty"`
-	//Indicates the mechanism used to compare versions to determine which is more current.
+	// Indicates the mechanism used to compare versions to determine which is more current.
 	//
 	// Comment: If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined.
 	VersionAlgorithmString *string `bson:"versionAlgorithmString,omitempty" json:"versionAlgorithmString,omitempty" xml:"versionAlgorithmString,omitempty"`
@@ -96,27 +96,27 @@ type Questionnaire struct {
 	//
 	// Comment: The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	//A short, descriptive, user-friendly title for the questionnaire.
+	// A short, descriptive, user-friendly title for the questionnaire.
 	//
 	// Comment: This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
-	//The URL of a Questionnaire that this Questionnaire is based on.
+	// The URL of a Questionnaire that this Questionnaire is based on.
 	//
 	// Comment: This element covers a broad range of relationships, from 'somewhat inspired by' to 'fully compliant with'.         There is a standard extensionthat allows clearer differentiation between the specifics of the derivation relationship where          this is needed - e.g. to determine substitutability and validation expectations -          [http://hl7.org/fhir/StructureDefinition/questionnaire-derivationType](http://hl7.org/fhir/extensions/StructureDefinition-questionnaire-derivationType.html).
 	DerivedFrom []string `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty" xml:"derivedFrom,omitempty"`
-	//The current state of this questionnaire.
+	// The current state of this questionnaire.
 	//
 	// Comment: A nominal state-transition diagram can be found in the] documentation
 	//
-	//Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+	// Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Status PublicationStatus `bson:"status" json:"status" xml:"status"`
-	//A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage.
+	// A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage.
 	//
 	// Comment: Allows filtering of questionnaires that are appropriate for use versus not.
 	Experimental *bool `bson:"experimental,omitempty" json:"experimental,omitempty" xml:"experimental,omitempty"`
-	//The types of subjects that can be the subject of responses created for the questionnaire.
+	// The types of subjects that can be the subject of responses created for the questionnaire.
 	//
 	// Comment: If none are specified, then the subject is unlimited.
 	SubjectType []ResourceType `bson:"subjectType,omitempty" json:"subjectType,omitempty" xml:"subjectType,omitempty"`
@@ -126,19 +126,19 @@ type Questionnaire struct {
 	//
 	// Comment: The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Date *string `bson:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-	//The name of the organization or individual responsible for the release and ongoing maintenance of the questionnaire.
+	// The name of the organization or individual responsible for the release and ongoing maintenance of the questionnaire.
 	//
 	// Comment: Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context.
 	Publisher *string `bson:"publisher,omitempty" json:"publisher,omitempty" xml:"publisher,omitempty"`
-	//Contact details to assist a user in finding and communicating with the publisher.
+	// Contact details to assist a user in finding and communicating with the publisher.
 	//
 	// Comment: May be a web site, an email address, a telephone number, etc.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	Contact []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty" xml:"contact,omitempty"`
-	//A free text natural language description of the questionnaire from a consumer's perspective.
+	// A free text natural language description of the questionnaire from a consumer's perspective.
 	//
 	// Comment: This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context. (E.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created).
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
@@ -148,13 +148,13 @@ type Questionnaire struct {
 	//
 	// Comment: When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply.
 	UseContext []UsageContext `bson:"useContext,omitempty" json:"useContext,omitempty" xml:"useContext,omitempty"`
-	//A legal or geographic region in which the questionnaire is intended to be used.
+	// A legal or geographic region in which the questionnaire is intended to be used.
 	//
 	// Comment: It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended.
 	//
-	//DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
+	// DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)
 	Jurisdiction []CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty" xml:"jurisdiction,omitempty"`
-	//Explanation of why this questionnaire is needed and why it has been designed as it has.
+	// Explanation of why this questionnaire is needed and why it has been designed as it has.
 	//
 	// Comment: This element does not describe the usage of the questionnaire. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire.
 	Purpose *string `bson:"purpose,omitempty" json:"purpose,omitempty" xml:"purpose,omitempty"`
@@ -174,7 +174,7 @@ type Questionnaire struct {
 	//
 	// Comment: The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	ApprovalDate *string `bson:"approvalDate,omitempty" json:"approvalDate,omitempty" xml:"approvalDate,omitempty"`
 	// The date on which the resource content was last reviewed.
 	//
@@ -182,17 +182,17 @@ type Questionnaire struct {
 	//
 	// Comment: If specified, this date follows the original approval date.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	LastReviewDate *string `bson:"lastReviewDate,omitempty" json:"lastReviewDate,omitempty" xml:"lastReviewDate,omitempty"`
-	//The period during which the questionnaire content was or is planned to be in active use.
+	// The period during which the questionnaire content was or is planned to be in active use.
 	//
 	// Comment: The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a questionnaire intended to be used for the year 2016 might be published in 2015.
 	//
-	//See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
+	// See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).
 	EffectivePeriod *Period `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty" xml:"effectivePeriod,omitempty"`
 	// An identifier for this collection of questions in a particular terminology such as LOINC.
 	Code []Coding `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	//A particular question, question grouping or display text that is part of the questionnaire.
+	// A particular question, question grouping or display text that is part of the questionnaire.
 	//
 	// Comment: The content of the questionnaire is constructed from an ordered, hierarchical collection of items.
 	Item []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty" xml:"item,omitempty"`
@@ -215,15 +215,15 @@ type QuestionnaireItem struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
+	// An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
 	//
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
-	//LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
+	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
 	LinkId string `bson:"linkId" json:"linkId" xml:"linkId"`
 	// This element is a URI that refers to an [ElementDefinition](elementdefinition.html) or to an [ObservationDefinition](observationdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource.
 	//
@@ -237,27 +237,27 @@ type QuestionnaireItem struct {
 	//
 	// Comment: The value may come from the ElementDefinition referred to by .definition.
 	Code []Coding `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
-	//A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.
+	// A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.
 	//
 	// Comment: These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.  Typically, these won't be used for "display" items, though such use is not prohibited.  Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
 	Prefix *string `bson:"prefix,omitempty" json:"prefix,omitempty" xml:"prefix,omitempty"`
-	//The name of a section, the text of a question or text content for a display item.
+	// The name of a section, the text of a question or text content for a display item.
 	//
 	// Comment: When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
-	//The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.).
+	// The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.).
 	//
 	// Comment: Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
 	Type QuestionnaireItemType `bson:"type" json:"type" xml:"type"`
-	//A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
+	// A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
 	//
 	// Comment: If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.  This element is a modifier because if enableWhen is present for an item, "required" is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.  In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 > 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc.
 	EnableWhen []QuestionnaireItemEnableWhen `bson:"enableWhen,omitempty" json:"enableWhen,omitempty" xml:"enableWhen,omitempty"`
-	//Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
+	// Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
 	//
 	// Comment: This element must be specified if more than one enableWhen value is provided.
 	EnableBehavior *EnableWhenBehavior `bson:"enableBehavior,omitempty" json:"enableBehavior,omitempty" xml:"enableBehavior,omitempty"`
-	//Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed.
+	// Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed.
 	//
 	// Comment: If not specified, rendering behavior is up to the client.  This element is only meaningful if enableWhen or an equivalent extension is present
 	DisabledDisplay *QuestionnaireItemDisabledDisplay `bson:"disabledDisplay,omitempty" json:"disabledDisplay,omitempty" xml:"disabledDisplay,omitempty"`
@@ -267,37 +267,37 @@ type QuestionnaireItem struct {
 	//
 	// Comment: If the required item is a question, it must have a direct answer (i.e. an answer to the question itself, not merely answers to child questions) in order for the QuestionnaireResponse to be complete.  If the required item is a group, it must have at least one descendant question which has an answer  Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition.
 	Required *bool `bson:"required,omitempty" json:"required,omitempty" xml:"required,omitempty"`
-	//An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items).
+	// An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items).
 	//
 	// Comment: If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. "repeat the question") or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.
 	//
-	//The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.
+	// The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.
 	//
-	// The value may come from the ElementDefinition referred to by .definition.  When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers.
+	//  The value may come from the ElementDefinition referred to by .definition.  When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers.
 	Repeats *bool `bson:"repeats,omitempty" json:"repeats,omitempty" xml:"repeats,omitempty"`
-	//An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.
+	// An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.
 	//
 	// Comment: If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
 	ReadOnly *bool `bson:"readOnly,omitempty" json:"readOnly,omitempty" xml:"readOnly,omitempty"`
-	//The maximum number of characters that are permitted in the answer to be considered a "valid" QuestionnaireResponse.
+	// The maximum number of characters that are permitted in the answer to be considered a "valid" QuestionnaireResponse.
 	//
 	// Comment: For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. The value may come from the ElementDefinition referred to by .definition.
 	MaxLength *int `bson:"maxLength,omitempty" json:"maxLength,omitempty" xml:"maxLength,omitempty"`
 	// For items that have a defined set of allowed answers (via answerOption or answerValueSet), indicates whether values *other* than those specified can be selected.
 	AnswerConstraint *QuestionnaireAnswerConstraint `bson:"answerConstraint,omitempty" json:"answerConstraint,omitempty" xml:"answerConstraint,omitempty"`
-	//A reference to a value set containing a list of values representing permitted answers for a question.
+	// A reference to a value set containing a list of values representing permitted answers for a question.
 	//
 	// Comment: LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.
 	AnswerValueSet *string `bson:"answerValueSet,omitempty" json:"answerValueSet,omitempty" xml:"answerValueSet,omitempty"`
-	//One of the permitted answers for the question.
+	// One of the permitted answers for the question.
 	//
 	// Comment: This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes.
 	AnswerOption []QuestionnaireItemAnswerOption `bson:"answerOption,omitempty" json:"answerOption,omitempty" xml:"answerOption,omitempty"`
-	//One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.
+	// One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.
 	//
 	// Comment: The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value.
 	Initial []QuestionnaireItemInitial `bson:"initial,omitempty" json:"initial,omitempty" xml:"initial,omitempty"`
-	//Text, questions and other groups to be nested beneath a question or group.
+	// Text, questions and other groups to be nested beneath a question or group.
 	//
 	// Comment: There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting.
 	Item []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty"`
@@ -317,11 +317,11 @@ type QuestionnaireItemEnableWhen struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The linkId for the question whose answer (or lack of answer) governs whether this item is enabled.
+	// The linkId for the question whose answer (or lack of answer) governs whether this item is enabled.
 	//
 	// Comment: If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the "ancestor" axis and then the "preceding" axis and then the "following" axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)
 	Question string `bson:"question" json:"question" xml:"question"`
@@ -359,11 +359,11 @@ type QuestionnaireItemAnswerOption struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//A potential answer that's allowed as the answer to this question.
+	// A potential answer that's allowed as the answer to this question.
 	//
 	// Comment: The data type of the value must agree with the item.type.
 	ValueInteger   int       `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
@@ -393,11 +393,11 @@ type QuestionnaireItemInitial struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The actual value to for an initial answer.
+	// The actual value to for an initial answer.
 	//
 	// Comment: The type of the initial value must be consistent with the type of the item.
 	ValueBoolean    bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`

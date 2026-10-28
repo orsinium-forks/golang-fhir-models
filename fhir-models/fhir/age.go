@@ -34,7 +34,7 @@ type Age struct {
 	Unit *string `bson:"unit,omitempty" json:"unit,omitempty" xml:"unit,omitempty"`
 	// The identification of the system that provides the coded form of the unit.
 	System *string `bson:"system,omitempty" json:"system,omitempty" xml:"system,omitempty"`
-	//A computer processable form of the unit in some unit representation system.
+	// A computer processable form of the unit in some unit representation system.
 	//
 	// Comment: The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system.
 	Code *string `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`

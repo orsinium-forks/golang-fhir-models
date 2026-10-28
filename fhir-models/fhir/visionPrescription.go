@@ -30,7 +30,7 @@ type VisionPrescription struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -55,13 +55,13 @@ type VisionPrescription struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A unique identifier assigned to this vision prescription.
 	Identifier []Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
-	//The status of the resource instance.
+	// The status of the resource instance.
 	//
 	// Comment: This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
 	Status FinancialResourceStatusCodes `bson:"status" json:"status" xml:"status"`
@@ -71,7 +71,7 @@ type VisionPrescription struct {
 	Patient Reference `bson:"patient" json:"patient" xml:"patient"`
 	// A reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued.
 	Encounter *Reference `bson:"encounter,omitempty" json:"encounter,omitempty" xml:"encounter,omitempty"`
-	//The date (and perhaps time) when the prescription was written.
+	// The date (and perhaps time) when the prescription was written.
 	//
 	// Comment: Jurisdictions determine the valid lifetime of a prescription. Typically vision prescriptions are valid for two years from the date written.
 	DateWritten string `bson:"dateWritten" json:"dateWritten" xml:"dateWritten"`
@@ -96,24 +96,25 @@ type VisionPrescriptionLensSpecification struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Identifies the type of vision correction product which is required for the patient.
 	Product CodeableConcept `bson:"product" json:"product" xml:"product"`
-	//The eye for which the lens specification applies.
+	// The eye for which the lens specification applies.
 	//
 	// Comment: May also appear on the paper claim form or in the Medical Records as as OD (oculus dexter) for the right eye and OS (oculus sinister) for the left eye.
 	Eye VisionEyes `bson:"eye" json:"eye" xml:"eye"`
-	//Lens power measured in dioptres (0.25 units).
+	// Lens power measured in dioptres (0.25 units).
 	//
 	// Comment: The value is negative for near-sighted and positive for far sighted.
-	//Often insurance will not cover a lens with power between +75 and -75.
+	//
+	// Often insurance will not cover a lens with power between +75 and -75.
 	Sphere *decimal.Decimal `bson:"sphere,omitempty" json:"sphere,omitempty" xml:"sphere,omitempty"`
 	// Power adjustment for astigmatism measured in dioptres (0.25 units).
 	Cylinder *decimal.Decimal `bson:"cylinder,omitempty" json:"cylinder,omitempty" xml:"cylinder,omitempty"`
-	//Adjustment for astigmatism measured in integer degrees.
+	// Adjustment for astigmatism measured in integer degrees.
 	//
 	// Comment: The limits are +180 and -180 degrees.
 	Axis *int `bson:"axis,omitempty" json:"axis,omitempty" xml:"axis,omitempty"`
@@ -151,7 +152,7 @@ type VisionPrescriptionLensSpecificationPrism struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`

@@ -26,7 +26,7 @@ type RequestOrchestration struct {
 	//
 	// Comment: Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty" xml:"implicitRules,omitempty"`
-	//The base language in which the resource is written.
+	// The base language in which the resource is written.
 	//
 	// Comment: Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).
 	Language *string `bson:"language,omitempty" json:"language,omitempty" xml:"language,omitempty"`
@@ -51,7 +51,7 @@ type RequestOrchestration struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -63,7 +63,7 @@ type RequestOrchestration struct {
 	InstantiatesUri []string `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty" xml:"instantiatesUri,omitempty"`
 	// A plan, proposal or order that is fulfilled in whole or in part by this request.
 	BasedOn []Reference `bson:"basedOn,omitempty" json:"basedOn,omitempty" xml:"basedOn,omitempty"`
-	//Completed or terminated request(s) whose function is taken by this new request.
+	// Completed or terminated request(s) whose function is taken by this new request.
 	//
 	// Comment: The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
 	Replaces []Reference `bson:"replaces,omitempty" json:"replaces,omitempty" xml:"replaces,omitempty"`
@@ -81,7 +81,7 @@ type RequestOrchestration struct {
 	Intent RequestIntent `bson:"intent" json:"intent" xml:"intent"`
 	// Indicates how quickly the request should be addressed with respect to other requests.
 	Priority *RequestPriority `bson:"priority,omitempty" json:"priority,omitempty" xml:"priority,omitempty"`
-	//A code that identifies what the overall request orchestration is.
+	// A code that identifies what the overall request orchestration is.
 	//
 	// Comment: This element can be used to provide a code that captures the meaning of the request orchestration as a whole, as opposed to the code of the action element, which captures the meaning of the individual actions within the request orchestration.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
@@ -118,7 +118,7 @@ type RequestOrchestrationAction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -148,7 +148,7 @@ type RequestOrchestrationAction struct {
 	Documentation []RelatedArtifact `bson:"documentation,omitempty" json:"documentation,omitempty" xml:"documentation,omitempty"`
 	// Goals that are intended to be achieved by following the requests in this action.
 	Goal []Reference `bson:"goal,omitempty" json:"goal,omitempty" xml:"goal,omitempty"`
-	//An expression that describes applicability criteria, or start/stop conditions for the action.
+	// An expression that describes applicability criteria, or start/stop conditions for the action.
 	//
 	// Comment: When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all of the conditions are true.
 	Condition []RequestOrchestrationActionCondition `bson:"condition,omitempty" json:"condition,omitempty" xml:"condition,omitempty"`
@@ -158,7 +158,7 @@ type RequestOrchestrationAction struct {
 	Output []RequestOrchestrationActionOutput `bson:"output,omitempty" json:"output,omitempty" xml:"output,omitempty"`
 	// A relationship to another action such as "before" or "30-60 minutes after start of".
 	RelatedAction []RequestOrchestrationActionRelatedAction `bson:"relatedAction,omitempty" json:"relatedAction,omitempty" xml:"relatedAction,omitempty"`
-	//An optional value describing when the action should be performed.
+	// An optional value describing when the action should be performed.
 	//
 	// Comment: The intent of the timing element is to provide timing for when the action should be performed. The timing may be absolute (specified as a dateTime or Period) or relative (specified as an Age, Duration, or Range), or it may be a more complex, potentially repeating timing specified using Timing.
 	TimingDateTime *string   `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty" xml:"timingDateTime,omitempty"`
@@ -173,7 +173,7 @@ type RequestOrchestrationAction struct {
 	//
 	// Comment: May reference a specific clinical location or may just identify a type of location.
 	Location *CodeableReference `bson:"location,omitempty" json:"location,omitempty" xml:"location,omitempty"`
-	//The participant that should perform or be responsible for this action.
+	// The participant that should perform or be responsible for this action.
 	//
 	// Comment: Because request orchestrations represent potential options for performing activities, some specific participants may still be unknown, so this element allows for both definitional participants (in the same way they are specified in ActivityDefinition and PlanDefinition resources) as well as identifying specific participants when they are known.
 	Participant []RequestOrchestrationActionParticipant `bson:"participant,omitempty" json:"participant,omitempty" xml:"participant,omitempty"`
@@ -189,18 +189,16 @@ type RequestOrchestrationAction struct {
 	PrecheckBehavior *ActionPrecheckBehavior `bson:"precheckBehavior,omitempty" json:"precheckBehavior,omitempty" xml:"precheckBehavior,omitempty"`
 	// Defines whether the action can be selected multiple times.
 	CardinalityBehavior *ActionCardinalityBehavior `bson:"cardinalityBehavior,omitempty" json:"cardinalityBehavior,omitempty" xml:"cardinalityBehavior,omitempty"`
-	// The resource that is the target of the action (e.g.
-	//
-	// CommunicationRequest).
+	// The resource that is the target of the action (e.g. CommunicationRequest).
 	//
 	// Comment: The target resource SHALL be a [Request](request.html) resource with a Request.intent set to "option".
 	Resource *Reference `bson:"resource,omitempty" json:"resource,omitempty" xml:"resource,omitempty"`
-	//A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured.
+	// A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured.
 	//
 	// Comment: Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically.
 	DefinitionCanonical *string `bson:"definitionCanonical,omitempty" json:"definitionCanonical,omitempty" xml:"definitionCanonical,omitempty"`
 	DefinitionUri       *string `bson:"definitionUri,omitempty" json:"definitionUri,omitempty" xml:"definitionUri,omitempty"`
-	//A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
+	// A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
 	//
 	// Comment: Note that when a referenced ActivityDefinition also defines a transform, the transform specified here generally takes precedence. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform.
 	Transform *string `bson:"transform,omitempty" json:"transform,omitempty" xml:"transform,omitempty"`
@@ -228,15 +226,15 @@ type RequestOrchestrationActionCondition struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
-	//The kind of condition.
+	// The kind of condition.
 	//
 	// Comment: Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action.
 	Kind ActionConditionKind `bson:"kind" json:"kind" xml:"kind"`
-	//An expression that returns true or false, indicating whether or not the condition is satisfied.
+	// An expression that returns true or false, indicating whether or not the condition is satisfied.
 	//
 	// Comment: The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
@@ -257,7 +255,7 @@ type RequestOrchestrationActionInput struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -267,7 +265,7 @@ type RequestOrchestrationActionInput struct {
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
 	// Defines the data that is to be provided as input to the action.
 	Requirement *DataRequirement `bson:"requirement,omitempty" json:"requirement,omitempty" xml:"requirement,omitempty"`
-	//Points to an existing input or output element that provides data to this input.
+	// Points to an existing input or output element that provides data to this input.
 	//
 	// Comment: The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
@@ -288,7 +286,7 @@ type RequestOrchestrationActionOutput struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -298,7 +296,7 @@ type RequestOrchestrationActionOutput struct {
 	Title *string `bson:"title,omitempty" json:"title,omitempty" xml:"title,omitempty"`
 	// Defines the data that results as output from the action.
 	Requirement *DataRequirement `bson:"requirement,omitempty" json:"requirement,omitempty" xml:"requirement,omitempty"`
-	//Points to an existing input or output element that is results as output from the action.
+	// Points to an existing input or output element that is results as output from the action.
 	//
 	// Comment: The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action
 	RelatedData *string `bson:"relatedData,omitempty" json:"relatedData,omitempty" xml:"relatedData,omitempty"`
@@ -319,7 +317,7 @@ type RequestOrchestrationActionRelatedAction struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -353,7 +351,7 @@ type RequestOrchestrationActionParticipant struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -361,7 +359,7 @@ type RequestOrchestrationActionParticipant struct {
 	Type *ActionParticipantType `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// The type of participant in the action.
 	TypeCanonical *string `bson:"typeCanonical,omitempty" json:"typeCanonical,omitempty" xml:"typeCanonical,omitempty"`
-	//The type of participant in the action.
+	// The type of participant in the action.
 	//
 	// Comment: When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location).
 	TypeReference *Reference `bson:"typeReference,omitempty" json:"typeReference,omitempty" xml:"typeReference,omitempty"`
@@ -389,7 +387,7 @@ type RequestOrchestrationActionDynamicValue struct {
 	//
 	// Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
 	//
-	//Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
+	// Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 	//
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
@@ -399,7 +397,7 @@ type RequestOrchestrationActionDynamicValue struct {
 	//
 	// Comment: To specify the path to the current action being realized, the %action environment variable is available in this path. For example, to specify the description element of the target action, the path would be %action.description. The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation.
 	Path *string `bson:"path,omitempty" json:"path,omitempty" xml:"path,omitempty"`
-	//An expression specifying the value of the customized element.
+	// An expression specifying the value of the customized element.
 	//
 	// Comment: The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
 	Expression *Expression `bson:"expression,omitempty" json:"expression,omitempty" xml:"expression,omitempty"`
