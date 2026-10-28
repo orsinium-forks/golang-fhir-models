@@ -43,6 +43,7 @@ const (
 func (code ObservationDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ObservationDataType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -73,9 +74,11 @@ func (code *ObservationDataType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ObservationDataType) String() string {
 	return code.Code()
 }
+
 func (code ObservationDataType) Code() string {
 	switch code {
 	case ObservationDataTypeQuantity:
@@ -103,6 +106,7 @@ func (code ObservationDataType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ObservationDataType) Display() string {
 	switch code {
 	case ObservationDataTypeQuantity:
@@ -130,6 +134,7 @@ func (code ObservationDataType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ObservationDataType) Definition() string {
 	switch code {
 	case ObservationDataTypeQuantity:

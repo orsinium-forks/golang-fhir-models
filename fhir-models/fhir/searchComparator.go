@@ -41,6 +41,7 @@ const (
 func (code SearchComparator) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SearchComparator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *SearchComparator) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SearchComparator) String() string {
 	return code.Code()
 }
+
 func (code SearchComparator) Code() string {
 	switch code {
 	case SearchComparatorEq:
@@ -93,6 +96,7 @@ func (code SearchComparator) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchComparator) Display() string {
 	switch code {
 	case SearchComparatorEq:
@@ -116,6 +120,7 @@ func (code SearchComparator) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchComparator) Definition() string {
 	switch code {
 	case SearchComparatorEq:

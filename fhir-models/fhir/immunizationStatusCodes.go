@@ -40,6 +40,7 @@ const (
 func (code ImmunizationStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ImmunizationStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -64,9 +65,11 @@ func (code *ImmunizationStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ImmunizationStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code ImmunizationStatusCodes) Code() string {
 	switch code {
 	case ImmunizationStatusCodesPreparation:
@@ -88,6 +91,7 @@ func (code ImmunizationStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImmunizationStatusCodes) Display() string {
 	switch code {
 	case ImmunizationStatusCodesPreparation:
@@ -109,6 +113,7 @@ func (code ImmunizationStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImmunizationStatusCodes) Definition() string {
 	switch code {
 	case ImmunizationStatusCodesPreparation:

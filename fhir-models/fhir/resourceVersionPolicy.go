@@ -35,6 +35,7 @@ const (
 func (code ResourceVersionPolicy) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ResourceVersionPolicy) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ResourceVersionPolicy) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ResourceVersionPolicy) String() string {
 	return code.Code()
 }
+
 func (code ResourceVersionPolicy) Code() string {
 	switch code {
 	case ResourceVersionPolicyNoVersion:
@@ -63,6 +66,7 @@ func (code ResourceVersionPolicy) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResourceVersionPolicy) Display() string {
 	switch code {
 	case ResourceVersionPolicyNoVersion:
@@ -74,6 +78,7 @@ func (code ResourceVersionPolicy) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResourceVersionPolicy) Definition() string {
 	switch code {
 	case ResourceVersionPolicyNoVersion:

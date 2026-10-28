@@ -34,6 +34,7 @@ const (
 func (code AssertionDirectionType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AssertionDirectionType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *AssertionDirectionType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AssertionDirectionType) String() string {
 	return code.Code()
 }
+
 func (code AssertionDirectionType) Code() string {
 	switch code {
 	case AssertionDirectionTypeResponse:
@@ -58,6 +61,7 @@ func (code AssertionDirectionType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionDirectionType) Display() string {
 	switch code {
 	case AssertionDirectionTypeResponse:
@@ -67,6 +71,7 @@ func (code AssertionDirectionType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionDirectionType) Definition() string {
 	switch code {
 	case AssertionDirectionTypeResponse:

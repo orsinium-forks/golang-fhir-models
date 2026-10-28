@@ -35,6 +35,7 @@ const (
 func (code ListMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ListMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ListMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ListMode) String() string {
 	return code.Code()
 }
+
 func (code ListMode) Code() string {
 	switch code {
 	case ListModeWorking:
@@ -63,6 +66,7 @@ func (code ListMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ListMode) Display() string {
 	switch code {
 	case ListModeWorking:
@@ -74,6 +78,7 @@ func (code ListMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ListMode) Definition() string {
 	switch code {
 	case ListModeWorking:

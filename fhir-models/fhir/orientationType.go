@@ -34,6 +34,7 @@ const (
 func (code OrientationType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *OrientationType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *OrientationType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code OrientationType) String() string {
 	return code.Code()
 }
+
 func (code OrientationType) Code() string {
 	switch code {
 	case OrientationTypeSense:
@@ -58,6 +61,7 @@ func (code OrientationType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code OrientationType) Display() string {
 	switch code {
 	case OrientationTypeSense:
@@ -67,6 +71,7 @@ func (code OrientationType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code OrientationType) Definition() string {
 	switch code {
 	case OrientationTypeSense:

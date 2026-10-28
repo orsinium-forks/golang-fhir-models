@@ -37,6 +37,7 @@ const (
 func (code GenomicStudyStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GenomicStudyStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *GenomicStudyStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GenomicStudyStatus) String() string {
 	return code.Code()
 }
+
 func (code GenomicStudyStatus) Code() string {
 	switch code {
 	case GenomicStudyStatusRegistered:
@@ -73,6 +76,7 @@ func (code GenomicStudyStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GenomicStudyStatus) Display() string {
 	switch code {
 	case GenomicStudyStatusRegistered:
@@ -88,6 +92,7 @@ func (code GenomicStudyStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GenomicStudyStatus) Definition() string {
 	switch code {
 	case GenomicStudyStatusRegistered:

@@ -35,6 +35,7 @@ const (
 func (code TestReportParticipantType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TestReportParticipantType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *TestReportParticipantType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TestReportParticipantType) String() string {
 	return code.Code()
 }
+
 func (code TestReportParticipantType) Code() string {
 	switch code {
 	case TestReportParticipantTypeTestEngine:
@@ -63,6 +66,7 @@ func (code TestReportParticipantType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestReportParticipantType) Display() string {
 	switch code {
 	case TestReportParticipantTypeTestEngine:
@@ -74,6 +78,7 @@ func (code TestReportParticipantType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestReportParticipantType) Definition() string {
 	switch code {
 	case TestReportParticipantTypeTestEngine:

@@ -35,6 +35,7 @@ const (
 func (code MedicationKnowledgeStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *MedicationKnowledgeStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *MedicationKnowledgeStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code MedicationKnowledgeStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code MedicationKnowledgeStatusCodes) Code() string {
 	switch code {
 	case MedicationKnowledgeStatusCodesActive:
@@ -63,6 +66,7 @@ func (code MedicationKnowledgeStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code MedicationKnowledgeStatusCodes) Display() string {
 	switch code {
 	case MedicationKnowledgeStatusCodesActive:
@@ -74,6 +78,7 @@ func (code MedicationKnowledgeStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code MedicationKnowledgeStatusCodes) Definition() string {
 	switch code {
 	case MedicationKnowledgeStatusCodesActive:

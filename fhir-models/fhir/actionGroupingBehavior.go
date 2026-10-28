@@ -35,6 +35,7 @@ const (
 func (code ActionGroupingBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionGroupingBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ActionGroupingBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionGroupingBehavior) String() string {
 	return code.Code()
 }
+
 func (code ActionGroupingBehavior) Code() string {
 	switch code {
 	case ActionGroupingBehaviorVisualGroup:
@@ -63,6 +66,7 @@ func (code ActionGroupingBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionGroupingBehavior) Display() string {
 	switch code {
 	case ActionGroupingBehaviorVisualGroup:
@@ -74,6 +78,7 @@ func (code ActionGroupingBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionGroupingBehavior) Definition() string {
 	switch code {
 	case ActionGroupingBehaviorVisualGroup:

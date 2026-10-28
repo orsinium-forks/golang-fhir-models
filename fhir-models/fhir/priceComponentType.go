@@ -38,6 +38,7 @@ const (
 func (code PriceComponentType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PriceComponentType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *PriceComponentType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PriceComponentType) String() string {
 	return code.Code()
 }
+
 func (code PriceComponentType) Code() string {
 	switch code {
 	case PriceComponentTypeBase:
@@ -78,6 +81,7 @@ func (code PriceComponentType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PriceComponentType) Display() string {
 	switch code {
 	case PriceComponentTypeBase:
@@ -95,6 +99,7 @@ func (code PriceComponentType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PriceComponentType) Definition() string {
 	switch code {
 	case PriceComponentTypeBase:

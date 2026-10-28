@@ -38,6 +38,7 @@ const (
 func (code ArtifactAssessmentInformationType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ArtifactAssessmentInformationType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *ArtifactAssessmentInformationType) UnmarshalJSON(json []byte) error 
 	}
 	return nil
 }
+
 func (code ArtifactAssessmentInformationType) String() string {
 	return code.Code()
 }
+
 func (code ArtifactAssessmentInformationType) Code() string {
 	switch code {
 	case ArtifactAssessmentInformationTypeComment:
@@ -78,6 +81,7 @@ func (code ArtifactAssessmentInformationType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ArtifactAssessmentInformationType) Display() string {
 	switch code {
 	case ArtifactAssessmentInformationTypeComment:
@@ -95,6 +99,7 @@ func (code ArtifactAssessmentInformationType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ArtifactAssessmentInformationType) Definition() string {
 	switch code {
 	case ArtifactAssessmentInformationTypeComment:

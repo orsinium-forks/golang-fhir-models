@@ -35,6 +35,7 @@ const (
 func (code SearchProcessingModeType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SearchProcessingModeType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *SearchProcessingModeType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SearchProcessingModeType) String() string {
 	return code.Code()
 }
+
 func (code SearchProcessingModeType) Code() string {
 	switch code {
 	case SearchProcessingModeTypeNormal:
@@ -63,6 +66,7 @@ func (code SearchProcessingModeType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchProcessingModeType) Display() string {
 	switch code {
 	case SearchProcessingModeTypeNormal:
@@ -74,6 +78,7 @@ func (code SearchProcessingModeType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchProcessingModeType) Definition() string {
 	switch code {
 	case SearchProcessingModeTypeNormal:

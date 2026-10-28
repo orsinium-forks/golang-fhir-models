@@ -36,6 +36,7 @@ const (
 func (code AssertionManualCompletionType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AssertionManualCompletionType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *AssertionManualCompletionType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AssertionManualCompletionType) String() string {
 	return code.Code()
 }
+
 func (code AssertionManualCompletionType) Code() string {
 	switch code {
 	case AssertionManualCompletionTypeFail:
@@ -68,6 +71,7 @@ func (code AssertionManualCompletionType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionManualCompletionType) Display() string {
 	switch code {
 	case AssertionManualCompletionTypeFail:
@@ -81,6 +85,7 @@ func (code AssertionManualCompletionType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionManualCompletionType) Definition() string {
 	switch code {
 	case AssertionManualCompletionTypeFail:

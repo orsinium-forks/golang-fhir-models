@@ -36,6 +36,7 @@ const (
 func (code LinkType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *LinkType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *LinkType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code LinkType) String() string {
 	return code.Code()
 }
+
 func (code LinkType) Code() string {
 	switch code {
 	case LinkTypeReplacedBy:
@@ -68,6 +71,7 @@ func (code LinkType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkType) Display() string {
 	switch code {
 	case LinkTypeReplacedBy:
@@ -81,6 +85,7 @@ func (code LinkType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkType) Definition() string {
 	switch code {
 	case LinkTypeReplacedBy:

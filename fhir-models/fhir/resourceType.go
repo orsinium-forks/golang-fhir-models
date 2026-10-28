@@ -263,6 +263,7 @@ const (
 func (code ResourceType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ResourceType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -733,9 +734,11 @@ func (code *ResourceType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ResourceType) String() string {
 	return code.Code()
 }
+
 func (code ResourceType) Code() string {
 	switch code {
 	case ResourceTypeBase:
@@ -1203,6 +1206,7 @@ func (code ResourceType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResourceType) Display() string {
 	switch code {
 	case ResourceTypeBase:
@@ -1670,6 +1674,7 @@ func (code ResourceType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResourceType) Definition() string {
 	switch code {
 	case ResourceTypeBase:

@@ -37,6 +37,7 @@ const (
 func (code ConceptMapRelationship) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConceptMapRelationship) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *ConceptMapRelationship) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConceptMapRelationship) String() string {
 	return code.Code()
 }
+
 func (code ConceptMapRelationship) Code() string {
 	switch code {
 	case ConceptMapRelationshipRelatedTo:
@@ -73,6 +76,7 @@ func (code ConceptMapRelationship) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapRelationship) Display() string {
 	switch code {
 	case ConceptMapRelationshipRelatedTo:
@@ -88,6 +92,7 @@ func (code ConceptMapRelationship) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapRelationship) Definition() string {
 	switch code {
 	case ConceptMapRelationshipRelatedTo:

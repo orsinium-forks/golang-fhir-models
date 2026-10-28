@@ -35,6 +35,7 @@ const (
 func (code ResponseType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ResponseType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ResponseType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ResponseType) String() string {
 	return code.Code()
 }
+
 func (code ResponseType) Code() string {
 	switch code {
 	case ResponseTypeOk:
@@ -63,6 +66,7 @@ func (code ResponseType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResponseType) Display() string {
 	switch code {
 	case ResponseTypeOk:
@@ -74,6 +78,7 @@ func (code ResponseType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResponseType) Definition() string {
 	switch code {
 	case ResponseTypeOk:

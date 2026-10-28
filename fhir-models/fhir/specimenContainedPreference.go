@@ -34,6 +34,7 @@ const (
 func (code SpecimenContainedPreference) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SpecimenContainedPreference) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *SpecimenContainedPreference) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SpecimenContainedPreference) String() string {
 	return code.Code()
 }
+
 func (code SpecimenContainedPreference) Code() string {
 	switch code {
 	case SpecimenContainedPreferencePreferred:
@@ -58,6 +61,7 @@ func (code SpecimenContainedPreference) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SpecimenContainedPreference) Display() string {
 	switch code {
 	case SpecimenContainedPreferencePreferred:
@@ -67,6 +71,7 @@ func (code SpecimenContainedPreference) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SpecimenContainedPreference) Definition() string {
 	switch code {
 	case SpecimenContainedPreferencePreferred:

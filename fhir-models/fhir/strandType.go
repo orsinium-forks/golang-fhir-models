@@ -34,6 +34,7 @@ const (
 func (code StrandType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *StrandType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *StrandType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code StrandType) String() string {
 	return code.Code()
 }
+
 func (code StrandType) Code() string {
 	switch code {
 	case StrandTypeWatson:
@@ -58,6 +61,7 @@ func (code StrandType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code StrandType) Display() string {
 	switch code {
 	case StrandTypeWatson:
@@ -67,6 +71,7 @@ func (code StrandType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code StrandType) Definition() string {
 	switch code {
 	case StrandTypeWatson:

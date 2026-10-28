@@ -35,6 +35,7 @@ const (
 func (code BiologicallyDerivedProductStorageScale) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *BiologicallyDerivedProductStorageScale) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *BiologicallyDerivedProductStorageScale) UnmarshalJSON(json []byte) e
 	}
 	return nil
 }
+
 func (code BiologicallyDerivedProductStorageScale) String() string {
 	return code.Code()
 }
+
 func (code BiologicallyDerivedProductStorageScale) Code() string {
 	switch code {
 	case BiologicallyDerivedProductStorageScaleFarenheit:
@@ -63,6 +66,7 @@ func (code BiologicallyDerivedProductStorageScale) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductStorageScale) Display() string {
 	switch code {
 	case BiologicallyDerivedProductStorageScaleFarenheit:
@@ -74,6 +78,7 @@ func (code BiologicallyDerivedProductStorageScale) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductStorageScale) Definition() string {
 	switch code {
 	case BiologicallyDerivedProductStorageScaleFarenheit:

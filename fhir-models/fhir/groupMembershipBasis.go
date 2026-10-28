@@ -34,6 +34,7 @@ const (
 func (code GroupMembershipBasis) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GroupMembershipBasis) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *GroupMembershipBasis) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GroupMembershipBasis) String() string {
 	return code.Code()
 }
+
 func (code GroupMembershipBasis) Code() string {
 	switch code {
 	case GroupMembershipBasisDefinitional:
@@ -58,6 +61,7 @@ func (code GroupMembershipBasis) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GroupMembershipBasis) Display() string {
 	switch code {
 	case GroupMembershipBasisDefinitional:
@@ -67,6 +71,7 @@ func (code GroupMembershipBasis) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GroupMembershipBasis) Definition() string {
 	switch code {
 	case GroupMembershipBasisDefinitional:

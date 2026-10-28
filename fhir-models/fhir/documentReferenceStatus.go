@@ -35,6 +35,7 @@ const (
 func (code DocumentReferenceStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DocumentReferenceStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *DocumentReferenceStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DocumentReferenceStatus) String() string {
 	return code.Code()
 }
+
 func (code DocumentReferenceStatus) Code() string {
 	switch code {
 	case DocumentReferenceStatusCurrent:
@@ -63,6 +66,7 @@ func (code DocumentReferenceStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentReferenceStatus) Display() string {
 	switch code {
 	case DocumentReferenceStatusCurrent:
@@ -74,6 +78,7 @@ func (code DocumentReferenceStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentReferenceStatus) Definition() string {
 	switch code {
 	case DocumentReferenceStatusCurrent:

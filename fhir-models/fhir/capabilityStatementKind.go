@@ -35,6 +35,7 @@ const (
 func (code CapabilityStatementKind) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CapabilityStatementKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *CapabilityStatementKind) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CapabilityStatementKind) String() string {
 	return code.Code()
 }
+
 func (code CapabilityStatementKind) Code() string {
 	switch code {
 	case CapabilityStatementKindInstance:
@@ -63,6 +66,7 @@ func (code CapabilityStatementKind) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CapabilityStatementKind) Display() string {
 	switch code {
 	case CapabilityStatementKindInstance:
@@ -74,6 +78,7 @@ func (code CapabilityStatementKind) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CapabilityStatementKind) Definition() string {
 	switch code {
 	case CapabilityStatementKindInstance:

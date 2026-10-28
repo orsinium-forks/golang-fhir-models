@@ -35,6 +35,7 @@ const (
 func (code DetectedIssueSeverity) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DetectedIssueSeverity) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *DetectedIssueSeverity) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DetectedIssueSeverity) String() string {
 	return code.Code()
 }
+
 func (code DetectedIssueSeverity) Code() string {
 	switch code {
 	case DetectedIssueSeverityHigh:
@@ -63,6 +66,7 @@ func (code DetectedIssueSeverity) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DetectedIssueSeverity) Display() string {
 	switch code {
 	case DetectedIssueSeverityHigh:
@@ -74,6 +78,7 @@ func (code DetectedIssueSeverity) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DetectedIssueSeverity) Definition() string {
 	switch code {
 	case DetectedIssueSeverityHigh:

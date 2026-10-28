@@ -38,6 +38,7 @@ const (
 func (code GroupMeasure) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GroupMeasure) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *GroupMeasure) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GroupMeasure) String() string {
 	return code.Code()
 }
+
 func (code GroupMeasure) Code() string {
 	switch code {
 	case GroupMeasureMean:
@@ -78,6 +81,7 @@ func (code GroupMeasure) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GroupMeasure) Display() string {
 	switch code {
 	case GroupMeasureMean:
@@ -95,6 +99,7 @@ func (code GroupMeasure) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GroupMeasure) Definition() string {
 	switch code {
 	case GroupMeasureMean:

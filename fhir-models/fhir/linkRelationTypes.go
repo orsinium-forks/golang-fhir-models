@@ -152,6 +152,7 @@ const (
 func (code LinkRelationTypes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *LinkRelationTypes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -400,9 +401,11 @@ func (code *LinkRelationTypes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code LinkRelationTypes) String() string {
 	return code.Code()
 }
+
 func (code LinkRelationTypes) Code() string {
 	switch code {
 	case LinkRelationTypesAbout:
@@ -648,6 +651,7 @@ func (code LinkRelationTypes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkRelationTypes) Display() string {
 	switch code {
 	case LinkRelationTypesAbout:
@@ -893,6 +897,7 @@ func (code LinkRelationTypes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkRelationTypes) Definition() string {
 	switch code {
 	case LinkRelationTypesAbout:

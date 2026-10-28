@@ -37,6 +37,7 @@ const (
 func (code BiologicallyDerivedProductCategory) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *BiologicallyDerivedProductCategory) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *BiologicallyDerivedProductCategory) UnmarshalJSON(json []byte) error
 	}
 	return nil
 }
+
 func (code BiologicallyDerivedProductCategory) String() string {
 	return code.Code()
 }
+
 func (code BiologicallyDerivedProductCategory) Code() string {
 	switch code {
 	case BiologicallyDerivedProductCategoryOrgan:
@@ -73,6 +76,7 @@ func (code BiologicallyDerivedProductCategory) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductCategory) Display() string {
 	switch code {
 	case BiologicallyDerivedProductCategoryOrgan:
@@ -88,6 +92,7 @@ func (code BiologicallyDerivedProductCategory) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductCategory) Definition() string {
 	switch code {
 	case BiologicallyDerivedProductCategoryOrgan:

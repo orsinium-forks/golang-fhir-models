@@ -35,6 +35,7 @@ const (
 func (code CodeSearchSupport) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CodeSearchSupport) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *CodeSearchSupport) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CodeSearchSupport) String() string {
 	return code.Code()
 }
+
 func (code CodeSearchSupport) Code() string {
 	switch code {
 	case CodeSearchSupportInCompose:
@@ -63,6 +66,7 @@ func (code CodeSearchSupport) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSearchSupport) Display() string {
 	switch code {
 	case CodeSearchSupportInCompose:
@@ -74,6 +78,7 @@ func (code CodeSearchSupport) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSearchSupport) Definition() string {
 	switch code {
 	case CodeSearchSupportInCompose:

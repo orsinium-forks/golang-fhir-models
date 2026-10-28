@@ -36,6 +36,7 @@ const (
 func (code MeasureReportType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *MeasureReportType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *MeasureReportType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code MeasureReportType) String() string {
 	return code.Code()
 }
+
 func (code MeasureReportType) Code() string {
 	switch code {
 	case MeasureReportTypeIndividual:
@@ -68,6 +71,7 @@ func (code MeasureReportType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code MeasureReportType) Display() string {
 	switch code {
 	case MeasureReportTypeIndividual:
@@ -81,6 +85,7 @@ func (code MeasureReportType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code MeasureReportType) Definition() string {
 	switch code {
 	case MeasureReportTypeIndividual:

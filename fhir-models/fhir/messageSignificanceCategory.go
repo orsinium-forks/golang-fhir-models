@@ -35,6 +35,7 @@ const (
 func (code MessageSignificanceCategory) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *MessageSignificanceCategory) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *MessageSignificanceCategory) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code MessageSignificanceCategory) String() string {
 	return code.Code()
 }
+
 func (code MessageSignificanceCategory) Code() string {
 	switch code {
 	case MessageSignificanceCategoryConsequence:
@@ -63,6 +66,7 @@ func (code MessageSignificanceCategory) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code MessageSignificanceCategory) Display() string {
 	switch code {
 	case MessageSignificanceCategoryConsequence:
@@ -74,6 +78,7 @@ func (code MessageSignificanceCategory) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code MessageSignificanceCategory) Definition() string {
 	switch code {
 	case MessageSignificanceCategoryConsequence:

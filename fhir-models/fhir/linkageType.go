@@ -35,6 +35,7 @@ const (
 func (code LinkageType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *LinkageType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *LinkageType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code LinkageType) String() string {
 	return code.Code()
 }
+
 func (code LinkageType) Code() string {
 	switch code {
 	case LinkageTypeSource:
@@ -63,6 +66,7 @@ func (code LinkageType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkageType) Display() string {
 	switch code {
 	case LinkageTypeSource:
@@ -74,6 +78,7 @@ func (code LinkageType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code LinkageType) Definition() string {
 	switch code {
 	case LinkageTypeSource:

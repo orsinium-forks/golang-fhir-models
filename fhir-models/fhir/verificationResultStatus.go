@@ -39,6 +39,7 @@ const (
 func (code VerificationResultStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *VerificationResultStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *VerificationResultStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code VerificationResultStatus) String() string {
 	return code.Code()
 }
+
 func (code VerificationResultStatus) Code() string {
 	switch code {
 	case VerificationResultStatusAttested:
@@ -83,6 +86,7 @@ func (code VerificationResultStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code VerificationResultStatus) Display() string {
 	switch code {
 	case VerificationResultStatusAttested:
@@ -102,6 +106,7 @@ func (code VerificationResultStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code VerificationResultStatus) Definition() string {
 	switch code {
 	case VerificationResultStatusAttested:

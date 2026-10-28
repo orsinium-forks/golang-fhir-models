@@ -35,6 +35,7 @@ const (
 func (code AddressType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AddressType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *AddressType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AddressType) String() string {
 	return code.Code()
 }
+
 func (code AddressType) Code() string {
 	switch code {
 	case AddressTypePostal:
@@ -63,6 +66,7 @@ func (code AddressType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AddressType) Display() string {
 	switch code {
 	case AddressTypePostal:
@@ -74,6 +78,7 @@ func (code AddressType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AddressType) Definition() string {
 	switch code {
 	case AddressTypePostal:

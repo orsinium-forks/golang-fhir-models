@@ -42,6 +42,7 @@ const (
 func (code AdditionalBindingPurposeVS) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AdditionalBindingPurposeVS) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -70,9 +71,11 @@ func (code *AdditionalBindingPurposeVS) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AdditionalBindingPurposeVS) String() string {
 	return code.Code()
 }
+
 func (code AdditionalBindingPurposeVS) Code() string {
 	switch code {
 	case AdditionalBindingPurposeVSMaximum:
@@ -98,6 +101,7 @@ func (code AdditionalBindingPurposeVS) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AdditionalBindingPurposeVS) Display() string {
 	switch code {
 	case AdditionalBindingPurposeVSMaximum:
@@ -123,6 +127,7 @@ func (code AdditionalBindingPurposeVS) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AdditionalBindingPurposeVS) Definition() string {
 	switch code {
 	case AdditionalBindingPurposeVSMaximum:

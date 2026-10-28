@@ -38,6 +38,7 @@ const (
 func (code ImagingSelection3DGraphicType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ImagingSelection3DGraphicType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *ImagingSelection3DGraphicType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ImagingSelection3DGraphicType) String() string {
 	return code.Code()
 }
+
 func (code ImagingSelection3DGraphicType) Code() string {
 	switch code {
 	case ImagingSelection3DGraphicTypePoint:
@@ -78,6 +81,7 @@ func (code ImagingSelection3DGraphicType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImagingSelection3DGraphicType) Display() string {
 	switch code {
 	case ImagingSelection3DGraphicTypePoint:
@@ -95,6 +99,7 @@ func (code ImagingSelection3DGraphicType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImagingSelection3DGraphicType) Definition() string {
 	switch code {
 	case ImagingSelection3DGraphicTypePoint:

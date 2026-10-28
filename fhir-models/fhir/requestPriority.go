@@ -36,6 +36,7 @@ const (
 func (code RequestPriority) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RequestPriority) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *RequestPriority) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RequestPriority) String() string {
 	return code.Code()
 }
+
 func (code RequestPriority) Code() string {
 	switch code {
 	case RequestPriorityRoutine:
@@ -68,6 +71,7 @@ func (code RequestPriority) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestPriority) Display() string {
 	switch code {
 	case RequestPriorityRoutine:
@@ -81,6 +85,7 @@ func (code RequestPriority) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestPriority) Definition() string {
 	switch code {
 	case RequestPriorityRoutine:

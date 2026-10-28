@@ -39,6 +39,7 @@ const (
 func (code ConceptMapPropertyType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConceptMapPropertyType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *ConceptMapPropertyType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConceptMapPropertyType) String() string {
 	return code.Code()
 }
+
 func (code ConceptMapPropertyType) Code() string {
 	switch code {
 	case ConceptMapPropertyTypeCoding:
@@ -83,6 +86,7 @@ func (code ConceptMapPropertyType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapPropertyType) Display() string {
 	switch code {
 	case ConceptMapPropertyTypeCoding:
@@ -102,6 +106,7 @@ func (code ConceptMapPropertyType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapPropertyType) Definition() string {
 	switch code {
 	case ConceptMapPropertyTypeCoding:

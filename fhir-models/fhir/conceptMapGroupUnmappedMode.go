@@ -35,6 +35,7 @@ const (
 func (code ConceptMapGroupUnmappedMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConceptMapGroupUnmappedMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ConceptMapGroupUnmappedMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConceptMapGroupUnmappedMode) String() string {
 	return code.Code()
 }
+
 func (code ConceptMapGroupUnmappedMode) Code() string {
 	switch code {
 	case ConceptMapGroupUnmappedModeUseSourceCode:
@@ -63,6 +66,7 @@ func (code ConceptMapGroupUnmappedMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapGroupUnmappedMode) Display() string {
 	switch code {
 	case ConceptMapGroupUnmappedModeUseSourceCode:
@@ -74,6 +78,7 @@ func (code ConceptMapGroupUnmappedMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapGroupUnmappedMode) Definition() string {
 	switch code {
 	case ConceptMapGroupUnmappedModeUseSourceCode:

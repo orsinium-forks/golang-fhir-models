@@ -39,6 +39,7 @@ const (
 func (code UDIEntryType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *UDIEntryType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *UDIEntryType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code UDIEntryType) String() string {
 	return code.Code()
 }
+
 func (code UDIEntryType) Code() string {
 	switch code {
 	case UDIEntryTypeBarcode:
@@ -83,6 +86,7 @@ func (code UDIEntryType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code UDIEntryType) Display() string {
 	switch code {
 	case UDIEntryTypeBarcode:
@@ -102,6 +106,7 @@ func (code UDIEntryType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code UDIEntryType) Definition() string {
 	switch code {
 	case UDIEntryTypeBarcode:

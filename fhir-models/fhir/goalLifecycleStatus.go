@@ -41,6 +41,7 @@ const (
 func (code GoalLifecycleStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GoalLifecycleStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *GoalLifecycleStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GoalLifecycleStatus) String() string {
 	return code.Code()
 }
+
 func (code GoalLifecycleStatus) Code() string {
 	switch code {
 	case GoalLifecycleStatusProposed:
@@ -93,6 +96,7 @@ func (code GoalLifecycleStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GoalLifecycleStatus) Display() string {
 	switch code {
 	case GoalLifecycleStatusProposed:
@@ -116,6 +120,7 @@ func (code GoalLifecycleStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GoalLifecycleStatus) Definition() string {
 	switch code {
 	case GoalLifecycleStatusProposed:

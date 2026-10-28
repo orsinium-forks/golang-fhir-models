@@ -36,6 +36,7 @@ const (
 func (code CompositionAttestationMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CompositionAttestationMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *CompositionAttestationMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CompositionAttestationMode) String() string {
 	return code.Code()
 }
+
 func (code CompositionAttestationMode) Code() string {
 	switch code {
 	case CompositionAttestationModePersonal:
@@ -68,6 +71,7 @@ func (code CompositionAttestationMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CompositionAttestationMode) Display() string {
 	switch code {
 	case CompositionAttestationModePersonal:
@@ -81,6 +85,7 @@ func (code CompositionAttestationMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CompositionAttestationMode) Definition() string {
 	switch code {
 	case CompositionAttestationModePersonal:

@@ -38,6 +38,7 @@ const (
 func (code CompartmentType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CompartmentType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *CompartmentType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CompartmentType) String() string {
 	return code.Code()
 }
+
 func (code CompartmentType) Code() string {
 	switch code {
 	case CompartmentTypePatient:
@@ -78,6 +81,7 @@ func (code CompartmentType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CompartmentType) Display() string {
 	switch code {
 	case CompartmentTypePatient:
@@ -95,6 +99,7 @@ func (code CompartmentType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CompartmentType) Definition() string {
 	switch code {
 	case CompartmentTypePatient:

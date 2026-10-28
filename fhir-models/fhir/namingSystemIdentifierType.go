@@ -38,6 +38,7 @@ const (
 func (code NamingSystemIdentifierType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *NamingSystemIdentifierType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *NamingSystemIdentifierType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code NamingSystemIdentifierType) String() string {
 	return code.Code()
 }
+
 func (code NamingSystemIdentifierType) Code() string {
 	switch code {
 	case NamingSystemIdentifierTypeOid:
@@ -78,6 +81,7 @@ func (code NamingSystemIdentifierType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code NamingSystemIdentifierType) Display() string {
 	switch code {
 	case NamingSystemIdentifierTypeOid:
@@ -95,6 +99,7 @@ func (code NamingSystemIdentifierType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code NamingSystemIdentifierType) Definition() string {
 	switch code {
 	case NamingSystemIdentifierTypeOid:

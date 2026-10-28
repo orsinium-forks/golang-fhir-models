@@ -35,6 +35,7 @@ const (
 func (code ConditionalDeleteStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConditionalDeleteStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ConditionalDeleteStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConditionalDeleteStatus) String() string {
 	return code.Code()
 }
+
 func (code ConditionalDeleteStatus) Code() string {
 	switch code {
 	case ConditionalDeleteStatusNotSupported:
@@ -63,6 +66,7 @@ func (code ConditionalDeleteStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionalDeleteStatus) Display() string {
 	switch code {
 	case ConditionalDeleteStatusNotSupported:
@@ -74,6 +78,7 @@ func (code ConditionalDeleteStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionalDeleteStatus) Definition() string {
 	switch code {
 	case ConditionalDeleteStatusNotSupported:

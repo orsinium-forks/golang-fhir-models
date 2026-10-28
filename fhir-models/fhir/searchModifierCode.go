@@ -47,6 +47,7 @@ const (
 func (code SearchModifierCode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SearchModifierCode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -85,9 +86,11 @@ func (code *SearchModifierCode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SearchModifierCode) String() string {
 	return code.Code()
 }
+
 func (code SearchModifierCode) Code() string {
 	switch code {
 	case SearchModifierCodeMissing:
@@ -123,6 +126,7 @@ func (code SearchModifierCode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchModifierCode) Display() string {
 	switch code {
 	case SearchModifierCodeMissing:
@@ -158,6 +162,7 @@ func (code SearchModifierCode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchModifierCode) Definition() string {
 	switch code {
 	case SearchModifierCodeMissing:

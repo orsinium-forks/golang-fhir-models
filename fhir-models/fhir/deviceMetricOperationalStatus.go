@@ -36,6 +36,7 @@ const (
 func (code DeviceMetricOperationalStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceMetricOperationalStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *DeviceMetricOperationalStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceMetricOperationalStatus) String() string {
 	return code.Code()
 }
+
 func (code DeviceMetricOperationalStatus) Code() string {
 	switch code {
 	case DeviceMetricOperationalStatusOn:
@@ -68,6 +71,7 @@ func (code DeviceMetricOperationalStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricOperationalStatus) Display() string {
 	switch code {
 	case DeviceMetricOperationalStatusOn:
@@ -81,6 +85,7 @@ func (code DeviceMetricOperationalStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricOperationalStatus) Definition() string {
 	switch code {
 	case DeviceMetricOperationalStatusOn:

@@ -36,6 +36,7 @@ const (
 func (code DocumentRelationshipType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DocumentRelationshipType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *DocumentRelationshipType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DocumentRelationshipType) String() string {
 	return code.Code()
 }
+
 func (code DocumentRelationshipType) Code() string {
 	switch code {
 	case DocumentRelationshipTypeReplaces:
@@ -68,6 +71,7 @@ func (code DocumentRelationshipType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentRelationshipType) Display() string {
 	switch code {
 	case DocumentRelationshipTypeReplaces:
@@ -81,6 +85,7 @@ func (code DocumentRelationshipType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentRelationshipType) Definition() string {
 	switch code {
 	case DocumentRelationshipTypeReplaces:

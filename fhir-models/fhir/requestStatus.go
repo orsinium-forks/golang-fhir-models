@@ -39,6 +39,7 @@ const (
 func (code RequestStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RequestStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *RequestStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RequestStatus) String() string {
 	return code.Code()
 }
+
 func (code RequestStatus) Code() string {
 	switch code {
 	case RequestStatusDraft:
@@ -83,6 +86,7 @@ func (code RequestStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestStatus) Display() string {
 	switch code {
 	case RequestStatusDraft:
@@ -102,6 +106,7 @@ func (code RequestStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestStatus) Definition() string {
 	switch code {
 	case RequestStatusDraft:

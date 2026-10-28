@@ -36,6 +36,7 @@ const (
 func (code GraphCompartmentRule) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GraphCompartmentRule) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *GraphCompartmentRule) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GraphCompartmentRule) String() string {
 	return code.Code()
 }
+
 func (code GraphCompartmentRule) Code() string {
 	switch code {
 	case GraphCompartmentRuleIdentical:
@@ -68,6 +71,7 @@ func (code GraphCompartmentRule) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GraphCompartmentRule) Display() string {
 	switch code {
 	case GraphCompartmentRuleIdentical:
@@ -81,6 +85,7 @@ func (code GraphCompartmentRule) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GraphCompartmentRule) Definition() string {
 	switch code {
 	case GraphCompartmentRuleIdentical:

@@ -35,6 +35,7 @@ const (
 func (code ConditionQuestionnairePurpose) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConditionQuestionnairePurpose) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ConditionQuestionnairePurpose) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConditionQuestionnairePurpose) String() string {
 	return code.Code()
 }
+
 func (code ConditionQuestionnairePurpose) Code() string {
 	switch code {
 	case ConditionQuestionnairePurposePreadmit:
@@ -63,6 +66,7 @@ func (code ConditionQuestionnairePurpose) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionQuestionnairePurpose) Display() string {
 	switch code {
 	case ConditionQuestionnairePurposePreadmit:
@@ -74,6 +78,7 @@ func (code ConditionQuestionnairePurpose) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionQuestionnairePurpose) Definition() string {
 	switch code {
 	case ConditionQuestionnairePurposePreadmit:

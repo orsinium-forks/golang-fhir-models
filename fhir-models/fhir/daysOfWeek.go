@@ -39,6 +39,7 @@ const (
 func (code DaysOfWeek) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DaysOfWeek) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *DaysOfWeek) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DaysOfWeek) String() string {
 	return code.Code()
 }
+
 func (code DaysOfWeek) Code() string {
 	switch code {
 	case DaysOfWeekMon:
@@ -83,6 +86,7 @@ func (code DaysOfWeek) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DaysOfWeek) Display() string {
 	switch code {
 	case DaysOfWeekMon:
@@ -102,6 +106,7 @@ func (code DaysOfWeek) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DaysOfWeek) Definition() string {
 	switch code {
 	case DaysOfWeekMon:

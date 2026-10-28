@@ -35,6 +35,7 @@ const (
 func (code TriggeredBytype) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TriggeredBytype) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *TriggeredBytype) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TriggeredBytype) String() string {
 	return code.Code()
 }
+
 func (code TriggeredBytype) Code() string {
 	switch code {
 	case TriggeredBytypeReflex:
@@ -63,6 +66,7 @@ func (code TriggeredBytype) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TriggeredBytype) Display() string {
 	switch code {
 	case TriggeredBytypeReflex:
@@ -74,6 +78,7 @@ func (code TriggeredBytype) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TriggeredBytype) Definition() string {
 	switch code {
 	case TriggeredBytypeReflex:

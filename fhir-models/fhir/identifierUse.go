@@ -37,6 +37,7 @@ const (
 func (code IdentifierUse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *IdentifierUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *IdentifierUse) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code IdentifierUse) String() string {
 	return code.Code()
 }
+
 func (code IdentifierUse) Code() string {
 	switch code {
 	case IdentifierUseUsual:
@@ -73,6 +76,7 @@ func (code IdentifierUse) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code IdentifierUse) Display() string {
 	switch code {
 	case IdentifierUseUsual:
@@ -88,6 +92,7 @@ func (code IdentifierUse) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code IdentifierUse) Definition() string {
 	switch code {
 	case IdentifierUseUsual:

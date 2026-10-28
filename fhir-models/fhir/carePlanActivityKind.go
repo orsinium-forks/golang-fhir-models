@@ -180,6 +180,7 @@ const (
 func (code CarePlanActivityKind) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CarePlanActivityKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -484,9 +485,11 @@ func (code *CarePlanActivityKind) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CarePlanActivityKind) String() string {
 	return code.Code()
 }
+
 func (code CarePlanActivityKind) Code() string {
 	switch code {
 	case CarePlanActivityKindAccount:
@@ -788,6 +791,7 @@ func (code CarePlanActivityKind) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanActivityKind) Display() string {
 	switch code {
 	case CarePlanActivityKindAccount:
@@ -1089,6 +1093,7 @@ func (code CarePlanActivityKind) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanActivityKind) Definition() string {
 	switch code {
 	case CarePlanActivityKindAccount:

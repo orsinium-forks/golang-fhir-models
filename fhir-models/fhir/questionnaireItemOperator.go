@@ -39,6 +39,7 @@ const (
 func (code QuestionnaireItemOperator) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *QuestionnaireItemOperator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *QuestionnaireItemOperator) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code QuestionnaireItemOperator) String() string {
 	return code.Code()
 }
+
 func (code QuestionnaireItemOperator) Code() string {
 	switch code {
 	case QuestionnaireItemOperatorExists:
@@ -83,6 +86,7 @@ func (code QuestionnaireItemOperator) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireItemOperator) Display() string {
 	switch code {
 	case QuestionnaireItemOperatorExists:
@@ -102,6 +106,7 @@ func (code QuestionnaireItemOperator) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireItemOperator) Definition() string {
 	switch code {
 	case QuestionnaireItemOperatorExists:

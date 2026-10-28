@@ -37,6 +37,7 @@ const (
 func (code AuditEventAgentNetworkType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AuditEventAgentNetworkType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *AuditEventAgentNetworkType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AuditEventAgentNetworkType) String() string {
 	return code.Code()
 }
+
 func (code AuditEventAgentNetworkType) Code() string {
 	switch code {
 	case AuditEventAgentNetworkType1:
@@ -73,6 +76,7 @@ func (code AuditEventAgentNetworkType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventAgentNetworkType) Display() string {
 	switch code {
 	case AuditEventAgentNetworkType1:
@@ -88,6 +92,7 @@ func (code AuditEventAgentNetworkType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventAgentNetworkType) Definition() string {
 	switch code {
 	case AuditEventAgentNetworkType1:

@@ -48,6 +48,7 @@ const (
 func (code QuestionnaireItemType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *QuestionnaireItemType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -88,9 +89,11 @@ func (code *QuestionnaireItemType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code QuestionnaireItemType) String() string {
 	return code.Code()
 }
+
 func (code QuestionnaireItemType) Code() string {
 	switch code {
 	case QuestionnaireItemTypeGroup:
@@ -128,6 +131,7 @@ func (code QuestionnaireItemType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireItemType) Display() string {
 	switch code {
 	case QuestionnaireItemTypeGroup:
@@ -165,6 +169,7 @@ func (code QuestionnaireItemType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireItemType) Definition() string {
 	switch code {
 	case QuestionnaireItemTypeGroup:

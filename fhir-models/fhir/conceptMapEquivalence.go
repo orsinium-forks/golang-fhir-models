@@ -42,6 +42,7 @@ const (
 func (code ConceptMapEquivalence) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConceptMapEquivalence) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -70,9 +71,11 @@ func (code *ConceptMapEquivalence) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConceptMapEquivalence) String() string {
 	return code.Code()
 }
+
 func (code ConceptMapEquivalence) Code() string {
 	switch code {
 	case ConceptMapEquivalenceRelatedto:
@@ -98,6 +101,7 @@ func (code ConceptMapEquivalence) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapEquivalence) Display() string {
 	switch code {
 	case ConceptMapEquivalenceRelatedto:
@@ -123,6 +127,7 @@ func (code ConceptMapEquivalence) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConceptMapEquivalence) Definition() string {
 	switch code {
 	case ConceptMapEquivalenceRelatedto:

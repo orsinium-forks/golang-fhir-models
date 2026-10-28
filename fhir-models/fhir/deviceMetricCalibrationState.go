@@ -36,6 +36,7 @@ const (
 func (code DeviceMetricCalibrationState) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceMetricCalibrationState) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *DeviceMetricCalibrationState) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceMetricCalibrationState) String() string {
 	return code.Code()
 }
+
 func (code DeviceMetricCalibrationState) Code() string {
 	switch code {
 	case DeviceMetricCalibrationStateNotCalibrated:
@@ -68,6 +71,7 @@ func (code DeviceMetricCalibrationState) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricCalibrationState) Display() string {
 	switch code {
 	case DeviceMetricCalibrationStateNotCalibrated:
@@ -81,6 +85,7 @@ func (code DeviceMetricCalibrationState) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricCalibrationState) Definition() string {
 	switch code {
 	case DeviceMetricCalibrationStateNotCalibrated:

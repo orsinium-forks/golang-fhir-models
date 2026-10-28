@@ -35,6 +35,7 @@ const (
 func (code SequenceType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SequenceType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *SequenceType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SequenceType) String() string {
 	return code.Code()
 }
+
 func (code SequenceType) Code() string {
 	switch code {
 	case SequenceTypeAa:
@@ -63,6 +66,7 @@ func (code SequenceType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SequenceType) Display() string {
 	switch code {
 	case SequenceTypeAa:
@@ -74,6 +78,7 @@ func (code SequenceType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SequenceType) Definition() string {
 	switch code {
 	case SequenceTypeAa:

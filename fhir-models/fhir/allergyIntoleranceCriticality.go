@@ -35,6 +35,7 @@ const (
 func (code AllergyIntoleranceCriticality) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AllergyIntoleranceCriticality) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *AllergyIntoleranceCriticality) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AllergyIntoleranceCriticality) String() string {
 	return code.Code()
 }
+
 func (code AllergyIntoleranceCriticality) Code() string {
 	switch code {
 	case AllergyIntoleranceCriticalityLow:
@@ -63,6 +66,7 @@ func (code AllergyIntoleranceCriticality) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AllergyIntoleranceCriticality) Display() string {
 	switch code {
 	case AllergyIntoleranceCriticalityLow:
@@ -74,6 +78,7 @@ func (code AllergyIntoleranceCriticality) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AllergyIntoleranceCriticality) Definition() string {
 	switch code {
 	case AllergyIntoleranceCriticalityLow:

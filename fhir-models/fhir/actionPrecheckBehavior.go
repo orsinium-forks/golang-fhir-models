@@ -34,6 +34,7 @@ const (
 func (code ActionPrecheckBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionPrecheckBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ActionPrecheckBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionPrecheckBehavior) String() string {
 	return code.Code()
 }
+
 func (code ActionPrecheckBehavior) Code() string {
 	switch code {
 	case ActionPrecheckBehaviorYes:
@@ -58,6 +61,7 @@ func (code ActionPrecheckBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionPrecheckBehavior) Display() string {
 	switch code {
 	case ActionPrecheckBehaviorYes:
@@ -67,6 +71,7 @@ func (code ActionPrecheckBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionPrecheckBehavior) Definition() string {
 	switch code {
 	case ActionPrecheckBehaviorYes:

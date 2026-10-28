@@ -34,6 +34,7 @@ const (
 func (code ConditionPreconditionType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConditionPreconditionType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ConditionPreconditionType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConditionPreconditionType) String() string {
 	return code.Code()
 }
+
 func (code ConditionPreconditionType) Code() string {
 	switch code {
 	case ConditionPreconditionTypeSensitive:
@@ -58,6 +61,7 @@ func (code ConditionPreconditionType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionPreconditionType) Display() string {
 	switch code {
 	case ConditionPreconditionTypeSensitive:
@@ -67,6 +71,7 @@ func (code ConditionPreconditionType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionPreconditionType) Definition() string {
 	switch code {
 	case ConditionPreconditionTypeSensitive:

@@ -35,6 +35,7 @@ const (
 func (code ActionConditionKind) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionConditionKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ActionConditionKind) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionConditionKind) String() string {
 	return code.Code()
 }
+
 func (code ActionConditionKind) Code() string {
 	switch code {
 	case ActionConditionKindApplicability:
@@ -63,6 +66,7 @@ func (code ActionConditionKind) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionConditionKind) Display() string {
 	switch code {
 	case ActionConditionKindApplicability:
@@ -74,6 +78,7 @@ func (code ActionConditionKind) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionConditionKind) Definition() string {
 	switch code {
 	case ActionConditionKindApplicability:

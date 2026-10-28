@@ -263,6 +263,7 @@ const (
 func (code FHIRTypes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FHIRTypes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -733,9 +734,11 @@ func (code *FHIRTypes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FHIRTypes) String() string {
 	return code.Code()
 }
+
 func (code FHIRTypes) Code() string {
 	switch code {
 	case FHIRTypesBase:
@@ -1203,6 +1206,7 @@ func (code FHIRTypes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FHIRTypes) Display() string {
 	switch code {
 	case FHIRTypesBase:
@@ -1670,6 +1674,7 @@ func (code FHIRTypes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FHIRTypes) Definition() string {
 	switch code {
 	case FHIRTypesBase:

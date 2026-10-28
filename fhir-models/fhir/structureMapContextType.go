@@ -34,6 +34,7 @@ const (
 func (code StructureMapContextType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *StructureMapContextType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *StructureMapContextType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code StructureMapContextType) String() string {
 	return code.Code()
 }
+
 func (code StructureMapContextType) Code() string {
 	switch code {
 	case StructureMapContextTypeType:
@@ -58,6 +61,7 @@ func (code StructureMapContextType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapContextType) Display() string {
 	switch code {
 	case StructureMapContextTypeType:
@@ -67,6 +71,7 @@ func (code StructureMapContextType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapContextType) Definition() string {
 	switch code {
 	case StructureMapContextTypeType:

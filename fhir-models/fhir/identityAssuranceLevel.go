@@ -36,6 +36,7 @@ const (
 func (code IdentityAssuranceLevel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *IdentityAssuranceLevel) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *IdentityAssuranceLevel) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code IdentityAssuranceLevel) String() string {
 	return code.Code()
 }
+
 func (code IdentityAssuranceLevel) Code() string {
 	switch code {
 	case IdentityAssuranceLevelLevel1:
@@ -68,6 +71,7 @@ func (code IdentityAssuranceLevel) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code IdentityAssuranceLevel) Display() string {
 	switch code {
 	case IdentityAssuranceLevelLevel1:
@@ -81,6 +85,7 @@ func (code IdentityAssuranceLevel) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code IdentityAssuranceLevel) Definition() string {
 	switch code {
 	case IdentityAssuranceLevelLevel1:

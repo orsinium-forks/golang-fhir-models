@@ -36,6 +36,7 @@ const (
 func (code ConformanceExpectation) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConformanceExpectation) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *ConformanceExpectation) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConformanceExpectation) String() string {
 	return code.Code()
 }
+
 func (code ConformanceExpectation) Code() string {
 	switch code {
 	case ConformanceExpectationSHALL:
@@ -68,6 +71,7 @@ func (code ConformanceExpectation) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConformanceExpectation) Display() string {
 	switch code {
 	case ConformanceExpectationSHALL:
@@ -81,6 +85,7 @@ func (code ConformanceExpectation) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConformanceExpectation) Definition() string {
 	switch code {
 	case ConformanceExpectationSHALL:

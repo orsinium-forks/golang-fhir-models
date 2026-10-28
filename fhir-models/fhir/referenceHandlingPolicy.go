@@ -37,6 +37,7 @@ const (
 func (code ReferenceHandlingPolicy) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ReferenceHandlingPolicy) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *ReferenceHandlingPolicy) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ReferenceHandlingPolicy) String() string {
 	return code.Code()
 }
+
 func (code ReferenceHandlingPolicy) Code() string {
 	switch code {
 	case ReferenceHandlingPolicyLiteral:
@@ -73,6 +76,7 @@ func (code ReferenceHandlingPolicy) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ReferenceHandlingPolicy) Display() string {
 	switch code {
 	case ReferenceHandlingPolicyLiteral:
@@ -88,6 +92,7 @@ func (code ReferenceHandlingPolicy) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ReferenceHandlingPolicy) Definition() string {
 	switch code {
 	case ReferenceHandlingPolicyLiteral:

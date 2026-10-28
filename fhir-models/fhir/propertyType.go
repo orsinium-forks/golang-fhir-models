@@ -39,6 +39,7 @@ const (
 func (code PropertyType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PropertyType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *PropertyType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PropertyType) String() string {
 	return code.Code()
 }
+
 func (code PropertyType) Code() string {
 	switch code {
 	case PropertyTypeCode:
@@ -83,6 +86,7 @@ func (code PropertyType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PropertyType) Display() string {
 	switch code {
 	case PropertyTypeCode:
@@ -102,6 +106,7 @@ func (code PropertyType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PropertyType) Definition() string {
 	switch code {
 	case PropertyTypeCode:

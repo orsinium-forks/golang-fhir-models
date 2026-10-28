@@ -41,6 +41,7 @@ const (
 func (code DeviceDispenseStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceDispenseStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *DeviceDispenseStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceDispenseStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code DeviceDispenseStatusCodes) Code() string {
 	switch code {
 	case DeviceDispenseStatusCodesPreparation:
@@ -93,6 +96,7 @@ func (code DeviceDispenseStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceDispenseStatusCodes) Display() string {
 	switch code {
 	case DeviceDispenseStatusCodesPreparation:
@@ -116,6 +120,7 @@ func (code DeviceDispenseStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceDispenseStatusCodes) Definition() string {
 	switch code {
 	case DeviceDispenseStatusCodesPreparation:

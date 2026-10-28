@@ -40,6 +40,7 @@ const (
 func (code ReportRelationshipType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ReportRelationshipType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -64,9 +65,11 @@ func (code *ReportRelationshipType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ReportRelationshipType) String() string {
 	return code.Code()
 }
+
 func (code ReportRelationshipType) Code() string {
 	switch code {
 	case ReportRelationshipTypeReplaces:
@@ -88,6 +91,7 @@ func (code ReportRelationshipType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ReportRelationshipType) Display() string {
 	switch code {
 	case ReportRelationshipTypeReplaces:
@@ -109,6 +113,7 @@ func (code ReportRelationshipType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ReportRelationshipType) Definition() string {
 	switch code {
 	case ReportRelationshipTypeReplaces:

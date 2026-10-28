@@ -38,6 +38,7 @@ const (
 func (code PermissionRuleCombining) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PermissionRuleCombining) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *PermissionRuleCombining) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PermissionRuleCombining) String() string {
 	return code.Code()
 }
+
 func (code PermissionRuleCombining) Code() string {
 	switch code {
 	case PermissionRuleCombiningDenyOverrides:
@@ -78,6 +81,7 @@ func (code PermissionRuleCombining) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PermissionRuleCombining) Display() string {
 	switch code {
 	case PermissionRuleCombiningDenyOverrides:
@@ -95,6 +99,7 @@ func (code PermissionRuleCombining) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PermissionRuleCombining) Definition() string {
 	switch code {
 	case PermissionRuleCombiningDenyOverrides:

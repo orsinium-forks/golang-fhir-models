@@ -34,6 +34,7 @@ const (
 func (code DocumentMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DocumentMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *DocumentMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DocumentMode) String() string {
 	return code.Code()
 }
+
 func (code DocumentMode) Code() string {
 	switch code {
 	case DocumentModeProducer:
@@ -58,6 +61,7 @@ func (code DocumentMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentMode) Display() string {
 	switch code {
 	case DocumentModeProducer:
@@ -67,6 +71,7 @@ func (code DocumentMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DocumentMode) Definition() string {
 	switch code {
 	case DocumentModeProducer:

@@ -39,6 +39,7 @@ const (
 func (code TestScriptRequestMethodCode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TestScriptRequestMethodCode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -61,9 +62,11 @@ func (code *TestScriptRequestMethodCode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TestScriptRequestMethodCode) String() string {
 	return code.Code()
 }
+
 func (code TestScriptRequestMethodCode) Code() string {
 	switch code {
 	case TestScriptRequestMethodCodeDelete:
@@ -83,6 +86,7 @@ func (code TestScriptRequestMethodCode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestScriptRequestMethodCode) Display() string {
 	switch code {
 	case TestScriptRequestMethodCodeDelete:
@@ -102,6 +106,7 @@ func (code TestScriptRequestMethodCode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestScriptRequestMethodCode) Definition() string {
 	switch code {
 	case TestScriptRequestMethodCodeDelete:

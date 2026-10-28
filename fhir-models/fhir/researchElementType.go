@@ -35,6 +35,7 @@ const (
 func (code ResearchElementType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ResearchElementType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ResearchElementType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ResearchElementType) String() string {
 	return code.Code()
 }
+
 func (code ResearchElementType) Code() string {
 	switch code {
 	case ResearchElementTypePopulation:
@@ -63,6 +66,7 @@ func (code ResearchElementType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResearchElementType) Display() string {
 	switch code {
 	case ResearchElementTypePopulation:
@@ -74,6 +78,7 @@ func (code ResearchElementType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ResearchElementType) Definition() string {
 	switch code {
 	case ResearchElementTypePopulation:

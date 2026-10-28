@@ -36,6 +36,7 @@ const (
 func (code ClaimProcessingCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ClaimProcessingCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *ClaimProcessingCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ClaimProcessingCodes) String() string {
 	return code.Code()
 }
+
 func (code ClaimProcessingCodes) Code() string {
 	switch code {
 	case ClaimProcessingCodesQueued:
@@ -68,6 +71,7 @@ func (code ClaimProcessingCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ClaimProcessingCodes) Display() string {
 	switch code {
 	case ClaimProcessingCodesQueued:
@@ -81,6 +85,7 @@ func (code ClaimProcessingCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ClaimProcessingCodes) Definition() string {
 	switch code {
 	case ClaimProcessingCodesQueued:

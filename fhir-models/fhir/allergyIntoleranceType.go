@@ -34,6 +34,7 @@ const (
 func (code AllergyIntoleranceType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AllergyIntoleranceType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *AllergyIntoleranceType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AllergyIntoleranceType) String() string {
 	return code.Code()
 }
+
 func (code AllergyIntoleranceType) Code() string {
 	switch code {
 	case AllergyIntoleranceTypeAllergy:
@@ -58,6 +61,7 @@ func (code AllergyIntoleranceType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AllergyIntoleranceType) Display() string {
 	switch code {
 	case AllergyIntoleranceTypeAllergy:
@@ -67,6 +71,7 @@ func (code AllergyIntoleranceType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AllergyIntoleranceType) Definition() string {
 	switch code {
 	case AllergyIntoleranceTypeAllergy:

@@ -34,6 +34,7 @@ const (
 func (code ConsentProvisionType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConsentProvisionType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ConsentProvisionType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConsentProvisionType) String() string {
 	return code.Code()
 }
+
 func (code ConsentProvisionType) Code() string {
 	switch code {
 	case ConsentProvisionTypeDeny:
@@ -58,6 +61,7 @@ func (code ConsentProvisionType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConsentProvisionType) Display() string {
 	switch code {
 	case ConsentProvisionTypeDeny:
@@ -67,6 +71,7 @@ func (code ConsentProvisionType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConsentProvisionType) Definition() string {
 	switch code {
 	case ConsentProvisionTypeDeny:

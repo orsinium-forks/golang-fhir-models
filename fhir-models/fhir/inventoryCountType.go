@@ -34,6 +34,7 @@ const (
 func (code InventoryCountType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *InventoryCountType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *InventoryCountType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code InventoryCountType) String() string {
 	return code.Code()
 }
+
 func (code InventoryCountType) Code() string {
 	switch code {
 	case InventoryCountTypeSnapshot:
@@ -58,6 +61,7 @@ func (code InventoryCountType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code InventoryCountType) Display() string {
 	switch code {
 	case InventoryCountTypeSnapshot:
@@ -67,6 +71,7 @@ func (code InventoryCountType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code InventoryCountType) Definition() string {
 	switch code {
 	case InventoryCountTypeSnapshot:

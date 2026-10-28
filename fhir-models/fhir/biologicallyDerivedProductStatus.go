@@ -34,6 +34,7 @@ const (
 func (code BiologicallyDerivedProductStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *BiologicallyDerivedProductStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *BiologicallyDerivedProductStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code BiologicallyDerivedProductStatus) String() string {
 	return code.Code()
 }
+
 func (code BiologicallyDerivedProductStatus) Code() string {
 	switch code {
 	case BiologicallyDerivedProductStatusAvailable:
@@ -58,6 +61,7 @@ func (code BiologicallyDerivedProductStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductStatus) Display() string {
 	switch code {
 	case BiologicallyDerivedProductStatusAvailable:
@@ -67,6 +71,7 @@ func (code BiologicallyDerivedProductStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code BiologicallyDerivedProductStatus) Definition() string {
 	switch code {
 	case BiologicallyDerivedProductStatusAvailable:

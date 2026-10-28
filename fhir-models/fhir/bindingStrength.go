@@ -36,6 +36,7 @@ const (
 func (code BindingStrength) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *BindingStrength) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *BindingStrength) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code BindingStrength) String() string {
 	return code.Code()
 }
+
 func (code BindingStrength) Code() string {
 	switch code {
 	case BindingStrengthRequired:
@@ -68,6 +71,7 @@ func (code BindingStrength) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code BindingStrength) Display() string {
 	switch code {
 	case BindingStrengthRequired:
@@ -81,6 +85,7 @@ func (code BindingStrength) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code BindingStrength) Definition() string {
 	switch code {
 	case BindingStrengthRequired:

@@ -37,6 +37,7 @@ const (
 func (code StructureMapSourceListMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *StructureMapSourceListMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *StructureMapSourceListMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code StructureMapSourceListMode) String() string {
 	return code.Code()
 }
+
 func (code StructureMapSourceListMode) Code() string {
 	switch code {
 	case StructureMapSourceListModeFirst:
@@ -73,6 +76,7 @@ func (code StructureMapSourceListMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapSourceListMode) Display() string {
 	switch code {
 	case StructureMapSourceListModeFirst:
@@ -88,6 +92,7 @@ func (code StructureMapSourceListMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapSourceListMode) Definition() string {
 	switch code {
 	case StructureMapSourceListModeFirst:

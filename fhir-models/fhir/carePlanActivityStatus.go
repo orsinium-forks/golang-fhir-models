@@ -41,6 +41,7 @@ const (
 func (code CarePlanActivityStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CarePlanActivityStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *CarePlanActivityStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CarePlanActivityStatus) String() string {
 	return code.Code()
 }
+
 func (code CarePlanActivityStatus) Code() string {
 	switch code {
 	case CarePlanActivityStatusNotStarted:
@@ -93,6 +96,7 @@ func (code CarePlanActivityStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanActivityStatus) Display() string {
 	switch code {
 	case CarePlanActivityStatusNotStarted:
@@ -116,6 +120,7 @@ func (code CarePlanActivityStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanActivityStatus) Definition() string {
 	switch code {
 	case CarePlanActivityStatusNotStarted:

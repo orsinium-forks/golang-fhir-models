@@ -50,6 +50,7 @@ const (
 func (code InteractionTrigger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *InteractionTrigger) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -94,9 +95,11 @@ func (code *InteractionTrigger) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code InteractionTrigger) String() string {
 	return code.Code()
 }
+
 func (code InteractionTrigger) Code() string {
 	switch code {
 	case InteractionTriggerRead:
@@ -138,6 +141,7 @@ func (code InteractionTrigger) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code InteractionTrigger) Display() string {
 	switch code {
 	case InteractionTriggerRead:
@@ -179,6 +183,7 @@ func (code InteractionTrigger) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code InteractionTrigger) Definition() string {
 	switch code {
 	case InteractionTriggerRead:

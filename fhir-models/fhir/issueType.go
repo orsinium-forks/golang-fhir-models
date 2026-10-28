@@ -65,6 +65,7 @@ const (
 func (code IssueType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *IssueType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -139,9 +140,11 @@ func (code *IssueType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code IssueType) String() string {
 	return code.Code()
 }
+
 func (code IssueType) Code() string {
 	switch code {
 	case IssueTypeInvalid:
@@ -213,6 +216,7 @@ func (code IssueType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code IssueType) Display() string {
 	switch code {
 	case IssueTypeInvalid:
@@ -284,6 +288,7 @@ func (code IssueType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code IssueType) Definition() string {
 	switch code {
 	case IssueTypeInvalid:

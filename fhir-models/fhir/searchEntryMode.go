@@ -35,6 +35,7 @@ const (
 func (code SearchEntryMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SearchEntryMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *SearchEntryMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SearchEntryMode) String() string {
 	return code.Code()
 }
+
 func (code SearchEntryMode) Code() string {
 	switch code {
 	case SearchEntryModeMatch:
@@ -63,6 +66,7 @@ func (code SearchEntryMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchEntryMode) Display() string {
 	switch code {
 	case SearchEntryModeMatch:
@@ -74,6 +78,7 @@ func (code SearchEntryMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SearchEntryMode) Definition() string {
 	switch code {
 	case SearchEntryModeMatch:

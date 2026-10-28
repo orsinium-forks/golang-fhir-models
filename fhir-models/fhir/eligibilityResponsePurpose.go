@@ -36,6 +36,7 @@ const (
 func (code EligibilityResponsePurpose) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EligibilityResponsePurpose) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *EligibilityResponsePurpose) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EligibilityResponsePurpose) String() string {
 	return code.Code()
 }
+
 func (code EligibilityResponsePurpose) Code() string {
 	switch code {
 	case EligibilityResponsePurposeAuthRequirements:
@@ -68,6 +71,7 @@ func (code EligibilityResponsePurpose) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EligibilityResponsePurpose) Display() string {
 	switch code {
 	case EligibilityResponsePurposeAuthRequirements:
@@ -81,6 +85,7 @@ func (code EligibilityResponsePurpose) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EligibilityResponsePurpose) Definition() string {
 	switch code {
 	case EligibilityResponsePurposeAuthRequirements:

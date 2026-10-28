@@ -35,6 +35,7 @@ const (
 func (code DeviceCorrectiveActionScope) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceCorrectiveActionScope) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *DeviceCorrectiveActionScope) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceCorrectiveActionScope) String() string {
 	return code.Code()
 }
+
 func (code DeviceCorrectiveActionScope) Code() string {
 	switch code {
 	case DeviceCorrectiveActionScopeModel:
@@ -63,6 +66,7 @@ func (code DeviceCorrectiveActionScope) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceCorrectiveActionScope) Display() string {
 	switch code {
 	case DeviceCorrectiveActionScopeModel:
@@ -74,6 +78,7 @@ func (code DeviceCorrectiveActionScope) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceCorrectiveActionScope) Definition() string {
 	switch code {
 	case DeviceCorrectiveActionScopeModel:

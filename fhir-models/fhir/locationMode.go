@@ -34,6 +34,7 @@ const (
 func (code LocationMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *LocationMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *LocationMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code LocationMode) String() string {
 	return code.Code()
 }
+
 func (code LocationMode) Code() string {
 	switch code {
 	case LocationModeInstance:
@@ -58,6 +61,7 @@ func (code LocationMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code LocationMode) Display() string {
 	switch code {
 	case LocationModeInstance:
@@ -67,6 +71,7 @@ func (code LocationMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code LocationMode) Definition() string {
 	switch code {
 	case LocationModeInstance:

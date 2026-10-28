@@ -37,6 +37,7 @@ const (
 func (code ArtifactAssessmentDisposition) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ArtifactAssessmentDisposition) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *ArtifactAssessmentDisposition) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ArtifactAssessmentDisposition) String() string {
 	return code.Code()
 }
+
 func (code ArtifactAssessmentDisposition) Code() string {
 	switch code {
 	case ArtifactAssessmentDispositionUnresolved:
@@ -73,6 +76,7 @@ func (code ArtifactAssessmentDisposition) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ArtifactAssessmentDisposition) Display() string {
 	switch code {
 	case ArtifactAssessmentDispositionUnresolved:
@@ -88,6 +92,7 @@ func (code ArtifactAssessmentDisposition) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ArtifactAssessmentDisposition) Definition() string {
 	switch code {
 	case ArtifactAssessmentDispositionUnresolved:

@@ -36,6 +36,7 @@ const (
 func (code PermissionStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PermissionStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *PermissionStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PermissionStatus) String() string {
 	return code.Code()
 }
+
 func (code PermissionStatus) Code() string {
 	switch code {
 	case PermissionStatusActive:
@@ -68,6 +71,7 @@ func (code PermissionStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PermissionStatus) Display() string {
 	switch code {
 	case PermissionStatusActive:
@@ -81,6 +85,7 @@ func (code PermissionStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PermissionStatus) Definition() string {
 	switch code {
 	case PermissionStatusActive:

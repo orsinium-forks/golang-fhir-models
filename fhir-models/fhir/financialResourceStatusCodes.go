@@ -36,6 +36,7 @@ const (
 func (code FinancialResourceStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FinancialResourceStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *FinancialResourceStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FinancialResourceStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code FinancialResourceStatusCodes) Code() string {
 	switch code {
 	case FinancialResourceStatusCodesActive:
@@ -68,6 +71,7 @@ func (code FinancialResourceStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FinancialResourceStatusCodes) Display() string {
 	switch code {
 	case FinancialResourceStatusCodesActive:
@@ -81,6 +85,7 @@ func (code FinancialResourceStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FinancialResourceStatusCodes) Definition() string {
 	switch code {
 	case FinancialResourceStatusCodesActive:

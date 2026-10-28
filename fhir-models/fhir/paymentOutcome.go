@@ -36,6 +36,7 @@ const (
 func (code PaymentOutcome) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PaymentOutcome) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *PaymentOutcome) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PaymentOutcome) String() string {
 	return code.Code()
 }
+
 func (code PaymentOutcome) Code() string {
 	switch code {
 	case PaymentOutcomeQueued:
@@ -68,6 +71,7 @@ func (code PaymentOutcome) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PaymentOutcome) Display() string {
 	switch code {
 	case PaymentOutcomeQueued:
@@ -81,6 +85,7 @@ func (code PaymentOutcome) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PaymentOutcome) Definition() string {
 	switch code {
 	case PaymentOutcomeQueued:

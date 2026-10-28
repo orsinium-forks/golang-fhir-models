@@ -41,6 +41,7 @@ const (
 func (code RequestIntent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RequestIntent) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *RequestIntent) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RequestIntent) String() string {
 	return code.Code()
 }
+
 func (code RequestIntent) Code() string {
 	switch code {
 	case RequestIntentProposal:
@@ -93,6 +96,7 @@ func (code RequestIntent) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestIntent) Display() string {
 	switch code {
 	case RequestIntentProposal:
@@ -116,6 +120,7 @@ func (code RequestIntent) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestIntent) Definition() string {
 	switch code {
 	case RequestIntentProposal:

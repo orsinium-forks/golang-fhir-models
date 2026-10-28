@@ -36,6 +36,7 @@ const (
 func (code EvidenceVariableHandling) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EvidenceVariableHandling) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *EvidenceVariableHandling) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EvidenceVariableHandling) String() string {
 	return code.Code()
 }
+
 func (code EvidenceVariableHandling) Code() string {
 	switch code {
 	case EvidenceVariableHandlingContinuous:
@@ -68,6 +71,7 @@ func (code EvidenceVariableHandling) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EvidenceVariableHandling) Display() string {
 	switch code {
 	case EvidenceVariableHandlingContinuous:
@@ -81,6 +85,7 @@ func (code EvidenceVariableHandling) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EvidenceVariableHandling) Definition() string {
 	switch code {
 	case EvidenceVariableHandlingContinuous:

@@ -34,6 +34,7 @@ const (
 func (code ActionCardinalityBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionCardinalityBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ActionCardinalityBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionCardinalityBehavior) String() string {
 	return code.Code()
 }
+
 func (code ActionCardinalityBehavior) Code() string {
 	switch code {
 	case ActionCardinalityBehaviorSingle:
@@ -58,6 +61,7 @@ func (code ActionCardinalityBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionCardinalityBehavior) Display() string {
 	switch code {
 	case ActionCardinalityBehaviorSingle:
@@ -67,6 +71,7 @@ func (code ActionCardinalityBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionCardinalityBehavior) Definition() string {
 	switch code {
 	case ActionCardinalityBehaviorSingle:

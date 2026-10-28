@@ -35,6 +35,7 @@ const (
 func (code ImagingSelectionStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ImagingSelectionStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ImagingSelectionStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ImagingSelectionStatus) String() string {
 	return code.Code()
 }
+
 func (code ImagingSelectionStatus) Code() string {
 	switch code {
 	case ImagingSelectionStatusAvailable:
@@ -63,6 +66,7 @@ func (code ImagingSelectionStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImagingSelectionStatus) Display() string {
 	switch code {
 	case ImagingSelectionStatusAvailable:
@@ -74,6 +78,7 @@ func (code ImagingSelectionStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ImagingSelectionStatus) Definition() string {
 	switch code {
 	case ImagingSelectionStatusAvailable:

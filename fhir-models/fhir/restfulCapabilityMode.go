@@ -34,6 +34,7 @@ const (
 func (code RestfulCapabilityMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RestfulCapabilityMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *RestfulCapabilityMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RestfulCapabilityMode) String() string {
 	return code.Code()
 }
+
 func (code RestfulCapabilityMode) Code() string {
 	switch code {
 	case RestfulCapabilityModeClient:
@@ -58,6 +61,7 @@ func (code RestfulCapabilityMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RestfulCapabilityMode) Display() string {
 	switch code {
 	case RestfulCapabilityModeClient:
@@ -67,6 +71,7 @@ func (code RestfulCapabilityMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RestfulCapabilityMode) Definition() string {
 	switch code {
 	case RestfulCapabilityModeClient:

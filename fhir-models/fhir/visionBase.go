@@ -36,6 +36,7 @@ const (
 func (code VisionBase) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *VisionBase) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *VisionBase) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code VisionBase) String() string {
 	return code.Code()
 }
+
 func (code VisionBase) Code() string {
 	switch code {
 	case VisionBaseUp:
@@ -68,6 +71,7 @@ func (code VisionBase) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code VisionBase) Display() string {
 	switch code {
 	case VisionBaseUp:
@@ -81,6 +85,7 @@ func (code VisionBase) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code VisionBase) Definition() string {
 	switch code {
 	case VisionBaseUp:

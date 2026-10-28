@@ -37,6 +37,7 @@ const (
 func (code QuestionnaireResponseStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *QuestionnaireResponseStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *QuestionnaireResponseStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code QuestionnaireResponseStatus) String() string {
 	return code.Code()
 }
+
 func (code QuestionnaireResponseStatus) Code() string {
 	switch code {
 	case QuestionnaireResponseStatusInProgress:
@@ -73,6 +76,7 @@ func (code QuestionnaireResponseStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireResponseStatus) Display() string {
 	switch code {
 	case QuestionnaireResponseStatusInProgress:
@@ -88,6 +92,7 @@ func (code QuestionnaireResponseStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireResponseStatus) Definition() string {
 	switch code {
 	case QuestionnaireResponseStatusInProgress:

@@ -34,6 +34,7 @@ const (
 func (code StructureMapInputMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *StructureMapInputMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *StructureMapInputMode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code StructureMapInputMode) String() string {
 	return code.Code()
 }
+
 func (code StructureMapInputMode) Code() string {
 	switch code {
 	case StructureMapInputModeSource:
@@ -58,6 +61,7 @@ func (code StructureMapInputMode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapInputMode) Display() string {
 	switch code {
 	case StructureMapInputModeSource:
@@ -67,6 +71,7 @@ func (code StructureMapInputMode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureMapInputMode) Definition() string {
 	switch code {
 	case StructureMapInputModeSource:

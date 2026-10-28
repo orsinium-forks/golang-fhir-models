@@ -40,6 +40,7 @@ const (
 func (code AuditEventSeverity) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AuditEventSeverity) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -64,9 +65,11 @@ func (code *AuditEventSeverity) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AuditEventSeverity) String() string {
 	return code.Code()
 }
+
 func (code AuditEventSeverity) Code() string {
 	switch code {
 	case AuditEventSeverityEmergency:
@@ -88,6 +91,7 @@ func (code AuditEventSeverity) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventSeverity) Display() string {
 	switch code {
 	case AuditEventSeverityEmergency:
@@ -109,6 +113,7 @@ func (code AuditEventSeverity) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventSeverity) Definition() string {
 	switch code {
 	case AuditEventSeverityEmergency:

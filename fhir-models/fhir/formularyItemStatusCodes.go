@@ -35,6 +35,7 @@ const (
 func (code FormularyItemStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FormularyItemStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *FormularyItemStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FormularyItemStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code FormularyItemStatusCodes) Code() string {
 	switch code {
 	case FormularyItemStatusCodesActive:
@@ -63,6 +66,7 @@ func (code FormularyItemStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FormularyItemStatusCodes) Display() string {
 	switch code {
 	case FormularyItemStatusCodesActive:
@@ -74,6 +78,7 @@ func (code FormularyItemStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FormularyItemStatusCodes) Definition() string {
 	switch code {
 	case FormularyItemStatusCodesActive:

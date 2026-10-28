@@ -35,6 +35,7 @@ const (
 func (code OperationParameterScope) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *OperationParameterScope) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *OperationParameterScope) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code OperationParameterScope) String() string {
 	return code.Code()
 }
+
 func (code OperationParameterScope) Code() string {
 	switch code {
 	case OperationParameterScopeInstance:
@@ -63,6 +66,7 @@ func (code OperationParameterScope) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationParameterScope) Display() string {
 	switch code {
 	case OperationParameterScopeInstance:
@@ -74,6 +78,7 @@ func (code OperationParameterScope) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationParameterScope) Definition() string {
 	switch code {
 	case OperationParameterScopeInstance:

@@ -35,6 +35,7 @@ const (
 func (code QuestionnaireAnswerConstraint) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *QuestionnaireAnswerConstraint) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *QuestionnaireAnswerConstraint) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code QuestionnaireAnswerConstraint) String() string {
 	return code.Code()
 }
+
 func (code QuestionnaireAnswerConstraint) Code() string {
 	switch code {
 	case QuestionnaireAnswerConstraintOptionsOnly:
@@ -63,6 +66,7 @@ func (code QuestionnaireAnswerConstraint) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireAnswerConstraint) Display() string {
 	switch code {
 	case QuestionnaireAnswerConstraintOptionsOnly:
@@ -74,6 +78,7 @@ func (code QuestionnaireAnswerConstraint) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code QuestionnaireAnswerConstraint) Definition() string {
 	switch code {
 	case QuestionnaireAnswerConstraintOptionsOnly:

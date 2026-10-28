@@ -16,6 +16,7 @@ package fhir
 
 import (
 	v2 "encoding/json/v2"
+
 	decimal "github.com/shopspring/decimal"
 )
 

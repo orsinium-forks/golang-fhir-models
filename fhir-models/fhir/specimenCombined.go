@@ -34,6 +34,7 @@ const (
 func (code SpecimenCombined) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SpecimenCombined) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *SpecimenCombined) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SpecimenCombined) String() string {
 	return code.Code()
 }
+
 func (code SpecimenCombined) Code() string {
 	switch code {
 	case SpecimenCombinedGrouped:
@@ -58,6 +61,7 @@ func (code SpecimenCombined) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SpecimenCombined) Display() string {
 	switch code {
 	case SpecimenCombinedGrouped:
@@ -67,6 +71,7 @@ func (code SpecimenCombined) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SpecimenCombined) Definition() string {
 	switch code {
 	case SpecimenCombinedGrouped:

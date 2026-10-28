@@ -42,6 +42,7 @@ const (
 func (code ActionParticipantType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionParticipantType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -70,9 +71,11 @@ func (code *ActionParticipantType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionParticipantType) String() string {
 	return code.Code()
 }
+
 func (code ActionParticipantType) Code() string {
 	switch code {
 	case ActionParticipantTypeCareteam:
@@ -98,6 +101,7 @@ func (code ActionParticipantType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionParticipantType) Display() string {
 	switch code {
 	case ActionParticipantTypeCareteam:
@@ -123,6 +127,7 @@ func (code ActionParticipantType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionParticipantType) Definition() string {
 	switch code {
 	case ActionParticipantTypeCareteam:

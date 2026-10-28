@@ -50,6 +50,7 @@ const (
 func (code SystemRestfulInteraction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SystemRestfulInteraction) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -94,9 +95,11 @@ func (code *SystemRestfulInteraction) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SystemRestfulInteraction) String() string {
 	return code.Code()
 }
+
 func (code SystemRestfulInteraction) Code() string {
 	switch code {
 	case SystemRestfulInteractionRead:
@@ -138,6 +141,7 @@ func (code SystemRestfulInteraction) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SystemRestfulInteraction) Display() string {
 	switch code {
 	case SystemRestfulInteractionRead:
@@ -179,6 +183,7 @@ func (code SystemRestfulInteraction) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SystemRestfulInteraction) Definition() string {
 	switch code {
 	case SystemRestfulInteractionRead:

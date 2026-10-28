@@ -38,6 +38,7 @@ const (
 func (code DiscriminatorType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DiscriminatorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *DiscriminatorType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DiscriminatorType) String() string {
 	return code.Code()
 }
+
 func (code DiscriminatorType) Code() string {
 	switch code {
 	case DiscriminatorTypeValue:
@@ -78,6 +81,7 @@ func (code DiscriminatorType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DiscriminatorType) Display() string {
 	switch code {
 	case DiscriminatorTypeValue:
@@ -95,6 +99,7 @@ func (code DiscriminatorType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DiscriminatorType) Definition() string {
 	switch code {
 	case DiscriminatorTypeValue:

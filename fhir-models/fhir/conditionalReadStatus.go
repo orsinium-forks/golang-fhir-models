@@ -36,6 +36,7 @@ const (
 func (code ConditionalReadStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ConditionalReadStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *ConditionalReadStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ConditionalReadStatus) String() string {
 	return code.Code()
 }
+
 func (code ConditionalReadStatus) Code() string {
 	switch code {
 	case ConditionalReadStatusNotSupported:
@@ -68,6 +71,7 @@ func (code ConditionalReadStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionalReadStatus) Display() string {
 	switch code {
 	case ConditionalReadStatusNotSupported:
@@ -81,6 +85,7 @@ func (code ConditionalReadStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ConditionalReadStatus) Definition() string {
 	switch code {
 	case ConditionalReadStatusNotSupported:

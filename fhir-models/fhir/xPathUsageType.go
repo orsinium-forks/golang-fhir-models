@@ -37,6 +37,7 @@ const (
 func (code XPathUsageType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *XPathUsageType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *XPathUsageType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code XPathUsageType) String() string {
 	return code.Code()
 }
+
 func (code XPathUsageType) Code() string {
 	switch code {
 	case XPathUsageTypeNormal:
@@ -73,6 +76,7 @@ func (code XPathUsageType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code XPathUsageType) Display() string {
 	switch code {
 	case XPathUsageTypeNormal:
@@ -88,6 +92,7 @@ func (code XPathUsageType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code XPathUsageType) Definition() string {
 	switch code {
 	case XPathUsageTypeNormal:

@@ -41,6 +41,7 @@ const (
 func (code EncounterStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EncounterStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *EncounterStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EncounterStatus) String() string {
 	return code.Code()
 }
+
 func (code EncounterStatus) Code() string {
 	switch code {
 	case EncounterStatusPlanned:
@@ -93,6 +96,7 @@ func (code EncounterStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EncounterStatus) Display() string {
 	switch code {
 	case EncounterStatusPlanned:
@@ -116,6 +120,7 @@ func (code EncounterStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EncounterStatus) Definition() string {
 	switch code {
 	case EncounterStatusPlanned:

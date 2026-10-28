@@ -36,6 +36,7 @@ const (
 func (code FamilyHistoryStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FamilyHistoryStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *FamilyHistoryStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FamilyHistoryStatus) String() string {
 	return code.Code()
 }
+
 func (code FamilyHistoryStatus) Code() string {
 	switch code {
 	case FamilyHistoryStatusPartial:
@@ -68,6 +71,7 @@ func (code FamilyHistoryStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FamilyHistoryStatus) Display() string {
 	switch code {
 	case FamilyHistoryStatusPartial:
@@ -81,6 +85,7 @@ func (code FamilyHistoryStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FamilyHistoryStatus) Definition() string {
 	switch code {
 	case FamilyHistoryStatusPartial:

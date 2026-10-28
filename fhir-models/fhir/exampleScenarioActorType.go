@@ -34,6 +34,7 @@ const (
 func (code ExampleScenarioActorType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ExampleScenarioActorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ExampleScenarioActorType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ExampleScenarioActorType) String() string {
 	return code.Code()
 }
+
 func (code ExampleScenarioActorType) Code() string {
 	switch code {
 	case ExampleScenarioActorTypePerson:
@@ -58,6 +61,7 @@ func (code ExampleScenarioActorType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExampleScenarioActorType) Display() string {
 	switch code {
 	case ExampleScenarioActorTypePerson:
@@ -67,6 +71,7 @@ func (code ExampleScenarioActorType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExampleScenarioActorType) Definition() string {
 	switch code {
 	case ExampleScenarioActorTypePerson:

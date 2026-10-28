@@ -36,6 +36,7 @@ const (
 func (code CodeSystemHierarchyMeaning) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CodeSystemHierarchyMeaning) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *CodeSystemHierarchyMeaning) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CodeSystemHierarchyMeaning) String() string {
 	return code.Code()
 }
+
 func (code CodeSystemHierarchyMeaning) Code() string {
 	switch code {
 	case CodeSystemHierarchyMeaningGroupedBy:
@@ -68,6 +71,7 @@ func (code CodeSystemHierarchyMeaning) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSystemHierarchyMeaning) Display() string {
 	switch code {
 	case CodeSystemHierarchyMeaningGroupedBy:
@@ -81,6 +85,7 @@ func (code CodeSystemHierarchyMeaning) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CodeSystemHierarchyMeaning) Definition() string {
 	switch code {
 	case CodeSystemHierarchyMeaningGroupedBy:

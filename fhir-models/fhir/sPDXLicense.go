@@ -378,6 +378,7 @@ const (
 func (code SPDXLicense) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SPDXLicense) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -1078,9 +1079,11 @@ func (code *SPDXLicense) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SPDXLicense) String() string {
 	return code.Code()
 }
+
 func (code SPDXLicense) Code() string {
 	switch code {
 	case SPDXLicenseNotOpenSource:
@@ -1778,6 +1781,7 @@ func (code SPDXLicense) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SPDXLicense) Display() string {
 	switch code {
 	case SPDXLicenseNotOpenSource:
@@ -2475,6 +2479,7 @@ func (code SPDXLicense) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SPDXLicense) Definition() string {
 	switch code {
 	case SPDXLicenseNotOpenSource:

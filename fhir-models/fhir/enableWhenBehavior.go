@@ -34,6 +34,7 @@ const (
 func (code EnableWhenBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EnableWhenBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *EnableWhenBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EnableWhenBehavior) String() string {
 	return code.Code()
 }
+
 func (code EnableWhenBehavior) Code() string {
 	switch code {
 	case EnableWhenBehaviorAll:
@@ -58,6 +61,7 @@ func (code EnableWhenBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EnableWhenBehavior) Display() string {
 	switch code {
 	case EnableWhenBehaviorAll:
@@ -67,6 +71,7 @@ func (code EnableWhenBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EnableWhenBehavior) Definition() string {
 	switch code {
 	case EnableWhenBehaviorAll:

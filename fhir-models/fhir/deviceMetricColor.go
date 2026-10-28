@@ -40,6 +40,7 @@ const (
 func (code DeviceMetricColor) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceMetricColor) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -64,9 +65,11 @@ func (code *DeviceMetricColor) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceMetricColor) String() string {
 	return code.Code()
 }
+
 func (code DeviceMetricColor) Code() string {
 	switch code {
 	case DeviceMetricColorBlack:
@@ -88,6 +91,7 @@ func (code DeviceMetricColor) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricColor) Display() string {
 	switch code {
 	case DeviceMetricColorBlack:
@@ -109,6 +113,7 @@ func (code DeviceMetricColor) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceMetricColor) Definition() string {
 	switch code {
 	case DeviceMetricColorBlack:

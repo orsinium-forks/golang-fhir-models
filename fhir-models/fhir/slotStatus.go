@@ -37,6 +37,7 @@ const (
 func (code SlotStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SlotStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *SlotStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SlotStatus) String() string {
 	return code.Code()
 }
+
 func (code SlotStatus) Code() string {
 	switch code {
 	case SlotStatusBusy:
@@ -73,6 +76,7 @@ func (code SlotStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SlotStatus) Display() string {
 	switch code {
 	case SlotStatusBusy:
@@ -88,6 +92,7 @@ func (code SlotStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SlotStatus) Definition() string {
 	switch code {
 	case SlotStatusBusy:

@@ -36,6 +36,7 @@ const (
 func (code AuditEventOutcome) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AuditEventOutcome) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *AuditEventOutcome) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AuditEventOutcome) String() string {
 	return code.Code()
 }
+
 func (code AuditEventOutcome) Code() string {
 	switch code {
 	case AuditEventOutcome0:
@@ -68,6 +71,7 @@ func (code AuditEventOutcome) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventOutcome) Display() string {
 	switch code {
 	case AuditEventOutcome0:
@@ -81,6 +85,7 @@ func (code AuditEventOutcome) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AuditEventOutcome) Definition() string {
 	switch code {
 	case AuditEventOutcome0:

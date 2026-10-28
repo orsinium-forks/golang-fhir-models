@@ -35,6 +35,7 @@ const (
 func (code DeviceNameType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *DeviceNameType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *DeviceNameType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code DeviceNameType) String() string {
 	return code.Code()
 }
+
 func (code DeviceNameType) Code() string {
 	switch code {
 	case DeviceNameTypeRegisteredName:
@@ -63,6 +66,7 @@ func (code DeviceNameType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceNameType) Display() string {
 	switch code {
 	case DeviceNameTypeRegisteredName:
@@ -74,6 +78,7 @@ func (code DeviceNameType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code DeviceNameType) Definition() string {
 	switch code {
 	case DeviceNameTypeRegisteredName:

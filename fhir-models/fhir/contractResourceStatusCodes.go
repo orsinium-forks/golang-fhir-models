@@ -47,6 +47,7 @@ const (
 func (code ContractResourceStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ContractResourceStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -85,9 +86,11 @@ func (code *ContractResourceStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ContractResourceStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code ContractResourceStatusCodes) Code() string {
 	switch code {
 	case ContractResourceStatusCodesAmended:
@@ -123,6 +126,7 @@ func (code ContractResourceStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContractResourceStatusCodes) Display() string {
 	switch code {
 	case ContractResourceStatusCodesAmended:
@@ -158,6 +162,7 @@ func (code ContractResourceStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ContractResourceStatusCodes) Definition() string {
 	switch code {
 	case ContractResourceStatusCodesAmended:

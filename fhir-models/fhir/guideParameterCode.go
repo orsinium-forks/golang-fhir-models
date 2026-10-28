@@ -42,6 +42,7 @@ const (
 func (code GuideParameterCode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GuideParameterCode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -70,9 +71,11 @@ func (code *GuideParameterCode) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GuideParameterCode) String() string {
 	return code.Code()
 }
+
 func (code GuideParameterCode) Code() string {
 	switch code {
 	case GuideParameterCodeApply:
@@ -98,6 +101,7 @@ func (code GuideParameterCode) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GuideParameterCode) Display() string {
 	switch code {
 	case GuideParameterCodeApply:
@@ -123,6 +127,7 @@ func (code GuideParameterCode) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GuideParameterCode) Definition() string {
 	switch code {
 	case GuideParameterCodeApply:

@@ -38,6 +38,7 @@ const (
 func (code TransportStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TransportStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *TransportStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TransportStatus) String() string {
 	return code.Code()
 }
+
 func (code TransportStatus) Code() string {
 	switch code {
 	case TransportStatusInProgress:
@@ -78,6 +81,7 @@ func (code TransportStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TransportStatus) Display() string {
 	switch code {
 	case TransportStatusInProgress:
@@ -95,6 +99,7 @@ func (code TransportStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TransportStatus) Definition() string {
 	switch code {
 	case TransportStatusInProgress:

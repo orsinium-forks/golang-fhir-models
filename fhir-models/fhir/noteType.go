@@ -35,6 +35,7 @@ const (
 func (code NoteType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *NoteType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *NoteType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code NoteType) String() string {
 	return code.Code()
 }
+
 func (code NoteType) Code() string {
 	switch code {
 	case NoteTypeDisplay:
@@ -63,6 +66,7 @@ func (code NoteType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code NoteType) Display() string {
 	switch code {
 	case NoteTypeDisplay:
@@ -74,6 +78,7 @@ func (code NoteType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code NoteType) Definition() string {
 	switch code {
 	case NoteTypeDisplay:

@@ -35,6 +35,7 @@ const (
 func (code SubscriptionPayloadContent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SubscriptionPayloadContent) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *SubscriptionPayloadContent) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SubscriptionPayloadContent) String() string {
 	return code.Code()
 }
+
 func (code SubscriptionPayloadContent) Code() string {
 	switch code {
 	case SubscriptionPayloadContentEmpty:
@@ -63,6 +66,7 @@ func (code SubscriptionPayloadContent) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SubscriptionPayloadContent) Display() string {
 	switch code {
 	case SubscriptionPayloadContentEmpty:
@@ -74,6 +78,7 @@ func (code SubscriptionPayloadContent) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SubscriptionPayloadContent) Definition() string {
 	switch code {
 	case SubscriptionPayloadContentEmpty:

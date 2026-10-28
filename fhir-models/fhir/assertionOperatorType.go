@@ -44,6 +44,7 @@ const (
 func (code AssertionOperatorType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AssertionOperatorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -76,9 +77,11 @@ func (code *AssertionOperatorType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AssertionOperatorType) String() string {
 	return code.Code()
 }
+
 func (code AssertionOperatorType) Code() string {
 	switch code {
 	case AssertionOperatorTypeEquals:
@@ -108,6 +111,7 @@ func (code AssertionOperatorType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionOperatorType) Display() string {
 	switch code {
 	case AssertionOperatorTypeEquals:
@@ -137,6 +141,7 @@ func (code AssertionOperatorType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AssertionOperatorType) Definition() string {
 	switch code {
 	case AssertionOperatorTypeEquals:

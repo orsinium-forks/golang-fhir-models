@@ -37,6 +37,7 @@ const (
 func (code ClinicalUseDefinitionType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ClinicalUseDefinitionType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *ClinicalUseDefinitionType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ClinicalUseDefinitionType) String() string {
 	return code.Code()
 }
+
 func (code ClinicalUseDefinitionType) Code() string {
 	switch code {
 	case ClinicalUseDefinitionTypeIndication:
@@ -73,6 +76,7 @@ func (code ClinicalUseDefinitionType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ClinicalUseDefinitionType) Display() string {
 	switch code {
 	case ClinicalUseDefinitionTypeIndication:
@@ -88,6 +92,7 @@ func (code ClinicalUseDefinitionType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ClinicalUseDefinitionType) Definition() string {
 	switch code {
 	case ClinicalUseDefinitionTypeIndication:

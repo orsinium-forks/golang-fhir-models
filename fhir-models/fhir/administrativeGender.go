@@ -36,6 +36,7 @@ const (
 func (code AdministrativeGender) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *AdministrativeGender) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *AdministrativeGender) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code AdministrativeGender) String() string {
 	return code.Code()
 }
+
 func (code AdministrativeGender) Code() string {
 	switch code {
 	case AdministrativeGenderMale:
@@ -68,6 +71,7 @@ func (code AdministrativeGender) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code AdministrativeGender) Display() string {
 	switch code {
 	case AdministrativeGenderMale:
@@ -81,6 +85,7 @@ func (code AdministrativeGender) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code AdministrativeGender) Definition() string {
 	switch code {
 	case AdministrativeGenderMale:

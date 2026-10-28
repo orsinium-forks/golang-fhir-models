@@ -34,6 +34,7 @@ const (
 func (code ExposureState) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ExposureState) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *ExposureState) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ExposureState) String() string {
 	return code.Code()
 }
+
 func (code ExposureState) Code() string {
 	switch code {
 	case ExposureStateExposure:
@@ -58,6 +61,7 @@ func (code ExposureState) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExposureState) Display() string {
 	switch code {
 	case ExposureStateExposure:
@@ -67,6 +71,7 @@ func (code ExposureState) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ExposureState) Definition() string {
 	switch code {
 	case ExposureStateExposure:

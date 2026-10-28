@@ -35,6 +35,7 @@ const (
 func (code EvidenceVariableType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EvidenceVariableType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *EvidenceVariableType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EvidenceVariableType) String() string {
 	return code.Code()
 }
+
 func (code EvidenceVariableType) Code() string {
 	switch code {
 	case EvidenceVariableTypeDichotomous:
@@ -63,6 +66,7 @@ func (code EvidenceVariableType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EvidenceVariableType) Display() string {
 	switch code {
 	case EvidenceVariableTypeDichotomous:
@@ -74,6 +78,7 @@ func (code EvidenceVariableType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EvidenceVariableType) Definition() string {
 	switch code {
 	case EvidenceVariableTypeDichotomous:

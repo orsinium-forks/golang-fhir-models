@@ -38,6 +38,7 @@ const (
 func (code ActionSelectionBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionSelectionBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -58,9 +59,11 @@ func (code *ActionSelectionBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionSelectionBehavior) String() string {
 	return code.Code()
 }
+
 func (code ActionSelectionBehavior) Code() string {
 	switch code {
 	case ActionSelectionBehaviorAny:
@@ -78,6 +81,7 @@ func (code ActionSelectionBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionSelectionBehavior) Display() string {
 	switch code {
 	case ActionSelectionBehaviorAny:
@@ -95,6 +99,7 @@ func (code ActionSelectionBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionSelectionBehavior) Definition() string {
 	switch code {
 	case ActionSelectionBehaviorAny:

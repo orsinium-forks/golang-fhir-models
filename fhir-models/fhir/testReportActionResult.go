@@ -37,6 +37,7 @@ const (
 func (code TestReportActionResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *TestReportActionResult) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *TestReportActionResult) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code TestReportActionResult) String() string {
 	return code.Code()
 }
+
 func (code TestReportActionResult) Code() string {
 	switch code {
 	case TestReportActionResultPass:
@@ -73,6 +76,7 @@ func (code TestReportActionResult) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestReportActionResult) Display() string {
 	switch code {
 	case TestReportActionResultPass:
@@ -88,6 +92,7 @@ func (code TestReportActionResult) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code TestReportActionResult) Definition() string {
 	switch code {
 	case TestReportActionResultPass:

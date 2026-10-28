@@ -41,6 +41,7 @@ const (
 func (code CarePlanIntent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CarePlanIntent) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -67,9 +68,11 @@ func (code *CarePlanIntent) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CarePlanIntent) String() string {
 	return code.Code()
 }
+
 func (code CarePlanIntent) Code() string {
 	switch code {
 	case CarePlanIntentProposal:
@@ -93,6 +96,7 @@ func (code CarePlanIntent) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanIntent) Display() string {
 	switch code {
 	case CarePlanIntentProposal:
@@ -116,6 +120,7 @@ func (code CarePlanIntent) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CarePlanIntent) Definition() string {
 	switch code {
 	case CarePlanIntentProposal:

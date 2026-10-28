@@ -35,6 +35,7 @@ const (
 func (code IngredientManufacturerRole) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *IngredientManufacturerRole) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *IngredientManufacturerRole) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code IngredientManufacturerRole) String() string {
 	return code.Code()
 }
+
 func (code IngredientManufacturerRole) Code() string {
 	switch code {
 	case IngredientManufacturerRoleAllowed:
@@ -63,6 +66,7 @@ func (code IngredientManufacturerRole) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code IngredientManufacturerRole) Display() string {
 	switch code {
 	case IngredientManufacturerRoleAllowed:
@@ -74,6 +78,7 @@ func (code IngredientManufacturerRole) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code IngredientManufacturerRole) Definition() string {
 	switch code {
 	}

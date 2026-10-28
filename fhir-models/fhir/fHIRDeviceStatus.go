@@ -35,6 +35,7 @@ const (
 func (code FHIRDeviceStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *FHIRDeviceStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *FHIRDeviceStatus) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code FHIRDeviceStatus) String() string {
 	return code.Code()
 }
+
 func (code FHIRDeviceStatus) Code() string {
 	switch code {
 	case FHIRDeviceStatusActive:
@@ -63,6 +66,7 @@ func (code FHIRDeviceStatus) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code FHIRDeviceStatus) Display() string {
 	switch code {
 	case FHIRDeviceStatusActive:
@@ -74,6 +78,7 @@ func (code FHIRDeviceStatus) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code FHIRDeviceStatus) Definition() string {
 	switch code {
 	case FHIRDeviceStatusActive:

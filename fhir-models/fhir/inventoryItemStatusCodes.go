@@ -36,6 +36,7 @@ const (
 func (code InventoryItemStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *InventoryItemStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *InventoryItemStatusCodes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code InventoryItemStatusCodes) String() string {
 	return code.Code()
 }
+
 func (code InventoryItemStatusCodes) Code() string {
 	switch code {
 	case InventoryItemStatusCodesActive:
@@ -68,6 +71,7 @@ func (code InventoryItemStatusCodes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code InventoryItemStatusCodes) Display() string {
 	switch code {
 	case InventoryItemStatusCodesActive:
@@ -81,6 +85,7 @@ func (code InventoryItemStatusCodes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code InventoryItemStatusCodes) Definition() string {
 	switch code {
 	case InventoryItemStatusCodesActive:

@@ -34,6 +34,7 @@ const (
 func (code CriteriaNotExistsBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CriteriaNotExistsBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *CriteriaNotExistsBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CriteriaNotExistsBehavior) String() string {
 	return code.Code()
 }
+
 func (code CriteriaNotExistsBehavior) Code() string {
 	switch code {
 	case CriteriaNotExistsBehaviorTestPasses:
@@ -58,6 +61,7 @@ func (code CriteriaNotExistsBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CriteriaNotExistsBehavior) Display() string {
 	switch code {
 	case CriteriaNotExistsBehaviorTestPasses:
@@ -67,6 +71,7 @@ func (code CriteriaNotExistsBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CriteriaNotExistsBehavior) Definition() string {
 	switch code {
 	case CriteriaNotExistsBehaviorTestPasses:

@@ -35,6 +35,7 @@ const (
 func (code ActionRequiredBehavior) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *ActionRequiredBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -49,9 +50,11 @@ func (code *ActionRequiredBehavior) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code ActionRequiredBehavior) String() string {
 	return code.Code()
 }
+
 func (code ActionRequiredBehavior) Code() string {
 	switch code {
 	case ActionRequiredBehaviorMust:
@@ -63,6 +66,7 @@ func (code ActionRequiredBehavior) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionRequiredBehavior) Display() string {
 	switch code {
 	case ActionRequiredBehaviorMust:
@@ -74,6 +78,7 @@ func (code ActionRequiredBehavior) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code ActionRequiredBehavior) Definition() string {
 	switch code {
 	case ActionRequiredBehaviorMust:

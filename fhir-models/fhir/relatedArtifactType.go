@@ -68,6 +68,7 @@ const (
 func (code RelatedArtifactType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RelatedArtifactType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -148,9 +149,11 @@ func (code *RelatedArtifactType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RelatedArtifactType) String() string {
 	return code.Code()
 }
+
 func (code RelatedArtifactType) Code() string {
 	switch code {
 	case RelatedArtifactTypeDocumentation:
@@ -228,6 +231,7 @@ func (code RelatedArtifactType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RelatedArtifactType) Display() string {
 	switch code {
 	case RelatedArtifactTypeDocumentation:
@@ -305,6 +309,7 @@ func (code RelatedArtifactType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RelatedArtifactType) Definition() string {
 	switch code {
 	case RelatedArtifactTypeDocumentation:

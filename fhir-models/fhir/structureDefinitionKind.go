@@ -36,6 +36,7 @@ const (
 func (code StructureDefinitionKind) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *StructureDefinitionKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *StructureDefinitionKind) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code StructureDefinitionKind) String() string {
 	return code.Code()
 }
+
 func (code StructureDefinitionKind) Code() string {
 	switch code {
 	case StructureDefinitionKindPrimitiveType:
@@ -68,6 +71,7 @@ func (code StructureDefinitionKind) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureDefinitionKind) Display() string {
 	switch code {
 	case StructureDefinitionKindPrimitiveType:
@@ -81,6 +85,7 @@ func (code StructureDefinitionKind) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code StructureDefinitionKind) Definition() string {
 	switch code {
 	case StructureDefinitionKindPrimitiveType:

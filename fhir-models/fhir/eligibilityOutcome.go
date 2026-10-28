@@ -36,6 +36,7 @@ const (
 func (code EligibilityOutcome) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *EligibilityOutcome) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *EligibilityOutcome) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code EligibilityOutcome) String() string {
 	return code.Code()
 }
+
 func (code EligibilityOutcome) Code() string {
 	switch code {
 	case EligibilityOutcomeQueued:
@@ -68,6 +71,7 @@ func (code EligibilityOutcome) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code EligibilityOutcome) Display() string {
 	switch code {
 	case EligibilityOutcomeQueued:
@@ -81,6 +85,7 @@ func (code EligibilityOutcome) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code EligibilityOutcome) Definition() string {
 	switch code {
 	case EligibilityOutcomeQueued:

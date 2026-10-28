@@ -34,6 +34,7 @@ const (
 func (code SubmitDataUpdateType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *SubmitDataUpdateType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *SubmitDataUpdateType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code SubmitDataUpdateType) String() string {
 	return code.Code()
 }
+
 func (code SubmitDataUpdateType) Code() string {
 	switch code {
 	case SubmitDataUpdateTypeIncremental:
@@ -58,6 +61,7 @@ func (code SubmitDataUpdateType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code SubmitDataUpdateType) Display() string {
 	switch code {
 	case SubmitDataUpdateTypeIncremental:
@@ -67,6 +71,7 @@ func (code SubmitDataUpdateType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code SubmitDataUpdateType) Definition() string {
 	switch code {
 	case SubmitDataUpdateTypeIncremental:

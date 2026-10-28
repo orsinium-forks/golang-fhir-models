@@ -34,6 +34,7 @@ const (
 func (code CatalogEntryRelationType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *CatalogEntryRelationType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *CatalogEntryRelationType) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code CatalogEntryRelationType) String() string {
 	return code.Code()
 }
+
 func (code CatalogEntryRelationType) Code() string {
 	switch code {
 	case CatalogEntryRelationTypeTriggers:
@@ -58,6 +61,7 @@ func (code CatalogEntryRelationType) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code CatalogEntryRelationType) Display() string {
 	switch code {
 	case CatalogEntryRelationTypeTriggers:
@@ -67,6 +71,7 @@ func (code CatalogEntryRelationType) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code CatalogEntryRelationType) Definition() string {
 	switch code {
 	case CatalogEntryRelationTypeTriggers:

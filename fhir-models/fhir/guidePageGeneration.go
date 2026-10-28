@@ -36,6 +36,7 @@ const (
 func (code GuidePageGeneration) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *GuidePageGeneration) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -52,9 +53,11 @@ func (code *GuidePageGeneration) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code GuidePageGeneration) String() string {
 	return code.Code()
 }
+
 func (code GuidePageGeneration) Code() string {
 	switch code {
 	case GuidePageGenerationHtml:
@@ -68,6 +71,7 @@ func (code GuidePageGeneration) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code GuidePageGeneration) Display() string {
 	switch code {
 	case GuidePageGenerationHtml:
@@ -81,6 +85,7 @@ func (code GuidePageGeneration) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code GuidePageGeneration) Definition() string {
 	switch code {
 	case GuidePageGenerationHtml:

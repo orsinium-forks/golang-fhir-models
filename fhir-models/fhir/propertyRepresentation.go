@@ -37,6 +37,7 @@ const (
 func (code PropertyRepresentation) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *PropertyRepresentation) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -55,9 +56,11 @@ func (code *PropertyRepresentation) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code PropertyRepresentation) String() string {
 	return code.Code()
 }
+
 func (code PropertyRepresentation) Code() string {
 	switch code {
 	case PropertyRepresentationXmlAttr:
@@ -73,6 +76,7 @@ func (code PropertyRepresentation) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code PropertyRepresentation) Display() string {
 	switch code {
 	case PropertyRepresentationXmlAttr:
@@ -88,6 +92,7 @@ func (code PropertyRepresentation) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code PropertyRepresentation) Definition() string {
 	switch code {
 	case PropertyRepresentationXmlAttr:

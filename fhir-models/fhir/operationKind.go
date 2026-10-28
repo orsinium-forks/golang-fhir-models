@@ -34,6 +34,7 @@ const (
 func (code OperationKind) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *OperationKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -46,9 +47,11 @@ func (code *OperationKind) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code OperationKind) String() string {
 	return code.Code()
 }
+
 func (code OperationKind) Code() string {
 	switch code {
 	case OperationKindOperation:
@@ -58,6 +61,7 @@ func (code OperationKind) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationKind) Display() string {
 	switch code {
 	case OperationKindOperation:
@@ -67,6 +71,7 @@ func (code OperationKind) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code OperationKind) Definition() string {
 	switch code {
 	case OperationKindOperation:

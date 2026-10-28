@@ -263,6 +263,7 @@ const (
 func (code RequestResourceTypes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
+
 func (code *RequestResourceTypes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
 	switch s {
@@ -733,9 +734,11 @@ func (code *RequestResourceTypes) UnmarshalJSON(json []byte) error {
 	}
 	return nil
 }
+
 func (code RequestResourceTypes) String() string {
 	return code.Code()
 }
+
 func (code RequestResourceTypes) Code() string {
 	switch code {
 	case RequestResourceTypesBase:
@@ -1203,6 +1206,7 @@ func (code RequestResourceTypes) Code() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestResourceTypes) Display() string {
 	switch code {
 	case RequestResourceTypesBase:
@@ -1670,6 +1674,7 @@ func (code RequestResourceTypes) Display() string {
 	}
 	return "<unknown>"
 }
+
 func (code RequestResourceTypes) Definition() string {
 	switch code {
 	case RequestResourceTypesBase:
