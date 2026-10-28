@@ -180,7 +180,7 @@ type GraphDefinitionNode struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Internal ID of node - target for link references.
-	NodeId string `bson:"nodeId" json:"nodeId" xml:"nodeId"`
+	NodeID string `bson:"nodeId" json:"nodeId" xml:"nodeId"`
 	// Information about why this node is of interest in this graph definition.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// Type of resource this link refers to.
@@ -215,7 +215,7 @@ type GraphDefinitionLink struct {
 	// Maximum occurrences for this link.
 	Max *string `bson:"max,omitempty" json:"max,omitempty" xml:"max,omitempty"`
 	// The source node for this link.
-	SourceId string `bson:"sourceId" json:"sourceId" xml:"sourceId"`
+	SourceID string `bson:"sourceId" json:"sourceId" xml:"sourceId"`
 	// A FHIRPath expression that identifies one of FHIR References to other resources.
 	//
 	// Comment: The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is "*" then this means all references in the resource.
@@ -223,7 +223,7 @@ type GraphDefinitionLink struct {
 	// Which slice (if profiled).
 	SliceName *string `bson:"sliceName,omitempty" json:"sliceName,omitempty" xml:"sliceName,omitempty"`
 	// The target node for this link.
-	TargetId string `bson:"targetId" json:"targetId" xml:"targetId"`
+	TargetID string `bson:"targetId" json:"targetId" xml:"targetId"`
 	// A set of parameters to look up.
 	//
 	// Comment: At least one of the parameters must have the value {ref} which identifies the focus resource.

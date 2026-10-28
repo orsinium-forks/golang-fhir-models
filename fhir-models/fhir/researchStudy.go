@@ -283,7 +283,7 @@ type ResearchStudyComparisonGroup struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Unique, human-readable label for this comparisonGroup of the study.
 	Name string `bson:"name" json:"name" xml:"name"`
 	// Categorization of study comparisonGroup, e.g.

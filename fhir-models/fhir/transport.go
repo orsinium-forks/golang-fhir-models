@@ -215,7 +215,7 @@ type TransportInput struct {
 	ValueDate                  string                `bson:"valueDate" json:"valueDate" xml:"valueDate"`
 	ValueDateTime              string                `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal               decimal.Decimal       `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
-	ValueId                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
+	ValueID                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
 	ValueInstant               string                `bson:"valueInstant" json:"valueInstant" xml:"valueInstant"`
 	ValueInteger               int                   `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
 	ValueInteger64             int64                 `bson:"valueInteger64" json:"valueInteger64,string" xml:"valueInteger64"`
@@ -226,7 +226,7 @@ type TransportInput struct {
 	ValueTime                  string                `bson:"valueTime" json:"valueTime" xml:"valueTime"`
 	ValueUnsignedInt           int                   `bson:"valueUnsignedInt" json:"valueUnsignedInt" xml:"valueUnsignedInt"`
 	ValueUri                   string                `bson:"valueUri" json:"valueUri" xml:"valueUri"`
-	ValueUrl                   string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
+	ValueUURL                  string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
 	ValueUuid                  string                `bson:"valueUuid" json:"valueUuid" xml:"valueUuid"`
 	ValueAddress               Address               `bson:"valueAddress" json:"valueAddress" xml:"valueAddress"`
 	ValueAge                   Age                   `bson:"valueAge" json:"valueAge" xml:"valueAge"`
@@ -293,7 +293,7 @@ type TransportOutput struct {
 	ValueDate                  string                `bson:"valueDate" json:"valueDate" xml:"valueDate"`
 	ValueDateTime              string                `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal               decimal.Decimal       `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
-	ValueId                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
+	ValueID                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
 	ValueInstant               string                `bson:"valueInstant" json:"valueInstant" xml:"valueInstant"`
 	ValueInteger               int                   `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
 	ValueInteger64             int64                 `bson:"valueInteger64" json:"valueInteger64,string" xml:"valueInteger64"`
@@ -304,7 +304,7 @@ type TransportOutput struct {
 	ValueTime                  string                `bson:"valueTime" json:"valueTime" xml:"valueTime"`
 	ValueUnsignedInt           int                   `bson:"valueUnsignedInt" json:"valueUnsignedInt" xml:"valueUnsignedInt"`
 	ValueUri                   string                `bson:"valueUri" json:"valueUri" xml:"valueUri"`
-	ValueUrl                   string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
+	ValueUURL                  string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
 	ValueUuid                  string                `bson:"valueUuid" json:"valueUuid" xml:"valueUuid"`
 	ValueAddress               Address               `bson:"valueAddress" json:"valueAddress" xml:"valueAddress"`
 	ValueAge                   Age                   `bson:"valueAge" json:"valueAge" xml:"valueAge"`

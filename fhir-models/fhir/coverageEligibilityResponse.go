@@ -213,7 +213,7 @@ type CoverageEligibilityResponseInsuranceItem struct {
 	// Codes or comments regarding information or actions associated with the preauthorization.
 	AuthorizationSupporting []CodeableConcept `bson:"authorizationSupporting,omitempty" json:"authorizationSupporting,omitempty" xml:"authorizationSupporting,omitempty"`
 	// A web location for obtaining requirements or descriptive information regarding the preauthorization.
-	AuthorizationUrl *string `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty" xml:"authorizationUrl,omitempty"`
+	AuthorizationUURL *string `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty" xml:"authorizationUrl,omitempty"`
 }
 
 type CoverageEligibilityResponseInsuranceItemBenefit struct {

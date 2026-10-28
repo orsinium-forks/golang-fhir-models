@@ -122,7 +122,7 @@ type ElementDefinition struct {
 	DefaultValueDate                  *string                `bson:"defaultValueDate,omitempty" json:"defaultValueDate,omitempty" xml:"defaultValueDate,omitempty"`
 	DefaultValueDateTime              *string                `bson:"defaultValueDateTime,omitempty" json:"defaultValueDateTime,omitempty" xml:"defaultValueDateTime,omitempty"`
 	DefaultValueDecimal               *decimal.Decimal       `bson:"defaultValueDecimal,omitempty" json:"defaultValueDecimal,omitempty" xml:"defaultValueDecimal,omitempty"`
-	DefaultValueId                    *string                `bson:"defaultValueId,omitempty" json:"defaultValueId,omitempty" xml:"defaultValueId,omitempty"`
+	DefaultValueID                    *string                `bson:"defaultValueId,omitempty" json:"defaultValueId,omitempty" xml:"defaultValueId,omitempty"`
 	DefaultValueInstant               *string                `bson:"defaultValueInstant,omitempty" json:"defaultValueInstant,omitempty" xml:"defaultValueInstant,omitempty"`
 	DefaultValueInteger               *int                   `bson:"defaultValueInteger,omitempty" json:"defaultValueInteger,omitempty" xml:"defaultValueInteger,omitempty"`
 	DefaultValueInteger64             *int64                 `bson:"defaultValueInteger64,omitempty" json:"defaultValueInteger64,omitempty,string" xml:"defaultValueInteger64,omitempty"`
@@ -133,7 +133,7 @@ type ElementDefinition struct {
 	DefaultValueTime                  *string                `bson:"defaultValueTime,omitempty" json:"defaultValueTime,omitempty" xml:"defaultValueTime,omitempty"`
 	DefaultValueUnsignedInt           *int                   `bson:"defaultValueUnsignedInt,omitempty" json:"defaultValueUnsignedInt,omitempty" xml:"defaultValueUnsignedInt,omitempty"`
 	DefaultValueUri                   *string                `bson:"defaultValueUri,omitempty" json:"defaultValueUri,omitempty" xml:"defaultValueUri,omitempty"`
-	DefaultValueUrl                   *string                `bson:"defaultValueUrl,omitempty" json:"defaultValueUrl,omitempty" xml:"defaultValueUrl,omitempty"`
+	DefaultValueUURL                  *string                `bson:"defaultValueUrl,omitempty" json:"defaultValueUrl,omitempty" xml:"defaultValueUrl,omitempty"`
 	DefaultValueUuid                  *string                `bson:"defaultValueUuid,omitempty" json:"defaultValueUuid,omitempty" xml:"defaultValueUuid,omitempty"`
 	DefaultValueAddress               *Address               `bson:"defaultValueAddress,omitempty" json:"defaultValueAddress,omitempty" xml:"defaultValueAddress,omitempty"`
 	DefaultValueAge                   *Age                   `bson:"defaultValueAge,omitempty" json:"defaultValueAge,omitempty" xml:"defaultValueAge,omitempty"`
@@ -193,7 +193,7 @@ type ElementDefinition struct {
 	FixedDate                  *string                `bson:"fixedDate,omitempty" json:"fixedDate,omitempty" xml:"fixedDate,omitempty"`
 	FixedDateTime              *string                `bson:"fixedDateTime,omitempty" json:"fixedDateTime,omitempty" xml:"fixedDateTime,omitempty"`
 	FixedDecimal               *decimal.Decimal       `bson:"fixedDecimal,omitempty" json:"fixedDecimal,omitempty" xml:"fixedDecimal,omitempty"`
-	FixedId                    *string                `bson:"fixedId,omitempty" json:"fixedId,omitempty" xml:"fixedId,omitempty"`
+	FixedID                    *string                `bson:"fixedId,omitempty" json:"fixedId,omitempty" xml:"fixedId,omitempty"`
 	FixedInstant               *string                `bson:"fixedInstant,omitempty" json:"fixedInstant,omitempty" xml:"fixedInstant,omitempty"`
 	FixedInteger               *int                   `bson:"fixedInteger,omitempty" json:"fixedInteger,omitempty" xml:"fixedInteger,omitempty"`
 	FixedInteger64             *int64                 `bson:"fixedInteger64,omitempty" json:"fixedInteger64,omitempty,string" xml:"fixedInteger64,omitempty"`
@@ -204,7 +204,7 @@ type ElementDefinition struct {
 	FixedTime                  *string                `bson:"fixedTime,omitempty" json:"fixedTime,omitempty" xml:"fixedTime,omitempty"`
 	FixedUnsignedInt           *int                   `bson:"fixedUnsignedInt,omitempty" json:"fixedUnsignedInt,omitempty" xml:"fixedUnsignedInt,omitempty"`
 	FixedUri                   *string                `bson:"fixedUri,omitempty" json:"fixedUri,omitempty" xml:"fixedUri,omitempty"`
-	FixedUrl                   *string                `bson:"fixedUrl,omitempty" json:"fixedUrl,omitempty" xml:"fixedUrl,omitempty"`
+	FixedUURL                  *string                `bson:"fixedUrl,omitempty" json:"fixedUrl,omitempty" xml:"fixedUrl,omitempty"`
 	FixedUuid                  *string                `bson:"fixedUuid,omitempty" json:"fixedUuid,omitempty" xml:"fixedUuid,omitempty"`
 	FixedAddress               *Address               `bson:"fixedAddress,omitempty" json:"fixedAddress,omitempty" xml:"fixedAddress,omitempty"`
 	FixedAge                   *Age                   `bson:"fixedAge,omitempty" json:"fixedAge,omitempty" xml:"fixedAge,omitempty"`
@@ -266,7 +266,7 @@ type ElementDefinition struct {
 	PatternDate                  *string                `bson:"patternDate,omitempty" json:"patternDate,omitempty" xml:"patternDate,omitempty"`
 	PatternDateTime              *string                `bson:"patternDateTime,omitempty" json:"patternDateTime,omitempty" xml:"patternDateTime,omitempty"`
 	PatternDecimal               *decimal.Decimal       `bson:"patternDecimal,omitempty" json:"patternDecimal,omitempty" xml:"patternDecimal,omitempty"`
-	PatternId                    *string                `bson:"patternId,omitempty" json:"patternId,omitempty" xml:"patternId,omitempty"`
+	PatternID                    *string                `bson:"patternId,omitempty" json:"patternId,omitempty" xml:"patternId,omitempty"`
 	PatternInstant               *string                `bson:"patternInstant,omitempty" json:"patternInstant,omitempty" xml:"patternInstant,omitempty"`
 	PatternInteger               *int                   `bson:"patternInteger,omitempty" json:"patternInteger,omitempty" xml:"patternInteger,omitempty"`
 	PatternInteger64             *int64                 `bson:"patternInteger64,omitempty" json:"patternInteger64,omitempty,string" xml:"patternInteger64,omitempty"`
@@ -277,7 +277,7 @@ type ElementDefinition struct {
 	PatternTime                  *string                `bson:"patternTime,omitempty" json:"patternTime,omitempty" xml:"patternTime,omitempty"`
 	PatternUnsignedInt           *int                   `bson:"patternUnsignedInt,omitempty" json:"patternUnsignedInt,omitempty" xml:"patternUnsignedInt,omitempty"`
 	PatternUri                   *string                `bson:"patternUri,omitempty" json:"patternUri,omitempty" xml:"patternUri,omitempty"`
-	PatternUrl                   *string                `bson:"patternUrl,omitempty" json:"patternUrl,omitempty" xml:"patternUrl,omitempty"`
+	PatternUURL                  *string                `bson:"patternUrl,omitempty" json:"patternUrl,omitempty" xml:"patternUrl,omitempty"`
 	PatternUuid                  *string                `bson:"patternUuid,omitempty" json:"patternUuid,omitempty" xml:"patternUuid,omitempty"`
 	PatternAddress               *Address               `bson:"patternAddress,omitempty" json:"patternAddress,omitempty" xml:"patternAddress,omitempty"`
 	PatternAge                   *Age                   `bson:"patternAge,omitempty" json:"patternAge,omitempty" xml:"patternAge,omitempty"`
@@ -546,7 +546,7 @@ type ElementDefinitionExample struct {
 	ValueDate                  string                `bson:"valueDate" json:"valueDate" xml:"valueDate"`
 	ValueDateTime              string                `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueDecimal               decimal.Decimal       `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
-	ValueId                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
+	ValueID                    string                `bson:"valueId" json:"valueId" xml:"valueId"`
 	ValueInstant               string                `bson:"valueInstant" json:"valueInstant" xml:"valueInstant"`
 	ValueInteger               int                   `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
 	ValueInteger64             int64                 `bson:"valueInteger64" json:"valueInteger64,string" xml:"valueInteger64"`
@@ -557,7 +557,7 @@ type ElementDefinitionExample struct {
 	ValueTime                  string                `bson:"valueTime" json:"valueTime" xml:"valueTime"`
 	ValueUnsignedInt           int                   `bson:"valueUnsignedInt" json:"valueUnsignedInt" xml:"valueUnsignedInt"`
 	ValueUri                   string                `bson:"valueUri" json:"valueUri" xml:"valueUri"`
-	ValueUrl                   string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
+	ValueUURL                  string                `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
 	ValueUuid                  string                `bson:"valueUuid" json:"valueUuid" xml:"valueUuid"`
 	ValueAddress               Address               `bson:"valueAddress" json:"valueAddress" xml:"valueAddress"`
 	ValueAge                   Age                   `bson:"valueAge" json:"valueAge" xml:"valueAge"`

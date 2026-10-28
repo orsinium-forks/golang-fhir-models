@@ -157,7 +157,7 @@ type ImplementationGuide struct {
 	// This value must be globally unique, and should be assigned with care.
 	//
 	// Comment: Many (if not all) IG publishing tools will require that this element be present. For implementation guides published through HL7 or the FHIR foundation, the FHIR product director assigns package IDs.
-	PackageId string `bson:"packageId" json:"packageId" xml:"packageId"`
+	PackageID string `bson:"packageId" json:"packageId" xml:"packageId"`
 	// The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.
 	License *SPDXLicense `bson:"license,omitempty" json:"license,omitempty" xml:"license,omitempty"`
 	// The version(s) of the FHIR specification that this ImplementationGuide targets - e.g.
@@ -206,7 +206,7 @@ type ImplementationGuideDependsOn struct {
 	// Comment: Usually, A canonical reference to the implementation guide is the same as the master location at which the implementation guide is published.
 	Uri string `bson:"uri" json:"uri" xml:"uri"`
 	// The NPM package name for the Implementation Guide that this IG depends on.
-	PackageId *string `bson:"packageId,omitempty" json:"packageId,omitempty" xml:"packageId,omitempty"`
+	PackageID *string `bson:"packageId,omitempty" json:"packageId,omitempty" xml:"packageId,omitempty"`
 	// The version of the IG that is depended on, when the correct version is required to understand the IG correctly.
 	//
 	// Comment: This follows the syntax of the NPM packaging version field - see [[reference]].
@@ -366,7 +366,7 @@ type ImplementationGuideDefinitionResource struct {
 	// Reference to the id of the grouping this resource appears in.
 	//
 	// Comment: This must correspond to a group.id element within this implementation guide.
-	GroupingId *string `bson:"groupingId,omitempty" json:"groupingId,omitempty" xml:"groupingId,omitempty"`
+	GroupingID *string `bson:"groupingId,omitempty" json:"groupingId,omitempty" xml:"groupingId,omitempty"`
 }
 
 type ImplementationGuideDefinitionPage struct {
@@ -391,7 +391,7 @@ type ImplementationGuideDefinitionPage struct {
 	// Indicates the URL or the actual content to provide for the page.
 	//
 	// Comment: If absent and the page isn't a generated page, this may be inferred from the page name by checking input locations.  String is used for XHTML content - sent as an escaped string.  FHIR tooling can't support 'direct' XHTML anywhere other than in narrative.
-	SourceUrl      *string `bson:"sourceUrl,omitempty" json:"sourceUrl,omitempty" xml:"sourceUrl,omitempty"`
+	SourceUURL     *string `bson:"sourceUrl,omitempty" json:"sourceUrl,omitempty" xml:"sourceUrl,omitempty"`
 	SourceString   *string `bson:"sourceString,omitempty" json:"sourceString,omitempty" xml:"sourceString,omitempty"`
 	SourceMarkdown *string `bson:"sourceMarkdown,omitempty" json:"sourceMarkdown,omitempty" xml:"sourceMarkdown,omitempty"`
 	// The url by which the page should be known when published.

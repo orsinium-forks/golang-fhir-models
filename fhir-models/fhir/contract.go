@@ -311,7 +311,7 @@ type ContractTermOffer struct {
 	// Human readable form of this Contract Offer.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
 	// The id of the clause or question text of the offer in the referenced questionnaire/response.
-	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Security labels that protects the offer.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 }
@@ -417,7 +417,7 @@ type ContractTermAsset struct {
 	// Clause or question text (Prose Object) concerning the asset in a linked form, such as a QuestionnaireResponse used in the formation of the contract.
 	Text *string `bson:"text,omitempty" json:"text,omitempty" xml:"text,omitempty"`
 	// Id [identifier??] of the clause or question text about the asset in the referenced form or QuestionnaireResponse.
-	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Response to assets.
 	Answer []ContractTermOfferAnswer `bson:"answer,omitempty" json:"answer,omitempty"`
 	// Security labels that protects the asset.
@@ -504,7 +504,7 @@ type ContractTermAssetValuedItem struct {
 	// Who will receive payment.
 	Recipient *Reference `bson:"recipient,omitempty" json:"recipient,omitempty" xml:"recipient,omitempty"`
 	// Id  of the clause or question text related to the context of this valuedItem in the referenced form or QuestionnaireResponse.
-	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// A set of security labels that define which terms are controlled by this condition.
 	SecurityLabelNumber []int `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty" xml:"securityLabelNumber,omitempty"`
 }
@@ -537,13 +537,13 @@ type ContractTermAction struct {
 	// Reason or purpose for the action stipulated by this Contract Provision.
 	Intent CodeableConcept `bson:"intent" json:"intent" xml:"intent"`
 	// Id [identifier??] of the clause or question text related to this action in the referenced form or QuestionnaireResponse.
-	LinkId []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID []string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Current state of the term action.
 	Status CodeableConcept `bson:"status" json:"status" xml:"status"`
 	// Encounter or Episode with primary association to the specified term activity.
 	Context *Reference `bson:"context,omitempty" json:"context,omitempty" xml:"context,omitempty"`
 	// Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse.
-	ContextLinkId []string `bson:"contextLinkId,omitempty" json:"contextLinkId,omitempty" xml:"contextLinkId,omitempty"`
+	ContextLinkID []string `bson:"contextLinkId,omitempty" json:"contextLinkId,omitempty" xml:"contextLinkId,omitempty"`
 	// When action happens.
 	OccurrenceDateTime *string `bson:"occurrenceDateTime,omitempty" json:"occurrenceDateTime,omitempty" xml:"occurrenceDateTime,omitempty"`
 	OccurrencePeriod   *Period `bson:"occurrencePeriod,omitempty" json:"occurrencePeriod,omitempty" xml:"occurrencePeriod,omitempty"`
@@ -551,7 +551,7 @@ type ContractTermAction struct {
 	// Who or what initiated the action and has responsibility for its activation.
 	Requester []Reference `bson:"requester,omitempty" json:"requester,omitempty" xml:"requester,omitempty"`
 	// Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse.
-	RequesterLinkId []string `bson:"requesterLinkId,omitempty" json:"requesterLinkId,omitempty" xml:"requesterLinkId,omitempty"`
+	RequesterLinkID []string `bson:"requesterLinkId,omitempty" json:"requesterLinkId,omitempty" xml:"requesterLinkId,omitempty"`
 	// The type of individual that is desired or required to perform or not perform the action.
 	PerformerType []CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty" xml:"performerType,omitempty"`
 	// The type of role or competency of an individual desired or required to perform or not perform the action.
@@ -559,13 +559,13 @@ type ContractTermAction struct {
 	// Indicates who or what is being asked to perform (or not perform) the ction.
 	Performer *Reference `bson:"performer,omitempty" json:"performer,omitempty" xml:"performer,omitempty"`
 	// Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse.
-	PerformerLinkId []string `bson:"performerLinkId,omitempty" json:"performerLinkId,omitempty" xml:"performerLinkId,omitempty"`
+	PerformerLinkID []string `bson:"performerLinkId,omitempty" json:"performerLinkId,omitempty" xml:"performerLinkId,omitempty"`
 	// Rationale for the action to be performed or not performed.
 	//
 	// Describes why the action is permitted or prohibited. Either a coded concept, or another resource whose existence justifies permitting or not permitting this action.
 	Reason []CodeableReference `bson:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 	// Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse.
-	ReasonLinkId []string `bson:"reasonLinkId,omitempty" json:"reasonLinkId,omitempty" xml:"reasonLinkId,omitempty"`
+	ReasonLinkID []string `bson:"reasonLinkId,omitempty" json:"reasonLinkId,omitempty" xml:"reasonLinkId,omitempty"`
 	// Comments made about the term action made by the requester, performer, subject or other participants.
 	Note []Annotation `bson:"note,omitempty" json:"note,omitempty" xml:"note,omitempty"`
 	// Security labels that protects the action.

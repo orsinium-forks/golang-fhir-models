@@ -66,13 +66,13 @@ type SubstanceSourceMaterial struct {
 	// The state of the source material when extracted.
 	SourceMaterialState *CodeableConcept `bson:"sourceMaterialState,omitempty" json:"sourceMaterialState,omitempty" xml:"sourceMaterialState,omitempty"`
 	// The unique identifier associated with the source material parent organism shall be specified.
-	OrganismId *Identifier `bson:"organismId,omitempty" json:"organismId,omitempty" xml:"organismId,omitempty"`
+	OrganismID *Identifier `bson:"organismId,omitempty" json:"organismId,omitempty" xml:"organismId,omitempty"`
 	// The organism accepted Scientific name shall be provided based on the organism taxonomy.
 	OrganismName *string `bson:"organismName,omitempty" json:"organismName,omitempty" xml:"organismName,omitempty"`
 	// The parent of the herbal drug Ginkgo biloba, Leaf is the substance ID of the substance (fresh) of Ginkgo biloba L.
 	//
 	// or Ginkgo biloba L. (Whole plant).
-	ParentSubstanceId []Identifier `bson:"parentSubstanceId,omitempty" json:"parentSubstanceId,omitempty" xml:"parentSubstanceId,omitempty"`
+	ParentSubstanceID []Identifier `bson:"parentSubstanceId,omitempty" json:"parentSubstanceId,omitempty" xml:"parentSubstanceId,omitempty"`
 	// The parent substance of the Herbal Drug, or Herbal preparation.
 	ParentSubstanceName []string `bson:"parentSubstanceName,omitempty" json:"parentSubstanceName,omitempty" xml:"parentSubstanceName,omitempty"`
 	// The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File.
@@ -214,13 +214,13 @@ type SubstanceSourceMaterialOrganismHybrid struct {
 	// The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary.
 	//
 	// For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal.
-	MaternalOrganismId *string `bson:"maternalOrganismId,omitempty" json:"maternalOrganismId,omitempty" xml:"maternalOrganismId,omitempty"`
+	MaternalOrganismID *string `bson:"maternalOrganismId,omitempty" json:"maternalOrganismId,omitempty" xml:"maternalOrganismId,omitempty"`
 	// The name of the maternal species constituting the hybrid organism shall be specified.
 	//
 	// For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal.
 	MaternalOrganismName *string `bson:"maternalOrganismName,omitempty" json:"maternalOrganismName,omitempty" xml:"maternalOrganismName,omitempty"`
 	// The identifier of the paternal species constituting the hybrid organism shall be specified based on a controlled vocabulary.
-	PaternalOrganismId *string `bson:"paternalOrganismId,omitempty" json:"paternalOrganismId,omitempty" xml:"paternalOrganismId,omitempty"`
+	PaternalOrganismID *string `bson:"paternalOrganismId,omitempty" json:"paternalOrganismId,omitempty" xml:"paternalOrganismId,omitempty"`
 	// The name of the paternal species constituting the hybrid organism shall be specified.
 	PaternalOrganismName *string `bson:"paternalOrganismName,omitempty" json:"paternalOrganismName,omitempty" xml:"paternalOrganismName,omitempty"`
 	// The hybrid type of an organism shall be specified.

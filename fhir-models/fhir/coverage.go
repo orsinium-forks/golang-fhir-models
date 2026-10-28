@@ -82,7 +82,7 @@ type Coverage struct {
 	// Comment: May be self or a parent in the case of dependants. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance.
 	Subscriber *Reference `bson:"subscriber,omitempty" json:"subscriber,omitempty" xml:"subscriber,omitempty"`
 	// The insurer assigned ID for the Subscriber.
-	SubscriberId []Identifier `bson:"subscriberId,omitempty" json:"subscriberId,omitempty" xml:"subscriberId,omitempty"`
+	SubscriberID []Identifier `bson:"subscriberId,omitempty" json:"subscriberId,omitempty" xml:"subscriberId,omitempty"`
 	// The party who benefits from the insurance coverage; the patient when products and/or services are provided.
 	Beneficiary Reference `bson:"beneficiary" json:"beneficiary" xml:"beneficiary"`
 	// A designator for a dependent under the coverage.

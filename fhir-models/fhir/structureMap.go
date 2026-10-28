@@ -406,7 +406,7 @@ type StructureMapGroupRuleTarget struct {
 	// If field is a list, how to manage the list.
 	ListMode []StructureMapTargetListMode `bson:"listMode,omitempty" json:"listMode,omitempty" xml:"listMode,omitempty"`
 	// Internal rule reference for shared list items.
-	ListRuleId *string `bson:"listRuleId,omitempty" json:"listRuleId,omitempty" xml:"listRuleId,omitempty"`
+	ListRuleID *string `bson:"listRuleId,omitempty" json:"listRuleId,omitempty" xml:"listRuleId,omitempty"`
 	// How the data is copied / created.
 	Transform *StructureMapTransform `bson:"transform,omitempty" json:"transform,omitempty" xml:"transform,omitempty"`
 	// Parameters to the transform.
@@ -433,7 +433,7 @@ type StructureMapGroupRuleTargetParameter struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Parameter value - variable or literal.
-	ValueId       string          `bson:"valueId" json:"valueId" xml:"valueId"`
+	ValueID       string          `bson:"valueId" json:"valueId" xml:"valueId"`
 	ValueString   string          `bson:"valueString" json:"valueString" xml:"valueString"`
 	ValueBoolean  bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
 	ValueInteger  int             `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`

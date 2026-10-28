@@ -463,7 +463,7 @@ type TestScriptVariable struct {
 	// Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
 	//
 	// Comment: This can be a statically defined fixture (at the top of the TestScript) or a dynamically set fixture created by responseId of the `action.operation` element.
-	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceID *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 type TestScriptSetup struct {
@@ -572,7 +572,7 @@ type TestScriptSetupActionOperation struct {
 	// Whether or not to implicitly send the request url in encoded format.
 	//
 	// The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
-	EncodeRequestUrl bool `bson:"encodeRequestUrl" json:"encodeRequestUrl" xml:"encodeRequestUrl"`
+	EncodeRequestUURL bool `bson:"encodeRequestUrl" json:"encodeRequestUrl" xml:"encodeRequestUrl"`
 	// The HTTP method the test engine MUST use for this operation regardless of any other operation details.
 	//
 	// Comment: The primary purpose of the explicit HTTP method is support of  HTTP POST method invocation of the FHIR search. Other uses will include support of negative testing.
@@ -594,17 +594,17 @@ type TestScriptSetupActionOperation struct {
 	// The fixture id (maybe new) to map to the request.
 	//
 	// Comment: If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by "requestId".  If requestId is not specified, it is the test engine's responsibility to store the request and use it as the requestId in subsequent assertions when assertion path and/or headerField is specified, direction is equal to request, and the requestId in not specified.
-	RequestId *string `bson:"requestId,omitempty" json:"requestId,omitempty" xml:"requestId,omitempty"`
+	RequestID *string `bson:"requestId,omitempty" json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// The fixture id (maybe new) to map to the response.
 	//
 	// Comment: If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by "responseId".  If responseId is not specified, it is the test engine's responsibility to store the response and use it as the responseId in subsequent assertions when assertion path and/or headerField is specified and the responseId is not specified.
-	ResponseId *string `bson:"responseId,omitempty" json:"responseId,omitempty" xml:"responseId,omitempty"`
+	ResponseID *string `bson:"responseId,omitempty" json:"responseId,omitempty" xml:"responseId,omitempty"`
 	// The id of the fixture used as the body of a PUT or POST request.
-	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceID *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	// Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
 	//
 	// Comment: If "url" element is specified, then "targetId", "params", and "resource" elements will be ignored as "url" element will have everything needed for constructing the request url.  If "params" element is specified, then "targetId" element is ignored.  For FHIR operations that require a resource (e.g. "read" and "vread" operations), the "resource" element must be specified when "params" element is specified.  If "url" and "params" elements are absent, then the request url will be constructed from "targetId" fixture if present.  For "read" operation, the resource and id values will be extracted from "targetId" fixture and used to construct the url.  For "vread" and "history" operations, the versionId value will also be used.
-	TargetId *string `bson:"targetId,omitempty" json:"targetId,omitempty" xml:"targetId,omitempty"`
+	TargetID *string `bson:"targetId,omitempty" json:"targetId,omitempty" xml:"targetId,omitempty"`
 	// Complete request URL.
 	//
 	// Comment: Used to set the request URL explicitly.  If "url" element is defined, then "targetId", "resource", and "params" elements will be ignored.  Test engines would use whatever is specified in "url" without tampering with the string (beyond encoding the URL for HTTP).  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
@@ -672,7 +672,7 @@ type TestScriptSetupActionAssert struct {
 	// Comment: If the direction is specified as "response" (the default), then the processing of this assert is against the received response message. If the direction is specified as "request", then the processing of this assert is against the sent request message.
 	Direction *AssertionDirectionType `bson:"direction,omitempty" json:"direction,omitempty" xml:"direction,omitempty"`
 	// Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
-	CompareToSourceId *string `bson:"compareToSourceId,omitempty" json:"compareToSourceId,omitempty" xml:"compareToSourceId,omitempty"`
+	CompareToSourceID *string `bson:"compareToSourceId,omitempty" json:"compareToSourceId,omitempty" xml:"compareToSourceId,omitempty"`
 	// The FHIRPath expression for a specific value to evaluate against the source fixture.
 	//
 	// When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
@@ -710,7 +710,7 @@ type TestScriptSetupActionAssert struct {
 	// Comment: Asserts that the response contains all the element/content in another fixture pointed to by minimumId. This can be a statically defined fixture or one that is dynamically set via responseId.
 	//
 	// See [Testing FHIR Use minimumId](testing.html##minimumId) for a more complete description of the test engine's comparison logic.
-	MinimumId *string `bson:"minimumId,omitempty" json:"minimumId,omitempty" xml:"minimumId,omitempty"`
+	MinimumID *string `bson:"minimumId,omitempty" json:"minimumId,omitempty" xml:"minimumId,omitempty"`
 	// Whether or not the test execution performs validation on the bundle navigation links.
 	//
 	// Comment: Asserts that the Bundle contains first, last, and next links.
@@ -746,7 +746,7 @@ type TestScriptSetupActionAssert struct {
 	// Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
 	//
 	// Comment: This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.
-	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceID *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	// Whether or not the current test execution will stop on failure for this assert.
 	//
 	// Comment: If this element is specified and it is true, then assertion failures should not stop the current test execution from proceeding.
@@ -754,7 +754,7 @@ type TestScriptSetupActionAssert struct {
 	// The ID of the Profile to validate against.
 	//
 	// Comment: The ID of a Profile fixture. Asserts that the response is valid according to the Profile specified by validateProfileId.
-	ValidateProfileId *string `bson:"validateProfileId,omitempty" json:"validateProfileId,omitempty" xml:"validateProfileId,omitempty"`
+	ValidateProfileID *string `bson:"validateProfileId,omitempty" json:"validateProfileId,omitempty" xml:"validateProfileId,omitempty"`
 	// The value to compare to.
 	//
 	// Comment: The string-representation of a number, string, or boolean that is expected.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before comparing this value to the actual value.

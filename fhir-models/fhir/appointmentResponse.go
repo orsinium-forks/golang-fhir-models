@@ -96,7 +96,7 @@ type AppointmentResponse struct {
 	// The recurrence ID (sequence number) of the specific appointment when responding to a recurring request.
 	//
 	// Comment: If the recurrence template was defined using the list of occurrenceDates then this property might not be used.
-	RecurrenceId *int `bson:"recurrenceId,omitempty" json:"recurrenceId,omitempty" xml:"recurrenceId,omitempty"`
+	RecurrenceID *int `bson:"recurrenceId,omitempty" json:"recurrenceId,omitempty" xml:"recurrenceId,omitempty"`
 }
 
 func (r AppointmentResponse) ResourceType() string {

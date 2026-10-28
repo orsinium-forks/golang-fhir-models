@@ -229,7 +229,7 @@ type InventoryItemCharacteristic struct {
 	ValueInteger         int             `bson:"valueInteger" json:"valueInteger" xml:"valueInteger"`
 	ValueDecimal         decimal.Decimal `bson:"valueDecimal" json:"valueDecimal" xml:"valueDecimal"`
 	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean" xml:"valueBoolean"`
-	ValueUrl             string          `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
+	ValueUURL            string          `bson:"valueUrl" json:"valueUrl" xml:"valueUrl"`
 	ValueDateTime        string          `bson:"valueDateTime" json:"valueDateTime" xml:"valueDateTime"`
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`

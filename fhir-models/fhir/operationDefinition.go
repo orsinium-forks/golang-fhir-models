@@ -330,7 +330,7 @@ type OperationDefinitionParameterReferencedFrom struct {
 	// The name of the parameter or dot-separated path of parameter names pointing to the resource parameter that is expected to contain a reference to this resource.
 	Source string `bson:"source" json:"source" xml:"source"`
 	// The id of the element in the referencing resource that is expected to resolve to this resource.
-	SourceId *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	SourceID *string `bson:"sourceId,omitempty" json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 type OperationDefinitionOverload struct {

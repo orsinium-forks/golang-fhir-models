@@ -126,7 +126,7 @@ type MessageHeaderDestination struct {
 	// Indicates where the message should be routed.
 	//
 	// Comment: The url may be a non-resolvable URI for systems that do not use standard network-based addresses.
-	EndpointUrl       *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
+	EndpointUURL      *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
 	EndpointReference *Reference `bson:"endpointReference,omitempty" json:"endpointReference,omitempty" xml:"endpointReference,omitempty"`
 	// Human-readable name for the target system.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
@@ -158,7 +158,7 @@ type MessageHeaderSource struct {
 	// Identifies the routing target to send acknowledgements to.
 	//
 	// Comment: The url may be a non-resolvable URI for systems that do not use standard network-based addresses.
-	EndpointUrl       *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
+	EndpointUURL      *string    `bson:"endpointUrl,omitempty" json:"endpointUrl,omitempty" xml:"endpointUrl,omitempty"`
 	EndpointReference *Reference `bson:"endpointReference,omitempty" json:"endpointReference,omitempty" xml:"endpointReference,omitempty"`
 	// Human-readable name for the source system.
 	Name *string `bson:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`

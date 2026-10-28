@@ -141,7 +141,7 @@ type QuestionnaireResponseItem struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
-	LinkId string `bson:"linkId" json:"linkId" xml:"linkId"`
+	LinkID string `bson:"linkId" json:"linkId" xml:"linkId"`
 	// A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item.
 	//
 	// Comment: The ElementDefinition must be in a [StructureDefinition](structuredefinition.html#), and must have a fragment identifier that identifies the specific data element by its id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x].

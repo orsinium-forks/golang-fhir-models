@@ -148,7 +148,7 @@ type BundleEntry struct {
 	// Comment: fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.
 	//
 	// Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL).
-	FullUrl *string `bson:"fullUrl,omitempty" json:"fullUrl,omitempty" xml:"fullUrl,omitempty"`
+	FullUURL *string `bson:"fullUrl,omitempty" json:"fullUrl,omitempty" xml:"fullUrl,omitempty"`
 	// The Resource for the entry.
 	//
 	// The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning.

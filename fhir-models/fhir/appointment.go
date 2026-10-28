@@ -168,7 +168,7 @@ type Appointment struct {
 	// List of participants involved in the appointment.
 	Participant []AppointmentParticipant `bson:"participant" json:"participant" xml:"participant"`
 	// The sequence number that identifies a specific appointment in a recurring pattern.
-	RecurrenceId *int `bson:"recurrenceId,omitempty" json:"recurrenceId,omitempty" xml:"recurrenceId,omitempty"`
+	RecurrenceID *int `bson:"recurrenceId,omitempty" json:"recurrenceId,omitempty" xml:"recurrenceId,omitempty"`
 	// This appointment varies from the recurring pattern.
 	//
 	// Comment: For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, a single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday.
@@ -258,7 +258,7 @@ type AppointmentRecurrenceTemplate struct {
 	// Any dates, such as holidays, that should be excluded from the recurrence.
 	//
 	// Comment: excludingRecurrenceId is an alternative to excludingDate.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property.
-	ExcludingRecurrenceId []int `bson:"excludingRecurrenceId,omitempty" json:"excludingRecurrenceId,omitempty" xml:"excludingRecurrenceId,omitempty"`
+	ExcludingRecurrenceID []int `bson:"excludingRecurrenceId,omitempty" json:"excludingRecurrenceId,omitempty" xml:"excludingRecurrenceId,omitempty"`
 }
 
 type AppointmentRecurrenceTemplateWeeklyTemplate struct {

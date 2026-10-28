@@ -29,7 +29,7 @@ type VirtualServiceDetail struct {
 	// What address or number needs to be used for a user to connect to the virtual service to join.
 	//
 	// The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type).
-	AddressUrl                   *string                `bson:"addressUrl,omitempty" json:"addressUrl,omitempty" xml:"addressUrl,omitempty"`
+	AddressUURL                  *string                `bson:"addressUrl,omitempty" json:"addressUrl,omitempty" xml:"addressUrl,omitempty"`
 	AddressString                *string                `bson:"addressString,omitempty" json:"addressString,omitempty" xml:"addressString,omitempty"`
 	AddressContactPoint          *ContactPoint          `bson:"addressContactPoint,omitempty" json:"addressContactPoint,omitempty" xml:"addressContactPoint,omitempty"`
 	AddressExtendedContactDetail *ExtendedContactDetail `bson:"addressExtendedContactDetail,omitempty" json:"addressExtendedContactDetail,omitempty" xml:"addressExtendedContactDetail,omitempty"`

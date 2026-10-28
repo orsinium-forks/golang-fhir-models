@@ -310,7 +310,7 @@ type MeasureGroup struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Indicates a meaning for the group.
 	//
 	// This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures.
@@ -386,7 +386,7 @@ type MeasureGroupPopulation struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The type of population criteria.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// The human readable description of this population criteria.
@@ -402,7 +402,7 @@ type MeasureGroupPopulation struct {
 	// The id of a population element in this measure that provides the input for this population criteria.
 	//
 	// In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point.
-	InputPopulationId *string `bson:"inputPopulationId,omitempty" json:"inputPopulationId,omitempty" xml:"inputPopulationId,omitempty"`
+	InputPopulationID *string `bson:"inputPopulationId,omitempty" json:"inputPopulationId,omitempty" xml:"inputPopulationId,omitempty"`
 	// Specifies which method should be used to aggregate measure observation values.
 	//
 	// For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation.
@@ -433,7 +433,7 @@ type MeasureGroupStratifier struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Indicates a meaning for the stratifier.
 	//
 	// This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures.
@@ -478,7 +478,7 @@ type MeasureGroupStratifierComponent struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Indicates a meaning for the stratifier component.
 	//
 	// This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures.
@@ -519,7 +519,7 @@ type MeasureSupplementalData struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// Indicates a meaning for the supplemental data.
 	//
 	// This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures.

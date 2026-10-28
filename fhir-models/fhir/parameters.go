@@ -70,7 +70,7 @@ type ParametersParameter struct {
 	ValueDate                  *string                `bson:"valueDate,omitempty" json:"valueDate,omitempty" xml:"valueDate,omitempty"`
 	ValueDateTime              *string                `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty" xml:"valueDateTime,omitempty"`
 	ValueDecimal               *decimal.Decimal       `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty" xml:"valueDecimal,omitempty"`
-	ValueId                    *string                `bson:"valueId,omitempty" json:"valueId,omitempty" xml:"valueId,omitempty"`
+	ValueID                    *string                `bson:"valueId,omitempty" json:"valueId,omitempty" xml:"valueId,omitempty"`
 	ValueInstant               *string                `bson:"valueInstant,omitempty" json:"valueInstant,omitempty" xml:"valueInstant,omitempty"`
 	ValueInteger               *int                   `bson:"valueInteger,omitempty" json:"valueInteger,omitempty" xml:"valueInteger,omitempty"`
 	ValueInteger64             *int64                 `bson:"valueInteger64,omitempty" json:"valueInteger64,omitempty,string" xml:"valueInteger64,omitempty"`
@@ -81,7 +81,7 @@ type ParametersParameter struct {
 	ValueTime                  *string                `bson:"valueTime,omitempty" json:"valueTime,omitempty" xml:"valueTime,omitempty"`
 	ValueUnsignedInt           *int                   `bson:"valueUnsignedInt,omitempty" json:"valueUnsignedInt,omitempty" xml:"valueUnsignedInt,omitempty"`
 	ValueUri                   *string                `bson:"valueUri,omitempty" json:"valueUri,omitempty" xml:"valueUri,omitempty"`
-	ValueUrl                   *string                `bson:"valueUrl,omitempty" json:"valueUrl,omitempty" xml:"valueUrl,omitempty"`
+	ValueUURL                  *string                `bson:"valueUrl,omitempty" json:"valueUrl,omitempty" xml:"valueUrl,omitempty"`
 	ValueUuid                  *string                `bson:"valueUuid,omitempty" json:"valueUuid,omitempty" xml:"valueUuid,omitempty"`
 	ValueAddress               *Address               `bson:"valueAddress,omitempty" json:"valueAddress,omitempty" xml:"valueAddress,omitempty"`
 	ValueAge                   *Age                   `bson:"valueAge,omitempty" json:"valueAge,omitempty" xml:"valueAge,omitempty"`

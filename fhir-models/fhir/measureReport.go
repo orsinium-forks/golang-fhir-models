@@ -141,7 +141,7 @@ type MeasureReportGroup struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The group from the Measure that corresponds to this group in the MeasureReport resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The meaning of the population group as defined in the measure definition.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// Optional subject identifying the individual or individuals the report is for.
@@ -179,7 +179,7 @@ type MeasureReportGroupPopulation struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The population from the Measure that corresponds to this population in the MeasureReport resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The type of the population.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// The number of members of the population.
@@ -216,7 +216,7 @@ type MeasureReportGroupStratifier struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The stratifier from the Measure that corresponds to this stratifier in the MeasureReport resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The meaning of this stratifier, as defined in the measure definition.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// This element contains the results for a single stratum within the stratifier.
@@ -285,7 +285,7 @@ type MeasureReportGroupStratifierStratumComponent struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The stratifier component from the Measure that corresponds to this stratifier component in the MeasureReport resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The code for the stratum component value.
 	Code CodeableConcept `bson:"code" json:"code" xml:"code"`
 	// The stratum component value.
@@ -316,7 +316,7 @@ type MeasureReportGroupStratifierStratumPopulation struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The population from the Measure that corresponds to this population in the MeasureReport resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// The type of the population.
 	Code *CodeableConcept `bson:"code,omitempty" json:"code,omitempty" xml:"code,omitempty"`
 	// The number of members of the population in this stratum.

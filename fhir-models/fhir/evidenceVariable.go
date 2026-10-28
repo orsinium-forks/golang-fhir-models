@@ -220,7 +220,7 @@ type EvidenceVariableCharacteristic struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// Label used for when a characteristic refers to another characteristic.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user.
 	Description *string `bson:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// A human-readable string to clarify or explain concepts about the characteristic.
@@ -240,7 +240,7 @@ type EvidenceVariableCharacteristic struct {
 	// Comment: When another element provides a definition of the characteristic, the definitionExpression content SHALL match the definition (only adding technical concepts necessary for implementation) without changing the meaning.
 	DefinitionExpression *Expression `bson:"definitionExpression,omitempty" json:"definitionExpression,omitempty" xml:"definitionExpression,omitempty"`
 	// Defines the characteristic using id.
-	DefinitionId *string `bson:"definitionId,omitempty" json:"definitionId,omitempty" xml:"definitionId,omitempty"`
+	DefinitionID *string `bson:"definitionId,omitempty" json:"definitionId,omitempty" xml:"definitionId,omitempty"`
 	// Defines the characteristic using both a type and value[x] elements.
 	DefinitionByTypeAndValue *EvidenceVariableCharacteristicDefinitionByTypeAndValue `bson:"definitionByTypeAndValue,omitempty" json:"definitionByTypeAndValue,omitempty" xml:"definitionByTypeAndValue,omitempty"`
 	// Defines the characteristic as a combination of two or more characteristics.
@@ -286,7 +286,7 @@ type EvidenceVariableCharacteristicDefinitionByTypeAndValue struct {
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity" xml:"valueQuantity"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange" xml:"valueRange"`
 	ValueReference       Reference       `bson:"valueReference" json:"valueReference" xml:"valueReference"`
-	ValueId              string          `bson:"valueId" json:"valueId" xml:"valueId"`
+	ValueID              string          `bson:"valueId" json:"valueId" xml:"valueId"`
 	// Defines the reference point for comparison when valueQuantity or valueRange is not compared to zero.
 	Offset *CodeableConcept `bson:"offset,omitempty" json:"offset,omitempty" xml:"offset,omitempty"`
 }
@@ -345,7 +345,7 @@ type EvidenceVariableCharacteristicTimeFromEvent struct {
 	EventCodeableConcept *CodeableConcept `bson:"eventCodeableConcept,omitempty" json:"eventCodeableConcept,omitempty" xml:"eventCodeableConcept,omitempty"`
 	EventReference       *Reference       `bson:"eventReference,omitempty" json:"eventReference,omitempty" xml:"eventReference,omitempty"`
 	EventDateTime        *string          `bson:"eventDateTime,omitempty" json:"eventDateTime,omitempty" xml:"eventDateTime,omitempty"`
-	EventId              *string          `bson:"eventId,omitempty" json:"eventId,omitempty" xml:"eventId,omitempty"`
+	EventID              *string          `bson:"eventId,omitempty" json:"eventId,omitempty" xml:"eventId,omitempty"`
 	// Used to express the observation at a defined amount of time before or after the event.
 	Quantity *Quantity `bson:"quantity,omitempty" json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// Used to express the observation within a period before and/or after the event.

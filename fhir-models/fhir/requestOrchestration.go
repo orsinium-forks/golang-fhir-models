@@ -123,7 +123,7 @@ type RequestOrchestrationAction struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The linkId of the action from the PlanDefinition that corresponds to this action in the RequestOrchestration resource.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// A user-visible prefix for the action.
 	//
 	// For example a section or item numbering such as 1. or A.
@@ -323,7 +323,7 @@ type RequestOrchestrationActionRelatedAction struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The element id of the target related action.
-	TargetId string `bson:"targetId" json:"targetId" xml:"targetId"`
+	TargetID string `bson:"targetId" json:"targetId" xml:"targetId"`
 	// The relationship of this action to the related action.
 	Relationship ActionRelationshipType `bson:"relationship" json:"relationship" xml:"relationship"`
 	// The relationship of the end of this action to the related action.

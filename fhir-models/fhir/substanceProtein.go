@@ -107,11 +107,11 @@ type SubstanceProteinSubunit struct {
 	// Uppercase shall be used for L-amino acids and lowercase for D-amino acids. Transcribed SubstanceProteins will always be described using the translated sequence; for synthetic peptide containing amino acids that are not represented with a single letter code an X should be used within the sequence. The modified amino acids will be distinguished by their position in the sequence.
 	SequenceAttachment *Attachment `bson:"sequenceAttachment,omitempty" json:"sequenceAttachment,omitempty" xml:"sequenceAttachment,omitempty"`
 	// Unique identifier for molecular fragment modification based on the ISO 11238 Substance ID.
-	NTerminalModificationId *Identifier `bson:"nTerminalModificationId,omitempty" json:"nTerminalModificationId,omitempty" xml:"nTerminalModificationId,omitempty"`
+	NTerminalModificationID *Identifier `bson:"nTerminalModificationId,omitempty" json:"nTerminalModificationId,omitempty" xml:"nTerminalModificationId,omitempty"`
 	// The name of the fragment modified at the N-terminal of the SubstanceProtein shall be specified.
 	NTerminalModification *string `bson:"nTerminalModification,omitempty" json:"nTerminalModification,omitempty" xml:"nTerminalModification,omitempty"`
 	// Unique identifier for molecular fragment modification based on the ISO 11238 Substance ID.
-	CTerminalModificationId *Identifier `bson:"cTerminalModificationId,omitempty" json:"cTerminalModificationId,omitempty" xml:"cTerminalModificationId,omitempty"`
+	CTerminalModificationID *Identifier `bson:"cTerminalModificationId,omitempty" json:"cTerminalModificationId,omitempty" xml:"cTerminalModificationId,omitempty"`
 	// The modification at the C-terminal shall be specified.
 	CTerminalModification *string `bson:"cTerminalModification,omitempty" json:"cTerminalModification,omitempty" xml:"cTerminalModification,omitempty"`
 }

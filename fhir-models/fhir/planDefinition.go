@@ -387,7 +387,7 @@ type PlanDefinitionAction struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestOrchestration.
-	LinkId *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
+	LinkID *string `bson:"linkId,omitempty" json:"linkId,omitempty" xml:"linkId,omitempty"`
 	// A user-visible prefix for the action.
 	//
 	// For example a section or item numbering such as 1. or A.
@@ -419,7 +419,7 @@ type PlanDefinitionAction struct {
 	// Identifies goals that this action supports.
 	//
 	// The reference must be to a goal element defined within this plan definition. In pharmaceutical quality, a goal represents acceptance criteria (Goal) for a given action (Test), so the goalId would be the unique id of a defined goal element establishing the acceptance criteria for the action.
-	GoalId []string `bson:"goalId,omitempty" json:"goalId,omitempty" xml:"goalId,omitempty"`
+	GoalID []string `bson:"goalId,omitempty" json:"goalId,omitempty" xml:"goalId,omitempty"`
 	// A code, group definition, or canonical reference that describes the intended subject of the action and its children, if any.
 	//
 	// Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource.
@@ -605,7 +605,7 @@ type PlanDefinitionActionRelatedAction struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The element id of the target related action.
-	TargetId string `bson:"targetId" json:"targetId" xml:"targetId"`
+	TargetID string `bson:"targetId" json:"targetId" xml:"targetId"`
 	// The relationship of the start of this action to the related action.
 	Relationship ActionRelationshipType `bson:"relationship" json:"relationship" xml:"relationship"`
 	// The relationship of the end of this action to the related action.
@@ -637,7 +637,7 @@ type PlanDefinitionActionParticipant struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// A reference to the id element of the actor who will participate in this action.
-	ActorId *string `bson:"actorId,omitempty" json:"actorId,omitempty" xml:"actorId,omitempty"`
+	ActorID *string `bson:"actorId,omitempty" json:"actorId,omitempty" xml:"actorId,omitempty"`
 	// The type of participant in the action.
 	Type *ActionParticipantType `bson:"type,omitempty" json:"type,omitempty" xml:"type,omitempty"`
 	// The type of participant in the action.

@@ -222,7 +222,7 @@ type QuestionnaireItem struct {
 	// Comment: This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
 	//
 	// LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such
-	LinkId string `bson:"linkId" json:"linkId" xml:"linkId"`
+	LinkID string `bson:"linkId" json:"linkId" xml:"linkId"`
 	// This element is a URI that refers to an [ElementDefinition](elementdefinition.html) or to an [ObservationDefinition](observationdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource.
 	//
 	// A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below.

@@ -396,6 +396,12 @@ func addFieldStatement(
 	if fieldName == "Url" {
 		fieldName = "URL"
 	}
+	if strings.HasSuffix(fieldName, "Id") {
+		fieldName = fieldName[:len(fieldName)-2] + "ID"
+	}
+	if strings.HasSuffix(fieldName, "Url") {
+		fieldName = fieldName[:len(fieldName)-2] + "URL"
+	}
 	element := elementDefinitions[elementIndex]
 	statement := fields.Id(fieldName)
 

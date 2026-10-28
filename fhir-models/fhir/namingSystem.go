@@ -213,10 +213,10 @@ type NamingSystem struct {
 	// Indicates how the system may be identified when referenced in electronic exchange.
 	//
 	// Comment: Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
-	UniqueId []NamingSystemUniqueId `bson:"uniqueId" json:"uniqueId" xml:"uniqueId"`
+	UniqueID []NamingSystemUniqueID `bson:"uniqueId" json:"uniqueId" xml:"uniqueId"`
 }
 
-type NamingSystemUniqueId struct {
+type NamingSystemUniqueID struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
