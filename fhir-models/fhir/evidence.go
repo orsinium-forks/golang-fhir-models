@@ -19,7 +19,7 @@ type Evidence struct {
 	// Once assigned, this value never changes.
 	//
 	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// The metadata about the resource.
 	//
 	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -64,7 +64,7 @@ type Evidence struct {
 	// This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers.
 	//
 	// Comment: In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found.
-	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
+	URL *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 	// A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this summary outside of FHIR, where it is not possible to use the logical URI.
@@ -203,7 +203,7 @@ type EvidenceVariableDefinition struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -236,7 +236,7 @@ type EvidenceStatistic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -283,7 +283,7 @@ type EvidenceStatisticSampleSize struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -314,7 +314,7 @@ type EvidenceStatisticAttributeEstimate struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -353,7 +353,7 @@ type EvidenceStatisticModelCharacteristic struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -382,7 +382,7 @@ type EvidenceStatisticModelCharacteristicVariable struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -413,7 +413,7 @@ type EvidenceCertainty struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

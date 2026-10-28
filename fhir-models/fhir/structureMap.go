@@ -19,7 +19,7 @@ type StructureMap struct {
 	// Once assigned, this value never changes.
 	//
 	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// The metadata about the resource.
 	//
 	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -68,7 +68,7 @@ type StructureMap struct {
 	// The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).
 	//
 	// In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.
-	Url string `bson:"url" json:"url" xml:"url"`
+	URL string `bson:"url" json:"url" xml:"url"`
 	// A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	//
 	// Comment: Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this structure map outside of FHIR, where it is not possible to use the logical URI.
@@ -172,7 +172,7 @@ type StructureMapStructure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -188,7 +188,7 @@ type StructureMapStructure struct {
 	// Comment: There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty" xml:"modifierExtension,omitempty"`
 	// The canonical reference to the structure.
-	Url string `bson:"url" json:"url" xml:"url"`
+	URL string `bson:"url" json:"url" xml:"url"`
 	// How the referenced structure is used in this mapping.
 	Mode StructureMapModelMode `bson:"mode" json:"mode" xml:"mode"`
 	// The name used for this type in the map.
@@ -203,7 +203,7 @@ type StructureMapConst struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -228,7 +228,7 @@ type StructureMapGroup struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -267,7 +267,7 @@ type StructureMapGroupInput struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -296,7 +296,7 @@ type StructureMapGroupRule struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -329,7 +329,7 @@ type StructureMapGroupRuleSource struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -382,7 +382,7 @@ type StructureMapGroupRuleTarget struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -417,7 +417,7 @@ type StructureMapGroupRuleTargetParameter struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -447,7 +447,7 @@ type StructureMapGroupRuleDependent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

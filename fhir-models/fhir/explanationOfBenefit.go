@@ -19,7 +19,7 @@ type ExplanationOfBenefit struct {
 	// Once assigned, this value never changes.
 	//
 	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// The metadata about the resource.
 	//
 	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -219,7 +219,7 @@ type ExplanationOfBenefitRelated struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -250,7 +250,7 @@ type ExplanationOfBenefitEvent struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -276,7 +276,7 @@ type ExplanationOfBenefitPayee struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -303,7 +303,7 @@ type ExplanationOfBenefitCareTeam struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -338,7 +338,7 @@ type ExplanationOfBenefitSupportingInfo struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -387,7 +387,7 @@ type ExplanationOfBenefitDiagnosis struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -421,7 +421,7 @@ type ExplanationOfBenefitProcedure struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -453,7 +453,7 @@ type ExplanationOfBenefitInsurance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -486,7 +486,7 @@ type ExplanationOfBenefitAccident struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -516,7 +516,7 @@ type ExplanationOfBenefitItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -620,7 +620,7 @@ type ExplanationOfBenefitItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -647,7 +647,7 @@ type ExplanationOfBenefitItemReviewOutcome struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -680,7 +680,7 @@ type ExplanationOfBenefitItemAdjudication struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -721,7 +721,7 @@ type ExplanationOfBenefitItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -804,7 +804,7 @@ type ExplanationOfBenefitItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -885,7 +885,7 @@ type ExplanationOfBenefitAddItem struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -977,7 +977,7 @@ type ExplanationOfBenefitAddItemBodySite struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1004,7 +1004,7 @@ type ExplanationOfBenefitAddItemDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1073,7 +1073,7 @@ type ExplanationOfBenefitAddItemDetailSubDetail struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1140,7 +1140,7 @@ type ExplanationOfBenefitTotal struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1169,7 +1169,7 @@ type ExplanationOfBenefitPayment struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1206,7 +1206,7 @@ type ExplanationOfBenefitProcessNote struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1237,7 +1237,7 @@ type ExplanationOfBenefitBenefitBalance struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -1280,7 +1280,7 @@ type ExplanationOfBenefitBenefitBalanceFinancial struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

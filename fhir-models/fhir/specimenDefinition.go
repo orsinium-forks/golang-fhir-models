@@ -15,7 +15,7 @@ type SpecimenDefinition struct {
 	// Once assigned, this value never changes.
 	//
 	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// The metadata about the resource.
 	//
 	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -60,7 +60,7 @@ type SpecimenDefinition struct {
 	// This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions.
 	//
 	// Comment: Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred. This is the URI that will be used when making canonical references to this resource.
-	Url *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
+	URL *string `bson:"url,omitempty" json:"url,omitempty" xml:"url,omitempty"`
 	// A business identifier assigned to this SpecimenDefinition.
 	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty" xml:"identifier,omitempty"`
 	// The identifier that is used to identify this version of the SpecimenDefinition when it is referenced in a specification, model, design or instance.
@@ -185,7 +185,7 @@ type SpecimenDefinitionTypeTested struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -226,7 +226,7 @@ type SpecimenDefinitionTypeTestedContainer struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -268,7 +268,7 @@ type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -294,7 +294,7 @@ type SpecimenDefinitionTypeTestedHandling struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

@@ -15,7 +15,7 @@ type SubscriptionTopic struct {
 	// Once assigned, this value never changes.
 	//
 	// Comment: Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// The metadata about the resource.
 	//
 	// This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -70,7 +70,7 @@ type SubscriptionTopic struct {
 	// When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.
 	//
 	// When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.
-	Url string `bson:"url" json:"url" xml:"url"`
+	URL string `bson:"url" json:"url" xml:"url"`
 	// Business identifiers assigned to this subscription topic by the performer and/or other systems.
 	//
 	//  These identifiers remain constant as the resource is updated and propagates from server to server.
@@ -192,7 +192,7 @@ type SubscriptionTopicResourceTrigger struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -231,7 +231,7 @@ type SubscriptionTopicResourceTriggerQueryCriteria struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -274,7 +274,7 @@ type SubscriptionTopicEventTrigger struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -307,7 +307,7 @@ type SubscriptionTopicCanFilterBy struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -352,7 +352,7 @@ type SubscriptionTopicNotificationShape struct {
 	// Unique id for the element within a resource (for internal references).
 	//
 	// This may be any string value that does not contain spaces.
-	Id *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	ID *string `bson:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// May be used to represent additional information that is not part of the basic definition of the element.
 	//
 	// To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

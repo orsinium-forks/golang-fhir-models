@@ -46,7 +46,7 @@ func generateValueSet(resources ResourceMap, valueSet fhir.ValueSet) (*jen.File,
 	appendGeneratorComment(file)
 
 	// type
-	file.Commentf("%s is documented here %s", *valueSet.Name, *valueSet.Url)
+	file.Commentf("%s is documented here %s", *valueSet.Name, *valueSet.URL)
 	file.Type().Id(*valueSet.Name).Int()
 	file.Const().DefsFunc(constsRoot(*valueSet.Name, codeSystem.Concept))
 

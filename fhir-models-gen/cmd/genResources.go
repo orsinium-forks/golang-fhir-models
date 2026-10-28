@@ -30,7 +30,7 @@ import (
 
 type Resource struct {
 	ResourceType string
-	Url          *string
+	URL          *string
 	Version      *string
 	Name         *string
 }
@@ -96,12 +96,12 @@ var genResourcesCmd = &cobra.Command{
 					case "ValueSet":
 						fallthrough
 					case "CodeSystem":
-						if entryResource.Url != nil {
+						if entryResource.URL != nil {
 							if entryResource.Version != nil {
-								resources[entryResource.ResourceType][*entryResource.Url+"|"+*entryResource.Version] = entry.Resource
-								resources[entryResource.ResourceType][*entryResource.Url] = entry.Resource
+								resources[entryResource.ResourceType][*entryResource.URL+"|"+*entryResource.Version] = entry.Resource
+								resources[entryResource.ResourceType][*entryResource.URL] = entry.Resource
 							} else {
-								resources[entryResource.ResourceType][*entryResource.Url] = entry.Resource
+								resources[entryResource.ResourceType][*entryResource.URL] = entry.Resource
 							}
 						}
 					}
@@ -115,12 +115,12 @@ var genResourcesCmd = &cobra.Command{
 			case "ValueSet":
 				fallthrough
 			case "CodeSystem":
-				if resource.Url != nil {
+				if resource.URL != nil {
 					if resource.Version != nil {
-						resources[resource.ResourceType][*resource.Url+"|"+*resource.Version] = bytes
-						resources[resource.ResourceType][*resource.Url] = bytes
+						resources[resource.ResourceType][*resource.URL+"|"+*resource.Version] = bytes
+						resources[resource.ResourceType][*resource.URL] = bytes
 					} else {
-						resources[resource.ResourceType][*resource.Url] = bytes
+						resources[resource.ResourceType][*resource.URL] = bytes
 					}
 				}
 			}
@@ -284,7 +284,7 @@ func formatDocstring(def fhir.StructureDefinition) string {
 		res += "\n//\n// Purpose: " + safeComment(*def.Purpose)
 	}
 	res += "\n//\n// Status: " + def.Status.Code()
-	res += "\n//\n// " + def.Url
+	res += "\n//\n// " + def.URL
 	return res
 }
 
@@ -390,6 +390,12 @@ func addFieldStatement(
 	elementType fhir.ElementDefinitionType,
 ) (idx int, err error) {
 	fieldName := strings.Title(name)
+	if fieldName == "Id" {
+		fieldName = "ID"
+	}
+	if fieldName == "Url" {
+		fieldName = "URL"
+	}
 	element := elementDefinitions[elementIndex]
 	statement := fields.Id(fieldName)
 
