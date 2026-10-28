@@ -46,7 +46,7 @@ func generateValueSet(resources ResourceMap, valueSet fhir.ValueSet) (*jen.File,
 	appendGeneratorComment(file)
 
 	// type
-	file.Commentf("%s is documented here %s", *valueSet.Name, *valueSet.URL)
+	file.Comment(formatEnumDocstring(valueSet))
 	file.Type().Id(*valueSet.Name).Int()
 	file.Const().DefsFunc(constsRoot(*valueSet.Name, codeSystem.Concept))
 
@@ -141,6 +141,9 @@ func constsRoot(valueSetName string, concepts []fhir.CodeSystemConcept) func(*je
 func consts(valueSetName string, concepts []fhir.CodeSystemConcept) func(*jen.Group) {
 	return func(group *jen.Group) {
 		for _, concept := range concepts {
+			if concept.Definition != nil {
+				group.Comment(*concept.Definition)
+			}
 			group.Id(codeIdentifier(valueSetName, concept.Code))
 			if len(concept.Concept) > 0 {
 				consts(valueSetName, concept.Concept)(group)
@@ -223,4 +226,23 @@ func definitions(valueSetName string, concepts []fhir.CodeSystemConcept) func(gr
 			}
 		}
 	}
+}
+
+func formatEnumDocstring(def fhir.ValueSet) string {
+	res := ""
+	first, rest, hasDot := strings.Cut(*def.Description, ". ")
+	if hasDot {
+		res += "// " + first + "."
+		res += "\n//\n// " + safeComment(rest)
+	} else {
+		res += "// " + *def.Description
+	}
+	if def.Purpose != nil {
+		res += "\n//\n// Purpose: " + safeComment(*def.Purpose)
+	}
+	res += "\n//\n// Status: " + def.Status.Code()
+	if def.URL != nil {
+		res += "\n//\n// " + *def.URL
+	}
+	return res
 }
