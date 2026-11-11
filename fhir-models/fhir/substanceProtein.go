@@ -122,11 +122,12 @@ func (r SubstanceProtein) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r SubstanceProtein) MarshalJSON() ([]byte, error) {
+	type Wrapper SubstanceProtein
 	return v2.Marshal(struct {
-		SubstanceProtein
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		ResourceType:     r.ResourceType(),
-		SubstanceProtein: r,
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

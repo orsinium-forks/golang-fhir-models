@@ -355,11 +355,12 @@ func (r ActivityDefinition) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r ActivityDefinition) MarshalJSON() ([]byte, error) {
+	type Wrapper ActivityDefinition
 	return v2.Marshal(struct {
-		ActivityDefinition
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		ActivityDefinition: r,
-		ResourceType:       r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

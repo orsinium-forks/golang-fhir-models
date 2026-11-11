@@ -408,11 +408,12 @@ func (r RequestOrchestration) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r RequestOrchestration) MarshalJSON() ([]byte, error) {
+	type Wrapper RequestOrchestration
 	return v2.Marshal(struct {
-		RequestOrchestration
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		RequestOrchestration: r,
-		ResourceType:         r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

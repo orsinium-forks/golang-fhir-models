@@ -425,11 +425,12 @@ func (r CodeSystem) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r CodeSystem) MarshalJSON() ([]byte, error) {
+	type Wrapper CodeSystem
 	return v2.Marshal(struct {
-		CodeSystem
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		CodeSystem:   r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

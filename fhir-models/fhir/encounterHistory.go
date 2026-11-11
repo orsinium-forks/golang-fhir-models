@@ -138,11 +138,12 @@ func (r EncounterHistory) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r EncounterHistory) MarshalJSON() ([]byte, error) {
+	type Wrapper EncounterHistory
 	return v2.Marshal(struct {
-		EncounterHistory
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		EncounterHistory: r,
-		ResourceType:     r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

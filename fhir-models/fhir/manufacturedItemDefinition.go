@@ -192,11 +192,12 @@ func (r ManufacturedItemDefinition) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r ManufacturedItemDefinition) MarshalJSON() ([]byte, error) {
+	type Wrapper ManufacturedItemDefinition
 	return v2.Marshal(struct {
-		ManufacturedItemDefinition
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		ManufacturedItemDefinition: r,
-		ResourceType:               r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

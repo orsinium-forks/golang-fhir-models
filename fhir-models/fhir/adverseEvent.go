@@ -313,11 +313,12 @@ func (r AdverseEvent) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r AdverseEvent) MarshalJSON() ([]byte, error) {
+	type Wrapper AdverseEvent
 	return v2.Marshal(struct {
-		AdverseEvent
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		AdverseEvent: r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

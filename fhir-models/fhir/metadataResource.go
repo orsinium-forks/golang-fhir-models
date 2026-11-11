@@ -204,11 +204,12 @@ func (r MetadataResource) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r MetadataResource) MarshalJSON() ([]byte, error) {
+	type Wrapper MetadataResource
 	return v2.Marshal(struct {
-		MetadataResource
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		MetadataResource: r,
-		ResourceType:     r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

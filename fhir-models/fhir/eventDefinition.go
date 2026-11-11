@@ -213,11 +213,12 @@ func (r EventDefinition) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r EventDefinition) MarshalJSON() ([]byte, error) {
+	type Wrapper EventDefinition
 	return v2.Marshal(struct {
-		EventDefinition
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		EventDefinition: r,
-		ResourceType:    r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

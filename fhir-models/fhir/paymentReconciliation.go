@@ -209,11 +209,12 @@ func (r PaymentReconciliation) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r PaymentReconciliation) MarshalJSON() ([]byte, error) {
+	type Wrapper PaymentReconciliation
 	return v2.Marshal(struct {
-		PaymentReconciliation
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		PaymentReconciliation: r,
-		ResourceType:          r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

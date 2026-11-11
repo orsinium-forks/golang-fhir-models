@@ -180,11 +180,12 @@ func (r Provenance) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r Provenance) MarshalJSON() ([]byte, error) {
+	type Wrapper Provenance
 	return v2.Marshal(struct {
-		Provenance
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		Provenance:   r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

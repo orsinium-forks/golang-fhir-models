@@ -702,11 +702,12 @@ func (r Contract) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r Contract) MarshalJSON() ([]byte, error) {
+	type Wrapper Contract
 	return v2.Marshal(struct {
-		Contract
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		Contract:     r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

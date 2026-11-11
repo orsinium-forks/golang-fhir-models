@@ -63,11 +63,12 @@ func (r DomainResource) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r DomainResource) MarshalJSON() ([]byte, error) {
+	type Wrapper DomainResource
 	return v2.Marshal(struct {
-		DomainResource
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		DomainResource: r,
-		ResourceType:   r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

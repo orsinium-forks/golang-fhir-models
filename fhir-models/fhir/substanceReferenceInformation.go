@@ -164,11 +164,12 @@ func (r SubstanceReferenceInformation) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r SubstanceReferenceInformation) MarshalJSON() ([]byte, error) {
+	type Wrapper SubstanceReferenceInformation
 	return v2.Marshal(struct {
-		SubstanceReferenceInformation
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		ResourceType:                  r.ResourceType(),
-		SubstanceReferenceInformation: r,
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

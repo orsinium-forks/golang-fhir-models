@@ -73,11 +73,12 @@ func (r FormularyItem) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r FormularyItem) MarshalJSON() ([]byte, error) {
+	type Wrapper FormularyItem
 	return v2.Marshal(struct {
-		FormularyItem
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		FormularyItem: r,
-		ResourceType:  r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

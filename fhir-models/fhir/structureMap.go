@@ -474,11 +474,12 @@ func (r StructureMap) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r StructureMap) MarshalJSON() ([]byte, error) {
+	type Wrapper StructureMap
 	return v2.Marshal(struct {
-		StructureMap
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
 		ResourceType: r.ResourceType(),
-		StructureMap: r,
+		Wrapper:      Wrapper(r),
 	})
 }

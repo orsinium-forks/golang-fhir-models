@@ -538,11 +538,12 @@ func (r ConceptMap) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r ConceptMap) MarshalJSON() ([]byte, error) {
+	type Wrapper ConceptMap
 	return v2.Marshal(struct {
-		ConceptMap
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		ConceptMap:   r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

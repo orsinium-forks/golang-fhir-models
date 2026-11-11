@@ -222,11 +222,12 @@ func (r Permission) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r Permission) MarshalJSON() ([]byte, error) {
+	type Wrapper Permission
 	return v2.Marshal(struct {
-		Permission
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		Permission:   r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

@@ -761,11 +761,12 @@ func (r Claim) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r Claim) MarshalJSON() ([]byte, error) {
+	type Wrapper Claim
 	return v2.Marshal(struct {
-		Claim
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		Claim:        r,
 		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

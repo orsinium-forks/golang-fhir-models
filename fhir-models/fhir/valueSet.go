@@ -690,11 +690,12 @@ func (r ValueSet) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r ValueSet) MarshalJSON() ([]byte, error) {
+	type Wrapper ValueSet
 	return v2.Marshal(struct {
-		ValueSet
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
 		ResourceType: r.ResourceType(),
-		ValueSet:     r,
+		Wrapper:      Wrapper(r),
 	})
 }

@@ -1,17 +1,3 @@
-// Copyright 2019 - 2022 The Samply Community
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package cmd
 
 import (
@@ -258,12 +244,13 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 		file.Comment("MarshalJSON implements json.Marshaler")
 		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("MarshalJSON").Params().
 			Params(jen.Op("[]").Byte(), jen.Error()).Block(
+			jen.Type().Id("Wrapper").Id(definition.Name),
 			jen.Return().Qual("encoding/json/v2", "Marshal").Call(jen.Struct(
-				jen.Id(definition.Name),
+				jen.Id("Wrapper"),
 				jen.Id("ResourceType").String().Tag(map[string]string{"json": "resourceType"}),
 			).Values(jen.Dict{
-				jen.Id(definition.Name): jen.Id("r"),
-				jen.Id("ResourceType"):  jen.Id("r").Dot("ResourceType").Call(),
+				jen.Id("Wrapper"):      jen.Id("Wrapper").Call(jen.Id("r")),
+				jen.Id("ResourceType"): jen.Id("r").Dot("ResourceType").Call(),
 			})),
 		)
 	}

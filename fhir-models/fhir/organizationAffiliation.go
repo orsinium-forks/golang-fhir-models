@@ -99,11 +99,12 @@ func (r OrganizationAffiliation) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r OrganizationAffiliation) MarshalJSON() ([]byte, error) {
+	type Wrapper OrganizationAffiliation
 	return v2.Marshal(struct {
-		OrganizationAffiliation
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
-		OrganizationAffiliation: r,
-		ResourceType:            r.ResourceType(),
+		ResourceType: r.ResourceType(),
+		Wrapper:      Wrapper(r),
 	})
 }

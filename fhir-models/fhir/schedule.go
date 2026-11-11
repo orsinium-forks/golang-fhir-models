@@ -91,11 +91,12 @@ func (r Schedule) ResourceType() string {
 
 // MarshalJSON implements json.Marshaler
 func (r Schedule) MarshalJSON() ([]byte, error) {
+	type Wrapper Schedule
 	return v2.Marshal(struct {
-		Schedule
+		Wrapper
 		ResourceType string `json:"resourceType"`
 	}{
 		ResourceType: r.ResourceType(),
-		Schedule:     r,
+		Wrapper:      Wrapper(r),
 	})
 }
